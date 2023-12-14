@@ -1,0 +1,47 @@
+body {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  #overlay {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: none;
+    z-index: 2;
+  }
+  
+  #content {
+    color: black;
+    animation: moveContent 5s infinite, fadeInOut 5s infinite;
+  }
+
+  @keyframes moveContent {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(200px, 200px);
+    }
+    50% {
+      transform: translate(-200px, -200px);
+    }
+    75% {
+      transform: translate(200px, -200px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }

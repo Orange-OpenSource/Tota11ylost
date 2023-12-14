@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Damien GOMEZ" />
+    <meta name="description" content="Page de description du handicap visuel sur le daltonisme" />
+    <title>Handicap visuel - Escape Game A11y</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fs-2">
+    <header class="sticky-top">
+        <div class="container-fluid bg-dark">
+            <div class="mx-auto">
+                <h1 class="text-center">Handicap visuel</h1>
+                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+                    class="timer" id="timer">00:00:00</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <h2>Description</h2>
+            <p>La navigation sur internet est un défi pour une personne atteinte de déficience
+                visuelle.</p>
+            <p>L'expérience en ligne est très dépendante des aides techniques (comme les lecteurs
+                d'écran) permettant de compenser en partie la situation de handicap, ET (additif !) d'un code HTML
+                respectant les normes d'accessibilité numériques (WCAG) pour s'interfacer correctement aux outils.</p>
+            <h2>Le type d'utilisateur que vous incarnez</h2>
+            <p>Ici, on va essayer de vous mettre dans la peau d'un daltonien (gravement atteint) qui ne voit aucune
+                couleur ou presque... L'information portée par la couleur, ne vous est donc pas accessible.</p>
+            <h2>Règles</h2>
+            <ul>
+                <li>Cliquez sur les boutons dans un ordre précis : vert, bleu, rouge et ensuite violet pour passer cette
+                    étape</li>
+                <li>Attention, en cas d'erreur il faudra tout recommencer !</li>
+            </ul>
+            
+            <div class="my-2">
+                <button id="blue-button" aria-label="Bouton bleu" class="btn btn-dark">Bouton</button>
+                <button id="purple-button" aria-label="Bouton violet" class="btn btn-dark">Bouton</button>
+                <button id="green-button" aria-label="Bouton vert" class="btn btn-dark">Bouton</button>
+                <button id="red-button" aria-label="Bouton rouge" class="btn btn-dark">Bouton</button>
+            </div>
+            <div id="error-message" class="alert alert-danger d-none" role="alert">
+                <span class="alert-icon"></span>
+                <p>Hop la, mauvaise couleur ! Il faut suivre les instructions voyons !!...</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer bg-dark navbar-dark">
+        <div class="container-xxl footer-terms">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                    rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+                <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
+        integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/visuel/visuel.js"></script>
+    <script src="./assets/js/timer/timer.js"></script>
+</body>
+
+</html>

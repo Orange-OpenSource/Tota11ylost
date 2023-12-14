@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Information de paiement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900" rel="stylesheet">
+    <link href="assets/css/escape-game.css" rel="stylesheet">
+  </head>
+    <main role="main" class="bg-light">  
+      <div class="container py-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col-lg-8 mb-3 order-2 order-lg-1">
+                <h1 class="fw-bold text-uppercase">Informations de paiement</h2>
+                <div class="row gy-3 py-5">
+                  <div class="col-6">
+                    <label for="Nom présent sur la carte banquaire" class="form-label">Nom de la carte banquaire</label>
+                    <input type="text" class="form-control" aria-required="true" id="cc-name" placeholder="">
+                    <small class="text-muted">Nom complet présent sur la carte banquaire.</small>
+                    <div class="invalid-feedback">
+                      Veuillez indiquer le nom complet présent sur la carte banquaire
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <label for="Numéro présent sur la carte banquaire" class="form-label">Numéro de carte bleu</label>
+                    <input type="text" class="form-control" aria-required="true" id="cc-number" placeholder="exemple: 4976 4562 2356 4578">
+                    <small class="text-muted">Série de 16 chiffres indiqués sur la carte banquaire.</small>
+                    <div class="invalid-feedback">
+                      Veuillez indiquer les chiffres présent sur la carte banquaire
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <label for="Date d'expiration de la carte bleu" aria-required="true" class="form-label">Expiration</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="exemple: 06/24">
+                    <div class="invalid-feedback">
+                      Veuillez remplir ce champ
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <label for="nombre">Sélectionnez votre CVV entre 001 et 999:</label>
+                    <input type="range" id="nombre" name="nombre" min="1" max="999" value="1" step="1" oninput="updateOutput(this.value)">
+                    <output name="nombre" id="output">001</output>
+                    
+                    <script>
+                      var range = document.getElementById("nombre");
+                      var output = document.getElementById("output");
+                      
+                      output.innerHTML = ('00' + range.value).slice(-3);
+                      
+                      range.oninput = function() {
+                        output.innerHTML = ('00' + this.value).slice(-3);
+                      }
+                      
+                      function updateRange(event) {
+                        var step = parseInt(range.getAttribute('step')) || 1;
+                        var value = parseInt(range.value);
+                        switch (event.keyCode) {
+                          case 37: // flèche gauche
+                            value -= step;
+                            break;
+                          case 39: // flèche droite
+                            value += step;
+                            break;
+                        }
+                        if (value < parseInt(range.min)) {
+                          value = parseInt(range.min);
+                        } else if (value > parseInt(range.max)) {
+                          value = parseInt(range.max);
+                        }
+                        range.value = value;
+                        output.innerHTML = ('00' + value).slice(-3);
+                      }
+                      
+                      range.addEventListener('keydown', updateRange);
+                      </script>
+
+                    <!-- <label for="Numéro de CVV présent au dos de la carte bleu" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="exemple: 111">
+                    <div class="invalid-feedback">
+                      erreur
+                    </div> -->
+                  </div>
+                </div>
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Valider le paiement</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="extension-root" style="display: none;" class="active"><iframe></iframe></div>
+      <iframe></iframe>
+    </main>
+
+<style>
+    body {
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #content {
+      text-align: center;
+      color: black;
+      animation: moveContent 5s infinite, fadeInOut 5s infinite;
+    }
+  
+    @keyframes moveContent {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(200px, 200px);
+      }
+      50% {
+        transform: translate(-200px, -200px);
+      }
+      75% {
+        transform: translate(200px, -200px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+  </head>
+  <body>
+    <div id="overlay">
+      <div id="content">
+        <script src="assets/js/attention-disorder.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

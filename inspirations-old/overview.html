@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" />
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900" rel="stylesheet">
+  <link href="assets/css/escape-game.css" rel="stylesheet">
+
+<title>Information de paiement</title>
+
+</head>
+
+<body>    
+    <main class="container-md content">        
+        <div class="container">
+            <div class="">
+              <div class="fw-bold text-uppercase">Mon panier <span class="badge text-bg-dark rounded-pill align-top">3 <span class="visually-hidden">articles dans le panier</span></span></h2>
+                <ul class="list-group my-5">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <p class="fw-bold product-name text-uppercase my-0">Devenez Growth Hacker en 4 semaines</p>
+                    <small class="text-muted">22 cours vidéo avec les outils et méthodes des meilleurs, 4 semaines d’accompagnement avec un mentor expérimenté</small>
+                  </div>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong>$1999,99</strong>
+                </li>
+              </ul>
+              <form class="card p-1 mb-5">
+                <div class="input-group">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="promo-code" required="required" placeholder="Code promo" pattern="toto">
+                    <label for="promo-code">Code promo</label>
+                    <div id="invalid-feedback" class="invalid-feedback">"mauvaise réponse"</div>
+                  </div>
+                  <button id="submit-button" class="btn btn-dark" type="submit">Appliquer <span class="visually-hidden">le code</span></button>
+                </div>
+                <script>
+                  const answerInput = document.getElementById('promo-code');
+                  const errorMessage = document.getElementById('invalid-feedback');
+                  const submitButton = document.getElementById('submit-button');
+                
+                  answerInput.addEventListener('input', () => {
+                    if (answerInput.value === 'toto') {
+                      errorMessage.textContent = '';
+                      submitButton.removeAttribute('disabled');
+                    } else {
+                      errorMessage.textContent = "La réponse doit être 'toto'";
+                      submitButton.setAttribute('disabled', 'disabled');
+                    }
+                  });
+                </script>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

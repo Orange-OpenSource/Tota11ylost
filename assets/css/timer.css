@@ -1,0 +1,16 @@
+body {
+    position: relative;
+    top: 10px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: white !important;
+    z-index: 99999;
+}
+
+.timer {
+    font-size: 3em !important;
+    color: black !important;
+    transition: color 0.5s !important;
+}
