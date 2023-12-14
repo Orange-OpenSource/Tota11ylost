@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0, minimum-scale=5.0 user-scalable=no">
+    <meta name="author" content="Damien GOMEZ" />
+    <meta name="description"
+          content="Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)" />
+    <title>Formulaire satisfaction - Escape Game A11y</title>
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
+            transform: scale(5);
+            transform-origin: 0 0;
+            max-width: 100%; /* Ajout pour s'assurer que la largeur n'excède pas celle du header */
+        }
+       
+        .tooltip-header {
+            background-color: #000;
+            color: #fff;
+            text-align: justify;
+            top: 0;
+            padding: 50px;
+        } 
+
+        .header {
+            font-size: 50px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            top: 0;
+            padding: 100px;
+        }
+
+        .form-input {
+            width: 20%; /* Ajustement de la largeur du champ de formulaire */
+            max-width: 40%; /* Assure que la largeur n'excède pas celle du header */
+            display: block !important;
+            text-align: justify !important;
+        }
+
+        label {
+            text-align: justify !important;
+            font-size: 500%;
+        }
+
+        input {
+            text-align: right !important;
+            margin-left: 69%;
+            font-size: xx-large;
+            transform: scale(2);
+        }
+
+        .link-container {
+            text-align: center;
+            font-size: 500%;
+            margin-top: 10%;
+        }
+
+        .form-container {
+          text-align: justify;
+        }
+
+        a {
+            border: none;
+            background-color: rgb(197, 90, 197);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-align: center !important;
+            margin-top: 20%;
+            margin-bottom: 20%;
+            text-decoration: none;
+        }
+
+        footer {
+          font-size: 10px;
+          text-align: center;
+        }
+
+    /* Style pour la tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+
+    .tooltiptext {
+      visibility: hidden;
+      position:absolute;
+      font-size: 100%;
+      background-color: #4d0264;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px 15px 10px 15px;
+      z-index: 1;
+      width: max-content;
+      max-width: 300px;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #bottom {
+      top: -8px;
+      left: -50%;
+    }
+
+    #right {
+      top: -8px;
+      right: 100%;
+    }
+
+    #left {
+      top: -8px;
+      left: 100%;
+    }
+
+    .next-button {
+            padding: 10px 20px;
+            background-color: black;
+            color: black;
+            border: none;
+            cursor: not-allowed;
+        }
+
+        .valid {
+          border: none;
+            background-color: rgb(197, 90, 197);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .invalid {
+            opacity: 0;
+        }
+
+        .label-container {
+          padding-bottom: 20%;
+        }
+
+        </style>
+</head>
+<body>
+<div class="custom-cursor"></div>
+<div class="tooltip-header">
+  <div class="tooltip">
+    <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Vous êtes mal-voyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient du coup un challenge... encore plus quand des infobulles non accessible s'invitent à la fête.<br> votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>la suite au prochain élément, vers la droite.<br>--></span>
+    <img src="./assets/img/tooltip-white.png" alt="" width="32" height="32">
+  </div>
+</div>
+  <div class="header">
+    <div class="tooltip">
+      <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Pardon, manque de place... on a été coupé.<br>Donc je disais,<br>ça deviens forcément un challenge supplémentaire de lire ce genre d'infobulles.<br>Pour peut qu'il ne soit pas possible de placer la souris dessus et de naviguer dedans en plus...</span>
+      <img src="./assets/img/tooltip-white.png" alt="" width="32" height="32">
+    </div>
+    <h1 style="font-size: 25px !important;">Un simple champ de formulaire</h1>
+    <div role="region" style="font-size: 20px !important;" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
+    <div class="tooltip" style="margin-top: 50px;">
+      <span class="tooltiptext" id="left" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Pour passer cette étape, il vous suffira de passer sur chaque infobulle à côté des champs de formulaires, d'en lire le contenu et de répondre aux énigmes.<br>Facile donc.<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
+      <img src="./assets/img/tooltip-white.png" style="margin-left:400px !important;" alt="" width="32" height="32">
+    </div>
+  </div>
+  <div class="tooltip" style="margin-left: 50% !important;">
+    <span class="tooltiptext" id="right" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
+    <img src="./assets/img/tooltip.png"  alt="" width="32" height="32">
+  </div>
+  <div class="form-container"></div>
+  <form>
+    <div class="label-container">
+    <label  for="reponse_1">Question:</label>
+    <div class="tooltip">
+      <span class="tooltiptext" aria-label="information sur le champ de formulaire nom">Super facile, il suffit d'indiquer dans le champ de formlaire, le résultat de cette devinette:<br>- Je suis vert quand l'hiver vient<br>- Mon sourire le plus chaleureux donne un coup de froid<br>- J'ai des cadeaux plein les bras, mais on ne m'aime pas pour ça</span>
+      <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
+    </div>
+    <input class="form-input" type="text" id="reponse_1" aria-label="Réponse attendu 1" name="reponse_1" required>
+    </div>
+
+    <div>
+      <label  for="reponse_2">Question:</label>
+      <div class="tooltip">
+        <span class="tooltiptext" id="bottom" style="top:80px;" aria-label="information sur le champ de formulaire mail">Quoi mettre dans ce champ ? ... la réponse est simple également.<br>si seulement ce message voulait bien arrêter de disparaitre...<br>il doit y avoir un indice dans ce message c'est sur !<br> <br>Aller... je pense que tout le monde a dû dézoomer maintenant...<br>ce champ n'est pas obligatoire en fait :p</span>
+        <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
+      </div>
+      <input class="form-input" type="text" id="reponse_2" aria-label="Réponse attendu 2" name="reponse_2">
+    </div>
+
+</form>
+<div class="link-container">
+  <div>
+    <button class="next-link invalid" onclick="window.location='./7-merci.html'" id="valider" aria-label="valider" disabled>valider</button>
+    </div>
+</div>
+    <script src="./assets/js/timer/timer.js"></script>
+    <script>
+      const formInputs = document.querySelectorAll('.form-input');
+      const nextButton = document.getElementById('valider');
+
+      formInputs.forEach(input => {
+          input.addEventListener('input', () => {
+              validateForm();
+          });
+      });
+
+      function validateForm() {
+          const reponse_1 = document.getElementById('reponse_1').value.toLowerCase();
+
+          if (reponse_1 === 'grinch') {
+              nextButton.classList.remove('invalid');
+              nextButton.classList.add('valid');
+              nextButton.removeAttribute('disabled');
+          } else {
+              nextButton.classList.remove('valid');
+              nextButton.classList.add('invalid');
+              nextButton.setAttribute('disabled', 'true');
+          }
+      }
+  </script>
+    <footer>
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+    </footer>
+</body>
+</html>

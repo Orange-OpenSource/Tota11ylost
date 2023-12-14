@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Damien GOMEZ" />
+  <meta name="description" content="Page de simulation d'un handicap visuel lourd (non-voyant)" />
+  <title>Simulation - Handicap visuel - Escape Game A11y</title>
+  <link href="./assets/css/visuel/black.css" rel="stylesheet">
+  <link href="./assets/css/visuel/braille-small.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+    integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+    integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <title>Formulaire avec Vérification</title>
+</head>
+<div id="text-bloc">
+</div>
+
+<body class="fs-2">
+  <header>
+    <div class="mx-auto">
+      <h1 class="text-center">2.1 - Expérience non Visuelle</h1>
+      <div class="text-center" role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">
+        00:00:00</div>
+    </div>
+  </header>
+  <main>
+    <div class="container-fluid fs-6 nonSelectionnable">
+      <h2>Le type d'utilisateur</h2>
+      <div class="d-inline">
+        <p class="d-inline" id="autofocus" tabindex="0">Cette épreuve est un peu spéciale. Pour naviguer utilisez la touches Tab pour avancer et la touche Shift + Tab pour reculer.</p>
+        <p class="d-inline" tabindex="0">Ici, vous vous frottez au handicap numérique le plus impactant : aveugle ou très mal-voyant.</p>
+        <h2>Énigme</h2>
+        <p class="d-inline" tabindex="0">Difficile de savoir où l'on va dans le noir hein ?</p>
+        <p class="d-inline" tabindex="0">Heureusement... il y a le clavier...</p>
+        <p class="d-inline" tabindex="0">Et puis, c'est très facile de rentrer des valeurs dans un formulaire</p>
+        <p class="d-inline" tabindex="0">...enfin...</p>
+        <p class="d-inline" tabindex="0">Il ne reste qu'à savoir QUOI rentrer ...</p>
+        <p class="d-inline" tabindex="0">et où ...?</p>
+        <p class="d-inline" tabindex="0">Allez je suis sympa, je vais laisser un label sur les champs de formulaire.</p>
+        <p class="d-inline" tabindex="0">Et puis, si il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça c'est sur.</p>
+        <p class="d-inline" tabindex="0">Énigme :</p>
+        <p class="d-inline" tabindex="0">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne m'entrave pas</p>
+        <p class="d-inline" tabindex="0">(mon père me disait que j'avais le cuir épais)</p>
+        <p class="d-inline" tabindex="0">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon système.</p>
+        <p class="d-inline" tabindex="0">En tout cas, le résultat est là, mon invention m'a survécue et est devenue la norme.</p>
+        <p class="d-inline" tabindex="0">J'ai même été déplacé pendant mon repos en tant que personnalité...</p>
+        <p class="d-inline" tabindex="0">pour la postérité.</p>
+        <p class="d-inline" tabindex="0">Indiquez vos réponses dans les champs de formulaire qui suivent :</p>
+        <form id="myForm">
+          <input class="form-input" type="text" required id="nom" aria-label="nom">
+          <input class="form-input" type="text" required id="prenom" aria-label="prenom">
+          <input class="form-input" type="text" required id="naissance" aria-label="naissance">
+          <input class="form-input" type="text" required id="mort" aria-label="mort">
+          <input class="form-input" type="text" required id="ville" aria-label="lieu de repos">
+        </form>
+      </div>
+      <div>
+        <a class="visuel21" href="" id="valider">Aïe le test n'est toujours pas réussi, vous ne pouvez pas valider l'épreuve !!!</a>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container-xxl footer-terms">
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+          rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+        <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+          href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+      </p>
+    </div>
+  </footer>
+  <script src="./assets/js/visuel/visuel21.js"></script>
+  <script src="./assets/js/visuel/braille-tools.js"></script>
+  <script src="./assets/js/timer/timer.js"></script>
+  
+</body>
+
+</html>

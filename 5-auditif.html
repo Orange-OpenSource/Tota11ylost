@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Damien GOMEZ" />
+    <meta name="description"
+          content="Page de description du handicap auditif" />
+    <title>Handicap auditif - Escape Game A11y</title>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
+        }
+
+        .header {
+            font-size: 50px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            top: 0;
+            padding: 100px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border: none;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .valid {
+          border: none;
+            background-color: rgb(197, 90, 197);
+            color: #fff;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .invalid {
+            opacity: 0;
+        }
+
+
+        .audio-container {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+        audio {
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20% 20%;
+            margin-left: 12%;
+        }
+
+        .response {
+            margin-top: 10px;
+
+        }
+
+        #controls {
+            cursor: none;
+        }
+
+        footer {
+          font-size: 10px;
+          text-align: center;
+        }
+
+
+</style>
+<body>
+    <div class="header">
+        <h1>Handicap auditif</h1>
+        <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
+    </div>
+    <div class="container">
+        <h2>Description</h2>
+        <p>Une personne qui a des déficiences auditives présente une altération de sa capacité à entendre, ou à percevoir les sons de manière normale.<br/>Il existe plusieurs niveaux de perte auditive, allant de légère à sévère, voir totale.<br/>Pour répondre aux besoins des personnes malentendantes, il est important de mettre en place les solutions adéquates.</p>
+        <h2>Le type d'utilisateur que vous incarnez</h2>
+            <p>Vous êtes malentendant.<br/>L'information transmise par les vidéos ou les pistes audio ne sont pas très utiles sans des sous-titres, de l'audio description ou des transcriptions textuelles.<br/>Par chance, un miracle vous rend peu à peu l'usage de vos oreilles... en échange d'un peu de votre temps</p>
+        <h2>Règles</h2>
+            <ul>
+                <li>5 fichiers audio sont jouables, ci-dessous.</li>
+                <li>Le premier son est actif, les autres apparaitront chacun leur tour après l'écoute complète du son précédent.</li>
+                <li>Le son s'améliore à chaque fois, en suivant le niveau de perte de décibel défini par les 4 niveaux de surdité.</li>
+                <li>Chaque son donne la bonne réponse.</li>
+                <li>Un dernier détail ... l'impatience mène au rafraichissement ... hihihi</li>
+            </ul>
+    </div>
+    <div class="audio-container">
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité profonde</p>
+            <audio id="audio1" controls >
+                <source src="./assets/mp3/sound-profonde.MP3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité sévère</p>
+            <audio id="audio2" controls>
+                <source src="./assets/mp3/sound-severe.MP3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité moyenne</p>
+            <audio id="audio3" controls>
+                <source src="./assets/mp3/sound-moyenne.MP3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Surdité légère</p>
+            <audio id="audio4" controls>
+                <source src="./assets/mp3/sound-legere.MP3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <p class="audio-label">Aucune surdité</p>
+            <audio id="audio5" controls>
+                <source src="./assets/mp3/sound-bon.MP3" type="audio/mpeg">
+            </audio>
+        </div>
+
+</div>
+    <div class="response">
+    <div>
+        <label for="reponse">Réponse :</label>
+        <input type="text" id="reponse">
+        <button class="next-link invalid" onclick="window.location='./5-1-simulation-auditive.html'" id="valider" disabled>Valider</button>
+    </div>
+    </div>
+    <script>
+        // Fonction pour désactiver la barre de progression
+        function disableSeeking(audioId) {
+            var audioElement = document.getElementById(audioId);
+            audioElement.addEventListener('seeking', function() {
+                audioElement.currentTime = audioElement.currentTime;
+            });
+        }
+    
+        // Appliquer la fonction à chaque audio
+        disableSeeking('audio1');
+        disableSeeking('audio2');
+        disableSeeking('audio3');
+        disableSeeking('audio4');
+        disableSeeking('audio5');
+    </script>
+    
+        <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+    const audio3 = document.getElementById('audio3');
+    const audio4 = document.getElementById('audio4');
+    const audio5 = document.getElementById('audio5');
+    const reponseInput = document.getElementById('reponse');
+    const validerButton = document.getElementById('valider');
+
+    // Désactive les fichiers audio 2, 3 et 4 au chargement de la page
+    audio2.style.display = 'none';
+    audio3.style.display = 'none';
+    audio4.style.display = 'none';
+    audio5.style.display = 'none';
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 1
+    audio1.addEventListener('ended', function () {
+        audio2.style.display = 'block'; // Affiche le fichier audio 2
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 2
+    audio2.addEventListener('ended', function () {
+        audio3.style.display = 'block'; // Affiche le fichier audio 3
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 3
+    audio3.addEventListener('ended', function () {
+        audio4.style.display = 'block'; // Affiche le fichier audio 4
+    });
+
+    // Écouteur d'événement pour la fin de la lecture du fichier audio 3
+    audio4.addEventListener('ended', function () {
+        audio5.style.display = 'block'; // Affiche le fichier audio 5
+    });
+
+    // Écouteur d'événement pour l'input de réponse
+    reponseInput.addEventListener('input', function () {
+    const reponse = reponseInput.value.trim().toLowerCase();
+
+    if (reponse === 'helen keller' || reponse === 'keller') {
+        validerButton.classList.remove('invalid');
+        validerButton.classList.add('valid');
+        validerButton.disabled = false;
+    } else {
+        validerButton.classList.remove('valid');
+        validerButton.classList.add('invalid');
+        validerButton.disabled = true;
+    }
+});
+
+});
+        </script>
+    <script src="./assets/js/timer/timer.js"></script>
+    <footer>
+        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+        </footer>
+</body>
+</html>
