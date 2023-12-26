@@ -1,195 +1,79 @@
 <!doctype html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Damien GOMEZ" />
-    <meta name="description"
-          content="Page de simulation d'un handicap moteur avec l'utilisation du clavier" />
+    <meta name="description" content="Page de simulation d'un handicap moteur avec l'utilisation du clavier" />
     <title>simulation - Handicap moteur - Escape Game A11y</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            font-size: 24px;
-            position: relative;
-            margin: 10px;
-        }
 
-        .header {
-            font-size: 50px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            top: 0;
-            padding: 100px;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: none;
-            text-align: justify;
-            margin-bottom: 30px;
-        }
-
-        .description {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .form-container {
-          text-align: justify;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .form-input {
-            margin-bottom: 10px;
-            width: 100%;
-            padding: 10px;
-        }
-
-        .valid {
-          border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 24px;
-            text-align: center;
-            margin-top: 20px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .invalid {
-            opacity: 0;
-        }
-
-        footer {
-          font-size: 10px;
-          text-align: center;
-        }
-
-
-</style>
-<body>
-    <div class="header">
-        <h1>4.1 - simulation motricité</h1>
-        <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
-    </div>
-        <div class="container">
-          <div>
-              <h2 class="enigme">Énigme</h2>
-              <ul>
-                <li>Vous êtes une personne en situation de handicap moteur.</li>
-                <li>Contrôlez suffisamment vos doigts. Taper sur les touches d'un clavier n'est pas si simple.</li>
-                <li>Vous allez indiquer dans le champ de formulaire le prénom et le nom d'un grand monsieur</li>
-                <li>Un grand physicien et cosmologiste britanique.</li>
-                <li>Atteint de sclérose latérale amyotrophique, il a continué de travailler jusqu'à sa mort en 2018.</li>
-                <li>Tapez la bonne réponse dans le champ de formulaire.</li>
-                <li>Pssst, le répétez pas, mais la bonne réponse c'est "Stephen Hawking"... Chut, chut, chut, c'est un secret.</li>
-              </ul>
+<body class="fs-2">
+    <header class="sticky-top">
+        <div class="container-fluid bg-dark">
+            <div class="mx-auto">
+                <h1 class="text-center">Simulation - Handicap moteur</h1>
+                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+                    class="timer" id="timer">00:00:00</div>
             </div>
         </div>
-        <div class="form-container">
-        <form>
-        <label >Réponse <input class="form-input" type="text" id="inputField" aria-label="Réponse attendu"></label>
-        </form>
-    </div>
-    <div>
-        <button onclick="window.location='./5-auditif.html'" id="valider" aria-label="valider" disabled>Valider</button>
-    </div>
-    <script>
-    // empêcher les utilisateur de copier/coller
-    document.getElementById('inputField').onpaste = function(){
-    alert('Non non, pas de triche avec le copier/coller');
-    return false;
-};
-    const formInputs = document.querySelectorAll('.form-input');
-    const nextLink = document.getElementById('valider');
-
-    formInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            validateForm();
-        });
-    });
-
-    function validateForm() {
-        const reponse = document.getElementById('inputField').value.toLowerCase();
-        const reponseAttendue = 'stephen hawking';
-
-        if (reponse === reponseAttendue) {
-            nextLink.classList.remove('invalid');
-            nextLink.classList.add('valid');
-            nextLink.removeAttribute('disabled');
-        } else {
-            nextLink.classList.remove('valid');
-            nextLink.classList.add('invalid');
-            nextLink.setAttribute('disabled', 'true');
-        }
-    }
-
-    // Appel initial pour désactiver le lien au chargement de la page
-    validateForm();
-    </script>
-<script>
-    const inputField = document.getElementById('inputField');
-
-    inputField.addEventListener('keydown', function (event) {
-        const originalKey = event.key;
-        const neighboringKeys = {
-            'a': ['q', 'w', 's', 'z', 'a'],
-            'b': ['v', 'g', 'h', 'n', 'b'],
-            'c': ['x', 'd', 'f', 'v', 'c'],
-            'd': ['s', 'e', 'r', 'f', 'x', 'c', 'd'],
-            'e': ['r', 'd', 'z', 'e'],
-            'f': ['r', 't', 'g', 'v', 'c', 'f'],
-            //'g': ['t', 'y', 'h', 'b', 'v', 'g'],
-            'h': ['y', 'u', 'j', 'n', 'b', 'h'],
-            'H': ['Y', 'U', 'J', 'N', 'B', 'H'],
-            'i': ['u', 'o', 'k', 'j', 'i'],
-            'j': ['u', 'i', 'k', 'm', 'n', 'j'],
-            'k': ['i', 'o', 'l', 'm', 'k'],
-            'l': ['o', 'p', 'l'],
-            'm': ['n', 'j', 'k', 'm'],
-            'n': ['h', 'j', 'm', 'n'],
-            'o': ['p', 'l', 'k', 'o'],
-            'p': ['l', 'p'],
-            'q': ['w', 'a', 'q'],
-            'r': ['t', 'f', 'd', 'r'],
-            's': ['q', 'd', 'x', 'z', 's'],
-            'S': ['Q', 'D', 'X', 'Z', 'S'],
-            't': ['r', 'y', 'g', 't'],
-            'u': ['y', 'i', 'j', 'h', 'u'],
-            'v': ['c', 'f', 'g', 'b', 'v'],
-            'w': ['a', 's', 'e', 'w'],
-            'x': ['s', 'd', 'c', 'x'],
-            'y': ['t', 'u', 'h', 'g', 'y'],
-            'z': ['a', 's', 'x', 'z'],
-};
-
-        if (originalKey in neighboringKeys) {
-            const possibleKeys = neighboringKeys[originalKey];
-            const randomKey = possibleKeys[Math.floor(Math.random() * possibleKeys.length)];
-            event.preventDefault();
-            inputField.value += randomKey;
-        }
-    });
-</script>
-        
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <h2 class="my-2">Énigme</h2>
+            <ul>
+                <li>Vous êtes une personne en situation de handicap moteur.</li>
+                <li>Contrôlez suffisamment vos doigts. Taper sur les touches d'un clavier n'est pas si simple.
+                </li>
+                <li>Vous allez indiquer dans le champ de formulaire le prénom et le nom d'un grand monsieur</li>
+                <li>Un grand physicien et cosmologiste britanique.</li>
+                <li>Atteint de sclérose latérale amyotrophique, il a continué de travailler jusqu'à sa mort en
+                    2018.
+                </li>
+                <li>Tapez la bonne réponse dans le champ de formulaire.</li>
+                <li>Pssst, le répétez pas, mais la bonne réponse c'est "Stephen Hawking"... Chut, chut, chut,
+                    c'est un
+                    secret.</li>
+            </ul>
+            <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
+                <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+                <p>Aïe Aïe Aïe, la réponse est incorrecte!!!</p>
+              </div>
+            <div class="mb-3">
+                <label for="inputField" class="form-label">Réponse</label>
+                <input type="text" class="form-control" id="inputField" autocomplete="off">
+            </div>
+            <div>
+                <button class="btn btn-primary my-3" id="valider">Valider</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer bg-dark navbar-dark">
+        <div class="container-xxl footer-terms">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                    rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+                <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+            </p>
+        </div>
+    </footer>
+    <script src="./assets/js/moteur/moteur2.js" type="text/javascript"></script>
     <script src="./assets/js/timer/timer.js"></script>
-    <footer>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-        </footer>
 </body>
+
 </html>

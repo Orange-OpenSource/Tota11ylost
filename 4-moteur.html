@@ -1,187 +1,95 @@
 <!doctype html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Damien GOMEZ" />
     <meta name="description"
-          content="Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap" />
+        content="Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap" />
     <title>Handicap moteur - Escape Game A11y</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            font-size: 24px;
-            position: relative;
-            margin: 10px;
-        }
 
-        .header {
-            font-size: 50px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            top: 0;
-            padding: 100px;
-        }
+<body class="fs-2 cursor">
+    <header class="">
+        <div class="container-fluid bg-dark">
+            <div class="mx-auto">
+                <h1 class="text-center">Handicap moteur</h1>
+                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+                    class="timer" id="timer">00:00:00</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid height40">
+            <div class="modal" tabindex="-1" id="modalMoteur" data-bs-backdrop="static">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span id="close-popup" class="my-2 ms-auto close-popup">X</span>
+                        </div>
+                        <div class="modal-body">
+                            <h1>Handicap moteur</h1>
+                            <h2>Description</h2>
+                            <p>Les personnes atteintes de déficiences motrices rencontrent divers obstacles lorsqu'elles
+                                naviguent
+                                sur Internet.<br /> Ces obstacles sont souvent liés à la capacité limitée de contrôler
+                                précisément
+                                les mouvements de la souris, du clavier ou d'autres dispositifs d'entrée.</p>
+                            <h2>Le type d'utilisateurs que vous incarnez</h2>
+                            <p>Vous êtes dans la peau d'une personne avec un handicap moteur, vous avez donc de grandes
+                                difficultés
+                                à déplacer votre souris et à naviguer.</p>
+                            <h2>Règles</h2>
+                            <ul>
+                                <li>Utilisez uniquement votre souris.</li>
+                                <li>Fermez cette pop-up.</li>
+                                <li>cliquez sur le bouton "valider".</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: none;
-            text-align: justify;
-            margin-bottom: 30px;
-        }
+            <a href="4-1-simulation-motrice.html" class="cursor btn btn-primary my-3" tabindex="-1">Valider</a>
 
-        .description {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            text-align: center;
-        }
+            <div class="container">
+                <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
+                    style="position: absolute; z-index: 2000" />
+            </div>
 
-        .link {
-            border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            text-align: center;
-        }
 
-        /* Styles for the pop-up container */
-        .popup {
-            display: block; /* Change 'none' to 'block' */
-            position: fixed;
-            text-align: justify;
-            width: 1000px;
-            height: 800px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            padding: 20px;
-        }
+        </div>
 
-        /* Styles for the close button */
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: none;
-            font-size: 20px;
-            color: #555;
-        }
-
-        * {
-            cursor: none;
-        }
-
-        footer {
-          font-size: 10px;
-          text-align: center;
-        }
-
-</style>
-<body>
-    <div class="header">
-        <h1>Handicap moteur</h1>
-        <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
-    </div>
-    <div id="simulatedCursor"></div>
-    <a href="4-1-simulation-motrice.html" class="link" tabindex="-1">Valider</a>
-    <div class="popup" id="popup">
-        <span id="close-popup" class="close-popup">X</span>
-        <h1>Handicap moteur</h1>
-        <h2>Description</h2>
-            <p>Les personnes atteintes de déficiences motrices rencontrent divers obstacles lorsqu'elles naviguent sur Internet.<br/> Ces obstacles sont souvent liés à la capacité limitée de contrôler précisément les mouvements de la souris, du clavier ou d'autres dispositifs d'entrée.</p>
-        <h2>Le type d'utilisateurs que vous incarnez</h2>
-            <p>Vous êtes dans la peau d'une personne avec un handicap moteur, vous avez donc de grandes difficultés à déplacer votre souris et à naviguer.</p>
-        <h2>Règles</h2>
-        <ul>
-            <li>Utilisez uniquement votre souris.</li>
-            <li>Fermez cette pop-up.</li>
-            <li>cliquez sur le bouton "valider".</li>
-        </ul>
-    </div>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Get references to the close button and the popup
-    const closeButton = document.getElementById('close-popup');
-    const popup = document.getElementById('popup');
-
-    // Close the popup when the close button is clicked
-    closeButton.addEventListener('click', function () {
-        popup.style.display = 'none';
-    });
-});
-</script>
-    <div class="container">
-            <div id="overlay" style="width: 100%; height: 100%; position: absolute; z-index: 3"></div>
-            <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" style="position: absolute; z-index: 2" />
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script>
-var normal;
-var tremorBasePx = 40;
-var verticalOffset = 0; // Ajoutez le décalage vertical ici
-
-function sampleInt(magnitude) {
-    return normal[Math.round(Math.random() * normal.length)] * magnitude;
-}
-
-$(document).ready(function () {
-    var $cursor = $('#falsecursor');
-    var lastCursor = {
-        clientX: 0,
-        clientY: 0
-    }
-    setInterval(function () {
-        var randX = sampleInt(tremorBasePx);
-        var randY = sampleInt(tremorBasePx);
-        $cursor.css({
-            'top': lastCursor.clientY + randY + verticalOffset, // Appliquer le décalage vertical
-            'left': lastCursor.clientX + randX,
-            'transition': 'top 0.2s, left 0.2s linear'
-        });
-    }, 200);
-    $(document).mousemove(function (e) {
-        lastCursor = e;
-    });
-
-    $('#overlay').click(function (e) {
-        var x = parseInt($cursor.css('left'), 10);
-        var y = parseInt($cursor.css('top'), 10);
-        $(this).hide();
-        $cursor.hide();
-        var element = document.elementFromPoint(x, y);
-        $(this).show();
-        $cursor.show();
-        $(element).click();
-    });
-
-    var clicks = 0;
-    $('#link').click(function () {
-        $(this).val('clicks: ' + (++clicks)).css({
-            'top': sampleInt(100) + 200,
-            'left': sampleInt(100) + 200
-        });
-    });
-});
-
-normal = [-0.954486511205664, -0.390343505844172, 0.954967163741049, -0.741969088844115, 0.415498313809018, 1.11448864081483, 0.76051606293719, 0.737922868989143, -0.538210735151749, 2.95321369930028, 1.29722248593233, 0.879352418857219, -0.431491137709812, 0.907957414011492, 1.32937856972126, -2.06193940045371, 0.853924002501051, 0.644568387942851, 0.29585966062521, 0.029283909642257, -0.116309884538336, -0.21247946969567, 0.520679721081564, 1.40888714495192, -0.872289147256009, -0.895142161740987, -0.210110524304462, -1.09347050985988, -1.24695998274644, 0.108705615063444, -0.0299178988550738, 1.47641798733614, 0.489325530238317, -1.25614368071793, -0.265909415432471, 0.526102923817908, -0.10480962312103, -1.07215275189888, -0.383193549659934, 0.51002010941531, 0.944163306601511, -0.0321767673468271, -1.35144964116703, 0.263596823001421, 0.540427623567371, -1.04241902308392, -0.670516393824332, 0.158485972372211, 0.164154884035072, -1.93009734490646, 0.852783520922024, -1.34765702216979, -0.531800074686698, 0.280961008814437, 0.630531054720149, 0.343363294659579, -1.2170531471355, 1.58324901607691, -0.539584265875985, 0.311161618787563, -0.317124254762646, -0.260151494067805, -0.673509625719232, 0.136403271282643, 1.01258180403649, 0.575317947712617, 1.14868551793635, 0.327870722017452, 0.94293964636229, -1.22571566590562, 1.37854270548666, -0.0948946472840643, 0.966120915277423, -0.298859582000788, 1.67278530569779, -1.28203090996874, 0.296928115774355, -1.09044170966977, 1.46093203424296, -0.239098151446543, -1.51561000187031, -0.154811273589294, 0.0319192709941601, -0.527036227344993, -0.513927560425381, 0.579844345200166, -0.0747662994634585, 0.64628638844104, -0.321894061028443, -0.798643441029118, -2.02075744646756, -0.319258166115966, 0.0963191114713903, -0.794920474769472, 0.0610320023340435, 0.345931510365856, -1.31282275014755, -0.0968080218000676, 0.37646603364382, 1.82218271404721];
-
-    </script>
+    </main>
+    <footer class="footer bg-dark navbar-dark">
+        <div class="container-xxl footer-terms">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                    rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+                <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+            </p>
+        </div>
+    </footer>
+    <script src="./assets/js/moteur/moteur.js"> </script>
     <script src="./assets/js/timer/timer.js"></script>
-    <footer>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
+        integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

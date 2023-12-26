@@ -1,6 +1,6 @@
 function simulateDyslexia(text) {
-  const simulatedText = [];
-  for (const char of text) {
+  var simulatedText = [];
+  for (var char of text) {
     if (char.match(/[a-zA-Z]/)) {
       // Rotation de lettres aléatoire
       if (Math.random() < 0.2) {
@@ -17,8 +17,12 @@ function simulateDyslexia(text) {
 
 function rotateLetter(letter) {
   const rotationMap = {
-    b: 'd', d: 'b', 
-    n: 'u', u: 'n',
+    b: 'd', d: 'b', p: 'q', q: 'p', 
+    n: 'u', u: 'n', m:'w', w:'m',
+    v: 'y', y:'v', e:'a', a:'e',
+    j:'l', l:'j', t:'j', j:'t',
+    r:'f', f:'r'
+,
     // Vous pouvez ajouter plus de correspondances ici
   };
   return rotationMap[letter] || letter;
@@ -33,8 +37,8 @@ function simulateTextInElements(elements) {
 }
 
 function updateSimulatedText() {
-  const allTextElements = document.querySelectorAll('li');
+  var allTextElements = document.querySelectorAll('.dyslexia');
   simulateTextInElements(allTextElements);
 }
 
-setInterval(updateSimulatedText, 4000); // Mettre à jour toutes les 2 secondes
+setInterval(updateSimulatedText, 500); // Mettre à jour toutes les 2 secondes

@@ -1,98 +1,82 @@
 <!doctype html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Damien GOMEZ" />
-    <meta name="description"
-          content="Page de description du handicap cognitif" />
+    <meta name="description" content="Page de description du handicap cognitif" />
     <title>Handicap cognitif - Escape Game A11y</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            font-size: 24px;
-            position: relative;
-            margin: 10px;
-        }
 
-        .header {
-            font-size: 50px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            top: 0;
-            padding: 100px;
-        }
-
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border: none;
-            text-align: justify;
-            margin-bottom: 30px;
-        }
-
-        .description {
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .button {
-            border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 30px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        #button {
-            cursor: pointer;
-        }
-
-        footer {
-          font-size: 10px;
-          text-align: center;
-        }
-
-</style>
-<body>
-    <div class="header">
-        <h1>Handicap cognitif</h1>
-        <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
-    </div>
-    <div class="container">
-        <h2>Description</h2>
-            <p>La dyslexie est un trouble de l'apprentissage qui affecte la lecture, l'écriture et la compréhension des mots. <br/>Les personnes dyslexiques ont des difficultés lors de la navigation sur le web. <br/>La lecture prolongée sur un écran entraine une fatigue visuelle accrue et les éléments de conceptions complexes, les couleurs criardes ou les animations peuvent les distraire.</p>
-        <h2>Le type d'utilisateur que vous incarnez</h2>
-            <p>Vous êtes dans la peau d'une personne dyslexique. Vous avez donc des difficultés à lire et en prime, un "léger" trouble de l'attention</p>
-        <h2>Règles</h2>
+<body class="fs-2">
+    <header class="sticky-top">
+        <div class="container-fluid bg-dark">
+            <div class="mx-auto">
+                <h1 class="text-center">Handicap cognitif</h1>
+                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+                    class="timer" id="timer">00:00:00</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <h2>Description</h2>
+            <p>La dyslexie est un trouble de l'apprentissage qui affecte la lecture, l'écriture et la compréhension des
+                mots. <br />Les personnes dyslexiques ont des difficultés lors de la navigation sur le web. <br />La
+                lecture
+                prolongée sur un écran entraine une fatigue visuelle accrue et les éléments de conceptions complexes,
+                les
+                couleurs criardes ou les animations peuvent les distraire.</p>
+            <h2>Le type d'utilisateur que vous incarnez</h2>
+            <p>Vous êtes dans la peau d'une personne dyslexique. Vous avez donc des difficultés à lire et en prime, un
+                "léger" trouble de l'attention</p>
+            <h2>Règles</h2>
             <ul>
                 <li>Lisez attentivement, et répondez correctement aux énigmes</li>
-                <li>Pour lancer la simulation, il vous suffit de cliquer sur le lien contenant la phrase suivante exacte :</li>
+                <li>Pour lancer la simulation, il vous suffit de cliquer sur le lien contenant la phrase suivante exacte
+                    :
+                </li>
                 <li>"Oui c'est sur, ce lien est le bon"</li>
+                <li>Attention un erreur est la page sera réactualisée !!!</li>
             </ul>
-    </div>
-    <div>
-        <button class="button">oui c'est dur, ce lien est un rond</button>
-        <button class="button">oui bien sur, avec du jambon</button>
-        <a href="./3-1-simulation-cognitive.html" class="button">oui c'est sur, ce lien est le bon</a>
-        <button class="button">oui c'est nul, tien un bonbon</button>
-    </div>
-    <script src="./assets/js/simulateDyslexia-button-only.js"></script>
+
+
+            <h2 id="skip">Les boutons</h2>
+            <div id="linkDyslexia">
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-dark navbar-dark">
+        <div class="container-xxl footer-terms">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                    rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+                <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+            </p>
+        </div>
+    </footer>
+    <script src="./assets/js/cognitif/simulateDyslexia-button-only.js"></script>
+    <script src="./assets/js/cognitif/cognitif.js"></script>
     <script src="./assets/js/timer/timer.js"></script>
-    <footer>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
+        integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

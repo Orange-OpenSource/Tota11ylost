@@ -1,5 +1,24 @@
-const buttons = document.querySelectorAll('button');
 const correctSequence = ["green-button", "blue-button", "red-button", "purple-button"];
+
+var buttonDiv = [
+    {
+        label: "Bouton bleu",
+        id: "blue-button"
+    },
+    {
+        label: "Bouton violet",
+        id: "purple-button"
+    },
+    {
+        label: "Bouton vert",
+        id: "green-button"
+    },
+    {
+        label: "Bouton rouge",
+        id: "red-button"
+    }
+];
+
 let sequenceIndex = 0;
 let messageInvalidDiv = document.getElementById('error-message');
 
@@ -32,14 +51,28 @@ function invalidSequence() {
     }, 2000); // Le message d'erreur sera supprimé après 5 secondes
 }
 
-// Ajouter un gestionnaire d'événement à chaque bouton
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        if (sequenceIndex < correctSequence.length) {
-            handleButtonClick(button.id);
-        }
-    });
-});
-
 // Initialiser l'état initial (masquer l'image)
 resetSequence();
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    var divbutton = document.getElementById('buttonDiv');
+    shuffle(buttonDiv)
+    buttonDiv.forEach(buttonD => {
+        var button = document.createElement('button');
+        button.textContent = "Bouton";
+        button.id = buttonD.id;
+        button.setAttribute("aria-label", buttonD.label);
+        button.classList.add("btn", "btn-dark", "m-2");
+        button.addEventListener('click', () => {
+            if (sequenceIndex < correctSequence.length) {
+                handleButtonClick(button.id);
+            }
+        });
+        divbutton.append(button)
+    });
+
+});

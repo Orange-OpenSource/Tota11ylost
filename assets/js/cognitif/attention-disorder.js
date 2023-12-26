@@ -4,22 +4,22 @@ const content = document.getElementById('content');
 function getRandomImageURL() {
   // Remplacez par vos URLs d'images réelles
   const imageUrls = [
-    "./assets/img/Porte_ferme.png",
-    "./assets/img/Hungry.png",
-    "./assets/img/voisin.png",
-    "./assets/img/monkey.png",
-    "./assets/img/calc.png",
-    "./assets/img/A11ybaba.png",
-    "./assets/img/alice.png",
-    "./assets/img/petit-dej.png",
-    "./assets/img/coude.png",
-    "./assets/img/ce-soir.png",
-    "./assets/img/helico.png",
-    "./assets/img/nyan-cat.png",
-    "./assets/img/impots.png",
-    "./assets/img/grinch-3.png",
-    "./assets/img/game-master.jpg",
-    "./assets/img/woof.png",
+    "./assets/img/cognitif/a11ybaba.png",
+    "./assets/img/cognitif/alice.png",
+    "./assets/img/cognitif/calc.png",
+    "./assets/img/cognitif/ce-soir.png",
+    "./assets/img/cognitif/coude.png",
+    "./assets/img/cognitif/game-master.jpg",
+    "./assets/img/cognitif/grinch-3.png",
+    "./assets/img/cognitif/helico.png",
+    "./assets/img/cognitif/hungry.png",
+    "./assets/img/cognitif/impots.png",
+    "./assets/img/cognitif/monkey.png",
+    "./assets/img/cognitif/nyan-cat.png",
+    "./assets/img/cognitif/petit-dej.png",
+    "./assets/img/cognitif/porte_ferme.png",
+    "./assets/img/cognitif/voisin.png",
+    "./assets/img/cognitif/woof.png",
   ];
   const randomIndex = Math.floor(Math.random() * imageUrls.length);
   return imageUrls[randomIndex];

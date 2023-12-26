@@ -1,200 +1,89 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Damien GOMEZ" />
-    <meta name="description"
-          content="Page de simulation d'un handicap cognitif et de troubles de l'attention" />
-    <title> Simulation - Handicap cognitif - Escape Game A11y</title>
+
 <head>
-    <title>Formulaire avec Vérification</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            font-size: 24px;
-            position: relative;
-            margin: 10px;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Damien GOMEZ" />
+  <meta name="description" content="Page de simulation d'un handicap cognitif et de troubles de l'attention" />
+  <title> Simulation - Handicap cognitif - Escape Game A11y</title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+    integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+    integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 
-        .header {
-            font-size: 50px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            top: 0;
-            padding: 100px;
-        }
-
-        .container {
-        text-align: justify;
-        display: grid;
-        grid-template-columns: line;
-        gap: 10px;
-        position: relative;
-        top: 5%;
-        right: 10px;
-      }
-
-        .form-container {
-          text-align: justify;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .form-input {
-            margin-bottom: 10px;
-            width: 100%;
-            padding: 10px;
-        }
-
-        .valid {
-          border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            font-size: 24px;
-            text-align: center;
-            margin-top: 20px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .invalid {
-            opacity: 0;
-        }
-
-        .enigme {
-          text-align: center;
-        }
-
-        footer {
-          font-size: 10px;
-          text-align: center;
-        }
-
-        </style>
-</head>
-<body>
-  <div class="header">
-    <h1>3.1 - simulation cognitif</h1>
-    <div role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
-  </div>
-    <div class="container">
-      <div>
-          <h2 class="enigme">Énigme</h2>
-          <ul>
-            <li>Mon premier n'avait pas la langue dans sa poche et portait la moustache, même si il faut relativiser, c'était bien plus fréquent à l'époque... <br/>En tout cas, on peut dire qu'il mit une nouvelle définition de la masse et ses découvertes ont été une révolution.</li>
-            <li>Ma deuxième est la reine du crime, que ce soit avec un poirot ou sa plume, son flegme a marqué (on pourrait même dire imprimé) de son enpreinte le genre policier.</li>
-            <li>Mon troisième a évolué depuis sa naissance en 1809 jusqu'à sa mort en 1882, même si il est l'instigateur d'une théorie sur l'origine des espèces, la sélection naturelle est la même pour tout le monde, après tout.</li>
-          </ul>
+<body class="fs-2">
+  <header class="sticky-top">
+    <div class="container-fluid bg-dark">
+      <div class="mx-auto">
+        <h1 class="text-center">Simulation - Handicap cognitif</h1>
+        <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame" class="timer"
+          id="timer">00:00:00</div>
       </div>
     </div>
-    <div class="form-container">
-      <form id="myForm">
-        <label >premier <input class="form-input" type="text" id="premier" aria-label="premier"></label>
-        <label >deuxième <input class="form-input" type="text" id="deuxième" aria-label="deuxième"></label>
-        <label >troisième <input class="form-input" type="text" id="troisième" aria-label="troisème"></label>
-      </form>
-    </div>
-    <div>
-      <button class="next-link invalid" onclick="window.location='./4-moteur.html'" id="valider" disabled>Valider</button>
-    </div>
-    <script>
-      const formInputs = document.querySelectorAll('.form-input');
-      const nextLink = document.getElementById('valider');
-
-      formInputs.forEach(input => {
-          input.addEventListener('input', () => {
-              validateForm();
-          });
-      });
-
-      function validateForm() {
-          const premier = document.getElementById('premier').value.toLowerCase();
-          const deuxième = document.getElementById('deuxième').value.toLowerCase();
-          const troisième = document.getElementById('troisième').value.toLowerCase();
-
-          if (premier === 'albert einstein' || premier === 'einstein' && deuxième === 'agatha christie' || deuxième === 'christie' && troisième === 'charles darwin' || troisième === 'darwin') {
-              nextLink.classList.remove('invalid');
-              nextLink.classList.add('valid');
-              nextLink.removeAttribute('disabled');
-          } else {
-              nextLink.classList.remove('valid');
-              nextLink.classList.add('invalid');
-              nextLink.setAttribute('disabled', 'true');
-          }
-      }
-    </script>
-    <script src="./assets/js/timer/timer.js"></script>
-</body>
-  <style>
-    body {
-      font-size: 24px;
-      margin: 0;
-      padding: 0;
-    }
-    
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: transparent;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    
-    #content {
-      text-align: center;
-      color: black;
-      animation: moveContent 5s infinite, fadeInOut 5s infinite;
-    }
-  
-    @keyframes moveContent {
-    0% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(200px, 200px);
-    }
-    50% {
-        transform: translate(400px, 0);
-    }
-    75% {
-        transform: translate(200px, -200px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-    }
-  
-    @keyframes fadeInOut {
-      0%, 100% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-  </style>
-<body>
+  </header>
+  <main>
+    <div class="container-fluid">
+      <h2 class="my-2">Énigme</h2>
+      <ul>
+        <li>Mon premier n'avait pas la langue dans sa poche et portait la moustache, même si il faut relativiser,
+          c'était bien plus fréquent à l'époque... <br />En tout cas, on peut dire qu'il mit une nouvelle définition de
+          la masse et ses découvertes ont été une révolution.</li>
+        <li>Ma deuxième est la reine du crime, que ce soit avec un poirot ou sa plume, son flegme a marqué (on pourrait
+          même dire imprimé) de son enpreinte le genre policier.</li>
+        <li>Mon troisième a évolué depuis sa naissance en 1809 jusqu'à sa mort en 1882, même si il est l'instigateur
+          d'une théorie sur l'origine des espèces, la sélection naturelle est la même pour tout le monde, après tout.
+        </li>
+      </ul>
+      <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
+        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+        <p>Aïe Aïe Aïe, les réponses ne sont pas correctes!!!</p>
+      </div>
+      <div class="mb-3">
+        <label for="premier" class="form-label">Premier</label>
+        <input type="text" class="form-control" id="premier">
+      </div>
+      <div class="mb-3">
+        <label for="deuxieme" class="form-label">Deuxième</label>
+        <input type="text" class="form-control" id="deuxieme">
+      </div>
+      <div class="mb-3">
+        <label for="troisieme" class="form-label">Troisième</label>
+        <input type="text" class="form-control" id="troisieme">
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" id="valider">Valider</button>
+      </div>
       <div id="overlay">
         <div id="content">
-          <script src="./assets/js/attention-disorder.js"></script>
-          <script src="./assets/js/simulateDyslexiaEasy.js"></script>
         </div>
       </div>
-      <footer>
-        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-        </footer>
+
+    </div>
+  </main>
+  <footer class="footer bg-dark navbar-dark">
+    <div class="container-xxl footer-terms">
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+          rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
+        <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
+          href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+          rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+            style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
+      </p>
+    </div>
+  </footer>
 </body>
+<script src="./assets/js/cognitif/attention-disorder.js"></script>
+<script src="./assets/js/cognitif/simulateDyslexiaEasy.js"></script>
+<script src="./assets/js/cognitif/cognitif31.js"></script>
+<script src="./assets/js/timer/timer.js"></script>
+
 </html>
