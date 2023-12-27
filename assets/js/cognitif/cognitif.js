@@ -1,4 +1,4 @@
-var linkDyslexie = [
+const linkDyslexie = [
     {
         label: "oui c'est sur, ce lien est le bon",
         href: "./3-1-simulation-cognitive.html"
@@ -22,10 +22,10 @@ function shuffle(array) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    var divLink = document.getElementById('linkDyslexia');
+    let divLink = document.getElementById('linkDyslexia');
     shuffle(linkDyslexie)
     linkDyslexie.forEach(linkD => {
-        var button = document.createElement('button');
+        let button = document.createElement('button');
         button.textContent=linkD.label;
         button.classList.add("btn", "btn-primary", "btn-lg", "m-2", "dyslexia");
         button.setAttribute("role","link");

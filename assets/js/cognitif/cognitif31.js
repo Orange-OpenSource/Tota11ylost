@@ -1,6 +1,6 @@
-var validButton = document.getElementById('valider');
-var alertDiv = document.getElementById('errorDiv');
-var href="./4-moteur.html";
+let validButton = document.getElementById('valider');
+let alertDiv = document.getElementById('errorDiv');
+const href="./4-moteur.html";
 
 validButton.addEventListener("click", (e) => {
     const premier = document.getElementById('premier').value.toLowerCase();

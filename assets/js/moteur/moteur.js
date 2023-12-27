@@ -1,7 +1,7 @@
 
-var normal;
-var tremorBasePx = 40;
-var verticalOffset = 0; // Ajoutez le décalage vertical ici
+let normal;
+let tremorBasePx = 40;
+let verticalOffset = 0; // Ajoutez le décalage vertical ici
 
 function sampleInt(magnitude) {
     return normal[Math.round(Math.random() * normal.length)] * magnitude;
@@ -12,8 +12,8 @@ normal = [-0.954486511205664, -0.390343505844172, 0.954967163741049, -0.74196908
 
 document.addEventListener("DOMContentLoaded", (event) => {
     // Get references to the close button and the popup
-    var closeButton = document.getElementById('close-popup');
-    var popup = document.getElementById('popup');
+    let closeButton = document.getElementById('close-popup');
+    let popup = document.getElementById('popup');
 
     const myModal = new boosted.Modal('#modalMoteur', {
     })
@@ -25,16 +25,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
         myModal.hide(modalToggle)
      });
 
-    var cursor = document.getElementById('falsecursor');
-    var lastCursor = {
+    let cursor = document.getElementById('falsecursor');
+    let lastCursor = {
         clientX: 0,
         clientY: 0
     }
     setInterval(function () {
-        var randX = sampleInt(tremorBasePx);
-        var randY = sampleInt(tremorBasePx);
-        var newY = (lastCursor.clientY + randY + verticalOffset).toString() + "px";
-        var newx = (lastCursor.clientX + randX).toString() + "px";
+        let randX = sampleInt(tremorBasePx);
+        let randY = sampleInt(tremorBasePx);
+        let newY = (lastCursor.clientY + randY + verticalOffset).toString() + "px";
+        let newx = (lastCursor.clientX + randX).toString() + "px";
         cursor.style.top = newY;
         cursor.style.left = newx;
         cursor.style.transition = 'top 0.2s, left 0.2s linear';

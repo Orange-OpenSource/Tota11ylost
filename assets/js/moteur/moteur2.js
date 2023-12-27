@@ -1,10 +1,10 @@
-href = './5-auditif.html';
+const href = './5-auditif.html';
 
 
-var nextLink = document.getElementById('valider');
-var alertDiv = document.getElementById('errorDiv');
+let nextLink = document.getElementById('valider');
+let alertDiv = document.getElementById('errorDiv');
 nextLink.addEventListener("click", (event) => {
-    var reponse = document.getElementById('inputField').value.toLowerCase();
+    let reponse = document.getElementById('inputField').value.toLowerCase();
     const reponseAttendue = 'stephen hawking';
     if (reponse === reponseAttendue) {
         document.location.assign(href);
@@ -14,7 +14,7 @@ nextLink.addEventListener("click", (event) => {
     }
 });
 
-var inputField = document.getElementById('inputField');
+let inputField = document.getElementById('inputField');
 
 inputField.addEventListener('paste', (event) => {
     event.preventDefault();

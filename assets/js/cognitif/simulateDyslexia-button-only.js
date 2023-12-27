@@ -1,6 +1,6 @@
 function simulateDyslexia(text) {
-  var simulatedText = [];
-  for (var char of text) {
+  let simulatedText = [];
+  for (let char of text) {
     if (char.match(/[a-zA-Z]/)) {
       // Rotation de lettres aléatoire
       if (Math.random() < 0.2) {
@@ -37,7 +37,7 @@ function simulateTextInElements(elements) {
 }
 
 function updateSimulatedText() {
-  var allTextElements = document.querySelectorAll('.dyslexia');
+  let allTextElements = document.querySelectorAll('.dyslexia');
   simulateTextInElements(allTextElements);
 }
 

@@ -1,6 +1,6 @@
-var validButton = document.getElementById('valider');
-var alertDiv = document.getElementById('errorDiv');
-var href = './6-formulaire.html';
+let validButton = document.getElementById('valider');
+let alertDiv = document.getElementById('errorDiv');
+const href = './6-formulaire.html';
 
 validButton.addEventListener("click", (e) => {
     const reponse = document.getElementById('reponse').value.toLowerCase();

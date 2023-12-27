@@ -1,5 +1,5 @@
 
-var inputState = null;
+let inputState = null;
 
 document.addEventListener("click", handleClick);
 document.addEventListener("keyup", handleKey);
@@ -11,7 +11,7 @@ function handleClick() {
 function handleKey() {
     inputState = "keyboard";
 }
-var textBloc = document.getElementById('text-bloc');
+let textBloc = document.getElementById('text-bloc');
 
 function updateTextBloc(event) {
     setTimeout(() => {

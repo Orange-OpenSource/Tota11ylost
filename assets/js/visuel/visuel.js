@@ -1,6 +1,6 @@
 const correctSequence = ["green-button", "blue-button", "red-button", "purple-button"];
 
-var buttonDiv = [
+const buttonDiv = [
     {
         label: "Bouton bleu",
         id: "blue-button"
@@ -59,10 +59,10 @@ function shuffle(array) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    var divbutton = document.getElementById('buttonDiv');
+    let divbutton = document.getElementById('buttonDiv');
     shuffle(buttonDiv)
     buttonDiv.forEach(buttonD => {
-        var button = document.createElement('button');
+        let button = document.createElement('button');
         button.textContent = "Bouton";
         button.id = buttonD.id;
         button.setAttribute("aria-label", buttonD.label);

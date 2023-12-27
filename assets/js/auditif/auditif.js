@@ -34,9 +34,9 @@ audio4.addEventListener('ended', function () {
     audio5.style.display = 'block'; // Affiche le fichier audio 5
 });
 
-var validButton = document.getElementById('valider');
-var alertDiv = document.getElementById('errorDiv');
-var href='./5-1-simulation-auditive.html';
+let validButton = document.getElementById('valider');
+let alertDiv = document.getElementById('errorDiv');
+const href='./5-1-simulation-auditive.html';
 
 validButton.addEventListener("click", (e) => {
     const reponse = document.getElementById('reponse').value.toLowerCase();
@@ -50,10 +50,10 @@ validButton.addEventListener("click", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    const audio2 = document.getElementById('audio2');
-    const audio3 = document.getElementById('audio3');
-    const audio4 = document.getElementById('audio4');
-    const audio5 = document.getElementById('audio5');
+    let audio2 = document.getElementById('audio2');
+    let audio3 = document.getElementById('audio3');
+    let audio4 = document.getElementById('audio4');
+    let audio5 = document.getElementById('audio5');
 
     // Désactive les fichiers audio 2, 3 et 4 au chargement de la page
     audio2.style.display = 'none';

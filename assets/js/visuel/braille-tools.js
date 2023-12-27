@@ -4,16 +4,16 @@
   https://github.com/evoluteur/braille-tools 
 */
 
-var br = {
+let br = {
     braille: function (message) { 
-        var txt=''; 
-        var myChar, prevCharNum, inQuote 
+        let txt=''; 
+        let myChar, prevCharNum, inQuote 
 
         function BrailleChar(bPix, bAlt) {
             return '<div class="br br-'+bPix+'" title="'+bAlt+'"></div>'
         }
 
-        for (var i=0; i<message.length; i++) {
+        for (let i=0; i<message.length; i++) {
             myChar = message.charAt(i);
             if ((myChar>="a") && (myChar<="z")) { // a to z
                     txt+=BrailleChar(myChar, myChar);
@@ -119,9 +119,9 @@ var br = {
     },
 
     alphabet: function(){
-        var alpha='<div class="braille-doc2 alphabet">',
+        let alpha='<div class="braille-doc2 alphabet">',
             char;
-        for(var i=97;i<123;i++){
+        for(let i=97;i<123;i++){
             char=String.fromCharCode(i);
             alpha+='<div><span>'+char+'</span><div class="br br-'+char+'"></div></div>'; 
         }
