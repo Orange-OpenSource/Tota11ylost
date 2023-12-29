@@ -7,6 +7,8 @@ const indiceText = [
 ]
 
 
+const indiceTime = [15, 300, 300, 0];
+
 const nom = document.getElementById("pistache");
 const nomErrordiv = document.getElementById("errorpistacheDiv");
 const nomErrortext = document.getElementById("errorpistacheText");
@@ -38,11 +40,14 @@ const legendFruit = document.getElementById('legendFruit');
 
 
 const btnInscription = document.getElementById("inscription");
+const btnIndice = document.getElementById('indice');
 
 const alertError = document.getElementById('errorDiv');
 
-document.getElementById('indice').addEventListener('click', (e) => {
+btnIndice.addEventListener('click', (e) => {
+    addTime(indiceTime[indice]);
     indice++;
+    updateIndiceButton();
 
     switch (indice) {
         case 1:
@@ -234,6 +239,22 @@ function addIndice() {
     indiceDiv.classList.remove('d-none')
 }
 
+function updateIndiceButton(){
+    let getIndiceTime = indiceTime[indice];
+    let textTime = "";
+    let durationTime = "";
+
+    if(getIndiceTime < 60  && indiceTime !== 0){
+        textTime = "sec"
+        durationTime = getIndiceTime;
+    }
+    else {
+        textTime = "min";
+        durationTime = getIndiceTime / 60;
+    }
+    btnIndice.textContent = "Prendre un indice (+"+durationTime+" " +textTime +")";
+}
+
 function addLabel() {
 
     labelNom = document.createElement("LABEL");
@@ -286,4 +307,5 @@ function addLabel() {
 
 document.addEventListener('DOMContentLoaded', function () {
     btnInscription.disabled = true;
+    updateIndiceButton();
 })
