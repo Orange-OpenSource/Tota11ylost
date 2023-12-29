@@ -2,15 +2,15 @@
 const timerElement = document.getElementById('timer');
 
 // Check if there's a previous start time stored in localStorage
-const storedStartTime = localStorage.getItem('timerStartTime');
-let targetTime;
+let storedStartTime = localStorage.getItem('timerStartTime');
+let startTime;
+
 
 if (storedStartTime) {
-    targetTime = parseInt(storedStartTime, 10);
+
+    startTime = parseInt(storedStartTime, 10);
 } else {
-    // If no stored start time, set a new one (e.g., 5 minutes from now)
-    targetTime = Date.now() + 60 * 60 * 1000; // 5 minutes in milliseconds
-    localStorage.setItem('timerStartTime', targetTime);
+    restartTime();
 }
 
 // Update the timer every second
@@ -18,19 +18,17 @@ const interval = setInterval(updateTimer, 1000);
 
 function updateTimer() {
     const currentTime = Date.now();
-    const timeLeft = targetTime - currentTime;
+    const timeSpent = currentTime - startTime;  
+    
+    
 
-    if (timeLeft <= 0) {
-        clearInterval(interval);
-        timerElement.textContent = "Fin du temps imparti";
-    } else {
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    const hours = Math.floor(timeSpent / (1000 * 60 * 60));
+    const minutes = Math.floor((timeSpent % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeSpent % (1000 * 60)) / 1000);
 
-        const formattedTime = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
-        timerElement.textContent = formattedTime;
-    }
+    const formattedTime = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+    timerElement.textContent = formattedTime;
+
 }
 
 function formatTime(time) {
@@ -39,4 +37,15 @@ function formatTime(time) {
 
 function deleteTime(){
     localStorage.removeItem('timerStartTime');
+    restartTime();
+}
+
+function restartTime(){
+    // If no stored start time, set a new one
+    startTime = Date.now();
+    localStorage.setItem('timerStartTime', startTime);
+}
+
+function addTime (second){
+
 }
