@@ -1,9 +1,9 @@
 let indice = 0;
 const indiceText = [
     '',
-    'Eh oui, pas facile de remplir un formulaire quand on a pas de label. Les labels ont maintenant été rajoutés bonne chance pour la suite.',
+    'Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.',
     'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d\'erreurs !!!',
-    'C\'est bien beau d\'avoir mis un message d\'erreur mais s\'il n\'est pas précis il ne servira à rien. Le message d\'erreur doit être précis et lié au champ afin de déterminer rapidement l\'erreur. Et voila des messages d\'erreurs ont été rajoutés.'
+    'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voila des messages d\'erreurs ont été rajoutés.'
 ]
 
 

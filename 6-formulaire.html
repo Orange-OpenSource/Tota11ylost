@@ -4,23 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0, minimum-scale=5.0 user-scalable=no">
     <meta name="author" content="Damien GOMEZ" />
-    <meta name="description"
-          content="Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)" />
-    <title>Formulaire satisfaction - Escape Game A11y</title>
-<head>
+    <meta name="description" content="Page de formulaire d'inscription pour Escapage Game A11Y" />
+    <title>Formulaire - Escape Game A11y</title>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
     <title>Formulaire avec Vérification</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            font-size: 24px;
-            position: relative;
-            margin: 10px;
-            transform: scale(5);
-            transform-origin: 0 0;
-            max-width: 100%; /* Ajout pour s'assurer que la largeur n'excède pas celle du header */
-        }
        
         .tooltip-header {
             background-color: #000;
@@ -29,15 +22,6 @@
             top: 0;
             padding: 50px;
         } 
-
-        .header {
-            font-size: 50px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            top: 0;
-            padding: 100px;
-        }
 
         .form-input {
             width: 20%; /* Ajustement de la largeur du champ de formulaire */
@@ -48,7 +32,7 @@
 
         label {
             text-align: justify !important;
-            font-size: 500%;
+            font-size: 500% !important;
         }
 
         input {
@@ -204,7 +188,7 @@
 </form>
 <div class="link-container">
   <div>
-    <button class="next-link invalid" onclick="window.location='./7-merci.html'" id="valider" aria-label="valider" disabled>valider</button>
+    <button class="next-link invalid" onclick="window.location='./6-1-formulaire.html'" id="valider" aria-label="valider" disabled>valider</button>
     </div>
 </div>
     <script src="./assets/js/timer/timer.js"></script>
