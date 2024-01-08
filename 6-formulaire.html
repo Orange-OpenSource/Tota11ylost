@@ -4,16 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0, minimum-scale=5.0 user-scalable=no">
     <meta name="author" content="Damien GOMEZ" />
-    <meta name="description" content="Page de formulaire d'inscription pour Escapage Game A11Y" />
-    <title>Formulaire - Escape Game A11y</title>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
-        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
-        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
-</head>
+    <meta name="description"
+          content="Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)" />
+    <title>Formulaire satisfaction - Escape Game A11y</title>
+<head>
     <title>Formulaire avec Vérification</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
+            transform: scale(5);
+            transform-origin: 0 0;
+            max-width: 100%; /* Ajout pour s'assurer que la largeur n'excède pas celle du header */
+        }
        
         .tooltip-header {
             background-color: #000;
@@ -22,6 +29,15 @@
             top: 0;
             padding: 50px;
         } 
+
+        .header {
+            font-size: 50px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            top: 0;
+            padding: 100px;
+        }
 
         .form-input {
             width: 20%; /* Ajustement de la largeur du champ de formulaire */
@@ -32,7 +48,7 @@
 
         label {
             text-align: justify !important;
-            font-size: 500% !important;
+            font-size: 500%;
         }
 
         input {
@@ -52,18 +68,6 @@
           text-align: justify;
         }
 
-        a {
-            border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
-            padding: 10px 20px;
-            text-align: center !important;
-            margin-top: 20%;
-            margin-bottom: 20%;
-            text-decoration: none;
-        }
-
         footer {
           font-size: 10px;
           text-align: center;
@@ -80,14 +84,16 @@
       visibility: hidden;
       position:absolute;
       font-size: 100%;
-      background-color: #4d0264;
-      color: #fff;
+      background-color: #ffffff;
+      color: #000000;
       text-align: center;
-      border-radius: 6px;
       padding: 10px 15px 10px 15px;
       z-index: 1;
       width: max-content;
       max-width: 300px;
+      border-style: solid;
+      border-width: 2px ;
+      border-color: black ;
     }
 
     .tooltip:hover .tooltiptext {
@@ -120,9 +126,8 @@
 
         .valid {
           border: none;
-            background-color: rgb(197, 90, 197);
-            color: #fff;
-            border-radius: 20px;
+            background-color: #FF7900;
+            color: #000000;
             padding: 10px 20px;
             font-size: 24px;
             text-align: center;
@@ -155,7 +160,7 @@
       <img src="./assets/img/tooltip-white.png" alt="" width="32" height="32">
     </div>
     <h1 style="font-size: 25px !important;">Un simple champ de formulaire</h1>
-    <div role="region" style="font-size: 20px !important;" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">Fin du temps imparti</div>
+    <div role="region" style="font-size: 20px !important;" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
     <div class="tooltip" style="margin-top: 50px;">
       <span class="tooltiptext" id="left" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Pour passer cette étape, il vous suffira de passer sur chaque infobulle à côté des champs de formulaires, d'en lire le contenu et de répondre aux énigmes.<br>Facile donc.<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
       <img src="./assets/img/tooltip-white.png" style="margin-left:400px !important;" alt="" width="32" height="32">
@@ -170,7 +175,7 @@
     <div class="label-container">
     <label  for="reponse_1">Question:</label>
     <div class="tooltip">
-      <span class="tooltiptext" aria-label="information sur le champ de formulaire nom">Super facile, il suffit d'indiquer dans le champ de formlaire, le résultat de cette devinette:<br>- Je suis vert quand l'hiver vient<br>- Mon sourire le plus chaleureux donne un coup de froid<br>- J'ai des cadeaux plein les bras, mais on ne m'aime pas pour ça</span>
+      <span class="tooltiptext" aria-label="information sur le champ de formulaire nom">Super facile, il suffit d'indiquer dans le champ de formulaire, le résultat de cette devinette:<br>- Je suis vert quand l'hiver vient<br>- Mon sourire le plus chaleureux donne un coup de froid<br>- J'ai des cadeaux plein les bras, mais on ne m'aime pas pour ça</span>
       <img src="./assets/img/tooltip.png" alt="" width="32" height="32">
     </div>
     <input class="form-input" type="text" id="reponse_1" aria-label="Réponse attendu 1" name="reponse_1" required>
@@ -188,7 +193,7 @@
 </form>
 <div class="link-container">
   <div>
-    <button class="next-link invalid" onclick="window.location='./6-1-formulaire.html'" id="valider" aria-label="valider" disabled>valider</button>
+    <button class="next-link invalid" onclick="window.location='./7-merci.html'" id="valider" aria-label="valider" disabled>valider</button>
     </div>
 </div>
     <script src="./assets/js/timer/timer.js"></script>

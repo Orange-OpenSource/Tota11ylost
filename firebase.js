@@ -8,7 +8,15 @@ import {
   orderBy,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const firebaseConfig = {};
+const firebaseConfig = {
+  apiKey: "AIzaSyCBU-qFh8AT8amoWZZpJ658_DmLMb-yp5w",
+  authDomain: "testescapea11y.firebaseapp.com",
+  projectId: "testescapea11y",
+  storageBucket: "testescapea11y.appspot.com",
+  messagingSenderId: "486048904670",
+  appId: "1:486048904670:web:41313a49c854387269594f",
+  measurementId: "G-TLDCPF9GNX"
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
