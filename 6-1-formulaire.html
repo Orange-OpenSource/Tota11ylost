@@ -1,179 +1,328 @@
 <!doctype html>
 <html lang="fr">
-
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0, maximum-scale=5.0, minimum-scale=5.0 user-scalable=no">
     <meta name="author" content="Damien GOMEZ" />
-    <meta name="description" content="Page de formulaire d'inscription pour Escapage Game A11Y" />
-    <title>Formulaire inscription - Escape Game A11y</title>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
-        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
-        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+          content="Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)" />
+    <title>Formulaire satisfaction - Escape Game A11y</title>
+<head>
+    <title>Formulaire avec Vérification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            font-size: 24px;
+            position: relative;
+            margin: 10px;
+            transform: scale(5);
+            transform-origin: 0 0;
+            max-width: 100%; /* Ajout pour s'assurer que la largeur n'excède pas celle du header */
+        }
+       
+        .tooltip-header {
+            background-color: #000;
+            color: #fff;
+            text-align: justify;
+            top: 0;
+            padding: 50px;
+        } 
+
+        .header {
+            font-size: 50px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            top: 0;
+            padding: 100px;
+        }
+
+        .form-input {
+            width: 20%; /* Ajustement de la largeur du champ de formulaire */
+            max-width: 40%; /* Assure que la largeur n'excède pas celle du header */
+            display: block !important;
+            text-align: justify !important;
+        }
+
+        label {
+            text-align: justify !important;
+            font-size: 500%;
+        }
+
+        input {
+            text-align: right !important;
+            margin-left: 69%;
+            font-size: xx-large;
+            transform: scale(2);
+        }
+
+        .link-container {
+            text-align: center;
+            font-size: 500%;
+            margin-top: 10%;
+        }
+
+        .form-container {
+          text-align: justify;
+        }
+
+        footer {
+          font-size: 10px;
+          text-align: center;
+        }
+
+    /* Style pour la tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+
+    .tooltiptext {
+      visibility: hidden;
+      position:absolute;
+      font-size: 100%;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: center;
+      padding: 10px 15px 10px 15px;
+      z-index: 1;
+      width: max-content;
+      max-width: 300px;
+      border-style: solid;
+      border-width: 2px ;
+      border-color: black ;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #bottom {
+      top: -8px;
+      left: -50%;
+    }
+
+    #right {
+      top: -8px;
+      right: 100%;
+    }
+
+    #left {
+      top: -8px;
+      left: 100%;
+    }
+
+    .next-button {
+            padding: 10px 20px;
+            background-color: black;
+            color: black;
+            border: none;
+            cursor: not-allowed;
+        }
+
+        .valid {
+          border: none;
+            background-color: #FF7900;
+            color: #000000;
+            padding: 10px 20px;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .invalid {
+            opacity: 0;
+        }
+
+        .label-container {
+          padding-bottom: 20%;
+        }
+
+        </style>
 </head>
-
-<body class="fs-2">
-    <header class="sticky-top">
-        <div class="container-fluid bg-dark">
-            <div class="mx-auto">
-                <h1 class="text-center">Formulaire d'inscription</h1>
-                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-                    class="timer" id="timer">Fin du temps imparti</div>
-            </div>
+<body>
+<div class="custom-cursor"></div>
+<div class="tooltip-header">
+  <div class="tooltip">
+    <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    width="40px" height="40px" viewBox="0 0 45.311 45.311"
+    xml:space="preserve">
+ <g>
+   <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+     c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+     C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+     c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+     c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+     c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+     c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+     c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+ </g>
+ </svg>
+    <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Vous êtes mal-voyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient difficile...<br> votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>la suite au prochain élément, vers la droite.<br>--></span>
+  </div>
+</div>
+  <div class="header">
+    <div class="tooltip">
+      <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      width="40px" height="40px" viewBox="0 0 45.311 45.311"
+      xml:space="preserve">
+   <g>
+     <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+       c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+       C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+       c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+       c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+       c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+       c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+       c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+   </g>
+   </svg>
+      <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Pardon, manque de place... on a été coupé.<br>Donc je disais,<br>ça deviens forcément un challenge supplémentaire de lire ce genre d'infobulles.<br>Pour peut qu'il ne soit pas possible de placer la souris dessus et de naviguer dedans en plus...</span>
+    </div>
+    <h1 style="font-size: 25px !important;">Un simple champ de formulaire</h1>
+    <div role="region" style="font-size: 20px !important;" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">00:00:00</div>
+    <div class="tooltip" style="margin-top: 50px;">
+      <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      width="40px" height="40px" viewBox="0 0 45.311 45.311"
+      xml:space="preserve">
+   <g>
+     <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+       c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+       C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+       c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+       c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+       c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+       c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+       c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+   </g>
+   </svg>
+      <span class="tooltiptext" id="left" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Pour passer cette étape, il vous suffira de passer sur chaque infobulle à côté des champs de formulaires, d'en lire le contenu et de répondre aux énigmes.<br>Facile donc.<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
+    </div>
+  </div>
+  <div class="tooltip" style="margin-left: 50% !important;">
+    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+    width="40px" height="40px" viewBox="0 0 45.311 45.311"
+    xml:space="preserve">
+ <g>
+   <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+     c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+     C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+     c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+     c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+     c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+     c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+     c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+ </g>
+ </svg>
+    <span class="tooltiptext" id="right" style="top:0px !important; font-size: 20px !important;" aria-label="information sur lesformulaire">Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite ce trouve au prochain élément, à gauche<br><--</span>
+  </div>
+  <div class="form-container"></div>
+  <form>
+    <div class="label-container">
+    <label  for="reponse_1">Question 1:</label>
+    <div class="tooltip">
+      <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      width="40px" height="40px" viewBox="0 0 45.311 45.311"
+      xml:space="preserve">
+   <g>
+     <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+       c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+       C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+       c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+       c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+       c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+       c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+       c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+   </g>
+   </svg>
+      <span class="tooltiptext" style="left:40px;">Énigme 1 :<br> Nous recherchons un Nom<br> - Je suis Née esclave dans le comté de Dorchester.<br>- Une blessure à la tête m'a valu une déficience visuelle.<br>- Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté.</span>
+    </div>
+    <input class="form-input" type="text" id="reponse_1" aria-label="Résoudre l'énigme et indiquer le nom de la personne recherchée" aria-describedby="Énigme : Je suis Née esclave dans le comté de Dorchester. Une blessure à la tête m'a valu une déficience visuelle. Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté." name="reponse_1" placeholder="réponse 1" required>
+    </div>
+    <div class="label-container">
+        <label  for="reponse_2">Question 2:</label>
+        <div class="tooltip">
+          <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+          width="40px" height="40px" viewBox="0 0 45.311 45.311"
+          xml:space="preserve">
+      <g>
+        <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+          c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+          C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+          c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+          c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+          c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+          c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+          c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+      </g>
+        </svg>
+          <span class="tooltiptext" id="bottom" style="left:90px;" >Énigme 2 :<br> Quoi mettre dans ce champ de formulaire ? <br> ... La réponse est beaucoup plus simple.<br> Si seulement ce message voulait bien arrêter de disparaitre...<br> Ce serait plus simple ! <br> Aller... Je pense que tout le monde a dû dézoomer maintenant, ce champ n'est pas obligatoire en fait ;p</span>
         </div>
-    </header>
-    <main>
-        <div class="container-fluid">
-            <h2>Description</h2>
-            <p>Les formulaires sont omniprésents sur le Web.</p>
-            <p>Il est donc impossible de s'en passer et doit être facilement utilisable pour tous.</p>
-            <p>Vous allez ici essayer de remplir correctement ce formulaire d'inscription.</p>
+        <input class="form-input" type="text" id="reponse_2"  name="reponse_2" placeholder="réponse 2">
+    </div>
 
-
-            <h2>Le type d'utilisateur que vous incarnez</h2>
-            <p>Vous êtes dans la peau de quelqu'un souffrant d'handicap cognitif ou visuelle, donc souvent confrontées à des formulaires pas ou peu accessible.</p>
-            <h2>Règles</h2>
-            <ul>
-                <li>Remplissez tous les champs de formulaires (vous pouvez mettre des données fictives !!!).</li>
-                <li>puis appuyez sur le bouton "s'incrire".</li>
-                <li>Une fois le formulaire validé, il vous sera possible de valider l'énigme.</li>
-                <li>Si c'est trop dur, n'hésitez pas à prendre des indices !!!</li>
-                <li>Attention, les indices rajoutent du temps à votre timer...</li>
-            </ul>
-
-            <h2>Le formulaire d'inscription</h2>
-
-            <div class="form-container">
-
-                <p role="status">Tous les champs sont obligatoires</p>
-
-                <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
-                    <span class="alert-icon"></span>
-                    <p>Erreur dans le formulaire.</p>
-                </div>
-                <div class="mb-3" id="pistacheDiv">
-                    <input type="text" id="pistache" class="form-control" aria-describedby="errorpistacheDiv">
-                    <div id="errorpistacheDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorpistacheText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="cacahueteDiv">
-                    <input type="text" id="cacahuete" class="form-control" aria-describedby="errorcacahueteText">
-                    <div id="errorcacahueteDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorcacahueteText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="olivesDiv">
-                    <input type="password" id="olives" class="form-control" aria-describedby="errorolivesText">
-                    <div id="errorolivesDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorolivesText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="saucissonDiv">
-                    <input type="text" id="saucisson" class="form-control" aria-describedby="errorsaucissonText">
-                    <div id="errorsaucissonDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorsaucissonText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="chipsDiv">
-                    <input type="text" id="chips" class="form-control" aria-describedby="errorchipsText">
-                    <div id="errorchipsDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorchipsText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="tapenadeDiv">
-                    <input type="text" id="tapenade" class="form-control" aria-describedby="errortapenadeText">
-                    <div id="errortapenadeDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errortapenadeText"></p>
-                    </div>
-                </div>
-                <fieldset aria-describedby="errorfruitText">
-                    <legend id="legendFruit"></legend>
-                    <div id="errorfruitDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorfruitText"></p>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="fraise" value="Fraise">
-                            <label class="form-check-label" for="fraise">Fraise</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="pomme" value="Pomme">
-                            <label class="form-check-label" for="pomme">Pomme</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="clementine"
-                                value="Clémentine">
-                            <label class="form-check-label" for="clementine">Clémentine</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="ananas" value="Ananas">
-                            <label class="form-check-label" for="ananas">Ananas</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="mangue" value="Mangue">
-                            <label class="form-check-label" for="mangue">Mangue</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="litchi" value="Litchi">
-                            <label class="form-check-label" for="litchi">Litchi</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="melon" ">
-                    <label class=" form-check-label" for="melon">Melon</label>
-                        </div>
-                        <div class="my-3">
-                            <button type="button" class="btn btn-primary" id="inscription" disabled>S'inscrire</button>
-                        </div>
-
-
-                    </div>
-                </fieldset>
-            </div>
-            <h2>Les indices</h2>
-            <div class="indicesDiv">
-                <div id="indice1" class="d-none" role="status">
-                    <h3>Indice 1 :</h3>
-                </div>
-                <div id="indice2" class="d-none" role="status">
-                    <h3>Indice 2 :</h3>
-                </div>
-                <div id="indice3" class="d-none" role="status">
-                    <h3>Indice 3 :</h3>
-                </div>
-                <div class="my-3">
-                    <button type="button" class="btn btn-primary" id="indice">Prendre un indice (+15sec)</button>
-                </div>
-            </div>
-    </main>
-    <footer class="footer bg-dark navbar-dark">
-        <div class="container-xxl footer-terms">
-            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
-                    rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by
-                <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a
-                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
-                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
-                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
-                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>
-            </p>
+    <div>
+      <div class="label-container">
+        <label  for="reponse_3">Question 3:</label>
+        <div class="tooltip">
+          <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+          width="40px" height="40px" viewBox="0 0 45.311 45.311"
+          xml:space="preserve">
+      <g>
+        <path d="M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.013-0.001-0.02-0.001C10.135,0.02,0,10.154,0,22.656
+          c0,12.5,10.135,22.635,22.635,22.635c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0c12.5,0,22.635-10.135,22.635-22.635
+          C45.311,10.154,35.176,0.02,22.675,0.02z M22.675,38.811c-0.006,0-0.014-0.001-0.02-0.001c-0.007,0-0.013,0.001-0.02,0.001
+          c-2.046,0-3.705-1.658-3.705-3.705c0-2.045,1.659-3.703,3.705-3.703c0.007,0,0.013,0,0.02,0c0.006,0,0.014,0,0.02,0
+          c2.045,0,3.706,1.658,3.706,3.703C26.381,37.152,24.723,38.811,22.675,38.811z M27.988,10.578
+          c-0.242,3.697-1.932,14.692-1.932,14.692c0,1.854-1.519,3.356-3.373,3.356c-0.01,0-0.02,0-0.029,0c-0.009,0-0.02,0-0.029,0
+          c-1.853,0-3.372-1.504-3.372-3.356c0,0-1.689-10.995-1.931-14.692C17.202,8.727,18.62,5.29,22.626,5.29
+          c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
+      </g>
+      </svg>
+          <span class="tooltiptext" id="bottom" style="left:90px;">Dernière ligne droite, indiquer votre pseudo pour faire partie du classement général.</span>
         </div>
-    </footer>
+        <input class="form-input" type="text" id="reponse_3"  name="reponse_3" aria-label="Indiquer votre pseudo pour faire partie du classement général" placeholder="Indiquer votre pseudo" required>
+    </div>
 
+</form>
+<div class="link-container">
+  <div>
+    <button class="next-link invalid" onclick="window.location='./7-merci.html'" id="valider" aria-label="valider" disabled>valider</button>
+    </div>
+</div>
     <script src="./assets/js/timer/timer.js"></script>
-    <script src="./assets/js/formulaire/formulaire2.js"></script>
+    <script>
+      const formInputs = document.querySelectorAll('.form-input');
+      const nextButton = document.getElementById('valider');
+
+      formInputs.forEach(input => {
+          input.addEventListener('input', () => {
+              validateForm();
+          });
+      });
+
+      function validateForm() {
+          const reponse_1 = document.getElementById('reponse_1').value.toLowerCase();
+
+          if (reponse_1 === 'tubman' || reponse_1 === 'harriet tubman') {
+              nextButton.classList.remove('invalid');
+              nextButton.classList.add('valid');
+              nextButton.removeAttribute('disabled');
+          } else {
+              nextButton.classList.remove('valid');
+              nextButton.classList.add('invalid');
+              nextButton.setAttribute('disabled', 'true');
+          }
+      }
+  </script>
+    <footer>
+      <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/damiengomez/EscapeGameA11y">Escape Game A11Y</a> by <span property="cc:attributionName">Damien GOMEZ</span> is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
+    </footer>
 </body>
+</html>

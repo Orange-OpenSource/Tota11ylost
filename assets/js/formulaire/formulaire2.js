@@ -75,7 +75,7 @@ btnIndice.addEventListener('click', (e) => {
 btnInscription.addEventListener("click", (e) => {
     alertError.classList.add('d-none')
     if(!errorForm()){
-        document.location.assign('./7-merci.html');
+        document.location.assign('./6-1-formulaire.html');
     }
     else{
         nom.focus();
