@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.tech.orange/damien.gomez/escapegame-a11y.git
+git remote add origin https://gitlab.tech.orange/accessibility/escape-a11y.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.tech.orange/damien.gomez/escapegame-a11y/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.tech.orange/accessibility/escape-a11y/-/settings/integrations)
 
 ## Collaborate with your team
 
