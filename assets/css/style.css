@@ -116,3 +116,38 @@
     user-select: none;
     /* Propriété standard */
 }
+
+/* 7 scores */
+@font-face {
+  font-family: "retro_gaming";
+  src: url("../fonts/retro_gaming/retro_gaming-webfont.eot");
+  src: url("../fonts/retro_gaming/retro_gaming-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/retro_gaming/retro_gaming-webfont.woff2") format("woff2"), url("../fonts/retro_gaming/retro_gaming-webfont.woff") format("woff"), url("../fonts/retro_gaming/retro_gaming-webfont.ttf") format("truetype"), url("../fonts/retro_gaming/retro_gaming-webfont.svg#retro_gamingregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.title-bar {
+  border-bottom: 0;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.subtitle, .column-title {
+  font-family: retro_gaming, Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.table {
+  text-align: center;
+}
+
+.table tr {
+  border: none;
+}
