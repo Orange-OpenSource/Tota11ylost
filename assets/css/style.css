@@ -151,3 +151,7 @@ body {
 .table tr {
   border: none;
 }
+
+.table img {
+   max-width: 50px;
+}
