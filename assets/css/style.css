@@ -151,3 +151,19 @@ body {
 .table tr {
   border: none;
 }
+
+.table-active td:first-of-type {
+  border-start-start-radius: 50px;
+  border-end-start-radius: 50px;
+}
+
+.table-active td:last-of-type {
+  border-start-end-radius: 50px;
+  border-end-end-radius: 50px;
+}
+
+.table-active {
+    --bs-table-active-bg: #527edb;
+    --bs-table-active-color: #fff ;
+    font-weight: bold;
+}
