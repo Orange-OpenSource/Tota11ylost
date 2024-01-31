@@ -126,9 +126,9 @@
   font-style: normal;
 }
 
-body {
-  background-color: white;
-  color: black;
+.scores {
+  background-color: black;
+  color: white;
 }
 
 .title-bar {
