@@ -21,7 +21,7 @@ if (document.getElementById('timerFinish') !== null) {
         localStorage.setItem('timerFinish', Date.now());
     }
     currentTime = localStorage.getItem('timerFinish')
-    document.getElementById('timerFinish').textContent = 'Vous venez de terminer l\'Escape Game A11y en ' + getFormattedTime() + '.';
+    document.getElementById('timerFinish').textContent = 'Vous venez de terminer l\'Escape Game en ' + getFormattedTime() + '.';
 
 }
 
