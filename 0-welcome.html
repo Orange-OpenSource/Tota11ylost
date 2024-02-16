@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Tota11y lost - accueil</title>
+    <meta name="author" content="Guillaume PERE"/>
+    <meta name="description"
+          content="Page d'accueil de Tota11y lost"/>
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+          integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+          integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+    <link href="assets/css/welcome.css" rel="stylesheet" type="text/css">
+
+</head>
+<body class="d-flex flex-column min-vh-100" onload="setVersion('30')">
+<header class="d-flex justify-content-between p-4 bg-dark text-white">
+    <div class="d-flex align-items-center">
+        <img src="./assets/img/orange-logo.png" class="logo mx-2" alt="logo Orange">
+        <h1 class="fs-2 m-0">Tota11y lost</h1>
+    </div>
+</header>
+
+<main class="m-3">
+    <div class="d-flex justify-content-end">
+        <select id="languageSelect" class="form-select w-auto" aria-label="Sélectionnez la langue">
+            <option selected value="FR">FR - Français</option>
+            <option value="EN">EN - English</option>
+            <option value="ES">ES - Español</option>
+            <option value="DE">DE - Deutsch</option>
+        </select>
+    </div>
+
+    <h2>Accueil</h2>
+    <p class="col-6 mb-3">
+        Cet Escape Game à été conçu pour l'atelier que nous avons donné à la conférence ParisWeb 2023.
+        Vous êtes dans la salle d'attente de notre escape game. Si vous avez assez d'imagination, vous entendrez
+        peut-être même une petite musique d'ascenseur...
+        Profitez de ce moment de paix pour aller voir le profil de vos futures tortionnaires...
+    </p>
+
+    <h3>Configuration</h3>
+
+    <fieldset>
+        <legend class="my-3">Choisissez votre aventure</legend>
+        <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="adventureType" id="escape" checked>
+            <label class="btn btn-primary" for="escape">Escape game</label>
+
+            <input type="radio" class="btn-check" name="adventureType" id="enfer" disabled>
+            <label class="btn btn-primary" for="enfer" aria-disabled="true">Règles éditoriales de l'enfer (indisponible)</label>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend class="my-3">Choisissez votre durée</legend>
+        <div class="btn-group" role="group">
+            <input type="radio" class="btn-check" name="gameDuration" id="30min" checked>
+            <label class="btn btn-primary" for="30min">30 min</label>
+
+            <input type="radio" class="btn-check" name="gameDuration" id="60min">
+            <label class="btn btn-primary" for="60min">60 min</label>
+        </div>
+    </fieldset>
+
+    <form>
+        <div class="form-group col-4">
+            <label class="fs-4 my-3" for="pseudo">Indiquez votre pseudo</label>
+            <input type="text" class="form-control" id="pseudo" placeholder="Entrez votre pseudo" required oninvalid="this.setCustomValidity('Please enter a pseudo')">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" id="start">Démarrer l'aventure</button>
+    </form>
+</main>
+
+<footer class="footer bg-dark navbar-dark mt-auto">
+    <h2 class="visually-hidden">Sitemap & information</h2>
+    <div class="container-xxl footer-terms">
+        <ul class="navbar-nav gap-md-3">
+            <li><a class="nav-link" href="#">Informations légales</a></li>
+            <li><a class="nav-link" href="#">Données personnelles</a></li>
+            <li><a class="nav-link" href="#">Accessibilité : totalement conforme</a></li>
+            <li><a class="nav-link" href="#">Gestion cookies</a></li>
+            <li><a class="nav-link" href="#">Politique des cookies</a></li>
+            <li class="fw-bold">© Orange 2024</li>
+        </ul>
+    </div>
+</footer>
+<script src="./assets/js/timer/timer.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="assets/js/welcome.js" type="module"></script>
+
+</body>
+</html>
