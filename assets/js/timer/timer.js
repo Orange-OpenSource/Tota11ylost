@@ -36,15 +36,14 @@ if (localStorage.getItem('timerFinish') === null) {
 function updateTimer() {
     currentTime = Date.now();
     const formattedTime = getFormattedTime();
-    timerElement.textContent = formattedTime;
-
+    timerElement && (timerElement.textContent = formattedTime);
 }
 
 
-function getFormattedTime() {
-    const timeSpent = currentTime - startTime;
-
-
+function getFormattedTime(timeSpent) {
+    if(!timeSpent) {
+        timeSpent = getTime();
+    }
 
     const hours = Math.floor(timeSpent / (1000 * 60 * 60));
     const minutes = Math.floor((timeSpent % (1000 * 60 * 60)) / (1000 * 60));
@@ -52,6 +51,10 @@ function getFormattedTime() {
 
     return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
 
+}
+
+function getTime() {
+    return currentTime - startTime;
 }
 function formatTime(time) {
     return time < 10 ? `0${time}` : time;

@@ -1,0 +1,11 @@
+.scrollable-table {
+    display: block;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+}
