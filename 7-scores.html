@@ -1,92 +1,92 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Leaderboard - Escape game</title>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
-          integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
-          integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/scores.css">
-    <script src="assets/js/scores.js" type="module"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaderboard - Escape game</title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/scores.css">
+  <script src="assets/js/scores.js" type="module"></script>
 </head>
 <body class="scores" onload="updateRankingVersion()">
 <main class="bd-content order-1">
-    <div class="title-bar">
-        <div class="container-xxl d-block">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="main-title display-1">Tota11y Lost</h1>
-                    <h2 class="text-center">Bravo !</h2>
-                </div>
-            </div>
+  <div class="title-bar">
+    <div class="container-xxl d-block">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="main-title display-1">Tota11y Lost</h1>
+          <h2 class="text-center">Bravo !</h2>
         </div>
+      </div>
     </div>
-    <div class="container-xxl d-block text-center mt-4">
-        <div class="row">
-            <div class="col-12">
-                <p id="timerFinish">Vous venez de terminer l'Escape Game A11y.</p>
-              </div>
-            </div>
-        </div>
-        <div class="container-xxl pt-4 mt-4">
-            <div class="row justify-content-evenly">
-              <h2 class="subtitle text-center" id="hallOfFame">Tableau des scores</h2>
-                <div class="col-4">
-                <h3 class="column-title text-primary">Meilleurs scores du jour</h3>
-                    <table class="table table-dark" id="todayTable">
-                        <caption class="visually-hidden">Les meilleurs scores du jour</caption>
-                        <colgroup>
-                            <col style="width: 100px;">
-                            <col style="width: 150px;">
-                            <col style="width: 200px;">
-                            <col style="width: 150px;">
-                            <!-- Définissez la largeur pour chaque colonne comme nécessaire -->
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th scope="col" colspan="2">#</th>
-                            <th scope="col">Pseudo</th>
-                            <th scope="col">Temps</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col-4">
-                <h3 class="column-title text-primary">Classement général</h3>
-                    <table class="table table-dark scrollable-table" id="allTimeTable">
-                        <caption class="visually-hidden">classement général</caption>
-                        <colgroup>
-                            <col style="width: 100px;">
-                            <col style="width: 150px;">
-                            <col style="width: 200px;">
-                            <col style="width: 150px;">
-                            <!-- Définissez la largeur pour chaque colonne comme nécessaire -->
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th scope="col" colspan="2">#</th>
-                            <th scope="col">Pseudo</th>
-                            <th scope="col">Temps</th>
-                        </tr>
-                        </thead>
-                        <tr>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <p class="text-center mt-5">
-                    Félicitations, vous avez réussi à vous échapper, pour en apprendre plus visiter <a
-                        href="https://a11y-guidelines.orange.com/fr/" class="link-primary bg-dark">notre site des
-                    recos</a>
-                </p>
-            </div>
-        </div>
+  </div>
+  <div class="container-xxl d-block text-center mt-4">
+    <div class="row">
+      <div class="col-12">
+        <p id="timerFinish">Vous venez de terminer l'Escape Game A11y.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-xxl pt-4 mt-4">
+    <div class="row justify-content-evenly">
+      <h2 class="subtitle text-center" id="hallOfFame">Tableau des scores</h2>
+      <div class="col-4">
+        <h3 class="column-title text-primary">Meilleurs scores du jour</h3>
+        <table class="table table-dark" id="todayTable">
+          <caption class="visually-hidden">Les meilleurs scores du jour</caption>
+          <colgroup>
+            <col style="width: 100px;">
+            <col style="width: 150px;">
+            <col style="width: 200px;">
+            <col style="width: 150px;">
+            <!-- Définissez la largeur pour chaque colonne comme nécessaire -->
+          </colgroup>
+          <thead>
+          <tr>
+            <th scope="col" colspan="2">#</th>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Temps</th>
+          </tr>
+          </thead>
+          <tr>
+          </tr>
+        </table>
+      </div>
+      <div class="col-4">
+        <h3 class="column-title text-primary">Classement général</h3>
+        <table class="table table-dark scrollable-table" id="allTimeTable">
+          <caption class="visually-hidden">classement général</caption>
+          <colgroup>
+            <col style="width: 100px;">
+            <col style="width: 150px;">
+            <col style="width: 200px;">
+            <col style="width: 150px;">
+            <!-- Définissez la largeur pour chaque colonne comme nécessaire -->
+          </colgroup>
+          <thead>
+          <tr>
+            <th scope="col" colspan="2">#</th>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Temps</th>
+          </tr>
+          </thead>
+          <tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <p class="text-center mt-5">
+        Félicitations, vous avez réussi à vous échapper, pour en apprendre plus visiter <a
+        href="https://a11y-guidelines.orange.com/fr/" class="link-primary bg-dark">notre site des
+        recos</a>
+      </p>
+    </div>
+  </div>
 </main>
 <script src="./assets/js/timer/timer.js"></script>
 <script src="./assets/js/main.js"></script>
