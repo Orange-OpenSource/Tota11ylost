@@ -17,12 +17,12 @@ function simulateDyslexia(text) {
 
 function rotateLetter(letter) {
   const rotationMap = {
-    b: 'd', d: 'b', p: 'q', q: 'p', 
-    n: 'u', u: 'n', m:'w', w:'m',
-    v: 'y', y:'v', e:'a', a:'e',
-    j:'l', l:'j', t:'j', j:'t',
-    r:'f', f:'r'
-,
+    b: 'd', d: 'b', p: 'q', q: 'p',
+    n: 'u', u: 'n', m: 'w', w: 'm',
+    v: 'y', y: 'v', e: 'a', a: 'e',
+    j: 'l', l: 'j', t: 'j', j: 't',
+    r: 'f', f: 'r'
+    ,
     // Vous pouvez ajouter plus de correspondances ici
   };
   return rotationMap[letter] || letter;

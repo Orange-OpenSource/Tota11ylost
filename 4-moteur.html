@@ -2,86 +2,90 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap" />
-    <title>Handicap moteur - Escape Game A11y</title>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap"/>
+  <title>Handicap moteur - Escape Game A11y</title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
-    <style>   
-        .valid {
-          border: none;
-            background-color: #FF7900;
-            color: #000000;
-            padding: 10px 20px 10px 20px;
-            font-size: 24px;
-            text-align: center;
-            margin-top: 20px;
-            text-decoration: none;
-            cursor: none;
-        }
-    </style>
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <style>
+    .valid {
+      border: none;
+      background-color: #FF7900;
+      color: #000000;
+      padding: 10px 20px 10px 20px;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      cursor: none;
+    }
+  </style>
 </head>
 
 <body class="fs-2 cursor">
-    <header class="">
-        <div class="container-fluid bg-dark">
-            <div style="margin-bottom:20px!important;" class="mx-auto">
-                <h1 class="text-center">Handicap moteur</h1>
-                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-                    class="timer" id="timer">Fin du temps imparti</div>
-            </div>
+<header class="">
+  <div class="container-fluid bg-dark">
+    <div style="margin-bottom:20px!important;" class="mx-auto">
+      <h1 class="text-center">Handicap moteur</h1>
+      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+           class="timer" id="timer">Fin du temps imparti
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container-fluid height40">
+    <div class="modal" tabindex="-1" id="modalMoteur" data-bs-backdrop="static">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+                            <span style="cursor: none !important;" role="button" id="close-popup"
+                                  class="my-2 ms-auto close-popup"
+                                  aria-label="X fermez la modale">X </span>
+          </div>
+          <div class="modal-body">
+            <h1>Handicap moteur</h1>
+            <h2>Description</h2>
+            <p>Les personnes atteintes de déficiences motrices rencontrent divers obstacles lorsqu'elles
+              naviguent
+              sur Internet.</p>
+            <p> Ces obstacles sont souvent liés à une capacité limitée à contrôler précisément les mouvements de la
+              souris, à réaliser des combinaisons de touches au clavier ou encore à enchaîner des mouvements
+              séquentiels.</p>
+            <h2>Le type d'utilisateurs que vous incarnez</h2>
+            <p>Vous êtes dans la peau d'une personne avec un handicap moteur, vous avez donc de grandes
+              difficultés
+              à déplacer votre souris et à naviguer.</p>
+            <h2>Règles</h2>
+            <ul>
+              <li>Utilisez uniquement votre souris</li>
+              <li>Fermez cette pop-up</li>
+              <li>Cliquez sur le bouton "valider"</li>
+            </ul>
+          </div>
         </div>
-    </header>
-    <main>
-        <div class="container-fluid height40">
-            <div class="modal" tabindex="-1" id="modalMoteur" data-bs-backdrop="static">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span style="cursor: none !important;" role="button" id="close-popup" class="my-2 ms-auto close-popup"
-                                aria-label="X fermez la modale">X </span>
-                        </div>
-                        <div class="modal-body">
-                            <h1>Handicap moteur</h1>
-                            <h2>Description</h2>
-                            <p>Les personnes atteintes de déficiences motrices rencontrent divers obstacles lorsqu'elles
-                                naviguent
-                                sur Internet.</p>
-                            <p> Ces obstacles sont souvent liés à une capacité limitée à contrôler précisément les mouvements de la souris, à réaliser des combinaisons de touches au clavier ou encore à enchaîner des mouvements séquentiels.</p>
-                            <h2>Le type d'utilisateurs que vous incarnez</h2>
-                            <p>Vous êtes dans la peau d'une personne avec un handicap moteur, vous avez donc de grandes
-                                difficultés
-                                à déplacer votre souris et à naviguer.</p>
-                            <h2>Règles</h2>
-                            <ul>
-                                <li>Utilisez uniquement votre souris</li>
-                                <li>Fermez cette pop-up</li>
-                                <li>Cliquez sur le bouton "valider"</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
 
-            <a href="4-1-simulation-motrice.html" class="valid" tabindex="-1">Valider</a>
+    <a href="4-1-simulation-motrice.html" class="valid" tabindex="-1">Valider</a>
 
-            <div class="container">
-                <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
-                    style="position: absolute; z-index: 2000" />
-            </div>
+    <div class="container">
+      <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
+           style="position: absolute; z-index: 2000"/>
+    </div>
 
 
-        </div>
+  </div>
 
-    </main>
-    <script src="./assets/js/moteur/moteur.js"> </script>
-    <script src="./assets/js/timer/timer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
+</main>
+<script src="./assets/js/moteur/moteur.js"></script>
+<script src="./assets/js/timer/timer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
         integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
         crossorigin="anonymous"></script>
 </body>

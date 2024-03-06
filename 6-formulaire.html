@@ -2,158 +2,160 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Page de formulaire d'inscription pour Escapage Game A11Y" />
-    <title>Formulaire inscription - Escape Game A11y</title>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Page de formulaire d'inscription pour Escapage Game A11Y"/>
+  <title>Formulaire inscription - Escape Game A11y</title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="fs-2">
-    <header class="sticky-top">
-        <div class="container-fluid bg-dark">
-            <div class="mx-auto">
-                <h1 class="text-center">Formulaire d'inscription</h1>
-                <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-                    class="timer" id="timer">Fin du temps imparti</div>
-            </div>
+<header class="sticky-top">
+  <div class="container-fluid bg-dark">
+    <div class="mx-auto">
+      <h1 class="text-center">Formulaire d'inscription</h1>
+      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
+           class="timer" id="timer">Fin du temps imparti
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container-fluid">
+    <h2>Description</h2>
+    <p>Les formulaires sont omniprésents sur le Web.</p>
+    <p>Il est donc impossible de s'en passer et doit être facilement utilisable pour tous.</p>
+    <p>Vous allez ici essayer de remplir correctement ce formulaire d'inscription.</p>
+
+
+    <h2>Le type d'utilisateur que vous incarnez</h2>
+    <p>Vous êtes dans la peau de quelqu'un souffrant d'handicap cognitif ou visuelle, donc souvent confrontées à des
+      formulaires pas ou peu accessible.</p>
+    <h2>Règles</h2>
+    <ul>
+      <li>Remplissez tous les champs de formulaires (vous pouvez mettre des données fictives !!!).</li>
+      <li>puis appuyez sur le bouton "s'incrire".</li>
+      <li>Une fois le formulaire validé, il vous sera possible de valider l'énigme.</li>
+      <li>Si c'est trop dur, n'hésitez pas à prendre des indices !!!</li>
+      <li>Attention, les indices rajoutent du temps à votre timer...</li>
+    </ul>
+
+    <h2>Le formulaire d'inscription</h2>
+
+    <div class="form-container">
+
+      <p role="status">Tous les champs sont obligatoires</p>
+
+      <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
+        <span class="alert-icon"></span>
+        <p>Erreur dans le formulaire.</p>
+      </div>
+      <div class="mb-3" id="pistacheDiv">
+        <input type="text" id="pistache" class="form-control" aria-describedby="errorpistacheDiv">
+        <div id="errorpistacheDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorpistacheText"></p>
         </div>
-    </header>
-    <main>
-        <div class="container-fluid">
-            <h2>Description</h2>
-            <p>Les formulaires sont omniprésents sur le Web.</p>
-            <p>Il est donc impossible de s'en passer et doit être facilement utilisable pour tous.</p>
-            <p>Vous allez ici essayer de remplir correctement ce formulaire d'inscription.</p>
+      </div>
+      <div class="mb-3" id="cacahueteDiv">
+        <input type="text" id="cacahuete" class="form-control" aria-describedby="errorcacahueteText">
+        <div id="errorcacahueteDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorcacahueteText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="olivesDiv">
+        <input type="password" id="olives" class="form-control" aria-describedby="errorolivesText">
+        <div id="errorolivesDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorolivesText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="saucissonDiv">
+        <input type="text" id="saucisson" class="form-control" aria-describedby="errorsaucissonText">
+        <div id="errorsaucissonDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorsaucissonText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="chipsDiv">
+        <input type="text" id="chips" class="form-control" aria-describedby="errorchipsText">
+        <div id="errorchipsDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorchipsText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="tapenadeDiv">
+        <input type="text" id="tapenade" class="form-control" aria-describedby="errortapenadeText">
+        <div id="errortapenadeDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errortapenadeText"></p>
+        </div>
+      </div>
+      <fieldset aria-describedby="errorfruitText">
+        <legend id="legendFruit"></legend>
+        <div id="errorfruitDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
+          <p id="errorfruitText"></p>
+        </div>
+        <div class="mb-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="fraise" value="Fraise">
+            <label class="form-check-label" for="fraise">Fraise</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="pomme" value="Pomme">
+            <label class="form-check-label" for="pomme">Pomme</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="clementine"
+                   value="Clémentine">
+            <label class="form-check-label" for="clementine">Clémentine</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="ananas" value="Ananas">
+            <label class="form-check-label" for="ananas">Ananas</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="mangue" value="Mangue">
+            <label class="form-check-label" for="mangue">Mangue</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="litchi" value="Litchi">
+            <label class="form-check-label" for="litchi">Litchi</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="melon" ">
+            <label class=" form-check-label" for="melon">Melon</label>
+          </div>
+          <div class="my-3">
+            <button type="button" class="btn btn-primary" id="inscription" disabled>S'inscrire</button>
+          </div>
 
 
-            <h2>Le type d'utilisateur que vous incarnez</h2>
-            <p>Vous êtes dans la peau de quelqu'un souffrant d'handicap cognitif ou visuelle, donc souvent confrontées à des formulaires pas ou peu accessible.</p>
-            <h2>Règles</h2>
-            <ul>
-                <li>Remplissez tous les champs de formulaires (vous pouvez mettre des données fictives !!!).</li>
-                <li>puis appuyez sur le bouton "s'incrire".</li>
-                <li>Une fois le formulaire validé, il vous sera possible de valider l'énigme.</li>
-                <li>Si c'est trop dur, n'hésitez pas à prendre des indices !!!</li>
-                <li>Attention, les indices rajoutent du temps à votre timer...</li>
-            </ul>
-
-            <h2>Le formulaire d'inscription</h2>
-
-            <div class="form-container">
-
-                <p role="status">Tous les champs sont obligatoires</p>
-
-                <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
-                    <span class="alert-icon"></span>
-                    <p>Erreur dans le formulaire.</p>
-                </div>
-                <div class="mb-3" id="pistacheDiv">
-                    <input type="text" id="pistache" class="form-control" aria-describedby="errorpistacheDiv">
-                    <div id="errorpistacheDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorpistacheText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="cacahueteDiv">
-                    <input type="text" id="cacahuete" class="form-control" aria-describedby="errorcacahueteText">
-                    <div id="errorcacahueteDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorcacahueteText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="olivesDiv">
-                    <input type="password" id="olives" class="form-control" aria-describedby="errorolivesText">
-                    <div id="errorolivesDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorolivesText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="saucissonDiv">
-                    <input type="text" id="saucisson" class="form-control" aria-describedby="errorsaucissonText">
-                    <div id="errorsaucissonDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorsaucissonText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="chipsDiv">
-                    <input type="text" id="chips" class="form-control" aria-describedby="errorchipsText">
-                    <div id="errorchipsDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorchipsText"></p>
-                    </div>
-                </div>
-                <div class="mb-3" id="tapenadeDiv">
-                    <input type="text" id="tapenade" class="form-control" aria-describedby="errortapenadeText">
-                    <div id="errortapenadeDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errortapenadeText"></p>
-                    </div>
-                </div>
-                <fieldset aria-describedby="errorfruitText">
-                    <legend id="legendFruit"></legend>
-                    <div id="errorfruitDiv" class="alert alert-danger alert-sm d-none">
-                        <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-                        <p id="errorfruitText"></p>
-                    </div>
-                    <div class="mb-3">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="fraise" value="Fraise">
-                            <label class="form-check-label" for="fraise">Fraise</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="pomme" value="Pomme">
-                            <label class="form-check-label" for="pomme">Pomme</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="clementine"
-                                value="Clémentine">
-                            <label class="form-check-label" for="clementine">Clémentine</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="ananas" value="Ananas">
-                            <label class="form-check-label" for="ananas">Ananas</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="mangue" value="Mangue">
-                            <label class="form-check-label" for="mangue">Mangue</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="litchi" value="Litchi">
-                            <label class="form-check-label" for="litchi">Litchi</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="fruit" id="melon" ">
-                    <label class=" form-check-label" for="melon">Melon</label>
-                        </div>
-                        <div class="my-3">
-                            <button type="button" class="btn btn-primary" id="inscription" disabled>S'inscrire</button>
-                        </div>
-
-
-                    </div>
-                </fieldset>
-            </div>
-            <h2>Les indices</h2>
-            <div class="indicesDiv">
-                <div id="indice1" class="d-none" role="status">
-                    <h3>Indice 1 :</h3>
-                </div>
-                <div id="indice2" class="d-none" role="status">
-                    <h3>Indice 2 :</h3>
-                </div>
-                <div id="indice3" class="d-none" role="status">
-                    <h3>Indice 3 :</h3>
-                </div>
-                <div class="my-3">
-                    <button type="button" class="btn btn-primary" id="indice">Prendre un indice (+15sec)</button>
-                </div>
-            </div>
-    </main>
-    <script src="./assets/js/timer/timer.js"></script>
-    <script src="./assets/js/formulaire/formulaire2.js"></script>
+        </div>
+      </fieldset>
+    </div>
+    <h2>Les indices</h2>
+    <div class="indicesDiv">
+      <div id="indice1" class="d-none" role="status">
+        <h3>Indice 1 :</h3>
+      </div>
+      <div id="indice2" class="d-none" role="status">
+        <h3>Indice 2 :</h3>
+      </div>
+      <div id="indice3" class="d-none" role="status">
+        <h3>Indice 3 :</h3>
+      </div>
+      <div class="my-3">
+        <button type="button" class="btn btn-primary" id="indice">Prendre un indice (+15sec)</button>
+      </div>
+    </div>
+</main>
+<script src="./assets/js/timer/timer.js"></script>
+<script src="./assets/js/formulaire/formulaire2.js"></script>
 </body>

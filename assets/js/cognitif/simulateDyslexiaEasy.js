@@ -25,6 +25,7 @@ function rotateLetter(letter) {
   };
   return rotationMap[letter] || letter;
 }
+
 function simulateTextInElements(elements) {
   elements.forEach(element => {
     const originalText = element.textContent;

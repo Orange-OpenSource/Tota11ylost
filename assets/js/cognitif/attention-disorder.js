@@ -39,7 +39,7 @@ function hideOverlay() {
   overlay.style.display = 'none';
 
   // Générer un délai aléatoire entre 2 et 10 secondes pour réafficher
-  const randomDelay = Math.random() * (5000- 3000) + 2000;
+  const randomDelay = Math.random() * (5000 - 3000) + 2000;
 
   setTimeout(showOverlay, randomDelay); // Afficher à nouveau après le délai aléatoire
 }
