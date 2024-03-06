@@ -1,183 +1,183 @@
 body {
-    background-color: #000000 !important;
-    color: #000000 !important;
+  background-color: #000000 !important;
+  color: #000000 !important;
 }
 
 .btn {
-    color:#000000 !important;
-    background-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .text-uppercase .btn .fw-bold .h1 .h2 .h3 .h4 .h5 .h6 {
-    color:#000000;
-    background-color: #000000;
+  color: #000000;
+  background-color: #000000;
 }
 
 footer {
-    color:#000000 !important;
-    background-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .bg-light {
-    background-color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 a {
-    color: #000000 !important;
-    outline-offset: none !important;
+  color: #000000 !important;
+  outline-offset: none !important;
 }
 
 .text-primary {
-    color: #000000 !important;
-    background-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .text-bg-light {
-    color: #000000 !important;
-    background-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .dropdown-item {
-    color: #000000 !important;
-    background-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .dropdown-menu {
-    display:none;
-    color: #000000 !important;
-    background-color: #000000 !important;
+  display: none;
+  color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .btn-primary {
-    --bs-btn-hover-border-color: none !important;
-    --bs-btn-border-color: black !important;
+  --bs-btn-hover-border-color: none !important;
+  --bs-btn-border-color: black !important;
 }
 
 .btn-secondary {
-    --bs-btn-color: none;
-    --bs-btn-bg: none;
-    --bs-btn-border-color: none;
-    --bs-btn-hover-color: none;
-    --bs-btn-hover-bg: none;
-    --bs-btn-hover-border-color: none;
-    --bs-btn-focus-shadow-rgb: none;
-    --bs-btn-active-color: none;
-    --bs-btn-active-bg: none;
-    --bs-btn-active-border-color: none;
-    --bs-btn-active-shadow: none;
-    --bs-btn-disabled-color: none;
-    --bs-btn-disabled-bg: none;
-    --bs-btn-disabled-border-color: none;
+  --bs-btn-color: none;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-color: none;
+  --bs-btn-hover-bg: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-focus-shadow-rgb: none;
+  --bs-btn-active-color: none;
+  --bs-btn-active-bg: none;
+  --bs-btn-active-border-color: none;
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: none;
+  --bs-btn-disabled-bg: none;
+  --bs-btn-disabled-border-color: none;
 }
 
 .border-bottom {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 
 .btn-outline-dark {
-    --bs-btn-color: none;
-    --bs-btn-border-color: none;
-    --bs-btn-hover-color: none;
-    --bs-btn-hover-bg: none;
-    --bs-btn-hover-border-color: none;
-    --bs-btn-focus-shadow-rgb: none;
-    --bs-btn-active-color: none;
-    --bs-btn-active-bg: none;
-    --bs-btn-active-border-color: none;
-    --bs-btn-active-shadow: none;
-    --bs-btn-disabled-color: none;
-    --bs-btn-disabled-bg: none;
-    --bs-btn-disabled-border-color: none;
-    --bs-gradient: none;
+  --bs-btn-color: none;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-color: none;
+  --bs-btn-hover-bg: none;
+  --bs-btn-hover-border-color: none;
+  --bs-btn-focus-shadow-rgb: none;
+  --bs-btn-active-color: none;
+  --bs-btn-active-bg: none;
+  --bs-btn-active-border-color: none;
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: none;
+  --bs-btn-disabled-bg: none;
+  --bs-btn-disabled-border-color: none;
+  --bs-gradient: none;
 }
 
 .border-top {
-    border-top: none !important;
+  border-top: none !important;
 }
 
 .focus-visible {
-    outline: none !important;
+  outline: none !important;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs, .nav-link.active {
-    outline: none !important;
-    color: black !important;
-    background-color : black !important;
-    border-color: black !important;
-    border: none !important;
-    margin-bottom: none !important;
-    background: 0 0;
-    border-top-left-radius: none !important;
-    border-top-right-radius: none !important;
-    --bs-nav-tabs-border-width: none !important;
-    --bs-nav-tabs-border-color: black !important;
-    --bs-nav-tabs-link-hover-border-color: black !important;
-    --bs-nav-tabs-link-active-color: black !important;
-    --bs-nav-tabs-link-active-bg: black !important;
-    --bs-nav-tabs-link-active-border-color: black !important;
-    border-bottom: none;
+  outline: none !important;
+  color: black !important;
+  background-color: black !important;
+  border-color: black !important;
+  border: none !important;
+  margin-bottom: none !important;
+  background: 0 0;
+  border-top-left-radius: none !important;
+  border-top-right-radius: none !important;
+  --bs-nav-tabs-border-width: none !important;
+  --bs-nav-tabs-border-color: black !important;
+  --bs-nav-tabs-link-hover-border-color: black !important;
+  --bs-nav-tabs-link-active-color: black !important;
+  --bs-nav-tabs-link-active-bg: black !important;
+  --bs-nav-tabs-link-active-border-color: black !important;
+  border-bottom: none;
 }
 
 .nav-link {
-    display: none !important;
-    padding: none !important;
-    color: black !important;
-    text-decoration: none;
-    transition: none !important;
+  display: none !important;
+  padding: none !important;
+  color: black !important;
+  text-decoration: none;
+  transition: none !important;
 }
 
 .element.style {
-    color: black !important;
+  color: black !important;
 }
 
 .positioned {
-    position: relative !important;
-    left: 500px !important;
+  position: relative !important;
+  left: 500px !important;
 }
 
 .a {
-    outline-offset: none !important;
-    outline: none !important; 
+  outline-offset: none !important;
+  outline: none !important;
 }
 
 :focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 :hover {
-    color: black !important;
+  color: black !important;
 }
 
 .formulaire, .form-label, .form-control, .form-select {
-    background-color: black !important;
-    border: none !important;
-    color: black !important;
-    box-shadow: none !important;
+  background-color: black !important;
+  border: none !important;
+  color: black !important;
+  box-shadow: none !important;
 }
 
 .invalid-feedback, .text-muted, .text {
-    color: black !important;
+  color: black !important;
 }
 
 .list-group, .list-group-item, .text-success {
-    --bs-list-group-bg: black !important;
-    color: black !important;
-    position: relative;
-    left: 500px;
-    width: 0px;
+  --bs-list-group-bg: black !important;
+  color: black !important;
+  position: relative;
+  left: 500px;
+  width: 0px;
 }
 
 .conditionalcheck {
-    background-color: black !important;
-    color: black !important;
+  background-color: black !important;
+  color: black !important;
 }
 
 .form-input {
-    background-color: #000000 !important;
-    color: #000000 !important;
-    margin-bottom: 10px !important;
-    border-width: 0px !important;
+  background-color: #000000 !important;
+  color: #000000 !important;
+  margin-bottom: 10px !important;
+  border-width: 0px !important;
 }
 
 
