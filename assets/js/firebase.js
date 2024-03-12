@@ -25,7 +25,6 @@ const db = getFirestore(app);
 export async function storePseudo(pseudo, duration) {
   const timer = getTime();
 
-  // Créez une requête pour rechercher des documents avec le même pseudo et timer
   const scoresRef = collection(db, "scores" + duration);
   const q = query(scoresRef, where("pseudo", "==", pseudo), where("timer", "==", timer));
 
@@ -80,7 +79,6 @@ async function getTodayBestScores(duration) {
     scores.push(doc.data());
   });
 
-  // Trier les scores par timer en ordre croissant
   scores.sort((a, b) => a.timer - b.timer);
   return scores;
 }
