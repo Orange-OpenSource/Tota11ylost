@@ -7,7 +7,7 @@ const indiceText = [
 ]
 
 
-const indiceTime = [15, 300, 300, 0];
+const indiceTime = [30, 120, 300, 0];
 
 const nom = document.getElementById("pistache");
 const nomErrordiv = document.getElementById("errorpistacheDiv");
@@ -43,6 +43,11 @@ const btnInscription = document.getElementById("inscription");
 const btnIndice = document.getElementById('indice');
 
 const alertError = document.getElementById('errorDiv');
+
+
+setTimeout(() => {
+  btnIndice.removeAttribute("disabled");
+}, 300000);
 
 btnIndice.addEventListener('click', (e) => {
   addTime(indiceTime[indice]);
@@ -211,7 +216,7 @@ function errorForm() {
     error = true;
     if (indice === 3) {
       fruitErrordiv.classList.remove('d-none');
-      fruitErrortext.textContent = "Seuls 3 fruits doivent être sélectionnés!!!";
+      fruitErrortext.textContent = "Seuls 3 fruits doivent être sélectionnés !!!";
     }
   }
 
