@@ -1,14 +1,3 @@
-let indice = 0;
-const indiceText = [
-  '',
-  'Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.',
-  'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d\'erreurs !!!',
-  'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voila des messages d\'erreurs ont été rajoutés.'
-]
-
-
-const indiceTime = [30, 120, 300, 0];
-
 const nom = document.getElementById("pistache");
 const nomErrordiv = document.getElementById("errorpistacheDiv");
 const nomErrortext = document.getElementById("errorpistacheText");
@@ -45,30 +34,21 @@ const btnIndice = document.getElementById('indice');
 const alertError = document.getElementById('errorDiv');
 
 btnIndice.addEventListener('click', (e) => {
-  addTime(indiceTime[indice]);
-  indice++;
-  updateIndiceButton();
 
   switch (indice) {
     case 1:
-      addIndice();
       addLabel();
       break;
     case 2:
-      addIndice();
       btnInscription.disabled = false
       break;
     case 3:
-      addIndice();
       document.getElementById('email').textContent += ' (format : nomprenom@domain.com)'
       document.getElementById('telephone').textContent += ' (format : +33 suivi de 9 chiffres)'
       legendFruit.textContent += ' (3 fruits)'
-      e.target.disabled = true;
-      e.target.innerHTML = "Plus d'indices disponibles";
 
       break;
     default:
-      console.log('plus d\'indice');
   }
 
 });
@@ -86,7 +66,6 @@ btnInscription.addEventListener("click", (e) => {
   }
 
 })
-
 
 // on change event before indice 3
 nom.addEventListener("change", (e) => {
@@ -227,31 +206,6 @@ function errorForm() {
   return error;
 }
 
-function addIndice() {
-  const indiceDiv = document.getElementById("indice" + indice);
-
-  let para = document.createElement("p");
-  let node = document.createTextNode(indiceText[indice]);
-  para.appendChild(node);
-  indiceDiv.appendChild(para);
-  indiceDiv.classList.remove('d-none')
-}
-
-function updateIndiceButton() {
-  let getIndiceTime = indiceTime[indice];
-  let textTime = "";
-  let durationTime = "";
-
-  if (getIndiceTime < 60 && indiceTime !== 0) {
-    textTime = "sec"
-    durationTime = getIndiceTime;
-  } else {
-    textTime = "min";
-    durationTime = getIndiceTime / 60;
-  }
-  btnIndice.textContent = "Prendre un indice (+" + durationTime + " " + textTime + ")";
-}
-
 function addLabel() {
 
   labelNom = document.createElement("LABEL");
@@ -298,8 +252,6 @@ function addLabel() {
 
 
   legendFruit.textContent = "Sélectionnez vos fruits préférés :"
-
-
 }
 
 document.addEventListener('DOMContentLoaded', function () {
