@@ -1,7 +1,3 @@
-let indice = 0;
-
-const indiceTime = [30, 120, 300, 0];
-
 const nom = document.getElementById("pistache");
 const nomErrordiv = document.getElementById("errorpistacheDiv");
 const nomErrortext = document.getElementById("errorpistacheText");
@@ -38,30 +34,21 @@ const btnIndice = document.getElementById('indice');
 const alertError = document.getElementById('errorDiv');
 
 btnIndice.addEventListener('click', (e) => {
-  addTime(indiceTime[indice]);
-  indice++;
-  updateIndiceButton();
 
   switch (indice) {
     case 1:
-      addIndice();
       addLabel();
       break;
     case 2:
-      addIndice();
       btnInscription.disabled = false
       break;
     case 3:
-      addIndice();
       document.getElementById('email').textContent += ' ' + i18next.t('form.detailEmail');
       document.getElementById('telephone').textContent += ' ' + i18next.t('form.detailPhoneNumber');
       legendFruit.textContent += ' ' + i18next.t('form.detailFruits');
-      e.target.disabled = true;
-      e.target.innerHTML = "Plus d'indices disponibles";
 
       break;
     default:
-      console.log('plus d\'indice');
   }
 
 });
@@ -79,7 +66,6 @@ btnInscription.addEventListener("click", (e) => {
   }
 
 })
-
 
 // on change event before indice 3
 nom.addEventListener("change", (e) => {
