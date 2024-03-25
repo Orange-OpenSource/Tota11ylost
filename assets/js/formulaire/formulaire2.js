@@ -44,11 +44,6 @@ const btnIndice = document.getElementById('indice');
 
 const alertError = document.getElementById('errorDiv');
 
-
-setTimeout(() => {
-  btnIndice.removeAttribute("disabled");
-}, 300000);
-
 btnIndice.addEventListener('click', (e) => {
   addTime(indiceTime[indice]);
   indice++;
