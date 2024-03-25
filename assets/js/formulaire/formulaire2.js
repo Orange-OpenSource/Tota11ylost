@@ -57,6 +57,7 @@ btnIndice.addEventListener('click', (e) => {
       document.getElementById('telephone').textContent += ' ' + i18next.t('form.detailPhoneNumber');
       legendFruit.textContent += ' ' + i18next.t('form.detailFruits');
       e.target.disabled = true;
+      e.target.innerHTML = "Plus d'indices disponibles";
 
       break;
     default:
