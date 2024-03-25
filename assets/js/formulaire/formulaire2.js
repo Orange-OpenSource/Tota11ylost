@@ -64,6 +64,7 @@ btnIndice.addEventListener('click', (e) => {
       document.getElementById('telephone').textContent += ' (format : +33 suivi de 9 chiffres)'
       legendFruit.textContent += ' (3 fruits)'
       e.target.disabled = true;
+      e.target.innerHTML = "Plus d'indices disponibles";
 
       break;
     default:
