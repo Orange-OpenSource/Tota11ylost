@@ -27,9 +27,7 @@ const fruitErrordiv = document.getElementById("errorfruitDiv");
 const fruitErrortext = document.getElementById("errorfruitText");
 const legendFruit = document.getElementById('legendFruit');
 
-
 const btnInscription = document.getElementById("inscription");
-const btnIndice = document.getElementById('indice');
 
 const alertError = document.getElementById('errorDiv');
 

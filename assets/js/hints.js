@@ -1,6 +1,7 @@
-const btnHint = document.getElementById("indice");
+const btnIndice = document.getElementById('indice');
 const displayTimer = document.getElementById("displayTimer");
 
+// Display timer before hint button activation
 function startTimer(duration, display) {
   var start = Date.now(),
     diff,
@@ -29,12 +30,14 @@ function startTimer(duration, display) {
 let display = document.querySelector('#time');
 startTimer(5 * 60, display);
 
+// Activate hint buttton and remove time after 5min
 setTimeout(() => {
-  btnHint.removeAttribute("disabled");
+  btnIndice.removeAttribute("disabled");
   displayTimer.classList.add("d-none");
 }, 300000);
 
 
+// Hint system
 let indice = 0;
 const indiceText = [
   '',
@@ -44,7 +47,6 @@ const indiceText = [
 ]
 
 const indiceTime = [30, 120, 300, 0];
-
 
 btnIndice.addEventListener('click', (e) => {
   addTime(indiceTime[indice]);
