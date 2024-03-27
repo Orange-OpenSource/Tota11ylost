@@ -1,19 +1,21 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Page de simulation d'un handicap visuel lourd (non-voyant)"/>
-  <title>Simulation - Handicap visuel - Escape Game A11y</title>
+  <meta name="description" data-i18n="visualSimu.content_description"/>
+  <title data-i18n="visualSimu.tabTitle"></title>
   <link href="./assets/css/visuel/black.css" rel="stylesheet">
   <link href="./assets/css/visuel/braille-small.css" rel="stylesheet" type="text/css">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-  <title>Formulaire avec Vérification</title>
 </head>
 <div id="text-bloc">
 </div>
@@ -22,58 +24,49 @@
 <header>
   <div class="mx-auto">
     <h1 class="text-center">2.1 - Expérience non Visuelle</h1>
-    <div class="text-center" role="region" aria-label="Zone du timer de l'escapeGame" class="timer" id="timer">
-      Fin du temps imparti
+    <div class="text-center text-bg-dark" role="region"
+         data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
     </div>
   </div>
 </header>
 <main>
   <div class="container-fluid fs-6 nonSelectionnable">
-    <h2>Le type d'utilisateur</h2>
+    <h2 data-i18n="visualSimu.userTypeHeading"></h2>
     <div class="d-inline">
-      <p class="d-inline" id="autofocus" tabindex="0">Cette épreuve est un peu spéciale. pour naviguer au clavier sur
-        cette page, utilisez la touche « Tab » pour avancer et la combinaison « Shift+Tab » pour reculer.</p>
-      <p class="d-inline" tabindex="0">Ici, vous vous frottez au handicap numérique le plus impactant : aveugle ou très
-        mal-voyant.</p>
-      <h2>Énigme</h2>
-      <p class="d-inline" tabindex="0">Difficile de savoir où l'on va dans le noir hein ?</p>
-      <p class="d-inline" tabindex="0">Heureusement... il y a le clavier...</p>
-      <p class="d-inline" tabindex="0">Et puis, c'est très facile de rentrer des valeurs dans un formulaire</p>
-      <p class="d-inline" tabindex="0">...enfin...</p>
-      <p class="d-inline" tabindex="0">Il ne reste qu'à savoir QUOI rentrer ...</p>
-      <p class="d-inline" tabindex="0">et où ...?</p>
-      <p class="d-inline" tabindex="0">Allez je suis sympa, je vais laisser un label sur les champs de formulaire.</p>
-      <p class="d-inline" tabindex="0">Et puis, si il devait y avoir des dates, ce serait au format jj/mm/aaaa ... ça
-        c'est sur.</p>
-      <p class="d-inline" tabindex="0">Énigme :</p>
-      <p class="d-inline" tabindex="0">Moi, Louis, j'ai dû travailler de toutes mes forces pour que mon handicap ne
-        m'entrave pas</p>
-      <p class="d-inline" tabindex="0">(mon père me disait que j'avais le cuir épais)</p>
-      <p class="d-inline" tabindex="0">je mets un POINT d'honneur à y travailler, inventer et perfectionner mon
-        système.</p>
-      <p class="d-inline" tabindex="0">En tout cas, le résultat est là, mon invention m'a survécue et est devenue la
-        norme.</p>
-      <p class="d-inline" tabindex="0">J'ai même été déplacé pendant mon repos en tant que personnalité...</p>
-      <p class="d-inline" tabindex="0">pour la postérité.</p>
-      <p class="d-inline" tabindex="0">Indiquez vos réponses dans les champs de formulaire qui suivent :</p>
+      <p class="d-inline" id="autofocus" tabindex="0" data-i18n="visualSimu.userTypeText1"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.userTypeText2"></p>
+      <h2 data-i18n="visualSimu.RiddleHeading"></h2>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText1"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText2"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText3"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText4"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText5"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText6"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText7"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText8"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText9"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText10"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText11"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText12"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText13"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText14"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText15"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.formInstructions"></p>
       <form id="myForm">
-        <input class="form-input" type="text" required id="nom" aria-label="nom">
-        <input class="form-input" type="text" required id="prenom" aria-label="prenom">
-        <input class="form-input" type="text" required id="naissance" aria-label="naissance">
-        <input class="form-input" type="text" required id="mort" aria-label="mort">
-        <input class="form-input" type="text" required id="ville" aria-label="lieu de repos">
+        <input class="form-input" type="text" required id="nom" data-i18n="visualSimu.aria-label_name">
+        <input class="form-input" type="text" required id="prenom" data-i18n="visualSimu.aria-label_firstName">
+        <input class="form-input" type="text" required id="naissance" data-i18n="visualSimu.aria-label_birthDate">
+        <input class="form-input" type="text" required id="mort" data-i18n="visualSimu.aria-label_deathDate">
+        <input class="form-input" type="text" required id="ville" data-i18n="visualSimu.aria-label_restingPlace">
       </form>
     </div>
     <div>
-      <a class="visuel21" href="" id="valider">Aïe le test n'est toujours pas réussi, vous ne pouvez pas valider
-        l'épreuve !!!</a>
+      <a class="visuel21" href="" id="valider" data-i18n="visualSimu.validationError"></a>
     </div>
   </div>
 </main>
 <script src="./assets/js/visuel/visuel21.js"></script>
 <script src="./assets/js/visuel/braille-tools.js"></script>
 <script src="./assets/js/timer/timer.js"></script>
-
 </body>
-
 </html>

@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 <head>
   <meta charset="utf-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=5.0, maximum-scale=5.0, minimum-scale=5.0 user-scalable=no">
-  <meta name="description"
-        content="Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)"/>
-  <title>Formulaire satisfaction - Escape Game A11y</title>
+  <meta name="description" data-i18n="formSimu.content_description"/>
+  <title data-i18n="formSimu.tabTitle"></title>
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
   <head>
-    <title>Formulaire avec Vérification</title>
+    <title data-i18n="formSimu.pageTitle"></title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -165,7 +167,7 @@
  </g>
  </svg>
     <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;"
-          aria-label="information sur lesformulaire">Vous êtes malvoyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient difficile...<br> Votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>La suite au prochain élément, vers la droite.<br>--></span>
+          data-i18n="formSimu.information;formSimu.aria-label_information"></span>
   </div>
 </div>
 <div class="header">
@@ -185,11 +187,11 @@
    </g>
    </svg>
     <span class="tooltiptext" id="bottom" style="top:0px !important; font-size: 20px !important;"
-          aria-label="information sur lesformulaire">Pardon, manque de place... on a été coupé.<br>Donc je disais,<br>ça devient forcément un challenge supplémentaire de lire ce genre d'infobulles.<br>Pour peu qu'il ne soit pas possible de placer la souris dessus et de naviguer dedans en plus...</span>
+          data-i18n="formSimu.tooltip;formSimu.aria-label_tooltip"></span>
   </div>
-  <h1 style="font-size: 25px !important;">Un simple champ de formulaire</h1>
-  <div role="region" style="font-size: 20px !important;" aria-label="Zone du timer de l'escapeGame" class="timer"
-       id="timer">00:00:00
+  <h1 style="font-size: 25px !important;" data-i18n="formSimu.simpleField"></h1>
+  <div class="text-center text-bg-dark" role="region"
+       data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
   </div>
   <div class="tooltip" style="margin-top: 50px;">
     <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
@@ -206,8 +208,8 @@
        c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
    </g>
    </svg>
-    <span class="tooltiptext" id="left" style="top:0px !important; font-size: 20px !important;"
-          aria-label="information sur lesformulaire">Pour passer cette étape, il vous suffira de passer sur chaque infobulle à côté des champs de formulaire, d'en lire le contenu et de répondre aux énigmes.<br>Facile donc.<br>La suite se trouve au prochain élément, à gauche<br><--</span>
+    <span class="tooltiptext" id="left" style="top:0px !important;font-size: 20px !important;"
+          data-i18n="formSimu.navigation;formSimu.aria-label_navigation"></span>
   </div>
 </div>
 <div class="tooltip" style="margin-left: 50% !important;">
@@ -226,12 +228,12 @@
  </g>
  </svg>
   <span class="tooltiptext" id="right" style="top:0px !important; font-size: 20px !important;"
-        aria-label="information sur lesformulaire">Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite se trouve au prochain élément, à gauche<br><--</span>
+        data-i18n="formSimu.lastPoint;formSimu.aria-label_lastPoint"></span>
 </div>
 <div class="form-container"></div>
 <form>
   <div class="label-container">
-    <label for="reponse_1">Question 1:</label>
+    <label for="reponse_1" data-i18n="formSimu.question1"></label>
     <div class="tooltip">
       <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
            width="40px" height="40px" viewBox="0 0 45.311 45.311"
@@ -247,15 +249,13 @@
        c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
    </g>
    </svg>
-      <span class="tooltiptext" style="left:40px;">Énigme 1 :<br> Nous recherchons un Nom<br> - Je suis Née esclave dans le comté de Dorchester.<br>- Une blessure à la tête m'a valu une déficience visuelle.<br>- Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté.</span>
+      <span class="tooltiptext" style="left:40px;" data-i18n="formSimu.tooltipRiddle1"></span>
     </div>
     <input class="form-input" type="text" id="reponse_1"
-           aria-label="Résoudre l'énigme et indiquer le nom de la personne recherchée"
-           aria-describedby="Énigme : Je suis Née esclave dans le comté de Dorchester. Une blessure à la tête m'a valu une déficience visuelle. Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté."
-           name="reponse_1" placeholder="réponse 1" required>
+           name="reponse_1" data-i18n="formSimu.aria-label_solveRiddle1;formSimu.placeholder_response1" required>
   </div>
   <div class="label-container">
-    <label for="reponse_2">Question 2:</label>
+    <label for="reponse_2" data-i18n="formSimu.question2"></label>
     <div class="tooltip">
       <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
            width="40px" height="40px" viewBox="0 0 45.311 45.311"
@@ -271,16 +271,18 @@
           c0.01,0,0.02,0.001,0.029,0.001c0.009,0,0.019-0.001,0.029-0.001C26.689,5.29,28.109,8.727,27.988,10.578z"/>
       </g>
         </svg>
-      <span class="tooltiptext" id="bottom" style="left:90px;">Énigme 2 :<br> Quoi mettre dans ce champ de formulaire ? <br> ... La réponse est beaucoup plus simple.<br> Si seulement ce message voulait bien arrêter de disparaitre...<br> Ce serait plus simple ! <br> Aller... Je pense que tout le monde a dû dézoomer maintenant, ce champ n'est pas obligatoire en fait ;p</span>
+      <span class="tooltiptext" id="bottom" style="left:90px;" data-i18n="formSimu.tooltipRiddle2"></span>
     </div>
-    <input class="form-input" type="text" id="reponse_2" name="reponse_2" placeholder="réponse 2">
+    <input class="form-input" type="text" id="reponse_2" name="reponse_2"
+           data-i18n="formSimu.aria-label_solveRiddle2;formSimu.placeholder_response2">
   </div>
 
 </form>
 <div class="link-container">
   <div>
-    <button class="next-link invalid" onclick="window.location='./7-scores.html'" id="valider" aria-label="valider"
-            disabled>valider
+    <button class="next-link invalid" onclick="window.location='./7-scores.html'" id="valider"
+            data-i18n="formSimu.validateButton;formSimu.aria-label_validate"
+            disabled>
     </button>
   </div>
 </div>
