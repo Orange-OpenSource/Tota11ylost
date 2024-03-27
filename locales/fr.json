@@ -312,13 +312,12 @@
     "question1": "Question 1 :",
     "tooltipRiddle1": "Énigme 1 :<br>Nous recherchons un Nom<br>- Je suis Née esclave dans le comté de Dorchester.<br>- Une blessure à la tête m'a valu une déficience visuelle.<br>- Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté.",
     "aria-label_solveRiddle1": "Résoudre l'énigme et indiquer le nom de la personne recherchée",
+    "aria-describedby_solveRiddle1": "Énigme : Je suis née esclave dans le comté de Dorchester. Une blessure à la tête m'a valu une déficience visuelle. Je suis connue pour avoir été une abolitionniste, escortant 300 esclaves vers la liberté.",
     "placeholder_response1": "réponse 1",
     "question2": "Question 2 :",
     "tooltipRiddle2": "Énigme 2 :<br>Quoi mettre dans ce champ de formulaire ?<br>... La réponse est beaucoup plus simple.<br>Si seulement ce message voulait bien arrêter de disparaitre...<br>Ce serait plus simple !<br>Aller... Je pense que tout le monde a dû dézoomer maintenant, ce champ n'est pas obligatoire en fait ;p",
-    "aria-label_solveRiddle2": "TODO",
     "placeholder_response2": "réponse 2",
-    "validateButton": "valider",
-    "aria-label_validate": "valider"
+    "validateButton": "valider"
   },
   "scores": {
     "finished": "Vous venez de terminer l'Escape Game en {{duration}}."

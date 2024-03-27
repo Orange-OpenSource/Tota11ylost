@@ -2,7 +2,6 @@ const langManager = function () {
   let tabFn = [];
   let langLoaded = false;
 
-  console.log(' langManager');
   return {
     subscribe: (fn) => {
       if (langLoaded) {
