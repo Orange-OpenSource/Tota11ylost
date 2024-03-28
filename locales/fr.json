@@ -15,7 +15,7 @@
       "copyright": "© Orange 2024",
       "termsAndConditions": "Informations légales",
       "privacy": "Données personnelles",
-      "accesssibilityStatement": "Accessibilité : non conforme",
+      "accessibilityStatement": "Accessibilité : non conforme",
       "cookiePolicy": "Politique des cookies"
     }
   },
@@ -234,13 +234,13 @@
     "validateButton": "Valider",
     "possibleResponses": [
       "clair de lune",
-      "sonate au clair de  lune",
+      "sonate au clair de lune",
       "sonate 14"
     ]
   },
   "form": {
     "tabTitle": "Formulaire inscription - Tota11y Lost",
-    "content_description": "Page de formulaire d'inscription pour Escapage Game A11Y",
+    "content_description": "Page de formulaire d'inscription pour Tota11y Lost",
     "pageTitle": "Formulaire d'inscription",
     "descriptionHeading": "Description",
     "descriptionText1": "Les formulaires sont omniprésents sur le Web.",
