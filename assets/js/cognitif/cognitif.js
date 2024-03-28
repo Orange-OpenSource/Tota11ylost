@@ -9,19 +9,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       const linkDyslexie = [
         {
-          label: i18next.t('cognitif.buttonsLabels', {returnObjects: true})[0],
+          label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[0],
           href: "./3-1-simulation-cognitive.html"
         },
         {
-          label: i18next.t('cognitif.buttonsLabels', {returnObjects: true})[1],
+          label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[1],
           href: "./3-cognitif"
         },
         {
-          label: i18next.t('cognitif.buttonsLabels', {returnObjects: true})[2],
+          label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[2],
           href: "./3-cognitif"
         },
         {
-          label: i18next.t('cognitif.buttonsLabels', {returnObjects: true})[3],
+          label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[3],
           href: "./3-cognitif"
         }
       ];
