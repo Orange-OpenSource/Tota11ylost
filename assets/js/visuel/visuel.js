@@ -63,7 +63,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   shuffle(buttonDiv)
   buttonDiv.forEach(buttonD => {
     let button = document.createElement('button');
-    button.textContent = "Bouton";
+    langManager.subscribe(
+      () => button.textContent = i18next.t('visual.buttonsLabel')
+    );
     button.id = buttonD.id;
     button.setAttribute("aria-label", buttonD.label);
     button.classList.add("btn", "btn-dark", "m-2");

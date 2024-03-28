@@ -1,113 +1,103 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Page de description du handicap auditif"/>
-  <title>Handicap auditif - Escape Game A11y</title>
+  <meta name="description" data-i18n="hearing.content_description"/>
+  <title data-i18n="hearing.tabTitle"></title>
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
 </head>
 
 <body class="fs-2">
 <header class="sticky-top">
   <div class="container-fluid bg-dark">
     <div class="mx-auto">
-      <h1 class="text-center">Handicap auditif</h1>
-      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-           class="timer" id="timer">Fin du temps imparti
+      <h1 class="text-center" data-i18n="hearing.pageTitle"></h1>
+      <div class="text-center text-bg-dark" role="region"
+           data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
       </div>
     </div>
   </div>
 </header>
 <main>
   <div class="container-fluid">
-    <h2>Description</h2>
-    <p>Une personne qui a des déficiences auditives présente une altération de sa capacité à entendre, ou à
-      percevoir les sons de manière normale.</p>
-    <p>Il existe plusieurs niveaux de perte auditive, allant de
-      légère à sévère, voir totale.</p>
-    <p>Pour répondre aux besoins des personnes malentendantes, il est
-      important de mettre en place les solutions adéquates.</p>
-    <h2>Le type d'utilisateur que vous incarnez</h2>
-    <p>Vous êtes malentendant.</p>
-    <p>L'information transmise par les vidéos ou les pistes audio ne sont pas très
-      utiles sans des sous-titres, de l'audio description ou des transcriptions textuelles.</p>
-    <p>Par chance,
-      un miracle vous rend peu à peu l'usage de vos oreilles... en échange d'un peu de votre temps</p>
-    <h2>Règles</h2>
+    <h2 data-i18n="hearing.descriptionHeading"></h2>
+    <p data-i18n="hearing.descriptionText1"></p>
+    <p data-i18n="hearing.descriptionText2"></p>
+    <p data-i18n="hearing.descriptionText3"></p>
+    <h2 data-i18n="hearing.userTypeHeading"></h2>
+    <p data-i18n="hearing.userTypeText1"></p>
+    <p data-i18n="hearing.userTypeText2"></p>
+    <p data-i18n="hearing.userTypeText3"></p>
+    <h2 data-i18n="hearing.rulesHeading"></h2>
     <ul>
-      <li>5 fichiers audio sont jouables, ci-dessous.</li>
-      <li>Le premier son est actif, les autres apparaitront chacun leur tour après l'écoute complète du son
-        précédent.
-      </li>
-      <li>Le son s'améliore à chaque fois, en suivant le niveau de perte de décibel défini par les 4 niveaux
-        de surdité.
-      </li>
-      <li>Chaque son donne la bonne réponse.</li>
-      <li>Un dernier détail ... l'impatience mène au rafraichissement ... hihihi</li>
+      <li data-i18n="hearing.rule1"></li>
+      <li data-i18n="hearing.rule2"></li>
+      <li data-i18n="hearing.rule3"></li>
+      <li data-i18n="hearing.rule4"></li>
+      <li data-i18n="hearing.rule5"></li>
     </ul>
 
     <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
-      <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-      <p>Faites un effort, vous êtes sur que vous avez bien entendu ?</p>
+      <span class="alert-icon"><span class="visually-hidden" data-i18n="hearing.errorHiddenText"></span></span>
+      <p data-i18n="hearing.errorMessage"></p>
     </div>
     <div class="audio-container my-3">
       <div class="row">
         <div class="audio-item col">
-          <p class="audio-label">Surdité profonde</p>
+          <p class="audio-label" data-i18n="hearing.profoundDeafness"></p>
           <audio id="audio1" controls>
             <source src="./assets/mp3/sound-profonde.MP3" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="audio-item col">
-          <p class="audio-label">Surdité sévère</p>
+          <p class="audio-label" data-i18n="hearing.severeDeafness"></p>
           <audio id="audio2" controls>
             <source src="./assets/mp3/sound-severe.MP3" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="audio-item col">
-          <p class="audio-label">Surdité moyenne</p>
+          <p class="audio-label" data-i18n="hearing.moderateDeafness"></p>
           <audio id="audio3" controls>
             <source src="./assets/mp3/sound-moyenne.MP3" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="audio-item col">
-          <p class="audio-label">Surdité légère</p>
+          <p class="audio-label" data-i18n="hearing.mildDeafness"></p>
           <audio id="audio4" controls>
             <source src="./assets/mp3/sound-legere.MP3" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="audio-item col">
-          <p class="audio-label">Aucune surdité</p>
+          <p class="audio-label" data-i18n="hearing.noDeafness"></p>
           <audio id="audio5" controls>
             <source src="./assets/mp3/sound-bon.MP3" type="audio/mpeg">
           </audio>
         </div>
       </div>
-
-
     </div>
     <div class="mb-3">
-      <label for="reponse" class="form-label">Réponse</label>
-      <input type="text" class="form-control" id="reponse" autocomplete="off">
+      <label for="reponse" class="form-label" data-i18n="hearing.labelResponse"></label>
+      <input type="text" class="form-control" id="reponse" autocomplete="off" data-i18n="hearing.aria-label_response">
     </div>
     <div class="mb-3">
-      <button class="btn btn-primary" id="valider">Valider</button>
+      <button class="btn btn-primary" id="valider" data-i18n="hearing.validateButton"></button>
     </div>
   </div>
 </main>
 <script src="./assets/js/auditif/auditif.js"></script>
-
 <script src="./assets/js/timer/timer.js"></script>
 </body>
-
 </html>

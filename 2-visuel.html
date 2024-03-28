@@ -1,16 +1,19 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Page de description du handicap visuel sur le daltonisme"/>
-  <title>Handicap visuel - Escape Game A11y</title>
+  <meta name="description" data-i18n="visual.content_description"/>
+  <title data-i18n="visual.tabTitle"></title>
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
   <style>
     li::marker {
       color: grey !important;
@@ -27,37 +30,30 @@
 <header class="sticky-top">
   <div class="container-fluid bg-dark">
     <div class="mx-auto">
-      <h1 class="text-center">Handicap visuel</h1>
-      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-           class="timer" id="timer">Fin du temps imparti
+      <h1 class="text-center" data-i18n="visual.pageTitle"></h1>
+      <div class="text-center text-bg-dark" role="region"
+           data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
       </div>
     </div>
   </div>
 </header>
 <main>
   <div class="container-fluid">
-    <h2>Description</h2>
-    <p>La navigation sur internet est un défi pour une personne atteinte de déficience
-      visuelle.</p>
-    <p>L'expérience en ligne est très dépendante des aides techniques (comme les lecteurs
-      d'écran) permettant de compenser en partie la situation de handicap, ET (additif !) d'un code HTML
-      respectant les normes d'accessibilité numériques (WCAG) pour s'interfacer correctement aux outils.</p>
-    <h2>Le type d'utilisateur que vous incarnez</h2>
-    <p>Vous êtes dans la peau d'un daltonien (gravement atteint). Vous ne voyez donc aucune couleur ou presque ... donc
-      lorsque l'information n’est portée que par la couleur comme dans le cas des 4 boutons de bas de page, elle ne vous
-      est pas accessible.</p>
-    <h2>Règles</h2>
+    <h2 data-i18n="visual.descriptionHeading"></h2>
+    <p data-i18n="visual.descriptionText1"></p>
+    <p data-i18n="visual.descriptionText2"></p>
+    <h2 data-i18n="visual.userTypeHeading"></h2>
+    <p data-i18n="visual.userTypeDescription"></p>
+    <h2 data-i18n="visual.rulesHeading"></h2>
     <ul>
-      <li>Cliquez sur les boutons dans un ordre précis : vert, bleu, rouge et ensuite violet pour passer cette
-        étape
-      </li>
-      <li>Attention, en cas d'erreur il faudra tout recommencer !</li>
+      <li data-i18n="visual.rule1"></li>
+      <li data-i18n="visual.rule2"></li>
     </ul>
 
     <div id="buttonDiv" class="my-2"></div>
     <div id="error-message" class="alert alert-danger d-none" role="alert">
       <span class="alert-icon"></span>
-      <p>Hop la, mauvaise couleur ! Il faut suivre les instructions voyons !!...</p>
+      <p data-i18n="visual.errorMessage"></p>
     </div>
   </div>
 </main>
@@ -67,5 +63,4 @@
 <script src="./assets/js/visuel/visuel.js"></script>
 <script src="./assets/js/timer/timer.js"></script>
 </body>
-
 </html>

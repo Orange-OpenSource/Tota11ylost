@@ -5,7 +5,7 @@ let nextLink = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
 nextLink.addEventListener("click", (event) => {
   let reponse = document.getElementById('inputField').value.toLowerCase();
-  const reponseAttendue = 'stephen hawking';
+  const reponseAttendue = i18next.t('physicalSimu.response');
   if (reponse === reponseAttendue) {
     document.location.assign(href);
   } else {
@@ -18,7 +18,7 @@ let inputField = document.getElementById('inputField');
 
 inputField.addEventListener('paste', (event) => {
   event.preventDefault();
-  alert("Pas de copier/coller voyons ...");
+  alert(i18next.t('physicalSimu.copyPasteForbidden'));
   return false;
 })
 

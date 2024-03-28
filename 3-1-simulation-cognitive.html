@@ -1,73 +1,67 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Page de simulation d'un handicap cognitif et de troubles de l'attention"/>
-  <title> Simulation - Handicap cognitif - Escape Game A11y</title>
+  <meta name="description" data-i18n="cognitiveSimu.content_description"/>
+  <title data-i18n="cognitiveSimu.tabTitle"></title>
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
 
 <body class="fs-2">
 <header class="sticky-top">
   <div class="container-fluid bg-dark">
     <div class="mx-auto">
-      <h1 class="text-center">Simulation - Handicap cognitif</h1>
-      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame" class="timer"
-           id="timer">Fin du temps imparti
+      <h1 class="text-center" data-i18n="cognitiveSimu.pageTitle"></h1>
+      <div class="text-center text-bg-dark" role="region"
+           data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
       </div>
     </div>
   </div>
 </header>
 <main>
   <div class="container-fluid">
-    <h2 class="my-2">Énigme</h2>
+    <h2 class="my-2" data-i18n="cognitiveSimu.riddleHeading"></h2>
     <ul>
-      <li>Mon premier n'avait pas la langue dans sa poche et portait la moustache, même si il faut relativiser,
-        c'était bien plus fréquent à l'époque... <br/>En tout cas, on peut dire qu'il mit une nouvelle définition de
-        la masse et ses découvertes ont été une révolution.
-      </li>
-      <li>Ma deuxième est la reine du crime, que ce soit avec un poirot ou sa plume, son flegme a marqué (on pourrait
-        même dire imprimé) de son enpreinte le genre policier.
-      </li>
-      <li>Mon troisième a évolué depuis sa naissance en 1809 jusqu'à sa mort en 1882, même si il est l'instigateur
-        d'une théorie sur l'origine des espèces, la sélection naturelle est la même pour tout le monde, après tout.
-      </li>
+      <li data-i18n="cognitiveSimu.riddle1"></li>
+      <li data-i18n="cognitiveSimu.riddle2"></li>
+      <li data-i18n="cognitiveSimu.riddle3"></li>
     </ul>
     <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
-      <span class="alert-icon"><span class="visually-hidden">Erreur</span></span>
-      <p>Aïe Aïe Aïe, les réponses ne sont pas correctes!!!</p>
+      <span class="alert-icon"><span class="visually-hidden" data-i18n="cognitiveSimu.errorHiddenText"></span></span>
+      <p data-i18n="cognitiveSimu.errorMessage"></p>
     </div>
     <div class="mb-3">
-      <label for="premier" class="form-label">Premier</label>
-      <input type="text" class="form-control" id="premier">
+      <label for="premier" class="form-label" data-i18n="cognitiveSimu.labelFirst"></label>
+      <input type="text" class="form-control" id="premier" data-i18n="cognitiveSimu.aria-label_first">
     </div>
     <div class="mb-3">
-      <label for="deuxieme" class="form-label">Deuxième</label>
-      <input type="text" class="form-control" id="deuxieme">
+      <label for="deuxieme" class="form-label" data-i18n="cognitiveSimu.labelSecond"></label>
+      <input type="text" class="form-control" id="deuxieme" data-i18n="cognitiveSimu.aria-label_second">
     </div>
     <div class="mb-3">
-      <label for="troisieme" class="form-label">Troisième</label>
-      <input type="text" class="form-control" id="troisieme">
+      <label for="troisieme" class="form-label" data-i18n="cognitiveSimu.labelThird"></label>
+      <input type="text" class="form-control" id="troisieme" data-i18n="cognitiveSimu.aria-label_third">
     </div>
     <div class="mb-3">
-      <button class="btn btn-primary" id="valider">Valider</button>
+      <button class="btn btn-primary" id="valider" data-i18n="cognitiveSimu.validateButton"></button>
     </div>
     <div id="overlay">
       <div id="content">
       </div>
     </div>
-
   </div>
 </main>
-</body>
 <script src="./assets/js/cognitif/attention-disorder.js"></script>
 <script src="./assets/js/cognitif/simulateDyslexiaEasy.js"></script>
 <script src="./assets/js/cognitif/cognitif31.js"></script>
 <script src="./assets/js/timer/timer.js"></script>
-
+</body>
 </html>
