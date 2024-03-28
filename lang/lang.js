@@ -44,7 +44,7 @@ i18next
     },
   }, function (err, t) {
     changeLanguage(getLang());
-    langManager.onLangLoaded();
+    setActiveLanguage(getLang());
   });
 
 function updateTranslations() {
@@ -72,8 +72,26 @@ function getAttributeFromKey(key) {
 
 document.addEventListener('DOMContentLoaded', function () {
   const languageSelect = document.getElementById('languageSelect');
-  languageSelect && languageSelect.addEventListener('change', function () {
-    changeLanguage(this.value);
+  languageSelect && languageSelect.addEventListener('click', (event) => {
+    // Vérifier si le clic a été sur un élément <a>
+    if (event.target.tagName === 'A') {
+      // Empêcher le comportement par défaut du lien (navigation)
+      event.preventDefault();
+
+      // Retirer la classe 'active' de tous les liens
+      languageSelect.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // Ajouter la classe 'active' au lien cliqué
+      event.target.classList.add('active');
+      event.target.setAttribute('aria-current', 'true');
+
+      // Ici, vous pouvez également gérer d'autres logiques comme le changement de contenu
+      // en fonction du lien cliqué, si nécessaire.
+      const lang = event.target.getAttribute('lang');
+      changeLanguage(lang);
+    }
   });
 });
 
@@ -83,6 +101,20 @@ function changeLanguage(lang) {
     setLang(lang);
     langManager.onLangLoaded();
     updateTranslations();
+  });
+}
+
+// Fonction pour mettre à jour la classe 'active' en fonction de la langue courante
+function setActiveLanguage(currentLang) {
+  const languageLinks = document.querySelectorAll('#languageSelect .nav-link');
+  languageLinks.forEach(link => {
+    if (link.getAttribute('lang') === currentLang) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'true');
+    } else {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    }
   });
 }
 
