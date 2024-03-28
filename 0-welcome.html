@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-i18n="common.lang_lang" xmlns="http://www.w3.org/1999/html">
+<html data-i18n="common.lang_lang">
 <head>
   <meta charset="utf-8">
   <title data-i18n="welcome.tabTitle"></title>
@@ -14,66 +14,81 @@
   <script src="./lang/lang.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100" onload="setVersion('30')">
-<header class="d-flex justify-content-between p-4 bg-dark text-white">
-  <div class="d-flex align-items-center">
+<header class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg supra" data-bs-theme="dark"
+       aria-label="Supra navigation - With an additional languages navbar example">
+    <div class="container-xxl">
+      <ul id="languageSelect" class="navbar-nav ms-auto" data-i18n="welcome.aria-label_selectLanguage">
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-label="EN English version" lang="en" hreflang="en">English</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-label="ES Versión en español" lang="es" hreflang="es">Español</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-label="FR Version française" lang="fr" hreflang="fr"
+             aria-current="true">Français</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="m-3 d-flex align-items-end">
     <img src="./assets/img/orange-logo.png" class="orange-logo mx-2" data-i18n="common.banner.alt_orangeLogo">
     <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
   </div>
 </header>
 
-<main class="m-3">
-  <div class="d-flex justify-content-end">
-    <select id="languageSelect" class="form-select w-auto" data-i18n="welcome.aria-label_selectLanguage">
-      <option selected value="fr">FR - Français</option>
-      <option value="en">EN - English</option>
-      <option value="es">ES - Español</option>
-      <option value="de">DE - Deutsch</option>
-    </select>
-  </div>
+<main class="d-flex flex-row m-3">
+  <div class="col-6">
+    <h2 class="mb-5" data-i18n="welcome.intro"></h2>
 
-  <h2 class="col-6 mb-5" data-i18n="welcome.intro"></h2>
+    <h3 class="col-9 mb-4" data-i18n="welcome.rules"></h3>
 
-  <h3 class="col-4 mb-4" data-i18n="welcome.rules"></h3>
-
-  <fieldset>
-    <legend data-i18n="welcome.adventureType"></legend>
-    <div class="btn-group" role="group">
-      <input type="radio" class="btn-check" name="adventureType" id="escape" checked>
-      <label class="btn btn-primary" for="escape" data-i18n="welcome.escapeGame"></label>
+    <h4 data-i18n="welcome.adventureType"></h4>
+    <div class="dropdown">
+      <button class="btn btn-dropdown dropdown-toggle col-9 justify-content-between" type="button"
+              data-bs-toggle="dropdown" aria-expanded="false"
+              data-i18n="welcome.escapeGame">
+      </button>
     </div>
-  </fieldset>
 
-  <fieldset>
-    <legend class="mt-3" data-i18n="welcome.duration"></legend>
-    <div class="btn-group" role="group">
-      <input type="radio" class="btn-check" name="gameDuration" id="30min" checked>
-      <label class="btn btn-primary" for="30min" data-i18n="welcome.30min"></label>
-
-      <input type="radio" class="btn-check" name="gameDuration" id="60min">
-      <label class="btn btn-primary" for="60min" data-i18n="welcome.60min"></label>
-    </div>
-  </fieldset>
-
-  <form id="myForm">
-    <fieldset>
-      <div class="form-group col-4">
-        <label class="fs-4 my-3 is-required" for="pseudo" data-i18n="welcome.pseudo"></label>
-        <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
-               data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
+    <h4 class="mt-3" data-i18n="welcome.duration"></h4>
+    <div class="d-flex flex-row">
+      <div class="form-check me-3">
+        <input class="form-check-input" type="radio" name="gameDuration" id="30min">
+        <label class="form-check-label" for="30min" data-i18n="welcome.30min"></label>
       </div>
-      <button type="submit" class="btn btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
-    </fieldset>
-  </form>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gameDuration" id="60min" checked>
+        <label class="form-check-label" for="60min" data-i18n="welcome.60min"></label>
+      </div>
+    </div>
+
+    <form id="myForm">
+      <fieldset>
+        <div class="form-group col-9">
+          <label class="fs-4 my-3 is-required" for="pseudo" data-i18n="welcome.pseudo"></label>
+          <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
+                 data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
+
+      </fieldset>
+    </form>
+  </div>
+  <div class="ms-5 col-4">
+    <img src="./assets/img/group.png" alt="">
+  </div>
 </main>
 
-<footer class="footer bg-dark navbar-dark mt-auto">
+<footer class="footer bg-dark navbar-dark">
   <h2 class="visually-hidden" data-i18n="common.footer.sitemapAndInformation"></h2>
   <div class="container-xxl footer-terms">
     <ul class="navbar-nav gap-md-3">
       <li class="fw-bold" data-i18n="common.footer.copyright"></li>
       <li><a class="nav-link" href="#" data-i18n="common.footer.termsAndConditions"></a></li>
       <li><a class="nav-link" href="#" data-i18n="common.footer.privacy"></a></li>
-      <li><a class="nav-link" href="#" data-i18n="common.footer.accesssibilityStatement"></a></li>
+      <li><a class="nav-link" href="#" data-i18n="common.footer.accessibilityStatement"></a></li>
       <li><a class="nav-link" href="#" data-i18n="common.footer.cookiePolicy"></a></li>
     </ul>
   </div>
