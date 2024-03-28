@@ -16,22 +16,20 @@
 </head>
 
 <body class="fs-2">
-<header class="sticky-top">
-  <div class="container-fluid bg-dark py-2">
-    <div class="mx-auto">
-      <h1 class="text-center" data-i18n="intro.pageTitle"></h1>
-      <div class="text-center text-bg-dark" role="region"
-           data-i18n="common.timer.aria-label_timerArea;common.timer.timeLimit" id="timer">
+<header>
+  <div class="bg-dark py-2">
+    <div class="m-3 d-flex justify-content-between">
+      <div class="d-flex align-items-end">
+        <img src="./assets/img/orange-logo.png" class="orange-logo mx-2" data-i18n="common.banner.alt_orangeLogo">
+        <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
       </div>
-      <button type="button" class="mx-auto btn btn-primary btn-sm d-block my-2" onclick="deleteTime()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
-             class="solaris-icon si-start-over" viewBox="0 0 1000 1000">
-          <path
-            d="M525.134 925C337.8 925 182.555 787.529 154.715 607.929A50.111 50.111 0 0 1 204.135 550a49.967 49.967 0 0 1 49.346 42.4C273.864 724.147 387.725 825 525.134 825c148.421 0 269.95-118.6 274.754-265.939C804.966 403.355 678.547 275 522.814 275h-47.661v125l-99.964-99.526-74.973-74.644 74.973-75.356L475.153 50v125h49.982C732.167 175 900 342.893 900 550S732.162 925 525.134 925M325.207 300.474V400L150.27 225.83 325.207 50v100.474l-74.973 75.356Z"
-            style="fill-rule:evenodd"/>
-        </svg>
-        <span data-i18n="common.timer.restartTimer"></span>
-      </button>
+      <div id="timer" class="d-flex align-items-center">
+      </div>
+    </div>
+  </div>
+  <div class="title-bar">
+    <div class="container-fluid">
+      <h1 class="display-2" data-i18n="intro.pageTitle"></h1>
     </div>
   </div>
 </header>

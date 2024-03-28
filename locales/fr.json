@@ -6,9 +6,8 @@
       "title": "Tota11y Lost"
     },
     "timer": {
-      "aria-label_timerArea": "Zone du timer de l'escape Game",
-      "timeLimit": "Fin du temps imparti",
-      "restartTimer": "Relancer le timer"
+      "title": "Minuteur",
+      "aria-label_timerArea": "Zone du timer de l'escape Game"
     },
     "footer": {
       "sitemapAndInformation": "Plan du site & informations",
@@ -39,7 +38,7 @@
   "intro": {
     "tabTitle": "Tota11y Lost - Introduction",
     "content_description": "Page d'introduction de l'escape game et première énigme",
-    "pageTitle": "Tota11y Lost",
+    "pageTitle": "Introduction",
     "descriptionHeading": "Description",
     "descriptionText1": "Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisant plus particulièrement aux défis auxquels sont confrontés les personnes en situation de handicap numérique.",
     "descriptionText2": "Vous serez plongés dans un scénario dans lequel vous incarnerez un personnage ayant des déficiences différentes à chaque nouvelle étape franchie.",
@@ -72,6 +71,7 @@
   "visualSimu": {
     "tabTitle": "Simulation - Handicap visuel - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap visuel lourd (non-voyant)",
+    "pageTitle": "Handicap visuel - Simulation",
     "userTypeHeading": "Le type d'utilisateur",
     "userTypeText1": "Cette épreuve est un peu spéciale. Pour naviguer au clavier sur cette page, utilisez la touche « Tab » pour avancer et la combinaison « Shift+Tab » pour reculer.",
     "userTypeText2": "Ici, vous vous frottez au handicap numérique le plus impactant : aveugle ou très mal-voyant.",
@@ -135,7 +135,7 @@
   "cognitiveSimu": {
     "tabTitle": "Handicap visuel - Tota11y Lost",
     "content_description": "Page de description du handicap visuel sur le daltonisme",
-    "pageTitle": "Simulation - Handicap cognitif",
+    "pageTitle": "Handicap cognitif - Simulation",
     "riddleHeading": "Énigme",
     "riddle1": "Mon premier n'avait pas la langue dans sa poche et portait la moustache, même s'il faut relativiser, c'était bien plus fréquent à l'époque... En tout cas, on peut dire qu'il mit une nouvelle définition de la masse et ses découvertes ont été une révolution.",
     "riddle2": "Ma deuxième est la reine du crime, que ce soit avec un poirot ou sa plume, son flegme a marqué (on pourrait même dire imprimé) de son empreinte le genre policier.",
@@ -176,7 +176,7 @@
   "physicalSimu": {
     "tabTitle": "simulation - Handicap moteur - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap moteur avec l'utilisation du clavier",
-    "pageTitle": "Simulation - Handicap moteur",
+    "pageTitle": "Handicap moteur - Simulation",
     "riddleHeading": "Énigme",
     "userTypeText1": "Vous êtes une personne en situation de handicap moteur.",
     "userTypeText2": "Vous ne contrôlez pas totalement vos doigts. Il n’est donc pas simple pour vous de taper précisément sur les touches d'un clavier.",
@@ -225,7 +225,7 @@
   "hearingSimu": {
     "tabTitle": "Simulation - Handicap auditif - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap auditif",
-    "pageTitle": "5.1 - simulation auditive",
+    "pageTitle": "Handicap auditif - Simulation",
     "errorHiddenText": "Erreur",
     "errorMessage": "C'est raté, réécoutez bien la vidéo !!!",
     "title_youtubeVideo": "vidéo youtube - énigme auditive",

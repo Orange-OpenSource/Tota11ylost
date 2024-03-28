@@ -28,7 +28,7 @@ function getRandomImageURL() {
 function showOverlay() {
   langManager.subscribe(
     () => {
-      content.innerHTML = `<img src="${getRandomImageURL()}" alt="${i18next.t('cognitifSimu.alt_simulatedImage')}">`;
+      content.innerHTML = `<img src="${getRandomImageURL()}" alt="${i18next.t('cognitiveSimu.alt_simulatedImage')}">`;
       overlay.style.display = 'flex';
     }
   )
