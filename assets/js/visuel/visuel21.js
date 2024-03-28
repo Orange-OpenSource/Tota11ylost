@@ -48,7 +48,7 @@ function validateForm() {
   let mort = document.getElementById('mort').value;
   let ville = document.getElementById('ville').value.toLowerCase();
 
-  if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity').find(response => response === ville)) {
+  if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity', {returnObjects: true}).find(response => response === ville)) {
     nextlink.innerText = i18next.t('visualSimu.congratulations');
     nextlink.href = "./3-cognitif.html";
   } else {
