@@ -3,11 +3,13 @@ let alertDiv = document.getElementById('errorDiv');
 const href = "./4-moteur.html";
 
 validButton.addEventListener("click", (e) => {
-  const premier = document.getElementById('premier').value.toLowerCase();
-  const deuxième = document.getElementById('deuxieme').value.toLowerCase();
-  const troisième = document.getElementById('troisieme').value.toLowerCase();
+  const first = document.getElementById('premier').value.toLowerCase();
+  const second = document.getElementById('deuxieme').value.toLowerCase();
+  const third = document.getElementById('troisieme').value.toLowerCase();
 
-  if (premier === 'albert einstein' || premier === 'einstein' && deuxième === 'agatha christie' || deuxième === 'christie' && troisième === 'charles darwin' || troisième === 'darwin') {
+  const listOfResponses = i18next.t('cognitifSimu.listOfResponses', {returnObjects: true});
+
+  if (first.indexOf(listOfResponses[0]) > -1 && second.indexOf(listOfResponses[1]) > -1 && third.indexOf(listOfResponses[2]) > -1) {
     document.location.assign(href);
   } else {
     alertDiv.classList.remove("d-none");

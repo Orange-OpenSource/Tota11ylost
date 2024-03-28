@@ -26,8 +26,12 @@ function getRandomImageURL() {
 }
 
 function showOverlay() {
-  content.innerHTML = `<img src="${getRandomImageURL()}" alt="Image simulée">`;
-  overlay.style.display = 'flex';
+  langManager.subscribe(
+    () => {
+      content.innerHTML = `<img src="${getRandomImageURL()}" alt="${i18next.t('cognitifSimu.alt_simulatedImage')}">`;
+      overlay.style.display = 'flex';
+    }
+  )
 
   // Générer un délai aléatoire entre 2 et 10 secondes
   const randomDelay = Math.random() * (5000 - 3000) + 2000;

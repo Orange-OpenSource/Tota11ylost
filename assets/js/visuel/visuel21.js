@@ -48,11 +48,11 @@ function validateForm() {
   let mort = document.getElementById('mort').value;
   let ville = document.getElementById('ville').value.toLowerCase();
 
-  if (nom === 'braille' && prenom === 'louis' && naissance === '04/01/1809' && mort === '06/01/1852' && ville === 'panthéon' || ville === 'pantheon') {
-    nextlink.innerText = "Bravo!!! Vous pouvez appuyer sur la touche \"Entrée\" pour passer à l'épreuve suivante suivante !!!";
+  if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity').find(response => response === ville)) {
+    nextlink.innerText = i18next.t('visualSimu.congratulations');
     nextlink.href = "./3-cognitif.html";
   } else {
-    nextlink.innerText = "Aïe le test n'est toujours pas réussi, vous ne pouvez pas valider l'épreuve !!!";
+    nextlink.innerText = i18next.t('visualSimu.error');
     nextlink.href = "";
   }
 }

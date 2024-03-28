@@ -1,24 +1,27 @@
 <!doctype html>
-<html lang="fr">
+<html data-i18n="common.lang_lang">
 
 <head>
   <meta charset="utf-8">
-  <title>Escape Game A11y - Introduction</title>
-  <meta name="description" content="Page d'introduction de l'escape game et première énigme"/>
+  <title data-i18n="intro.tabTitle"></title>
+  <meta name="description" data-i18n="intro.content_description"/>
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
         integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
 </head>
 
 <body class="fs-2">
 <header class="sticky-top">
   <div class="container-fluid bg-dark py-2">
     <div class="mx-auto">
-      <h1 class="text-center">Escape Game <br/> A11y</h1>
-      <div class="text-center text-bg-dark" role="region" aria-label="Zone du timer de l'escapeGame"
-           class="timer" id="timer">Fin du temps imparti
+      <h1 class="text-center" data-i18n="intro.pageTitle"></h1>
+      <div class="text-center text-bg-dark" role="region"
+           data-i18n="common.timer.aria-label_timerArea; common.timer.timeLimit" id="timer">
       </div>
       <button type="button" class="mx-auto btn btn-primary btn-sm d-block my-2" onclick="deleteTime()">
         <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" fill="currentColor"
@@ -27,55 +30,34 @@
             d="M525.134 925C337.8 925 182.555 787.529 154.715 607.929A50.111 50.111 0 0 1 204.135 550a49.967 49.967 0 0 1 49.346 42.4C273.864 724.147 387.725 825 525.134 825c148.421 0 269.95-118.6 274.754-265.939C804.966 403.355 678.547 275 522.814 275h-47.661v125l-99.964-99.526-74.973-74.644 74.973-75.356L475.153 50v125h49.982C732.167 175 900 342.893 900 550S732.162 925 525.134 925M325.207 300.474V400L150.27 225.83 325.207 50v100.474l-74.973 75.356Z"
             style="fill-rule:evenodd"/>
         </svg>
-        Relancer le timer
+        <span data-i18n="common.timer.restartTimer"></span>
       </button>
     </div>
   </div>
 </header>
 <main>
   <div class="container-fluid">
-    <h2>Description</h2>
-    <p>Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisant plus
-      particulièrement aux défis auxquels sont confrontés les personnes en situation de handicap numérique.
-    </p>
-    <p>
-      Vous serez plongés dans un scénario dans lequel vous incarnerez un personnage ayant des déficiences
-      différentes à chaque nouvelle étape franchie.</p>
-    <p>Vous devrez donc <a href="2-visuel.html"
-                           class="link link-offset-2 link-underline link-underline-opacity-0">ici</a> résoudre les
-      énigmes et
-      les défis un à un, surmonter des obstacles liés à
-      l'accessibilité et à l'ergonomie pour avancer dans le jeu.</p>
-    <p> À vous de vous en sortir, seul ou en groupe, contre ces difficulté</p>
+    <h2 data-i18n="intro.descriptionHeading"></h2>
+    <p data-i18n="intro.descriptionText1"></p>
+    <p data-i18n="intro.descriptionText2"></p>
+    <p data-i18n="intro.descriptionText3"></p>
+    <p data-i18n="intro.descriptionText4"></p>
 
-    <h2>Les règles :</h2>
+    <h2 data-i18n="intro.rulesHeading"></h2>
     <ul>
-      <li>Vous avez 60 minutes pour aller le plus loin possible (et finir nous l'espèrons). Pour les utilisateurs
-        de
-        lecteur d'écran une région a été positionnée sur le chrono pour vous faciliter l'accès, on est
-        quand-même gentil !
-      </li>
-      <li>Pour chaque nouvelle étape, une énigme basée sur une ou plusieurs déficience(s) vous sera énoncée.
-      </li>
-      <li>Chaque énigme a ses propres règles</li>
-      <li>Toutes les pages contiennent au moins une petite perfidie de notre part (hihihi)</li>
-      <li>Le jeu a déjà commencé ...</li>
-      <li>Pour mettre tout le monde au même niveau, l'utilisation des DevTools sera à oublier. On vous fait
-        confiance
-      </li>
+      <li data-i18n="intro.rule1"></li>
+      <li data-i18n="intro.rule2"></li>
+      <li data-i18n="intro.rule3"></li>
+      <li data-i18n="intro.rule4"></li>
+      <li data-i18n="intro.rule5"></li>
+      <li data-i18n="intro.rule6"></li>
     </ul>
-    <button class="btn btn-primary btn-lg my-2">Pour commencer, cliquez sur le lien : ici.</button>
-
-
+    <button class="btn btn-primary btn-lg my-2" data-i18n="intro.startButton"></button>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
         integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
         crossorigin="anonymous"></script>
 <script src="./assets/js/timer/timer.js"></script>
-</div>
 </body>
-
-</body>
-
 </html>

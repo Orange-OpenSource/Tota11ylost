@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const button30 = document.getElementById('30min');
   const button60 = document.getElementById('60min');
-  const buttonStart = document.getElementById('start');
 
   button30.addEventListener('click', function () {
     setVersion('30');
@@ -9,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
   button60.addEventListener('click', function () {
     setVersion('60');
   });
-  buttonStart.addEventListener('click', function () {
+
+  const myForm = document.getElementById('myForm');
+  myForm.addEventListener('submit', function () {
     event.preventDefault();
     const pseudo = document.getElementById('pseudo').value;
     if (pseudo.length > 0) {

@@ -18,11 +18,13 @@ if (document.getElementById('timerFinish') !== null) {
 
 
   if (localStorage.getItem('timerFinish') === null) {
-    localStorage.setItem('timerFinish', Date.now());
+    localStorage.setItem('timerFinish', Date.now() + '');
   }
-  currentTime = localStorage.getItem('timerFinish')
-  document.getElementById('timerFinish').textContent = 'Vous venez de terminer l\'Escape Game en ' + getFormattedTime() + '.';
+  currentTime = localStorage.getItem('timerFinish');
 
+  langManager.subscribe(
+    () => document.getElementById('timerFinish').textContent = i18next.t('scores.finished', {duration: getFormattedTime()})
+  )
 }
 
 if (localStorage.getItem('timerFinish') === null) {

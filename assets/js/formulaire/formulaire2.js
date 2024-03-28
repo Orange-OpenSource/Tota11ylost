@@ -1,11 +1,4 @@
 let indice = 0;
-const indiceText = [
-  '',
-  'Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.',
-  'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d\'erreurs !!!',
-  'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voila des messages d\'erreurs ont été rajoutés.'
-]
-
 
 const indiceTime = [15, 300, 300, 0];
 
@@ -60,9 +53,9 @@ btnIndice.addEventListener('click', (e) => {
       break;
     case 3:
       addIndice();
-      document.getElementById('email').textContent += ' (format : nomprenom@domain.com)'
-      document.getElementById('telephone').textContent += ' (format : +33 suivi de 9 chiffres)'
-      legendFruit.textContent += ' (3 fruits)'
+      document.getElementById('email').textContent += ' ' + i18next.t('form.detailEmail');
+      document.getElementById('telephone').textContent += ' ' + i18next.t('form.detailPhoneNumber');
+      legendFruit.textContent += ' ' + i18next.t('form.detailFruits');
       e.target.disabled = true;
 
       break;
@@ -163,42 +156,42 @@ function errorForm() {
 
     if (indice === 3) {
       nomErrordiv.classList.remove('d-none');
-      nomErrortext.textContent = "Le nom est obligatoire";
+      nomErrortext.textContent = i18next.t('form.errorName');
     }
   }
   if (prenom.value == "") {
     error = true;
     if (indice === 3) {
       prenomErrordiv.classList.remove('d-none');
-      prenomErrortext.textContent = "Le prénom est obligatoire";
+      prenomErrortext.textContent = i18next.t('form.errorFirstName');
     }
   }
   if (password.value.length < 4 || password.value.length > 8) {
     error = true;
     if (indice === 3) {
       passwordErrordiv.classList.remove('d-none');
-      passwordErrortext.textContent = "Le mot de passe doit être entre 4 et 8 caractères";
+      passwordErrortext.textContent = i18next.t('form.errorPassword');
     }
   }
   if (isNaN(ageInt) || ageInt >= 18) {
     error = true;
     if (indice === 3) {
       ageErrordiv.classList.remove('d-none');
-      ageErrortext.textContent = "L'age doit être un nombre inférieur à 18.";
+      ageErrortext.textContent = i18next.t('form.errorAge');
     }
   }
   if (!validateEmail(mail.value)) {
     error = true;
     if (indice === 3) {
       mailErrordiv.classList.remove('d-none');
-      mailErrortext.textContent = "Le format de l'email n'est pas valide. Exemple de format nomprenom@orange.com";
+      mailErrortext.textContent = i18next.t('form.errorEmail');
     }
   }
   if (!valideTel(telephone.value)) {
     error = true;
     if (indice === 3) {
       telephoneErrordiv.classList.remove('d-none');
-      telephoneErrortext.textContent = "Le format du téléphone n'est pas valide. Exemple de format +33612345678";
+      telephoneErrortext.textContent = i18next.t('form.errorPhoneNumber');
     }
   }
   var nbfruit = 0;
@@ -211,7 +204,7 @@ function errorForm() {
     error = true;
     if (indice === 3) {
       fruitErrordiv.classList.remove('d-none');
-      fruitErrortext.textContent = "Seuls 3 fruits doivent être sélectionnés!!!";
+      fruitErrortext.textContent = i18next.t('form.errorFruits');
     }
   }
 
@@ -230,7 +223,8 @@ function addIndice() {
   const indiceDiv = document.getElementById("indice" + indice);
 
   let para = document.createElement("p");
-  let node = document.createTextNode(indiceText[indice]);
+  let node = document.createTextNode(indice < 1 ? '' : i18next.t('form.hints', {returnObjects: true})[indice - 1]);
+
   para.appendChild(node);
   indiceDiv.appendChild(para);
   indiceDiv.classList.remove('d-none')
@@ -248,55 +242,55 @@ function updateIndiceButton() {
     textTime = "min";
     durationTime = getIndiceTime / 60;
   }
-  btnIndice.textContent = "Prendre un indice (+" + durationTime + " " + textTime + ")";
+  btnIndice.textContent = i18next.t('form.labelHintsButton', {duration: durationTime, unit: textTime});
 }
 
 function addLabel() {
 
   labelNom = document.createElement("LABEL");
   labelNom.id = "nom";
-  labelNom.textContent = "Nom :";
+  labelNom.textContent = i18next.t('form.labelName');
   labelNom.setAttribute("for", "pistache")
   labelNom.classList.add("form-label");
   document.getElementById("pistacheDiv").prepend(labelNom);
 
   labelPrenom = document.createElement("LABEL");
   labelPrenom.id = "prenom";
-  labelPrenom.textContent = "Prenom :";
+  labelPrenom.textContent = i18next.t('form.labelFirstName');
   labelPrenom.setAttribute("for", "cacahuete")
   labelPrenom.classList.add("form-label");
   document.getElementById("cacahueteDiv").prepend(labelPrenom);
 
   labelPassword = document.createElement("LABEL");
   labelPassword.id = "password";
-  labelPassword.textContent = "Mot de passe :";
+  labelPassword.textContent = i18next.t('form.labelPassword');
   labelPassword.setAttribute("for", "olives")
   labelPassword.classList.add("form-label");
   document.getElementById("olivesDiv").prepend(labelPassword);
 
   labelAge = document.createElement("LABEL");
   labelAge.id = "age";
-  labelAge.textContent = "Age :";
+  labelAge.textContent = i18next.t('form.labelAge');
   labelAge.setAttribute("for", "saucisson")
   labelAge.classList.add("form-label");
   document.getElementById("saucissonDiv").prepend(labelAge);
 
   labelMail = document.createElement("LABEL");
   labelMail.id = "email";
-  labelMail.textContent = "Email :";
+  labelMail.textContent = i18next.t('form.labelEmail');
   labelMail.setAttribute("for", "chips")
   labelMail.classList.add("form-label");
   document.getElementById("chipsDiv").prepend(labelMail);
 
   labelTelephone = document.createElement("LABEL");
   labelTelephone.id = "telephone";
-  labelTelephone.textContent = "Téléphone :";
+  labelTelephone.textContent = i18next.t('form.labelPhoneNumber');
   labelTelephone.setAttribute("for", "tapenade")
   labelTelephone.classList.add("form-label");
   document.getElementById("tapenadeDiv").prepend(labelTelephone);
 
 
-  legendFruit.textContent = "Sélectionnez vos fruits préférés :"
+  legendFruit.textContent = i18next.t('form.labelFruits');
 
 
 }

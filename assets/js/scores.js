@@ -2,9 +2,8 @@ import {getBestScores, storePseudo} from "./firebase.js";
 
 async function updateDisplay() {
   const pseudo = getPseudo();
-  console.log('updateDisplay pseudo=', pseudo);
 
-  if (pseudo.length > 0) {
+  if (pseudo && pseudo.length > 0) {
     await storePseudo(pseudo, getVersion());
   }
   await updateATable('todayTable', pseudo);
@@ -58,8 +57,8 @@ function clearScoreList(list) {
   scoreList.innerHTML = '';
 }
 
-function updateRankingVersion() {
+document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById('hallOfFame').innerHTML = 'Tableau des scores (' + getVersion() + ' min)';
-}
+});
 
 await updateDisplay();

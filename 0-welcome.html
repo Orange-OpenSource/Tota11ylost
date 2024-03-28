@@ -1,92 +1,85 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html data-i18n="common.lang_lang" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="utf-8">
-    <title>Tota11y lost - accueil</title>
-    <meta name="description"
-          content="Page d'accueil de Tota11y lost"/>
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
-          integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
-          integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-
+  <meta charset="utf-8">
+  <title data-i18n="welcome.tabTitle"></title>
+  <meta name="description" data-i18n="welcome.content_description"/>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
+        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="./lang/lang.js"></script>
 </head>
 <body class="d-flex flex-column min-vh-100" onload="setVersion('30')">
 <header class="d-flex justify-content-between p-4 bg-dark text-white">
-    <div class="d-flex align-items-center">
-        <img src="./assets/img/orange-logo.png" class="orange-logo mx-2" alt="logo Orange">
-        <h1 class="fs-2 m-0">Tota11y lost</h1>
-    </div>
+  <div class="d-flex align-items-center">
+    <img src="./assets/img/orange-logo.png" class="orange-logo mx-2" data-i18n="common.banner.alt_orangeLogo">
+    <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+  </div>
 </header>
 
 <main class="m-3">
-    <div class="d-flex justify-content-end">
-        <select id="languageSelect" class="form-select w-auto" aria-label="Sélectionnez la langue">
-            <option selected value="FR">FR - Français</option>
-            <option value="EN">EN - English</option>
-            <option value="ES">ES - Español</option>
-            <option value="DE">DE - Deutsch</option>
-        </select>
+  <div class="d-flex justify-content-end">
+    <select id="languageSelect" class="form-select w-auto" data-i18n="welcome.aria-label_selectLanguage">
+      <option selected value="fr">FR - Français</option>
+      <option value="en">EN - English</option>
+      <option value="es">ES - Español</option>
+      <option value="de">DE - Deutsch</option>
+    </select>
+  </div>
+
+  <h2 class="col-6 mb-5" data-i18n="welcome.intro"></h2>
+
+  <h3 class="col-4 mb-4" data-i18n="welcome.rules"></h3>
+
+  <fieldset>
+    <legend data-i18n="welcome.adventureType"></legend>
+    <div class="btn-group" role="group">
+      <input type="radio" class="btn-check" name="adventureType" id="escape" checked>
+      <label class="btn btn-primary" for="escape" data-i18n="welcome.escapeGame"></label>
     </div>
+  </fieldset>
 
-    <h2>Accueil</h2>
-    <p class="col-6 mb-3">
-        Cet Escape Game à été conçu pour l'atelier que nous avons donné à la conférence ParisWeb 2023.
-        Vous êtes dans la salle d'attente de notre escape game. Si vous avez assez d'imagination, vous entendrez
-        peut-être même une petite musique d'ascenseur...
-        Profitez de ce moment de paix pour aller voir le profil de vos futures tortionnaires...
-    </p>
+  <fieldset>
+    <legend class="mt-3" data-i18n="welcome.duration"></legend>
+    <div class="btn-group" role="group">
+      <input type="radio" class="btn-check" name="gameDuration" id="30min" checked>
+      <label class="btn btn-primary" for="30min" data-i18n="welcome.30min"></label>
 
-    <h3>Configuration</h3>
+      <input type="radio" class="btn-check" name="gameDuration" id="60min">
+      <label class="btn btn-primary" for="60min" data-i18n="welcome.60min"></label>
+    </div>
+  </fieldset>
 
+  <form id="myForm">
     <fieldset>
-        <legend class="my-3">Choisissez votre aventure</legend>
-        <div class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="adventureType" id="escape" checked>
-            <label class="btn btn-primary" for="escape">Escape game</label>
-
-            <input type="radio" class="btn-check" name="adventureType" id="enfer" disabled>
-            <label class="btn btn-primary" for="enfer" aria-disabled="true">Règles éditoriales de l'enfer (indisponible)</label>
-        </div>
+      <div class="form-group col-4">
+        <label class="fs-4 my-3 is-required" for="pseudo" data-i18n="welcome.pseudo"></label>
+        <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
+               data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
+      </div>
+      <button type="submit" class="btn btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
     </fieldset>
-
-    <fieldset>
-        <legend class="my-3">Choisissez votre durée</legend>
-        <div class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="gameDuration" id="30min" checked>
-            <label class="btn btn-primary" for="30min">30 min</label>
-
-            <input type="radio" class="btn-check" name="gameDuration" id="60min">
-            <label class="btn btn-primary" for="60min">60 min</label>
-        </div>
-    </fieldset>
-
-    <form>
-        <div class="form-group col-4">
-            <label class="fs-4 my-3" for="pseudo">Indiquez votre pseudo</label>
-            <input type="text" class="form-control" id="pseudo" placeholder="Entrez votre pseudo" required oninvalid="this.setCustomValidity('Please enter a pseudo')">
-        </div>
-        <button type="submit" class="btn btn-primary mt-4" id="start">Démarrer l'aventure</button>
-    </form>
+  </form>
 </main>
 
 <footer class="footer bg-dark navbar-dark mt-auto">
-    <h2 class="visually-hidden">Sitemap & information</h2>
-    <div class="container-xxl footer-terms">
-        <ul class="navbar-nav gap-md-3">
-            <li><a class="nav-link" href="#">Informations légales</a></li>
-            <li><a class="nav-link" href="#">Données personnelles</a></li>
-            <li><a class="nav-link" href="#">Accessibilité : totalement conforme</a></li>
-            <li><a class="nav-link" href="#">Gestion cookies</a></li>
-            <li><a class="nav-link" href="#">Politique des cookies</a></li>
-            <li class="fw-bold">© Orange 2024</li>
-        </ul>
-    </div>
+  <h2 class="visually-hidden" data-i18n="common.footer.sitemapAndInformation"></h2>
+  <div class="container-xxl footer-terms">
+    <ul class="navbar-nav gap-md-3">
+      <li class="fw-bold" data-i18n="common.footer.copyright"></li>
+      <li><a class="nav-link" href="#" data-i18n="common.footer.termsAndConditions"></a></li>
+      <li><a class="nav-link" href="#" data-i18n="common.footer.privacy"></a></li>
+      <li><a class="nav-link" href="#" data-i18n="common.footer.accesssibilityStatement"></a></li>
+      <li><a class="nav-link" href="#" data-i18n="common.footer.cookiePolicy"></a></li>
+    </ul>
+  </div>
 </footer>
 <script src="./assets/js/timer/timer.js"></script>
 <script src="./assets/js/main.js"></script>
-<script src="assets/js/welcome.js"></script>
-
+<script src="./assets/js/welcome.js"></script>
 </body>
 </html>
