@@ -44,7 +44,6 @@ btnIndice.addEventListener('click', (e) => {
       document.getElementById('email').textContent += ' (format : nomprenom@domain.com)'
       document.getElementById('telephone').textContent += ' (format : +33 suivi de 9 chiffres)'
       legendFruit.textContent += ' (3 fruits)'
-
       break;
     default:
   }

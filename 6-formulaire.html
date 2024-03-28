@@ -128,7 +128,7 @@
             <label class="form-check-label" for="litchi">Litchi</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="fruit" id="melon" ">
+            <input class="form-check-input" type="checkbox" name="fruit" id="melon" value="Melon">
             <label class=" form-check-label" for="melon">Melon</label>
           </div>
           <div class="my-3">
@@ -142,19 +142,22 @@
     <h2>Indices</h2>
     <p id="displayTimer">
       Les indices seront disponibles dans
-      <span id="time"></span>
+      <span role="timer" id="hint-timer"></span>
+    </p>
+    <p id="hintsAvailable" class="d-none visually-hidden" role="alert">
+      Les indices sont à présent disponibles.
     </p>
     <div class="indicesDiv">
-      <div id="indice1" class="d-none" role="status">
+      <div id="indice1" class="d-none" role="alert">
         <h3>Indice 1 :</h3>
       </div>
-      <div id="indice2" class="d-none" role="status">
+      <div id="indice2" class="d-none" role="alert">
         <h3>Indice 2 :</h3>
       </div>
-      <div id="indice3" class="d-none" role="status">
+      <div id="indice3" class="d-none" role="alert">
         <h3>Indice 3 :</h3>
       </div>
-      <div class="my-3">
+      <div class="my-3" role="alert">
         <button type="button" class="btn btn-primary" id="indice" disabled>Prendre un indice</button>
       </div>
     </div>

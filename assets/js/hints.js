@@ -1,9 +1,10 @@
 const btnIndice = document.getElementById('indice');
 const displayTimer = document.getElementById("displayTimer");
+const hintsAvailable = document.getElementById("displayTimer");
 
 // Display timer before hint button activation
 function startTimer(duration, display) {
-  var start = Date.now(),
+  let start = Date.now(),
     diff,
     minutes,
     seconds;
@@ -23,17 +24,21 @@ function startTimer(duration, display) {
       start = Date.now() + 1000;
     }
   };
+
   timer();
   setInterval(timer, 1000);
+
 }
 
-let display = document.querySelector('#time');
+let display = document.querySelector('#hint-timer');
+
 startTimer(5 * 60, display);
 
 // Activate hint buttton and remove time after 5min
 setTimeout(() => {
   btnIndice.removeAttribute("disabled");
   displayTimer.classList.add("d-none");
+  hintsAvailable.classList.remove("d-none");
 }, 300000);
 
 
@@ -41,9 +46,9 @@ setTimeout(() => {
 let indice = 0;
 const indiceText = [
   '',
-  'Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.',
-  'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d\'erreurs !!!',
-  'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voila des messages d\'erreurs ont été rajoutés.'
+  'Eh oui, pas facile de remplir un formulaire quand on n\'a pas de label... Les labels ont maintenant été rajoutés.',
+  'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez-y des messages d\'erreurs !!!',
+  'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et liés aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voilà des messages d\'erreurs ont été rajoutés.'
 ]
 
 const indiceTime = [30, 120, 300, 0];
@@ -64,7 +69,6 @@ btnIndice.addEventListener('click', (e) => {
       addIndice();
       e.target.disabled = true;
       e.target.innerHTML = "Plus d'indices disponibles";
-
       break;
     default:
   }
