@@ -153,7 +153,10 @@
       "einstein",
       "christie",
       "darwin"
-    ]
+    ],
+    "img_alice": "A11Y au pays des merveilles",
+    "img_hungry": "J'AI FAIM",
+    "img_monkey": "Allez, on se concentre un peu"
   },
   "physical": {
     "tabTitle": "Handicap moteur - Tota11y Lost",
@@ -220,7 +223,6 @@
     "labelResponse": "Réponse",
     "aria-label_response": "Réponse",
     "validateButton": "Valider",
-
     "possibleResponses": [
       "helen keller",
       "keller"
