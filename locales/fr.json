@@ -3,7 +3,8 @@
     "lang_lang": "fr",
     "banner": {
       "alt_orangeLogo": "logo Orange",
-      "title": "Tota11y Lost"
+      "title": "Tota11y Lost",
+      "aria-label_selectLanguage": "Sélectionnez la langue"
     },
     "timer": {
       "title": "Minuteur",
@@ -19,10 +20,8 @@
     }
   },
   "welcome": {
-    "tabTitle": "Tota11y lost - accueil",
+    "tabTitle": "Accueil - Tota11y lost",
     "content_description": "Page d'accueil de Tota11y lost",
-    "alt_logo": "logo Orange",
-    "aria-label_selectLanguage": "Sélectionnez la langue",
     "intro": "Expérimenter de manière ludique les défis auxquels sont confrontés les personnes en situation de handicap numérique.",
     "rules": "Avant de démarrer, choisissez votre aventure et votre pseudo",
     "adventureType": "Type d'aventure",
@@ -36,13 +35,13 @@
     "buttonStartAdventure": "Démarrer l'aventure"
   },
   "intro": {
-    "tabTitle": "Tota11y Lost - Introduction",
+    "tabTitle": "Introduction - Tota11y Lost",
     "content_description": "Page d'introduction de l'escape game et première énigme",
     "pageTitle": "Introduction",
     "descriptionHeading": "Description",
     "descriptionText1": "Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisant plus particulièrement aux défis auxquels sont confrontés les personnes en situation de handicap numérique.",
     "descriptionText2": "Vous serez plongés dans un scénario dans lequel vous incarnerez un personnage ayant des déficiences différentes à chaque nouvelle étape franchie.",
-    "descriptionText3": "Vous devrez donc <a href='2-visuel.html' class='link link-offset-2 link-underline link-underline-opacity-0'>ici</a> résoudre les énigmes et les défis un à un, surmonter des obstacles liés à l'accessibilité et à l'ergonomie pour avancer dans le jeu.",
+    "descriptionText3": "Vous devrez donc <a href='2-visuel.html' class='link link-offset-2 link-underline link-underline-opacity-0 tabindex=-1'>ici</a> résoudre les énigmes et les défis un à un, surmonter des obstacles liés à l'accessibilité et à l'ergonomie pour avancer dans le jeu.",
     "descriptionText4": "À vous de vous en sortir, seul ou en groupe, contre ces difficultés",
     "rulesHeading": "Règles",
     "rule1": "Vous avez 60 minutes pour aller le plus loin possible (et finir nous l'espérons). Pour les utilisateurs de lecteur d'écran une région a été positionnée sur le chrono pour vous faciliter l'accès, on est quand-même gentil !",
@@ -69,7 +68,7 @@
     "buttonsLabel": "Bouton"
   },
   "visualSimu": {
-    "tabTitle": "Simulation - Handicap visuel - Tota11y Lost",
+    "tabTitle": "Handicap visuel - Simulation - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap visuel lourd (non-voyant)",
     "pageTitle": "Handicap visuel - Simulation",
     "userTypeHeading": "Le type d'utilisateur",
@@ -133,7 +132,7 @@
     ]
   },
   "cognitiveSimu": {
-    "tabTitle": "Handicap visuel - Tota11y Lost",
+    "tabTitle": "Handicap cognitif - Simulation - Tota11y Lost",
     "content_description": "Page de description du handicap visuel sur le daltonisme",
     "pageTitle": "Handicap cognitif - Simulation",
     "riddleHeading": "Énigme",
@@ -174,7 +173,7 @@
     "validateLink": "Valider"
   },
   "physicalSimu": {
-    "tabTitle": "simulation - Handicap moteur - Tota11y Lost",
+    "tabTitle": "Handicap moteur - Simulation - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap moteur avec l'utilisation du clavier",
     "pageTitle": "Handicap moteur - Simulation",
     "riddleHeading": "Énigme",
@@ -223,7 +222,7 @@
     "validateButton": "Valider"
   },
   "hearingSimu": {
-    "tabTitle": "Simulation - Handicap auditif - Tota11y Lost",
+    "tabTitle": "Handicap auditif - Simulation - Tota11y Lost",
     "content_description": "Page de simulation d'un handicap auditif",
     "pageTitle": "Handicap auditif - Simulation",
     "errorHiddenText": "Erreur",
@@ -239,7 +238,7 @@
     ]
   },
   "form": {
-    "tabTitle": "Formulaire inscription - Tota11y Lost",
+    "tabTitle": "Formulaire d'inscription - Tota11y Lost",
     "content_description": "Page de formulaire d'inscription pour Tota11y Lost",
     "pageTitle": "Formulaire d'inscription",
     "descriptionHeading": "Description",
@@ -296,7 +295,7 @@
     "detailFruits": "(3 fruits)"
   },
   "formSimu": {
-    "tabTitle": "Formulaire satisfaction - Tota11y Lost",
+    "tabTitle": "Formulaire de satisfaction - Tota11y Lost",
     "content_description": "Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)",
     "pageTitle": "Formulaire avec Vérification",
     "information": "Vous êtes malvoyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient difficile...<br> Votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>La suite au prochain élément, vers la droite.<br>-->",
@@ -320,6 +319,12 @@
     "validateButton": "valider"
   },
   "scores": {
-    "finished": "Vous venez de terminer l'Escape Game en {{duration}}."
+    "tabTitle": "Tableau des scores - Tota11y Lost",
+    "content_description": "Tableau des scores",
+    "congratulations": "Bravo, vous venez de terminer l'Escape Game !",
+    "finalTime": "Temps final",
+    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recos</a>.",
+    "todayTitle": "Meilleurs scores du jour",
+    "generalTitle": "Classement général"
   }
 }
