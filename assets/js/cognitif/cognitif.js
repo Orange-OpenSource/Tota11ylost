@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const linkDyslexie = [
         {
           label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[0],
-          href: "./3-1-simulation-cognitive.html"
+          href: "./cognitive-simulation.html"
         },
         {
           label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[1],

@@ -36,12 +36,14 @@ audio4.addEventListener('ended', function () {
 
 let validButton = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
-const href = './5-1-simulation-auditive.html';
+const href = './hearing-simulation.html';
 
 validButton.addEventListener("click", (e) => {
   const reponse = document.getElementById('reponse').value.toLowerCase();
+  const possibleResponses = i18next.t('hearing.possibleResponses', {returnObjects: true});
+  const isCorrectResponse = possibleResponses.find(response => response === userResponse);
 
-  if (reponse === 'helen keller' || reponse === 'keller') {
+  if (isCorrectResponse) {
     document.location.assign(href);
   } else {
     alertDiv.classList.remove("d-none");

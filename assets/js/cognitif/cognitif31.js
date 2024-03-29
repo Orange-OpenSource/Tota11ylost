@@ -1,6 +1,6 @@
 let validButton = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
-const href = "./4-moteur.html";
+const href = "./physical.html";
 
 validButton.addEventListener("click", (e) => {
   const first = document.getElementById('premier').value.toLowerCase();

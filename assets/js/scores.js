@@ -26,13 +26,13 @@ function addScoreLine(tableId, pseudo, timer, position, isCurrent) {
   let coupeImgHTML = '';
   switch (position) {
     case 1:
-      coupeImgHTML = '<img src="assets/img/rank=gold.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
+      coupeImgHTML = '<img src="../assets/img/rank=gold.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
     case 2:
-      coupeImgHTML = '<img src="assets/img/rank=silver.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
+      coupeImgHTML = '<img src="../assets/img/rank=silver.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
     case 3:
-      coupeImgHTML = '<img src="assets/img/rank=bronze.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
+      coupeImgHTML = '<img src="../assets/img/rank=bronze.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
   }
 

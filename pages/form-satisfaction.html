@@ -8,7 +8,7 @@
   <title data-i18n="formSimu.tabTitle"></title>
   <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
-  <script src="./lang/lang.js"></script>
+  <script src="../lang/lang.js"></script>
   <head>
     <title data-i18n="formSimu.pageTitle"></title>
     <style>
@@ -280,13 +280,13 @@
 </form>
 <div class="link-container">
   <div>
-    <button class="next-link invalid" onclick="window.location='./7-scores.html'" id="valider"
+    <button class="next-link invalid" onclick="window.location='scores.html'" id="valider"
             data-i18n="formSimu.validateButton;formSimu.aria-label_validate"
             disabled>
     </button>
   </div>
 </div>
-<script src="./assets/js/timer/timer.js"></script>
+<script src="../assets/js/timer/timer.js"></script>
 <script>
   const formInputs = document.querySelectorAll('.form-input');
   const nextButton = document.getElementById('valider');
