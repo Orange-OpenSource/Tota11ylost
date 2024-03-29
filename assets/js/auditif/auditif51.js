@@ -1,6 +1,6 @@
 let validButton = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
-const href = './6-formulaire.html';
+const href = './form-registration.html';
 
 validButton.addEventListener("click", (e) => {
   const userResponse = document.getElementById('reponse').value.toLowerCase();

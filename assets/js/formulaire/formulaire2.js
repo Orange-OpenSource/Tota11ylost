@@ -68,7 +68,7 @@ btnIndice.addEventListener('click', (e) => {
 btnInscription.addEventListener("click", (e) => {
   alertError.classList.add('d-none')
   if (!errorForm()) {
-    document.location.assign('./7-scores.html');
+    document.location.assign('../../../pages/scores.html');
   } else {
     nom.focus();
     if (indice === 2) {

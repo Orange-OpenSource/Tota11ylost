@@ -34,7 +34,7 @@ function handleButtonClick(buttonId) {
     sequenceIndex++;
     if (sequenceIndex === correctSequence.length) {
       // Rediriger l'utilisateur vers la nouvelle URL
-      window.location.href = '2-1-simulation-visuel.html';
+      window.location.href = './visual-simulation.html';
     }
   } else {
     invalidSequence();
