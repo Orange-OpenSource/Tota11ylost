@@ -7,7 +7,7 @@ async function updateDisplay() {
     await storePseudo(pseudo, getVersion());
   }
   await updateATable('todayTable', pseudo);
-  await updateATable('allTimeTable', pseudo);
+  await updateATable('generalTable', pseudo);
 }
 
 async function updateATable(table, pseudo) {
@@ -15,40 +15,42 @@ async function updateATable(table, pseudo) {
   const scores = await getBestScores(table, getVersion());
   scores.forEach((data, position) => {
     const isCurrentPseudo = data.pseudo === pseudo;
-    if (table === 'allTimeTable' || position < 4 || isCurrentPseudo) {
-      addScoreLine(table, data.pseudo, data.timer, position + 1, isCurrentPseudo);
-    }
+    addScoreLine(table, data.pseudo, data.timer, position + 1, isCurrentPseudo);
   });
+  scrollToCurrent();
 }
 
-function addScoreLine(list, pseudo, timer, position, bold) {
+function addScoreLine(tableId, pseudo, timer, position, isCurrent) {
   const tr = document.createElement('tr');
 
   let coupeImgHTML = '';
   switch (position) {
     case 1:
-      coupeImgHTML = '<img src="assets/img/PixelArts/Coupe-or.png" alt="Premier au classement du jour">';
+      coupeImgHTML = '<img src="assets/img/rank=gold.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
     case 2:
-      coupeImgHTML = '<img src="assets/img/PixelArts/Coupe-argent.png" alt="Deuxième au classement du jour">';
+      coupeImgHTML = '<img src="assets/img/rank=silver.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
     case 3:
-      coupeImgHTML = '<img src="assets/img/PixelArts/Coupe-bronze.png" alt="Troisième au classement du jour">';
+      coupeImgHTML = '<img src="assets/img/rank=bronze.svg" alt="" ' + (isCurrent ? 'class="zoom"' : '') + '>';
       break;
   }
 
-  tr.innerHTML = `
-        <td>${coupeImgHTML}</td>
-        <td>${position}</td>
-        <td>${pseudo}</td>
-        <td>${getFormattedTime(timer)}</td>
+  if (isCurrent) {
+    tr.id = 'current_' + tableId;
+    tr.innerHTML = `
+        <td class="py-7 current fs-5 vertical-align">${position}</td>
+        <td class="text-start py-7 current"><p class="mb-0 fs-5">${pseudo}</p><p class="mb-0 fs-6 text-white">${getFormattedTime(timer)}</p></td>
+        <td class="py-7 current vertical-align">${coupeImgHTML}</td>
     `;
-
-  if (bold) {
-    tr.classList.add('fw-bold');
+  } else {
+    tr.innerHTML = `
+        <td class="py-7 vertical-align">${position}</td>
+        <td class="text-start py-7"><p class="mb-0">${pseudo}</p><p class="mb-0 fs-6 text-body-secondary">${getFormattedTime(timer)}</p></td>
+        <td class="py-7 vertical-align">${coupeImgHTML}</td>
+    `;
   }
-
-  const tableBody = document.querySelector(`#${list} tbody`);
+  const tableBody = document.querySelector(`#${tableId} tbody`);
   tableBody.appendChild(tr);
 }
 
@@ -58,7 +60,19 @@ function clearScoreList(list) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  document.getElementById('hallOfFame').innerHTML = 'Tableau des scores (' + getVersion() + ' min)';
+  // document.getElementById('hallOfFame').innerHTML = 'Tableau des scores (' + getVersion() + ' min)';
 });
 
 await updateDisplay();
+
+function scrollToCurrent() {
+  const currentToday = document.getElementById('current_todayTable');
+  if (currentToday) {
+    currentToday.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  const currentGeneral = document.getElementById('current_generalTable');
+  if (currentGeneral) {
+    currentGeneral.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}

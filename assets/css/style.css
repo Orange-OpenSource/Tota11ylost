@@ -126,11 +126,6 @@
   font-style: normal;
 }
 
-.scores {
-  background-color: black;
-  color: white;
-}
-
 .title-bar {
   border-bottom: 0;
 }
@@ -168,20 +163,22 @@
   font-weight: bold;
 }
 
-.scrollable-table {
-  display: block;
-  max-height: 250px;
+.current {
+  background-color: black !important;
+  color: #FF7900 !important;
+}
+
+.scrollable-table-container {
+  height: 350px; /* Hauteur pour 5 lignes */
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
-.scrollable-table thead th {
-  position: sticky;
-  top: 0;
+.vertical-align {
+  vertical-align: middle;
 }
 
-.orange-logo {
-  width: 50px;
-  height: 50px;
+.zoom {
+  width: 40px;
+  height: 40px;
 }
 

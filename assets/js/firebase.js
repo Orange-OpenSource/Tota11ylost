@@ -47,14 +47,14 @@ export async function storePseudo(pseudo, duration) {
 
 
 export async function getBestScores(table, duration) {
-  if (table === 'allTimeTable') {
-    return getAlltimeBestScores(duration);
+  if (table === 'generalTable') {
+    return getGeneralBestScores(duration);
   } else {
     return getTodayBestScores(duration);
   }
 }
 
-async function getAlltimeBestScores(duration) {
+async function getGeneralBestScores(duration) {
   const queryDocs = query(collection(db, "scores" + duration), orderBy("timer"));
   const querySnapshot = await getDocs(queryDocs);
   const scores = [];

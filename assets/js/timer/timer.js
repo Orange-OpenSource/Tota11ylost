@@ -1,30 +1,26 @@
-// Get the timer element
-const timerElement = document.getElementById('timer');
-
 // Check if there's a previous start time stored in localStorage
 let storedStartTime = localStorage.getItem('timerStartTime');
 let startTime;
 let currentTime;
 
-
 if (storedStartTime) {
-
   startTime = parseInt(storedStartTime, 10);
 } else {
   restartTime();
 }
 
-if (document.getElementById('timerFinish') !== null) {
-
-
+if (document.getElementById('finalTimer') !== null) {
   if (localStorage.getItem('timerFinish') === null) {
     localStorage.setItem('timerFinish', Date.now() + '');
   }
   currentTime = localStorage.getItem('timerFinish');
-
-  langManager.subscribe(
-    () => document.getElementById('timerFinish').textContent = i18next.t('scores.finished', {duration: getFormattedTime()})
-  )
+  const digits = timeToDigits(getTime());
+  document.getElementById('finalTimer').innerHTML = `
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[1]}</div>
+        <div class="fs-3 fw-bold me-1">:</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[2]}</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[3]}</div>`;
 }
 
 if (localStorage.getItem('timerFinish') === null) {
@@ -39,6 +35,7 @@ if (localStorage.getItem('timerFinish') === null) {
 function updateTimer() {
   currentTime = Date.now();
   const digits = timeToDigits(getTime());
+  const timerElement = document.getElementById('timer');
   if (timerElement) {
     timerElement.innerHTML = `<div class="fs-6 fw-bold text-body-secondary me-2">${i18next.t("common.timer.title")}</div>
         <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
@@ -65,16 +62,8 @@ function timeToDigits(milliseconds) {
 }
 
 function getFormattedTime(timeSpent) {
-  if (!timeSpent) {
-    timeSpent = getTime();
-  }
-
-  const hours = Math.floor(timeSpent / (1000 * 60 * 60));
-  const minutes = Math.floor((timeSpent % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeSpent % (1000 * 60)) / 1000);
-
-  return `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
-
+  const time = timeToDigits(timeSpent || getTime());
+  return (time[0] || '0') + time[1] + ':' + time[2] + time[3]
 }
 
 function getTime() {
