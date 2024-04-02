@@ -39,9 +39,9 @@ let alertDiv = document.getElementById('errorDiv');
 const href = './hearing-simulation.html';
 
 validButton.addEventListener("click", (e) => {
-  const response = document.getElementById('reponse').value.toLowerCase();
+  const writtenResponse = document.getElementById('reponse').value.toLowerCase();
   const possibleResponses = i18next.t('hearing.possibleResponses', {returnObjects: true});
-  const isCorrectResponse = possibleResponses.find(response => response === response);
+  const isCorrectResponse = possibleResponses.find(response => response === writtenResponse);
 
   if (isCorrectResponse) {
     document.location.assign(href);
