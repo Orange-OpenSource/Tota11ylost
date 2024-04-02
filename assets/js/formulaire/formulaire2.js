@@ -204,32 +204,6 @@ function errorForm() {
   return error;
 }
 
-function addIndice() {
-  const indiceDiv = document.getElementById("indice" + indice);
-
-  let para = document.createElement("p");
-  let node = document.createTextNode(indice < 1 ? '' : i18next.t('form.hints', {returnObjects: true})[indice - 1]);
-
-  para.appendChild(node);
-  indiceDiv.appendChild(para);
-  indiceDiv.classList.remove('d-none')
-}
-
-function updateIndiceButton() {
-  let getIndiceTime = indiceTime[indice];
-  let textTime = "";
-  let durationTime = "";
-
-  if (getIndiceTime < 60 && indiceTime !== 0) {
-    textTime = "sec"
-    durationTime = getIndiceTime;
-  } else {
-    textTime = "min";
-    durationTime = getIndiceTime / 60;
-  }
-  btnIndice.textContent = i18next.t('form.labelHintsButton', {duration: durationTime, unit: textTime});
-}
-
 function addLabel() {
 
   labelNom = document.createElement("LABEL");
@@ -274,13 +248,5 @@ function addLabel() {
   labelTelephone.classList.add("form-label");
   document.getElementById("tapenadeDiv").prepend(labelTelephone);
 
-
   legendFruit.textContent = i18next.t('form.labelFruits');
-
-
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  btnInscription.disabled = true;
-  updateIndiceButton();
-})

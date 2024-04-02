@@ -1,6 +1,6 @@
 const btnIndice = document.getElementById('indice');
 const displayTimer = document.getElementById("displayTimer");
-const hintsAvailable = document.getElementById("displayTimer");
+const hintsAvailable = document.getElementById("hintsAvailable");
 
 // Display timer before hint button activation
 function startTimer(duration, display) {
@@ -18,7 +18,7 @@ function startTimer(duration, display) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    display.textContent = minutes + ":" + seconds;
+    display.textContent = " " + minutes + ":" + seconds;
 
     if (diff <= 0) {
       start = Date.now() + 1000;
@@ -44,12 +44,6 @@ setTimeout(() => {
 
 // Hint system
 let indice = 0;
-const indiceText = [
-  '',
-  'Eh oui, pas facile de remplir un formulaire quand on n\'a pas de label... Les labels ont maintenant été rajoutés.',
-  'Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez-y des messages d\'erreurs !!!',
-  'C\'est bien beau d\'avoir mis un message d\'erreur, mais s\'il n\'est pas précis il ne servira à rien. Les messages d\'erreurs doivent être précis et liés aux champs de formulaire afin de déterminer rapidement l\'erreur. Et voilà des messages d\'erreurs ont été rajoutés.'
-]
 
 const indiceTime = [30, 120, 300, 0];
 
@@ -68,7 +62,7 @@ btnIndice.addEventListener('click', (e) => {
     case 3:
       addIndice();
       e.target.disabled = true;
-      e.target.innerHTML = "Plus d'indices disponibles";
+      e.target.innerHTML = i18next.t('hints.noMoreHints');
       break;
     default:
   }
@@ -79,7 +73,8 @@ function addIndice() {
   const indiceDiv = document.getElementById("indice" + indice);
 
   let para = document.createElement("p");
-  let node = document.createTextNode(indiceText[indice]);
+  let node = document.createTextNode(indice < 1 ? '' : i18next.t('hints.form', {returnObjects: true})[indice - 1]);
+
   para.appendChild(node);
   indiceDiv.appendChild(para);
   indiceDiv.classList.remove('d-none')
@@ -97,5 +92,5 @@ function updateIndiceButton() {
     textTime = "min";
     durationTime = getIndiceTime / 60;
   }
-  btnIndice.textContent = "Prendre un indice (+" + durationTime + " " + textTime + ")";
+  btnIndice.textContent = i18next.t('form.labelHintsButton', {duration: durationTime, unit: textTime});
 }

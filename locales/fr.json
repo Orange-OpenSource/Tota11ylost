@@ -272,16 +272,11 @@
     "mango": "Mangue",
     "lychee": "Litchi",
     "melon": "Melon",
-    "hintsHeading": "Les indices",
+    "hintsHeading": "Indices",
     "hint1Heading": "Indice 1 :",
     "hint2Heading": "Indice 2 :",
     "hint3Heading": "Indice 3 :",
-    "getHintButton": "Prendre un indice (+15sec)",
-    "hints": [
-      "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
-      "Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d'erreurs !!!",
-      "C'est bien beau d'avoir mis un message d'erreur, mais s'il n'est pas précis il ne servira à rien. Les messages d'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l'erreur. Et voila des messages d'erreurs ont été rajoutés."
-    ],
+    "getHintButton": "Prendre un indice (+30s)",
     "labelName": "Nom :",
     "labelFirstName": "Prénom :",
     "labelPassword": "Mot de passe :",
@@ -324,6 +319,16 @@
     "tooltipRiddle2": "Énigme 2 :<br>Quoi mettre dans ce champ de formulaire ?<br>... La réponse est beaucoup plus simple.<br>Si seulement ce message voulait bien arrêter de disparaitre...<br>Ce serait plus simple !<br>Aller... Je pense que tout le monde a dû dézoomer maintenant, ce champ n'est pas obligatoire en fait ;p",
     "placeholder_response2": "réponse 2",
     "validateButton": "valider"
+  },
+  "hints": {
+    "hintsTimer": "Les indices seront disponibles dans",
+    "hintsAvailable": "Les indices sont à présent disponibles.",
+    "noMoreHints": "Plus d'indices disponibles",
+    "form": [
+      "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
+      "Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d'erreurs !!!",
+      "C'est bien beau d'avoir mis un message d'erreur, mais s'il n'est pas précis il ne servira à rien. Les messages d'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l'erreur. Et voila des messages d'erreurs ont été rajoutés."
+    ]
   },
   "scores": {
     "tabTitle": "Tableau des scores - Tota11y Lost",
