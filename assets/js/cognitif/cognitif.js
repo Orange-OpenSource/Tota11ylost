@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         },
         {
           label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[1],
-          href: "./3-cognitif"
+          href: "./cognitive.html"
         },
         {
           label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[2],
-          href: "./3-cognitif"
+          href: "./cognitive.html"
         },
         {
           label: i18next.t('cognitive.buttonsLabels', {returnObjects: true})[3],
-          href: "./3-cognitif"
+          href: "./cognitive.html"
         }
       ];
 
