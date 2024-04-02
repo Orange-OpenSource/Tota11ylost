@@ -2,6 +2,8 @@ const btnIndice = document.getElementById('indice');
 const displayTimer = document.getElementById("displayTimer");
 const hintsAvailable = document.getElementById("hintsAvailable");
 
+const pageID = document.getElementById("pageId").value;
+
 // Display timer before hint button activation
 function startTimer(duration, display) {
   let start = Date.now(),
@@ -73,7 +75,7 @@ function addIndice() {
   const indiceDiv = document.getElementById("indice" + indice);
 
   let para = document.createElement("p");
-  let node = document.createTextNode(indice < 1 ? '' : i18next.t('hints.form', {returnObjects: true})[indice - 1]);
+  let node = document.createTextNode(indice < 1 ? '' : i18next.t('hints.' + pageID, {returnObjects: true})[indice - 1]);
 
   para.appendChild(node);
   indiceDiv.appendChild(para);

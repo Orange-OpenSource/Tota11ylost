@@ -324,7 +324,7 @@
     "hintsTimer": "Les indices seront disponibles dans",
     "hintsAvailable": "Les indices sont à présent disponibles.",
     "noMoreHints": "Plus d'indices disponibles",
-    "form": [
+    "formRegistration": [
       "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
       "Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d'erreurs !!!",
       "C'est bien beau d'avoir mis un message d'erreur, mais s'il n'est pas précis il ne servira à rien. Les messages d'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l'erreur. Et voila des messages d'erreurs ont été rajoutés."
