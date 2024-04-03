@@ -326,8 +326,13 @@
     "noMoreHints": "Plus d'indices disponibles",
     "intro": [
       "Il n'y a pas d'erreur, il faut bien cliquer sur le lien \"ici\"",
-      "Il n'y a pas qu'un seul \"ici\" sur cette page ...",
+      "Il n'y a pas qu'un seul \"ici\" sur cette page...",
       "Le lien est désormais visible dans le paragraphe plus haut."
+    ],
+    "visual": [
+      "Inutile de copier sur le voisin, la solution est générée aléatoirement...",
+      "Note bien sur quel bouton le message d'erreur apparait, chaque bouton n'est cliquable qu'une fois.",
+      "La simulation a été désactivée."
     ],
     "formRegistration": [
       "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
