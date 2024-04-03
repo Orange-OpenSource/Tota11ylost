@@ -1,6 +1,7 @@
 /* 1 - Introduction */
 
-.link:hover {
+.intro .masked-link {
+  cursor: text;
   text-decoration: none;
   color: rgb(0, 0, 0);
 }

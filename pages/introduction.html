@@ -15,7 +15,8 @@
   <script src="../lang/lang.js"></script>
 </head>
 
-<body class="fs-2">
+<body class="fs-2 intro">
+  <input type="hidden"  id="pageId" name="pageId" value="intro" />
 <header>
   <div class="bg-dark py-2">
     <div class="m-3 d-flex justify-content-between">
@@ -51,11 +52,34 @@
       <li data-i18n="intro.rule6"></li>
     </ul>
     <button class="btn btn-primary btn-lg my-2" data-i18n="intro.startButton"></button>
+    <h2 data-i18n="form.hintsHeading"></h2>
+    <p id="displayTimer">
+      <span data-i18n="hints.hintsTimer"></span>
+      <span role="timer" id="hint-timer"></span>
+    </p>
+    <p id="hintsAvailable" class="d-none visually-hidden" role="alert"  data-i18n="hints.hintsAvailable">
+    </p>
+    <div class="indicesDiv">
+      <div id="indice1" class="d-none" role="alert">
+        <h3 data-i18n="form.hint1Heading"></h3>
+      </div>
+      <div id="indice2" class="d-none" role="alert">
+        <h3 data-i18n="form.hint2Heading"></h3>
+      </div>
+      <div id="indice3" class="d-none" role="alert">
+        <h3 data-i18n="form.hint3Heading"></h3>
+      </div>
+      <div class="my-3">
+        <button type="button" class="btn btn-primary" id="indice" disabled data-i18n="form.getHintButton"></button>
+      </div>
+    </div>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
         integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
         crossorigin="anonymous"></script>
 <script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
+<script src="../assets/js/hints/_introduction.js"></script>
 </body>
 </html>
