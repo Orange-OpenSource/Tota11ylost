@@ -10,13 +10,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBjDpcVw4WU99yMhPZLd2H3aXZJtBZye3U",
-  authDomain: "tota11y-test-fccb5.firebaseapp.com",
-  projectId: "tota11y-test-fccb5",
-  storageBucket: "tota11y-test-fccb5.appspot.com",
-  messagingSenderId: "241660499588",
-  appId: "1:241660499588:web:a02ce4fdc2231bc0a554d1",
-  measurementId: "G-H5ES6WTY4N"
+  apiKey: "AIzaSyAjQ_xuPbBkFn3w-yk9EqxWwk6AN762v88",
+  authDomain: "tota11y-lost.firebaseapp.com",
+  projectId: "tota11y-lost",
+  storageBucket: "tota11y-lost.appspot.com",
+  messagingSenderId: "696348049651",
+  appId: "1:696348049651:web:f4b7aab8c7e393e8b1f786",
+  measurementId: "G-07KXED87T2"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -43,7 +43,7 @@ i18next
       loadPath: '../locales/{{lng}}.json'
     },
   }, function (err, t) {
-    changeLanguage(getLang());
+    changeLanguage(getLang() || 'fr');
     setActiveLanguage(getLang());
   });
 
@@ -123,5 +123,5 @@ function setLang(lang) {
 }
 
 function getLang() {
-  return localStorage.getItem('lang');
+  return localStorage.getItem('lang') || 'fr';
 }
