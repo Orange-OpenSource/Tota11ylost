@@ -60,7 +60,7 @@ function clearScoreList(list) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  // document.getElementById('hallOfFame').innerHTML = 'Tableau des scores (' + getVersion() + ' min)';
+  document.getElementById('version').innerHTML = getVersion();
 });
 
 await updateDisplay();

@@ -36,7 +36,7 @@ audio4.addEventListener('ended', function () {
 
 let validButton = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
-const href = './hearing-simulation.html';
+const href = is30Version() ? './form-registration.html' : './hearing-simulation.html';
 
 validButton.addEventListener("click", (e) => {
   const writtenResponse = document.getElementById('reponse').value.toLowerCase();
