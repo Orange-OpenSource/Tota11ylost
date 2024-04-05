@@ -1,9 +1,43 @@
-/* 1 - Introduction */
+/* introduction.html */
 
 .intro .masked-link {
   cursor: text;
   text-decoration: none;
   color: rgb(0, 0, 0);
+}
+
+/* visual.html */
+
+.blue-button {
+  background-color: #085ebd;
+}
+
+.purple-button {
+  background-color: #492191;
+}
+
+.green-button {
+  background-color: #0a6e31;
+}
+
+.red-button {
+  background-color: #cd3c14;
+}
+
+.blue-button:hover {
+  color: #085ebd;
+}
+
+.purple-button:hover {
+  color: #492191;
+}
+
+.green-button:hover {
+  color: #0a6e31;
+}
+
+.red-button:hover {
+  color: #cd3c14;
 }
 
 /* 2-1 Simulation Visuel */

@@ -16,17 +16,18 @@ function addButtonsColors() {
 
   buttons.forEach((button) => {
     button.classList.remove('btn-dark');
+    button.classList.add('btn-info');
 
     const buttonId = button.getAttribute('id');
 
     if (buttonId.includes('blue')) {
-        button.style.backgroundColor = '#085ebd';
+        button.classList.add('blue-button');
     } else if (buttonId.includes('purple')) {
-        button.style.backgroundColor = '#492191';
+      button.classList.add('purple-button');
     } else if (buttonId.includes('green')) {
-        button.style.backgroundColor = '#0a6e31';
+      button.classList.add('green-button');
     } else if (buttonId.includes('red')) {
-        button.style.backgroundColor = '#cd3c14';
+      button.classList.add('red-button');
     }
   });
 }
