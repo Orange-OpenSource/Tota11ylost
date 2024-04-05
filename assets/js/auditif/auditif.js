@@ -52,15 +52,14 @@ validButton.addEventListener("click", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  let audio2 = document.getElementById('audio2');
-  let audio3 = document.getElementById('audio3');
-  let audio4 = document.getElementById('audio4');
-  let audio5 = document.getElementById('audio5');
+  for (let i = 2; i <= 5; i++) {
+    let element = document.getElementById('audio' + i);
+    element.style.display = 'none';
+  }
 
-  // Désactive les fichiers audio 2, 3 et 4 au chargement de la page
-  audio2.style.display = 'none';
-  audio3.style.display = 'none';
-  audio4.style.display = 'none';
-  audio5.style.display = 'none';
-
+  const srcRoot = "../assets/mp3/deafness-";
+  for (let i = 1; i <= 5; i++) {
+    let element = document.getElementById('audio' + i);
+    element.innerHTML = `<source id="audio-file${i}" src="../assets/mp3/deafness-${i}_${getLang()}.MP3" type="audio/mpeg">`
+  }
 });

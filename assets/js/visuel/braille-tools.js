@@ -10,7 +10,7 @@ let br = {
     let myChar, prevCharNum, inQuote
 
     function BrailleChar(bPix, bAlt) {
-      return '<div class="br br-' + bPix + '" title="' + bAlt + '"></div>'
+      return '<div class="br br-' + bPix + '"></div>'
     }
 
     for (let i = 0; i < message.length; i++) {
