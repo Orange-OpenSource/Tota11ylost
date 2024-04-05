@@ -45,13 +45,13 @@ function updateTimer() {
   const digits = timeToDigits(getTime());
   const timerElement = document.getElementById('timer');
   if (timerElement) {
-    let htmlContent = '';
+    let htmlContent = `<div class="fs-6 fw-bold text-body-secondary me-2">${i18next.t("common.timer.title")}</div>`;
     if (digits[0]) {
       htmlContent += `
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
-        <div class="fs-3 fw-bold me-1">:</div>`;
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
+        <div class="fs-3 text-white fw-bold me-1">:</div>`;
     }
-    htmlContent += `<div class="fs-6 fw-bold text-body-secondary me-2">${i18next.t("common.timer.title")}</div>
+    htmlContent += `
         <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[1]}</div>
         <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[2]}</div>
         <div class="fs-3 text-white fw-bold me-1">:</div>
