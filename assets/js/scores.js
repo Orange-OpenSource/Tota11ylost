@@ -41,13 +41,13 @@ function addScoreLine(tableId, pseudo, timer, position, isCurrent) {
     tr.innerHTML = `
         <td class="py-7 current fs-5 vertical-align">${position}</td>
         <td class="text-start py-7 current"><p class="mb-0 fs-5">${pseudo}</p><p class="mb-0 fs-6 text-white">${getFormattedTime(timer)}</p></td>
-        <td class="py-7 current vertical-align">${coupeImgHTML}</td>
+        <td class="py-7 current vertical-align" aria-hidden="true">${coupeImgHTML}</td>
     `;
   } else {
     tr.innerHTML = `
         <td class="py-7 vertical-align">${position}</td>
         <td class="text-start py-7"><p class="mb-0">${pseudo}</p><p class="mb-0 fs-6 text-body-secondary">${getFormattedTime(timer)}</p></td>
-        <td class="py-7 vertical-align">${coupeImgHTML}</td>
+        <td class="py-7 vertical-align" aria-hidden="true">${coupeImgHTML}</td>
     `;
   }
   const tableBody = document.querySelector(`#${tableId} tbody`);
@@ -60,6 +60,7 @@ function clearScoreList(list) {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById('congratulationImage').alt = i18next.t('scores.alt_congratulationImage', {version: getVersion()});
   document.getElementById('version').innerHTML = getVersion();
 });
 
