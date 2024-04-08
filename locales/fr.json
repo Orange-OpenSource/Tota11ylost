@@ -337,6 +337,7 @@
     "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recos</a>.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
-    "generalTitle": "Classement général"
+    "generalTitle": "Classement général",
+    "alt_congratulationImage": "Vous avez fini l'escape game {{version}} minutes"
   }
 }
