@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
   <script src="../lang/lang.js"></script>
 </head>
-<body class="d-flex flex-column min-vh-100" onload="setVersion('30')">
+<body class="d-flex flex-column min-vh-100">
 <header class="bg-dark text-white">
   <nav class="navbar navbar-expand-lg supra" data-bs-theme="dark"
        aria-label="Supra navigation - With an additional languages navbar example">
@@ -46,8 +46,12 @@
       <div id="finalTimer" class="d-flex align-items-center"></div>
       <p class="fw-bold mt-3 fs-4" data-i18n="scores.toKnowMore"></p>
     </div>
-    <div class="col-5 m-3">
+    <div class="col-5 m-3 position-relative text-dark scores-img">
       <img src="../assets/img/Win.svg" alt="">
+      <div class="position-absolute top-50 start-50 translate-middle mt-5">
+        <p id="version" class="display-0 m-0 fw-bold text-center"></p>
+        <p class="fs-1 fw-bold text-center" data-i18n="scores.minutes"></p>
+      </div>
     </div>
   </div>
   <div class="d-flex fw-bold flex-row">
@@ -72,7 +76,7 @@
   </div>
 </main>
 
-<footer class="footer bg-dark navbar-dark">
+<footer class="footer bg-dark navbar-dark mt-auto">
   <h2 class="visually-hidden" data-i18n="common.footer.sitemapAndInformation"></h2>
   <div class="container-xxl footer-terms">
     <ul class="navbar-nav gap-md-3">

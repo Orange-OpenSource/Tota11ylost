@@ -36,12 +36,12 @@ audio4.addEventListener('ended', function () {
 
 let validButton = document.getElementById('valider');
 let alertDiv = document.getElementById('errorDiv');
-const href = './hearing-simulation.html';
+const href = is30Version() ? './form-registration.html' : './hearing-simulation.html';
 
 validButton.addEventListener("click", (e) => {
-  const reponse = document.getElementById('reponse').value.toLowerCase();
+  const writtenResponse = document.getElementById('reponse').value.toLowerCase();
   const possibleResponses = i18next.t('hearing.possibleResponses', {returnObjects: true});
-  const isCorrectResponse = possibleResponses.find(response => response === userResponse);
+  const isCorrectResponse = possibleResponses.find(response => response === writtenResponse);
 
   if (isCorrectResponse) {
     document.location.assign(href);
@@ -52,15 +52,14 @@ validButton.addEventListener("click", (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  let audio2 = document.getElementById('audio2');
-  let audio3 = document.getElementById('audio3');
-  let audio4 = document.getElementById('audio4');
-  let audio5 = document.getElementById('audio5');
+  for (let i = 2; i <= 5; i++) {
+    let element = document.getElementById('audio' + i);
+    element.style.display = 'none';
+  }
 
-  // Désactive les fichiers audio 2, 3 et 4 au chargement de la page
-  audio2.style.display = 'none';
-  audio3.style.display = 'none';
-  audio4.style.display = 'none';
-  audio5.style.display = 'none';
-
+  const srcRoot = "../assets/mp3/deafness-";
+  for (let i = 1; i <= 5; i++) {
+    let element = document.getElementById('audio' + i);
+    element.innerHTML = `<source id="audio-file${i}" src="../assets/mp3/deafness-${i}_${getLang()}.MP3" type="audio/mpeg">`
+  }
 });

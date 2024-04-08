@@ -26,3 +26,5 @@ function startAdventure() {
   window.location.href = './pages/introduction.html';
   restartTime();
 }
+
+setVersion('60');

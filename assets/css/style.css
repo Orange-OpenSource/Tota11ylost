@@ -217,3 +217,12 @@
   height: 40px;
 }
 
+.scores-img {
+  width: 480px;
+  height: 213px;
+}
+
+.display-0 {
+  font-size: 7rem;
+  line-height: .8;
+}

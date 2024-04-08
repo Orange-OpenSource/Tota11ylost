@@ -17,9 +17,6 @@
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
 </head>
-<div id="text-bloc">
-</div>
-
 <body class="fs-2">
 <header class="d-none">
   <div class="bg-dark py-2">
@@ -39,9 +36,11 @@
   </div>
 </header>
 <main>
+  <div id="text-bloc">
+  </div>
   <div class="container-fluid fs-6 nonSelectionnable">
     <h2 data-i18n="visualSimu.userTypeHeading"></h2>
-    <div class="d-inline">
+    <div class="d-inline visually-hidden">
       <p class="d-inline" id="autofocus" tabindex="0" data-i18n="visualSimu.userTypeText1"></p>
       <p class="d-inline" tabindex="0" data-i18n="visualSimu.userTypeText2"></p>
       <h2 data-i18n="visualSimu.riddleHeading"></h2>
@@ -68,12 +67,13 @@
         <input class="form-input" type="text" required id="mort" data-i18n="visualSimu.aria-label_deathDate">
         <input class="form-input" type="text" required id="ville" data-i18n="visualSimu.aria-label_restingPlace">
       </form>
-    </div>
-    <div>
-      <a class="visuel21" href="" id="valider" data-i18n="visualSimu.validationError"></a>
+      <div>
+        <a class="visuel21" href="" id="valider" data-i18n="visualSimu.validationError"></a>
+      </div>
     </div>
   </div>
 </main>
+<script src="../assets/js/main.js"></script>
 <script src="../assets/js/visuel/visuel21.js"></script>
 <script src="../assets/js/visuel/braille-tools.js"></script>
 <script src="../assets/js/timer/timer.js"></script>
