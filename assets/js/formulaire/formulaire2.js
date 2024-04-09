@@ -127,7 +127,7 @@ function validateEmail(inputText) {
 
 function valideTel(inputText) {
 
-  let telformat = /^(\+33)(6|7)[0-9]{8}$/g;
+  let telformat = /^(\+33|\+34)[0-9]{9}$/g;
   return inputText.match(telformat);
 }
 
