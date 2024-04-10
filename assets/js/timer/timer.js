@@ -45,7 +45,7 @@ function updateTimer() {
   const digits = timeToDigits(getTime());
   const timerElement = document.getElementById('timer');
   if (timerElement) {
-    let htmlContent = `<div class="fs-6 fw-bold text-body-secondary me-2">${i18next.t("common.timer.title")}</div>`;
+    let htmlContent = `<div class="fs-6 fw-bold text-light me-2">${i18next.t("common.timer.title")}</div>`;
     if (digits[0]) {
       htmlContent += `
         <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
