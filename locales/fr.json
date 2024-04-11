@@ -245,7 +245,8 @@
     "possibleResponses": [
       "clair de lune",
       "sonate au clair de lune",
-      "sonate 14"
+      "sonate 14",
+      "mondscheinsonate"
     ]
   },
   "form": {
@@ -310,13 +311,13 @@
     "content_description": "Page de simulation d'un formulaire avec un handicap visuel (zoom à 500%+)",
     "pageTitle": "Formulaire avec Vérification",
     "information": "Vous êtes malvoyants, vous utilisez une loupe logicielle à 500% pour vous aider à naviguer.<br>Avoir la totalité de l'information d'un site web devient difficile...<br> Votre objectif va être de naviguer sur ce site, de trouver les champs de formulaires et de les remplir correctement.<br>La suite au prochain élément, vers la droite.<br>-->",
-    "aria-label_information": "information sur lesformulaire",
+    "aria-label_information": "information sur le formulaire",
     "tooltip": "Pardon, manque de place... on a été coupé.<br>Donc je disais,<br>ça devient forcément un challenge supplémentaire de lire ce genre d'infobulles.<br>Pour peu qu'il ne soit pas possible de placer la souris dessus et de naviguer dedans en plus...",
-    "aria-label_tooltip": "information sur lesformulaire",
+    "aria-label_tooltip": "information sur le formulaire",
     "simpleField": "Un simple champ de formulaire",
     "timer": "00:00:00",
     "navigation": "Pour passer cette étape, il vous suffira de passer sur chaque infobulle à côté des champs de formulaire, d'en lire le contenu et de répondre aux énigmes.<br>Facile donc.<br>La suite se trouve au prochain élément, à gauche<br><--",
-    "aria-label_navigation": "information sur lesformulaire",
+    "aria-label_navigation": "information sur le formulaire",
     "lastPoint": "Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite se trouve au prochain élément, à gauche<br><--",
     "aria-label_lastPoint": "information sur lesformulaire",
     "question1": "Question 1 :",
