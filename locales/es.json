@@ -111,7 +111,7 @@
 		"panthéon",
         "pantheon"
       ],
-      "congratulations": "Enhorabuena, puedes presionar la tecla \'Enter\' para pasar a la siguiente prueba.",
+      "congratulations": "Enhorabuena, puedes presionar la tecla \"Enter\" para pasar a la siguiente prueba.",
       "error": "Ay, la prueba aún no se ha superado, ¡No puedes validar el desafío!"
     },
     "cognitive": {
