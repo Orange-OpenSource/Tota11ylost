@@ -41,7 +41,7 @@ setTimeout(() => {
   btnIndice.removeAttribute("disabled");
   displayTimer.classList.add("d-none");
   hintsAvailable.classList.remove("d-none");
-}, 300000);
+}, 10000);
 
 
 // Hint system
