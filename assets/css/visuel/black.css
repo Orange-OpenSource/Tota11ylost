@@ -4,8 +4,8 @@ body {
 }
 
 .btn {
-  color: #000000 !important;
-  background-color: #000000 !important;
+  color: #000000;
+  background-color: #000000;
 }
 
 .text-uppercase .btn .fw-bold .h1 .h2 .h3 .h4 .h5 .h6 {
@@ -146,7 +146,7 @@ a {
 }
 
 :hover {
-  color: black !important;
+  color: black;
 }
 
 .formulaire, .form-label, .form-control, .form-select {
