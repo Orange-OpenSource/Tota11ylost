@@ -32,7 +32,7 @@
       "pseudo": "Tu apodo",
       "placeholder_enterPseudo": "Indique tu apodo",
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
-      "buttonStartAdventure": "Inciar la aventura"
+      "buttonStartAdventure": "Iniciar la aventura"
     },
     "intro": {
       "tabTitle": "Introducción - Tota11y Lost",
@@ -48,7 +48,7 @@
       },
       "descriptionText4": "Puedes afrontar las dificultades solo o en grupo.",
       "rulesHeading": "Reglas",
-      "rule1": "Tienes 60 minutos para llegar lo más lejos posible (y, eseperamos, terminar). Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables",
+      "rule1": "Tienes 60 minutos para llegar lo más lejos posible (y, esperamos, terminar). Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables",
       "rule2": "Para cada nueva etapa, se te planteará un enigma basado en una o varias discapacidad(es).",
       "rule3": "Cada enigma tiene sus propias reglas.",
       "rule4": "Todas las páginas contienen al menos una pequeña travesura.",
