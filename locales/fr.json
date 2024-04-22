@@ -339,7 +339,7 @@
       "Note bien sur quel bouton le message d'erreur apparait, chaque bouton n'est cliquable qu'une fois.",
       "La simulation a été désactivée."
     ],
-    "visualStimulation": [
+    "visualSimulation": [
       "Il faut bien lire l'énigme, traduire les champs de formulaire en braille et entrer vos réponses.",
       "Nous recherchons l'inventeur du braille",
       "La simulation a été désactivée."
@@ -352,6 +352,11 @@
     "cognitive": [
       "Dans cette simulation, le nombre de lettres par phrase ne change pas...",
       "Un petit effort, si vraiment l'exercice est trop difficile, il y a l'indice 3.",
+      "La simulation a été désactivée."
+    ],
+    "cognitiveSimulation": [
+      "Nous recherchons le nom de trois personnes célèbres, chacune dans un domaine différent.",
+      "A.E, A.C, C.D",
       "La simulation a été désactivée."
     ]
   },

@@ -41,4 +41,4 @@ function updateSimulatedText() {
   simulateTextInElements(allTextElements);
 }
 
-let intervalSimulation = setInterval(updateSimulatedText, 500); // Mettre à jour toutes les 2 secondes
+let intervalSimulation = setInterval(updateSimulatedText, 500); // Mettre à jour toutes les .5 secondes

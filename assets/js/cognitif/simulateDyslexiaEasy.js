@@ -39,4 +39,4 @@ function updateSimulatedText() {
   simulateTextInElements(allTextElements);
 }
 
-setInterval(updateSimulatedText, 4000); // Mettre à jour toutes les 2 secondes
+let intervalCognitiveSimulation = setInterval(updateSimulatedText, 2000); // Mettre à jour toutes les 2 secondes
