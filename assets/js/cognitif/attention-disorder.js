@@ -38,7 +38,7 @@ function showOverlay() {
 
       content.innerHTML = `
   <div class="position-relative text-white">
-    <img src="${myImage.url}" alt="${i18next.t('cognitifSimu.alt_simulatedImage')}" class="img-fluid">
+    <img src="${myImage.url}" alt="${i18next.t('cognitiveSimu.alt_simulatedImage')}" class="img-fluid">
     <div class="position-absolute p-4" style="${myImage.opacity ? ('background-color: #00000050') : ''}; color: ${myImage.color || 'black'}; top: ${myImage.top || 0}; ; font-size: ${myImage.size || 0};">
       ${myImage.text || ''}
     </div>
