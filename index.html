@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <title data-i18n="welcome.tabTitle"></title>
   <meta name="description" data-i18n="welcome.content_description"/>
-  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/orange-helvetica.min.css" rel="stylesheet"
-        integrity="sha384-A0Qk1uKfS1i83/YuU13i2nx5pk79PkIfNFOVzTcjCMPGKIDj9Lqx9lJmV7cdBVQZ" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
         integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
   <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
@@ -38,7 +36,7 @@
   </div>
 </header>
 
-<main class="d-flex flex-row m-3">
+<main class="d-flex flex-row m-3 ms-4">
   <div class="col-6">
     <h2 class="mb-5" data-i18n="welcome.intro"></h2>
 
@@ -46,7 +44,7 @@
 
     <h4 data-i18n="welcome.adventureType"></h4>
     <div class="dropdown">
-      <button class="btn btn-dropdown dropdown-toggle col-9 justify-content-between" type="button"
+      <button class="btn fs-3 p-2 btn-dropdown dropdown-toggle col-9 justify-content-between" type="button"
               data-bs-toggle="dropdown" aria-expanded="false"
               data-i18n="welcome.escapeGame">
       </button>
@@ -71,7 +69,7 @@
           <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
                  data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
         </div>
-        <button type="submit" class="btn btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
+        <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
 
       </fieldset>
     </form>
@@ -83,13 +81,13 @@
 
 <footer class="footer bg-dark navbar-dark mt-auto">
   <h2 class="visually-hidden" data-i18n="common.footer.sitemapAndInformation"></h2>
-  <div class="container-xxl footer-terms">
+  <div class="ms-4 footer-terms">
     <ul class="navbar-nav gap-md-3">
       <li class="fw-bold" data-i18n="common.footer.copyright"></li>
-      <li><a class="nav-link" href="#" data-i18n="common.footer.termsAndConditions"></a></li>
-      <li><a class="nav-link" href="#" data-i18n="common.footer.privacy"></a></li>
-      <li><a class="nav-link" href="#" data-i18n="common.footer.accessibilityStatement"></a></li>
-      <li><a class="nav-link" href="#" data-i18n="common.footer.cookiePolicy"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.termsAndConditions;common.footer.href_termsAndConditions"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.privacy;common.footer.href_privacy"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.accessibilityStatement;common.footer.href_accessibilityStatement"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.cookiePolicy;common.footer.href_cookiePolicy"></a></li>
     </ul>
   </div>
 </footer>
