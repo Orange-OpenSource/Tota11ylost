@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     );
     button.id = buttonD.id;
     button.setAttribute("aria-label", buttonD.label);
-    button.classList.add("btn", "btn-dark", "m-2");
+    button.classList.add("btn", "btn-dark", "m-2", "fs-3", "p-2");
     button.addEventListener('click', () => {
       if (sequenceIndex < correctSequence.length) {
         handleButtonClick(button.id);
