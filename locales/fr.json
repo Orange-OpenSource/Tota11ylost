@@ -14,9 +14,13 @@
       "sitemapAndInformation": "Plan du site & informations",
       "copyright": "© Orange 2024",
       "termsAndConditions": "Informations légales",
+      "href_termsAndConditions": "https:///www.orange.com/fr/mentions-legales",
       "privacy": "Données personnelles",
+      "href_privacy": "https://www.orange.com/fr/notice-sur-la-protection-des-donnees-personnelles",
       "accessibilityStatement": "Accessibilité : non conforme",
-      "cookiePolicy": "Politique des cookies"
+      "href_accessibilityStatement": "#",
+      "cookiePolicy": "Politique des cookies",
+      "href_cookiePolicy": "https://www.orange.com/fr/politique-en-matiere-de-cookie"
     }
   },
   "welcome": {

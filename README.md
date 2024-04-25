@@ -12,7 +12,8 @@ git clone https://gitlab.tech.orange/accessibility/escape-a11y.git
 **You need to serve the project.
 For example :**
 
-**Install Node.js** (depends on your platform).
+**Install [Node.js](https://nodejs.org/en)** (depends on your platform).
+
 
 **Install http-server :** (in a console)
 ```
