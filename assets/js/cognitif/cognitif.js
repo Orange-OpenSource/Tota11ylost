@@ -38,7 +38,7 @@ function createButtons(array) {
   array.forEach((linkD) => {
     let button = document.createElement("button");
     button.textContent = linkD.label;
-    button.classList.add("btn", "btn-primary", "btn-lg", "m-2", "dyslexia", "fs-3", "p-2");
+    button.classList.add("btn", "btn-primary", "m-2", "dyslexia", "fs-3", "p-2");
     button.setAttribute("role", "link");
     button.addEventListener("click", (e) => {
       document.location.assign(linkD.href);
