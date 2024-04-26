@@ -95,6 +95,12 @@ body {
   cursor: none !important;
 }
 
+.fakeCursor {
+  position: absolute;
+  z-index: 2000;
+  pointer-events: none;
+}
+
 .height40 {
   height: 40rem;
 }
@@ -186,4 +192,8 @@ body {
 .display-0 {
   font-size: 7rem;
   line-height: .8;
+}
+
+a.no-focus-outline:focus {
+  outline: none;
 }

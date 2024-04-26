@@ -52,8 +52,8 @@
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <span style="cursor: none !important;" role="button" id="close-popup" class="my-2 ms-auto close-popup"
-                  data-i18n="physical.aria-label_closeModal">X </span>
+            <div id="close-popup" class="my-2 ms-auto close-popup"
+                  data-i18n="physical.aria-label_closeModal">X </div>
           </div>
           <div class="modal-body">
             <h1 data-i18n="physical.modalTitle"></h1>
@@ -73,11 +73,10 @@
       </div>
     </div>
 
-    <a id="link30or60" href="physical-simulation.html" class="valid fs-3 p-2" tabindex="-1" data-i18n="physical.validateLink"></a>
+    <a id="link30or60" href="physical-simulation.html" class="valid fs-3 p-2 fakeButton" tabindex="-1" data-i18n="physical.validateLink"></a>
 
     <div class="container">
-      <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
-           style="position: absolute; z-index: 2000"/>
+      <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png" class="fakeCursor"/>
     </div>
   </div>
 </main>
