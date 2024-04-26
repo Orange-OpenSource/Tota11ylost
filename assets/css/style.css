@@ -95,6 +95,12 @@ body {
   cursor: none !important;
 }
 
+.fakeCursor {
+  position: absolute;
+  z-index: 2000;
+  pointer-events: none;
+}
+
 .height40 {
   height: 40rem;
 }
