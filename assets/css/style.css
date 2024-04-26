@@ -91,7 +91,7 @@ body {
   font-size: 14px;
 }
 
-.cursor {
+.no-cursor {
   cursor: none !important;
 }
 
