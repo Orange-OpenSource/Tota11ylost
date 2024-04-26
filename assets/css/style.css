@@ -193,3 +193,7 @@ body {
   font-size: 7rem;
   line-height: .8;
 }
+
+a.no-focus-outline:focus {
+  outline: none;
+}
