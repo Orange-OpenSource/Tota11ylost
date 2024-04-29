@@ -32,15 +32,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   })
 
   document.addEventListener('click', function (e) {
-    console.log('_____ click vrai');
-
-
     const x = parseInt(falseCursor.style.left, 10);
     const y = parseInt(falseCursor.style.top, 10);
-    console.log(' x=' + x + " y="+ y);
-    console.log(' lastCursor.clientX=' + lastCursor.clientX + " lastCursor.clientY="+ lastCursor.clientY);
     const element = document.elementFromPoint(x, y);
-    console.log(' element=', element);
 
     if (element.id === 'close-popup') {
       myModal.hide(modalToggle);
