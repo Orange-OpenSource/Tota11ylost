@@ -372,6 +372,11 @@
       "La réponse à l'énigme est celle d'un morceau d'un compositeur très célèbre qui a une singularité... Surtout chez un compositeur",
       "il s'est rendu compte de sa surdité croissante pendant qu'il écrivait ce morceau, qu'il a écrit pour une femme. Nous recherchons le nom de ce morceau, en français.",
       "Il s'agit du morceau \"Sonate au clair de lune\" de Beethoven."
+    ],
+    "physicalSimulation": [
+      "Ce n'est pas du hasard. Les lettres sélectionnées sont toutes autour de la bonne lettre choisie.",
+      "Il faut juste faire preuve de patience...",
+      "La simulation a été désactivée."
     ]
   },
   "scores": {
