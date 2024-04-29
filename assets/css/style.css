@@ -125,8 +125,14 @@ body {
   font-size: 14px;
 }
 
-.cursor {
+.no-cursor {
   cursor: none !important;
+}
+
+.fakeCursor {
+  position: absolute;
+  z-index: 2000;
+  pointer-events: none;
 }
 
 .height40 {
@@ -220,6 +226,10 @@ body {
 .display-0 {
   font-size: 7rem;
   line-height: .8;
+}
+
+a.no-focus-outline:focus {
+  outline: none;
 }
 
 /* Hints */
