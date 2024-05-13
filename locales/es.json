@@ -336,6 +336,61 @@
       "placeholder_response2": "respuesta 2",
       "validateButton": "validar"
     },
+    "hints": {
+      "hintsTimer": "Las pistas estarán disponibles en",
+      "hintsAvailable": "Las pistas están ahora disponibles.",
+      "noMoreHints": "No hay más pistas disponibles",
+      "intro": [
+        "No hay error, realmente necesitas hacer clic en el enlace 'aquí'",
+        "No hay solo un 'aquí' en esta página...",
+        "El enlace ahora está visible en el párrafo anterior."
+      ],
+      "visual": [
+        "No necesitas copiar del vecino, la solución se genera aleatoriamente...",
+        "Nota en qué botón aparece el mensaje de error, cada botón solo se puede hacer clic una vez.",
+        "La simulación ha sido desactivada."
+      ],
+      "visualSimulation": [
+        "Asegúrate de leer el acertijo, traduce los campos del formulario a braille e ingresa tus respuestas.",
+        "Estamos buscando al inventor del braille",
+        "La simulación ha sido desactivada."
+      ],
+      "formRegistration": [
+        "Sí, no es fácil llenar un formulario cuando no hay etiquetas... Ahora se han añadido etiquetas.",
+        "Puede ser frustrante no saber por qué no puedes validar un formulario. ¡Siempre permite la validación del formulario y añade mensajes de error!",
+        "Es bueno tener un mensaje de error, pero si no es preciso no será útil. Los mensajes de error deben ser precisos y estar relacionados con los campos del formulario para determinar rápidamente el error. Y voilà, se han añadido mensajes de error."
+      ],
+      "cognitive": [
+        "En esta simulación, el número de letras por frase no cambia...",
+        "Un pequeño esfuerzo, si realmente el ejercicio es demasiado difícil, está la pista 3.",
+        "La simulación ha sido desactivada."
+      ],
+      "cognitiveSimulation": [
+        "Estamos buscando los nombres de tres personas famosas, cada una en un campo diferente.",
+        "A.E, A.C, C.D",
+        "La simulación ha sido desactivada."
+      ],
+      "hearing": [
+        "Aquí estamos buscando el apellido de una mujer estadounidense, que se hizo famosa por hacer grandes cosas a pesar de 3 discapacidades.",
+        "Se volvió ciega, sorda y muda a los 18 meses de edad, se convirtió en autora, oradora y activista política, inspiró una obra de teatro y una película basada en su autobiografía titulada 'Sorda, muda, ciega: historia de mi vida'. También hizo campaña por los derechos de voto de las mujeres, los derechos laborales y, entre otros, el antimilitarismo.",
+        "La respuesta es 'Helen Keller'"
+      ],
+      "hearingSimulation": [
+        "La respuesta al acertijo es una pieza de un compositor muy famoso que tiene una peculiaridad... Especialmente para un compositor",
+        "se dio cuenta de su creciente sordera mientras escribía esta pieza, que escribió para una mujer. Estamos buscando el nombre de esta pieza, en francés.",
+        "Se trata de la pieza 'Sonata al claro de luna' de Beethoven."
+      ],
+      "physical": [
+        "Tienes la suerte de tener una capacidad de respuesta correcta, por lo que es principalmente una cuestión de tiempo...",
+        "Acércate lo más posible a la cruz y no hagas movimientos bruscos.",
+        "La simulación ha sido desactivada."
+      ],
+      "physicalSimulation": [
+        "No es al azar. Las letras seleccionadas están todas alrededor de la letra correcta elegida.",
+        "Solo sé paciente...",
+        "La simulación ha sido desactivada."
+      ]
+    },
     "scores": {
       "tabTitle": "Tabla de posiciones - Tota11y Lost",
       "content_description": "Tabla de posiciones",
