@@ -36,13 +36,17 @@ let display = document.querySelector('#hint-timer');
 
 startTimer(5 * 60, display);
 
+// Add param '?debug=true' at the end of the URL to reduce timer duration to 10s
+let params = new URLSearchParams(document.location.search);
+let debug = params.get("debug");
+let hintTimer = !debug ? 300000 : 10000;
+
 // Activate hint buttton and remove time after 5min
 setTimeout(() => {
   btnIndice.removeAttribute("disabled");
   displayTimer.classList.add("d-none");
   hintsAvailable.classList.remove("d-none");
-}, 10000);
-
+}, hintTimer);
 
 // Hint system
 let indice = 0;
