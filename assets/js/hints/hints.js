@@ -1,4 +1,4 @@
-const btnIndice = document.getElementById('indice');
+const btnIndice = document.getElementById("indice");
 const displayTimer = document.getElementById("displayTimer");
 const hintsAvailable = document.getElementById("hintsAvailable");
 
@@ -15,7 +15,7 @@ function startTimer(duration, display) {
     diff = duration - (((Date.now() - start) / 1000) | 0);
 
     minutes = (diff / 60) % 60 | 0;
-    seconds = (diff % 60) | 0;
+    seconds = diff % 60 | 0;
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -25,14 +25,13 @@ function startTimer(duration, display) {
     if (diff <= 0) {
       start = Date.now() + 1000;
     }
-  };
+  }
 
   timer();
   setInterval(timer, 1000);
-
 }
 
-let display = document.querySelector('#hint-timer');
+let display = document.querySelector("#hint-timer");
 
 startTimer(5 * 60, display);
 
@@ -53,7 +52,7 @@ let indice = 0;
 
 const indiceTime = [30, 120, 300, 0];
 
-btnIndice.addEventListener('click', (e) => {
+btnIndice.addEventListener("click", (e) => {
   addTime(indiceTime[indice]);
   indice++;
   updateIndiceButton();
@@ -68,22 +67,25 @@ btnIndice.addEventListener('click', (e) => {
     case 3:
       addIndice();
       e.target.disabled = true;
-      e.target.innerHTML = i18next.t('hints.noMoreHints');
+      e.target.innerHTML = i18next.t("hints.noMoreHints");
       break;
     default:
   }
-
 });
 
 function addIndice() {
   const indiceDiv = document.getElementById("indice" + indice);
 
   let para = document.createElement("p");
-  let node = document.createTextNode(indice < 1 ? '' : i18next.t('hints.' + pageID, {returnObjects: true})[indice - 1]);
+  let node = document.createTextNode(
+    indice < 1
+      ? ""
+      : i18next.t("hints." + pageID, { returnObjects: true })[indice - 1]
+  );
 
   para.appendChild(node);
   indiceDiv.appendChild(para);
-  indiceDiv.classList.remove('d-none')
+  indiceDiv.classList.remove("d-none");
 }
 
 function updateIndiceButton() {
@@ -92,11 +94,28 @@ function updateIndiceButton() {
   let durationTime = "";
 
   if (getIndiceTime < 60 && indiceTime !== 0) {
-    textTime = "sec"
+    textTime = "sec";
     durationTime = getIndiceTime;
   } else {
     textTime = "min";
     durationTime = getIndiceTime / 60;
   }
-  btnIndice.textContent = i18next.t('form.labelHintsButton', {duration: durationTime, unit: textTime});
+  btnIndice.textContent = i18next.t("form.labelHintsButton", {
+    duration: durationTime,
+    unit: textTime,
+  });
+}
+
+// JS hack needed for Firefox in order to reset btnIndice to disabled state on soft refresh
+// For reference, see https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing
+window.addEventListener("pageshow", PageShowHandler, false);
+window.addEventListener("unload", UnloadHandler, false);
+
+function PageShowHandler() {
+  btnIndice.setAttribute("disabled", true);
+  window.addEventListener("unload", UnloadHandler, false);
+}
+
+function UnloadHandler() {
+  window.removeEventListener("unload", UnloadHandler, false);
 }
