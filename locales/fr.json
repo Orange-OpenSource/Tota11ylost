@@ -281,16 +281,11 @@
     "mango": "Mangue",
     "lychee": "Litchi",
     "melon": "Melon",
-    "hintsHeading": "Les indices",
+    "hintsHeading": "Indices",
     "hint1Heading": "Indice 1 :",
     "hint2Heading": "Indice 2 :",
     "hint3Heading": "Indice 3 :",
-    "getHintButton": "Prendre un indice (+15sec)",
-    "hints": [
-      "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
-      "Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez-y des messages d'erreurs !!!",
-      "C'est bien beau d'avoir mis un message d'erreur, mais s'il n'est pas précis il ne servira à rien. Les messages d'erreurs doivent être précis et liés aux champs de formulaire afin de déterminer rapidement l'erreur. Et voila des messages d'erreurs ont été rajoutés."
-    ],
+    "getHintButton": "Prendre un indice (+30s)",
     "labelName": "Nom :",
     "labelFirstName": "Prénom :",
     "labelPassword": "Mot de passe :",
@@ -333,6 +328,61 @@
     "tooltipRiddle2": "Énigme 2 :<br>Quoi mettre dans ce champ de formulaire ?<br>... La réponse est beaucoup plus simple.<br>Si seulement ce message voulait bien arrêter de disparaitre...<br>Ce serait plus simple !<br>Aller... Je pense que tout le monde a dû dézoomer maintenant, ce champ n'est pas obligatoire en fait ;p",
     "placeholder_response2": "réponse 2",
     "validateButton": "valider"
+  },
+  "hints": {
+    "hintsTimer": "Les indices seront disponibles dans",
+    "hintsAvailable": "Les indices sont à présent disponibles.",
+    "noMoreHints": "Plus d'indices disponibles",
+    "intro": [
+      "Il n'y a pas d'erreur, il faut bien cliquer sur le lien \"ici\"",
+      "Il n'y a pas qu'un seul \"ici\" sur cette page...",
+      "Le lien est désormais visible dans le paragraphe plus haut."
+    ],
+    "visual": [
+      "Inutile de copier sur le voisin, la solution est générée aléatoirement...",
+      "Note bien sur quel bouton le message d'erreur apparait, chaque bouton n'est cliquable qu'une fois.",
+      "La simulation a été désactivée."
+    ],
+    "visualSimulation": [
+      "Il faut bien lire l'énigme, traduire les champs de formulaire en braille et entrer vos réponses.",
+      "Nous recherchons l'inventeur du braille",
+      "La simulation a été désactivée."
+    ],
+    "formRegistration": [
+      "Eh oui, pas facile de remplir un formulaire quand on a pas de label... Les labels ont maintenant été rajoutés.",
+      "Ça peut être frustrant de ne pas savoir pourquoi on ne peut pas valider un formulaire. Laissez toujours la possibilité de valider le formulaire et ajoutez y des messages d'erreurs !!!",
+      "C'est bien beau d'avoir mis un message d'erreur, mais s'il n'est pas précis il ne servira à rien. Les messages d'erreurs doivent être précis et lié aux champs de formulaire afin de déterminer rapidement l'erreur. Et voila des messages d'erreurs ont été rajoutés."
+    ],
+    "cognitive": [
+      "Dans cette simulation, le nombre de lettres par phrase ne change pas...",
+      "Un petit effort, si vraiment l'exercice est trop difficile, il y a l'indice 3.",
+      "La simulation a été désactivée."
+    ],
+    "cognitiveSimulation": [
+      "Nous recherchons le nom de trois personnes célèbres, chacune dans un domaine différent.",
+      "A.E, A.C, C.D",
+      "La simulation a été désactivée."
+    ],
+    "hearing": [
+      "Nous recherchons ici le nom de famille d'une femme américaine, devenu célèbre pour avoir fait de grandes choses malgré 3 handicaps.",
+      "Devenu aveugle, sourde et muette à ses 1 an et demi, elle est devenue autrice, conférencière et militante politique, elle a inspiré une pièce de théâtre et un film inspiré de son auto-biographie intitulé \"Sourde, muette, aveugle, histoire de ma vie\". Elle a aussi fait campagne pour le droit au vote des femmes, le droit relatif au travail et, entre autres, l'anti-militarisme.",
+      "La réponse est \"Helen Keller\""
+    ],
+    "hearingSimulation": [
+      "La réponse à l'énigme est celle d'un morceau d'un compositeur très célèbre qui a une singularité... Surtout chez un compositeur",
+      "il s'est rendu compte de sa surdité croissante pendant qu'il écrivait ce morceau, qu'il a écrit pour une femme. Nous recherchons le nom de ce morceau, en français.",
+      "Il s'agit du morceau \"Sonate au clair de lune\" de Beethoven."
+    ],
+    "physical": [
+      "Vous avez la chance d'avoir une réactivité correcte, du coup, c'est surtout une question de timing...",
+      "Approchez-vous le plus possible de la croix et ne faite pas de mouvement brusque.",
+      "La simulation a été désactivée."
+    ],
+    "physicalSimulation": [
+      "Ce n'est pas du hasard. Les lettres sélectionnées sont toutes autour de la bonne lettre choisie.",
+      "Il faut juste faire preuve de patience...",
+      "La simulation a été désactivée."
+    ]
   },
   "scores": {
     "tabTitle": "Tableau des scores - Tota11y Lost",
