@@ -15,6 +15,7 @@
 </head>
 
 <body class="fs-2">
+  <input type="hidden"  id="pageId" name="pageId" value="hearingSimulation" />
 <header>
   <div class="bg-dark py-2">
     <div class="m-3 d-flex justify-content-between">
@@ -50,9 +51,31 @@
     <div class="mb-3">
       <button class="btn fs-3 p-2 btn-primary" id="valider" data-i18n="hearingSimu.validateButton"></button>
     </div>
+    <h2 data-i18n="form.hintsHeading"></h2>
+    <p id="displayTimer">
+      <span data-i18n="hints.hintsTimer"></span>
+      <span role="timer" id="hint-timer"></span>
+    </p>
+    <p id="hintsAvailable" class="d-none visually-hidden" role="alert"  data-i18n="hints.hintsAvailable">
+    </p>
+    <div class="indicesDiv">
+      <div id="indice1" class="d-none" role="alert">
+        <h3 data-i18n="form.hint1Heading"></h3>
+      </div>
+      <div id="indice2" class="d-none" role="alert">
+        <h3 data-i18n="form.hint2Heading"></h3>
+      </div>
+      <div id="indice3" class="d-none" role="alert">
+        <h3 data-i18n="form.hint3Heading"></h3>
+      </div>
+      <div class="my-3">
+        <button type="button" class="btn fs-3 p-2 btn-primary" id="indice" disabled data-i18n="form.getHintButton"></button>
+      </div>
+    </div>
   </div>
 </main>
 <script src="../assets/js/auditif/auditif51.js"></script>
 <script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
 </body>
 </html>

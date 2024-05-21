@@ -1,7 +1,3 @@
-let indice = 0;
-
-const indiceTime = [15, 300, 300, 0];
-
 const nom = document.getElementById("pistache");
 const nomErrordiv = document.getElementById("errorpistacheDiv");
 const nomErrortext = document.getElementById("errorpistacheText");
@@ -31,36 +27,26 @@ const fruitErrordiv = document.getElementById("errorfruitDiv");
 const fruitErrortext = document.getElementById("errorfruitText");
 const legendFruit = document.getElementById('legendFruit');
 
-
 const btnInscription = document.getElementById("inscription");
-const btnIndice = document.getElementById('indice');
 
 const alertError = document.getElementById('errorDiv');
 
 btnIndice.addEventListener('click', (e) => {
-  addTime(indiceTime[indice]);
-  indice++;
-  updateIndiceButton();
 
   switch (indice) {
     case 1:
-      addIndice();
       addLabel();
       break;
     case 2:
-      addIndice();
       btnInscription.disabled = false
       break;
     case 3:
-      addIndice();
       document.getElementById('email').textContent += ' ' + i18next.t('form.detailEmail');
       document.getElementById('telephone').textContent += ' ' + i18next.t('form.detailPhoneNumber');
       legendFruit.textContent += ' ' + i18next.t('form.detailFruits');
-      e.target.disabled = true;
 
       break;
     default:
-      console.log('plus d\'indice');
   }
 
 });
@@ -78,7 +64,6 @@ btnInscription.addEventListener("click", (e) => {
   }
 
 })
-
 
 // on change event before indice 3
 nom.addEventListener("change", (e) => {
@@ -219,32 +204,6 @@ function errorForm() {
   return error;
 }
 
-function addIndice() {
-  const indiceDiv = document.getElementById("indice" + indice);
-
-  let para = document.createElement("p");
-  let node = document.createTextNode(indice < 1 ? '' : i18next.t('form.hints', {returnObjects: true})[indice - 1]);
-
-  para.appendChild(node);
-  indiceDiv.appendChild(para);
-  indiceDiv.classList.remove('d-none')
-}
-
-function updateIndiceButton() {
-  let getIndiceTime = indiceTime[indice];
-  let textTime = "";
-  let durationTime = "";
-
-  if (getIndiceTime < 60 && indiceTime !== 0) {
-    textTime = "sec"
-    durationTime = getIndiceTime;
-  } else {
-    textTime = "min";
-    durationTime = getIndiceTime / 60;
-  }
-  btnIndice.textContent = i18next.t('form.labelHintsButton', {duration: durationTime, unit: textTime});
-}
-
 function addLabel() {
 
   labelNom = document.createElement("LABEL");
@@ -289,13 +248,5 @@ function addLabel() {
   labelTelephone.classList.add("form-label");
   document.getElementById("tapenadeDiv").prepend(labelTelephone);
 
-
   legendFruit.textContent = i18next.t('form.labelFruits');
-
-
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-  btnInscription.disabled = true;
-  updateIndiceButton();
-})

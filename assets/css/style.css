@@ -10,6 +10,40 @@ body {
   color: rgb(0, 0, 0);
 }
 
+/* visual.html */
+
+.blue-button {
+  background-color: #085ebd;
+}
+
+.purple-button {
+  background-color: #492191;
+}
+
+.green-button {
+  background-color: #0a6e31;
+}
+
+.red-button {
+  background-color: #cd3c14;
+}
+
+.blue-button:hover {
+  color: #085ebd;
+}
+
+.purple-button:hover {
+  color: #492191;
+}
+
+.green-button:hover {
+  color: #0a6e31;
+}
+
+.red-button:hover {
+  color: #cd3c14;
+}
+
 /* 2-1 Simulation Visuel */
 #text-bloc {
   border: 2px solid #000000;
@@ -89,10 +123,23 @@ body {
   height: 14px;
   width: 14px;
   font-size: 14px;
+  cursor: none;
 }
 
 .no-cursor {
   cursor: none !important;
+}
+
+.valid {
+  border: none;
+  background-color: #FF7900;
+  color: #000000;
+  padding: 10px 20px 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  cursor: none;
 }
 
 .fakeCursor {
@@ -118,14 +165,14 @@ body {
 }
 
 .nonSelectionnable {
-  -moz-user-select: none;
   /* Firefox */
-  -webkit-user-select: none;
+  -moz-user-select: none;
   /* Chrome, Safari, Opéra depuis la version 15 */
-  -ms-user-select: none;
+  -webkit-user-select: none;
   /* Internet explorer depuis la version 10 et Edge */
-  user-select: none;
+  -ms-user-select: none;
   /* Propriété standard */
+  user-select: none;
 }
 
 /* 7 scores */
@@ -196,4 +243,20 @@ body {
 
 a.no-focus-outline:focus {
   outline: none;
+}
+
+/* Hints */
+.hints-visualSimulation {
+  color: #fff;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.hints-visualSimulation :hover {
+  color: #fff;
+}
+
+.hints-visualSimulation .btn {
+  color: #fff;
 }

@@ -22,7 +22,10 @@ inputField.addEventListener('paste', (event) => {
   return false;
 })
 
-inputField.addEventListener('keydown', (event) => {
+inputField.addEventListener('keydown', swapKeys );
+
+function swapKeys(event) {
+
   const originalKey = event.key;
   const neighboringKeys = {
     'a': ['q', 'w', 's', 'z', 'a'],
@@ -62,4 +65,5 @@ inputField.addEventListener('keydown', (event) => {
     event.preventDefault();
     inputField.value += randomKey;
   }
-});
+
+}
