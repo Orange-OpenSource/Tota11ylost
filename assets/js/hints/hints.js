@@ -93,7 +93,7 @@ function updateIndiceButton() {
   let textTime = "";
   let durationTime = "";
 
-  if (getIndiceTime < 60 && indiceTime !== 0) {
+  if (getIndiceTime < 60) {
     textTime = "sec";
     durationTime = getIndiceTime;
   } else {
