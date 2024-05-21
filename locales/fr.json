@@ -18,7 +18,7 @@
       "privacy": "Données personnelles",
       "href_privacy": "https://www.orange.com/fr/notice-sur-la-protection-des-donnees-personnelles",
       "accessibilityStatement": "Accessibilité : non conforme",
-      "href_accessibilityStatement": "#",
+      "href_accessibilityStatement": "../assets/html/accessibility-statement.html",
       "cookiePolicy": "Politique des cookies",
       "href_cookiePolicy": "https://www.orange.com/fr/politique-en-matiere-de-cookie"
     }
