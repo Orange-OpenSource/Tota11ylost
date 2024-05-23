@@ -24,6 +24,7 @@ function stopMouse() {
 
   falseCursor.style.display = "none";
   documentBody[0].classList.remove("no-cursor");
+  closePopup.classList.remove("no-cursor");
   closePopup.style.cursor = "pointer";
   validateLink.style.cursor = "pointer";
 
