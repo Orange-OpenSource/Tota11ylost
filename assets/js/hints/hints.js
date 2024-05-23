@@ -38,7 +38,8 @@ startTimer(5 * 60, display);
 // Add param '?debug=true' at the end of the URL to reduce timer duration to 10s
 let params = new URLSearchParams(document.location.search);
 let debug = params.get("debug");
-let hintTimer = !debug ? 300000 : 10000;
+let formRegistration = window.location.href.includes("form-registration");
+let hintTimer = formRegistration ? 1 : (!debug ? 300000 : 10000);
 
 // Activate hint buttton and remove time after 5min
 setTimeout(() => {

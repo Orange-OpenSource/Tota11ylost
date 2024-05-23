@@ -68,10 +68,12 @@ function setFalseCursor(event) {
     const y = parseInt(falseCursor.style.top, 10);
     const element = document.elementFromPoint(x, y);
 
-    if (element.id === "close-popup") {
-      myModal.hide(modalToggle);
-    } else if (element.id === "link30or60") {
-      element.click();
+    if (element) {
+      if (element.id === "close-popup") {
+        myModal.hide(modalToggle);
+      } else if (element.id === "link30or60") {
+        element.click();
+      }
     }
   }
 
