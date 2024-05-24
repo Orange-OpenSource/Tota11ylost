@@ -18,23 +18,23 @@ if (document.getElementById('finalTimer') !== null) {
   let htmlContent = '';
   if (digits[0]) {
     htmlContent += `
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</div>
-        <div class="fs-3 fw-bold me-1" aria-hidden="true">:</div>`;
+        <p class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</p>
+        <p class="fs-3 fw-bold me-1" aria-hidden="true">:</p>`;
   }
 
   htmlContent += `
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</div>
-        <div class="fs-3 fw-bold me-1" aria-hidden="true">:</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</div>`;
+        <p class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</p>
+        <p class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</p>
+        <p class="fs-3 fw-bold me-1" aria-hidden="true">:</p>
+        <p class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</p>
+        <p class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</p>`;
   document.getElementById('finalTimer').innerHTML = htmlContent;
 
   // Add aria-live section for screen readers
   const ariaLiveContent = `
-    <div class="visually-hidden" aria-live="polite" aria-atomic="true">
+    <p class="visually-hidden" aria-live="polite" aria-atomic="true">
       ${getFormattedTime(getTime())}
-    </div>`;
+    </p>`;
   document.getElementById('finalTimer').insertAdjacentHTML('beforeend', ariaLiveContent);
 }
 
@@ -52,25 +52,25 @@ function updateTimer() {
   const digits = timeToDigits(getTime());
   const timerElement = document.getElementById('timer');
   if (timerElement) {
-    let htmlContent = `<div class="fs-6 fw-bold text-light me-2">${i18next.t("common.timer.title")}</div>`;
+    let htmlContent = `<p class="fs-6 fw-bold text-light me-2">${i18next.t("common.timer.title")}</p>`;
     if (digits[0]) {
       htmlContent += `
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</div>
-        <div class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</div>`;
+        <p class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</p>
+        <p class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</p>`;
     }
     htmlContent += `
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</div>
-        <div class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</div>`;
+        <p class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</p>
+        <p class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</p>
+        <p class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</p>
+        <p class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</p>
+        <p class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</p>`;
     timerElement.innerHTML = htmlContent;
 
     // Add aria-live section for screen readers
     const ariaLiveContent = `
-      <div class="visually-hidden" aria-live="polite" aria-atomic="true">
+      <p class="visually-hidden" aria-live="polite" aria-atomic="true">
         ${getFormattedTime(getTime())}
-      </div>`;
+      </p>`;
     timerElement.insertAdjacentHTML('beforeend', ariaLiveContent);
   }
 }
