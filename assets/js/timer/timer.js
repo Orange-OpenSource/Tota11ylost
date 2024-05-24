@@ -18,17 +18,24 @@ if (document.getElementById('finalTimer') !== null) {
   let htmlContent = '';
   if (digits[0]) {
     htmlContent += `
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
-        <div class="fs-3 fw-bold me-1">:</div>`;
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</div>
+        <div class="fs-3 fw-bold me-1" aria-hidden="true">:</div>`;
   }
 
   htmlContent += `
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[1]}</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[2]}</div>
-        <div class="fs-3 fw-bold me-1">:</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[3]}</div>
-        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1">${digits[4]}</div>`;
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</div>
+        <div class="fs-3 fw-bold me-1" aria-hidden="true">:</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</div>
+        <div class="fs-3 bg-black text-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</div>`;
   document.getElementById('finalTimer').innerHTML = htmlContent;
+
+  // Add aria-live section for screen readers
+  const ariaLiveContent = `
+    <div class="visually-hidden" aria-live="polite" aria-atomic="true">
+      ${getFormattedTime(getTime())}
+    </div>`;
+  document.getElementById('finalTimer').insertAdjacentHTML('beforeend', ariaLiveContent);
 }
 
 if (localStorage.getItem('timerFinish') === null) {
@@ -48,16 +55,23 @@ function updateTimer() {
     let htmlContent = `<div class="fs-6 fw-bold text-light me-2">${i18next.t("common.timer.title")}</div>`;
     if (digits[0]) {
       htmlContent += `
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[0]}</div>
-        <div class="fs-3 text-white fw-bold me-1">:</div>`;
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[0]}</div>
+        <div class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</div>`;
     }
     htmlContent += `
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[1]}</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[2]}</div>
-        <div class="fs-3 text-white fw-bold me-1">:</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[3]}</div>
-        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1">${digits[4]}</div>`;
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[1]}</div>
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[2]}</div>
+        <div class="fs-3 text-white fw-bold me-1" aria-hidden="true">:</div>
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[3]}</div>
+        <div class="fs-3 bg-white rounded-1 fw-bold p-1 me-1" aria-hidden="true">${digits[4]}</div>`;
     timerElement.innerHTML = htmlContent;
+
+    // Add aria-live section for screen readers
+    const ariaLiveContent = `
+      <div class="visually-hidden" aria-live="polite" aria-atomic="true">
+        ${getFormattedTime(getTime())}
+      </div>`;
+    timerElement.insertAdjacentHTML('beforeend', ariaLiveContent);
   }
 }
 
