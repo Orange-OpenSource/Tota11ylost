@@ -31,6 +31,8 @@ const btnInscription = document.getElementById("inscription");
 
 const alertError = document.getElementById('errorDiv');
 
+let firstErrorInput;
+
 btnIndice.addEventListener('click', (e) => {
 
   switch (indice) {
@@ -56,7 +58,8 @@ btnInscription.addEventListener("click", (e) => {
   if (!errorForm()) {
     document.location.assign('../../../pages/scores.html');
   } else {
-    nom.focus();
+    firstErrorInput ? firstErrorInput.focus() : nom.focus();
+    console.log('____ focus', firstErrorInput);
     if (indice === 2) {
       alertError.classList.remove('d-none')
       window.location.hash = '#errorDiv';
@@ -120,6 +123,8 @@ function errorForm() {
   let error = false;
   let ageInt = parseInt(age.value)
 
+  firstErrorInput = null;
+
   nomError = "";
   prenomError = "";
   passwordError = "";
@@ -140,6 +145,7 @@ function errorForm() {
     error = true;
 
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || nom;
       nomErrordiv.classList.remove('d-none');
       nomErrortext.textContent = i18next.t('form.errorName');
     }
@@ -147,6 +153,7 @@ function errorForm() {
   if (prenom.value == "") {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || prenom;
       prenomErrordiv.classList.remove('d-none');
       prenomErrortext.textContent = i18next.t('form.errorFirstName');
     }
@@ -154,6 +161,7 @@ function errorForm() {
   if (password.value.length < 4 || password.value.length > 8) {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || password;
       passwordErrordiv.classList.remove('d-none');
       passwordErrortext.textContent = i18next.t('form.errorPassword');
     }
@@ -161,6 +169,7 @@ function errorForm() {
   if (isNaN(ageInt) || ageInt >= 18) {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || age;
       ageErrordiv.classList.remove('d-none');
       ageErrortext.textContent = i18next.t('form.errorAge');
     }
@@ -168,6 +177,7 @@ function errorForm() {
   if (!validateEmail(mail.value)) {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || mail;
       mailErrordiv.classList.remove('d-none');
       mailErrortext.textContent = i18next.t('form.errorEmail');
     }
@@ -175,6 +185,7 @@ function errorForm() {
   if (!valideTel(telephone.value)) {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || telephone;
       telephoneErrordiv.classList.remove('d-none');
       telephoneErrortext.textContent = i18next.t('form.errorPhoneNumber');
     }
@@ -188,6 +199,7 @@ function errorForm() {
   if (nbfruit != 3) {
     error = true;
     if (indice === 3) {
+      firstErrorInput = firstErrorInput || document.getElementById('fraise');
       fruitErrordiv.classList.remove('d-none');
       fruitErrortext.textContent = i18next.t('form.errorFruits');
     }
@@ -200,7 +212,6 @@ function errorForm() {
       btnInscription.disabled = true;
     }
   }
-
   return error;
 }
 
@@ -250,3 +261,4 @@ function addLabel() {
 
   legendFruit.textContent = i18next.t('form.labelFruits');
 }
+
