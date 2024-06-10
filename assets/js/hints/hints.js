@@ -109,14 +109,14 @@ function updateIndiceButton() {
 
 // JS hack needed for Firefox in order to reset btnIndice to disabled state on soft refresh
 // For reference, see https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing
-window.addEventListener("pageshow", PageShowHandler, false);
-window.addEventListener("unload", UnloadHandler, false);
+// window.addEventListener("pageshow", PageShowHandler, false);
+// window.addEventListener("unload", UnloadHandler, false);
 
-function PageShowHandler() {
-  btnIndice.setAttribute("disabled", true);
-  window.addEventListener("unload", UnloadHandler, false);
-}
+// function PageShowHandler() {
+//   btnIndice.setAttribute("disabled", true);
+//   window.addEventListener("unload", UnloadHandler, false);
+// }
 
-function UnloadHandler() {
-  window.removeEventListener("unload", UnloadHandler, false);
-}
+// function UnloadHandler() {
+//   window.removeEventListener("unload", UnloadHandler, false);
+// }
