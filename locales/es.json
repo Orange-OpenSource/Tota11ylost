@@ -324,7 +324,7 @@
       "timer": "00:00:00",
       "navigation": "Para pasar esta etapa, simplemente pasa por cada tooltip al lado de los campos del formulario, lee su contenido y responde a los enigmas.<br>Fácil entonces.<br>La continuación en el próximo elemento, a la izquierda<br><--",
       "aria-label_navigation": "información sobre el formulario",
-      "lastPoint": "Dernier petit point.<br>N'oubliez pas, tout est gros par ici, il va falloir un peu voyager pour trouver les champs de formulaire ...<br>La suite se trouve au prochain élément, à gauche<br><--",
+      "lastPoint": "Ultima cosita.<br>No olvide, todo es grande aquí, tienes que buscar un poco antes de encontrar los campos del formulario...<br>El siguiente paso esta en el próximo elemento, por la izquierda<br><--",
       "aria-label_lastPoint": "información sobre el formulario",
       "question1": "Pregunta 1 :",
       "tooltipRiddle1": "Enigma 1 :<br>Estamos buscando un apellido<br>- Nací esclava en el condado de Dorchester.<br>- Una lesión en la cabeza me causó una discapacidad visual. <br>- Soy conocida por haber sido una abolicionista, escoltando a 300 esclavos hacia la libertad.",
@@ -339,26 +339,26 @@
     "hints": {
       "hintsTimer": "Las pistas estarán disponibles en",
       "hintsAvailable": "Las pistas están ahora disponibles.",
-      "noMoreHints": "No hay más pistas disponibles",
+      "noMoreHints": "No hay más pista disponible",
       "intro": [
         "No hay error, realmente necesitas hacer clic en el enlace 'aquí'",
         "No hay solo un 'aquí' en esta página...",
-        "El enlace ahora está visible en el párrafo anterior."
+        "El enlace ahora está visible en el párrafo situado más arriba."
       ],
       "visual": [
-        "No necesitas copiar del vecino, la solución se genera aleatoriamente...",
-        "Nota en qué botón aparece el mensaje de error, cada botón solo se puede hacer clic una vez.",
+        "No necesitas copiar tu vecino, la solución se genera aleatoriamente...",
+        "Nota en qué botón aparece el mensaje de error, para cada botón solo puedes hacer clic una vez.",
         "La simulación ha sido desactivada."
       ],
       "visualSimulation": [
-        "Asegúrate de leer el acertijo, traduce los campos del formulario a braille e ingresa tus respuestas.",
+        "Asegúrate de leer el enigma, traduce los campos del formulario a braille e ingresa tus respuestas.",
         "Estamos buscando al inventor del braille",
         "La simulación ha sido desactivada."
       ],
       "formRegistration": [
-        "Sí, no es fácil llenar un formulario cuando no hay etiquetas... Ahora se han añadido etiquetas.",
-        "Puede ser frustrante no saber por qué no puedes validar un formulario. ¡Siempre permite la validación del formulario y añade mensajes de error!",
-        "Es bueno tener un mensaje de error, pero si no es preciso no será útil. Los mensajes de error deben ser precisos y estar relacionados con los campos del formulario para determinar rápidamente el error. Y voilà, se han añadido mensajes de error."
+        "Pues, no es fácil llenar un formulario cuando no hay etiquetas...Ahora se han añadido etiquetas.",
+        "Puede ser frustrante no saber por qué no puedes validar un formulario. ¡Por favor, siempre permite la validación del formulario y añade mensajes de error!",
+        "Es bueno tener un mensaje de error, pero si no es preciso no será útil. Los mensajes de error deben ser precisos y estar relacionados con los campos del formulario para determinar rápidamente el error. Y aquí está, se han añadido mensajes de error."
       ],
       "cognitive": [
         "En esta simulación, el número de letras por frase no cambia...",
@@ -376,9 +376,9 @@
         "La respuesta es 'Helen Keller'"
       ],
       "hearingSimulation": [
-        "La respuesta al acertijo es una pieza de un compositor muy famoso que tiene una peculiaridad... Especialmente para un compositor",
-        "se dio cuenta de su creciente sordera mientras escribía esta pieza, que escribió para una mujer. Estamos buscando el nombre de esta pieza, en francés.",
-        "Se trata de la pieza 'Sonata al claro de luna' de Beethoven."
+        "La respuesta al enigma es una obra musical de un compositor muy famoso que tiene una peculiaridad...Especialmente para un compositor",
+        "Se dio cuenta de su creciente sordera mientras escribía esta obra, que escribió para una mujer. Estamos buscando el nombre de esta obra.",
+        "Se trata de la obra musical 'Sonata claro de luna' de Beethoven."
       ],
       "physical": [
         "Tienes la suerte de tener una capacidad de respuesta correcta, por lo que es principalmente una cuestión de tiempo...",
@@ -387,7 +387,7 @@
       ],
       "physicalSimulation": [
         "No es al azar. Las letras seleccionadas están todas alrededor de la letra correcta elegida.",
-        "Solo sé paciente...",
+        "Solo tienes que ser paciente...",
         "La simulación ha sido desactivada."
       ]
     },
