@@ -3,7 +3,7 @@
     "lang_lang": "en",
     "banner": {
       "alt_orangeLogo": "Orange logo",
-      "title": "Tota11y Lost",
+      "title": "Tota11y lost",
       "aria-label_selectLanguage": "Select language"
     },
     "timer": {
@@ -52,12 +52,12 @@
     },
     "descriptionText4": "It's up to you to get out, alone or in a group, against these difficulties.",
     "rulesHeading": "Rules",
-    "rule1": "You have 60 minutes to go as far as possible (and hopefully finish). For screen reader users, a region has been positioned on the timer to make it easier for you to access, we're still nice!",
+    "rule1": "You have 60 minutes to go as far as possible (and hopefully finish). For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
     "rule2": "For each new stage, a riddle based on one or more impairment(s) will be stated.",
     "rule3": "Each riddle has its own rules.",
-    "rule4": "All pages contain at least one little trickery on our part (hihihi).",
+    "rule4": "All pages contain at least one little trickery from us (hihihi).",
     "rule5": "The game has already started...",
-    "rule6": "To level the playing field, the use of DevTools will be forgotten. We trust you!",
+    "rule6": "To level the playing field, the use of DevTools will be forbidden. We trust you!",
     "startButton": "To begin, click on the link: here."
   },
   "visual": {
@@ -66,9 +66,9 @@
     "pageTitle": "Visual impairment",
     "descriptionHeading": "Description",
     "descriptionText1": "Navigating the internet is a challenge for a person with a visual impairment.",
-    "descriptionText2": "The online experience is highly dependent on assistive technologies (such as screen readers) that partially compensate for the disability, AND on HTML code that respects digital accessibility standards (WCAG) to interface correctly with the tools.",
+    "descriptionText2": "The online experience depends on assistive technologies (such as screen readers) that partially compensate the disability, AND on HTML code that respects digital accessibility standards (WCAG) to interact correctly with the tools.",
     "userTypeHeading": "The type of user you embody",
-    "userTypeDescription": "You are in the shoes of a colorblind person (severely affected). You therefore see no color or almost none... so when information is only conveyed by color as in the case of the 4 buttons at the bottom of the page, it is not accessible to you.",
+    "userTypeDescription": "You are in the shoes of a colorblind person (severely affected). You therefore see no color or almost none... so when information is only conveyed by color as in the case of the 4 buttons at the bottom of this page, it is not accessible to you.",
     "rulesHeading": "Rules",
     "rule1": "Click on the buttons in a specific order: green, blue, red, and then purple to pass this stage.",
     "rule2": "Be careful, if you make a mistake you will have to start all over again!",
@@ -84,13 +84,13 @@
     "userTypeText2": "Here, you are facing the most impacting digital disability: blind or very visually impaired.",
     "riddleHeading": "Riddle",
     "riddleText1": "Hard to know where you're going in the dark, huh?",
-    "riddleText2": "Fortunately... there's the keyboard...",
+    "riddleText2": "Fortunately...there's the keyboard...",
     "riddleText3": "And then, it's very easy to enter values into a form",
     "riddleText4": "...well...",
     "riddleText5": "You just have to know WHAT to enter...",
     "riddleText6": "and where...?",
     "riddleText7": "I'm nice, I'll leave a label on the form fields.",
-    "riddleText8": "And then, if there were to be dates, they would be in the format yyyy/mm/dd... that's for sure.",
+    "riddleText8": "And then, if there were to be dates, they would be in the format yyyy/mm/dd...that's for sure.",
     "riddleText9": "Riddle:",
     "riddleText10": "I, Louis, had to work with all my strength so that my disability would not hinder me",
     "riddleText11": "(my father told me I had thick skin)",
@@ -101,8 +101,8 @@
     "formInstructions": "Enter your answers in the following form fields:",
     "aria-label_name": "name",
     "aria-label_firstName": "first name",
-    "aria-label_birthDate": "birth",
-    "aria-label_deathDate": "death",
+    "aria-label_birthDate": "birth date",
+    "aria-label_deathDate": "death date",
     "aria-label_restingPlace": "resting place",
     "validationError": "Ouch, the test is still not successful, you cannot validate the challenge!!!",
     "name": "braille",
@@ -129,14 +129,14 @@
     "rulesHeading": "Rules",
     "rule1": "Read carefully, and answer the riddles correctly",
     "rule2": "To start the simulation, just click on the link containing the exact following phrase:",
-    "rule3": "\"Yes, it's certain, this link is the right one\"",
+    "rule3": "\"Yes, for sure, this is the right link\"",
     "rule4": "Be careful, an error and the page will be refreshed!!!",
     "buttonsHeading": "The buttons",
     "buttonsLabels": [
-      "yes it's certain, this link is the right one",
-      "yes of course, with some ham",
-      "yes it's hard, this link is a round",
-      "yes it's bad, here's a candy"
+      "yes, for sure, this is the right link",
+      "yes, four subs, this is the right squad",
+      "yes, for surf, this is the tight suit",
+      "yes, for sure, this is the bright ink"
     ]
   },
   "cognitiveSimu": {
@@ -144,11 +144,11 @@
     "content_description": "Page describing visual impairment on color blindness",
     "pageTitle": "Cognitive impairment - Simulation",
     "riddleHeading": "Riddle",
-    "riddle1": "My first did not hold his tongue and wore a mustache, even if it must be put into perspective, it was much more common at the time... In any case, we can say that he put a new definition of mass and his discoveries were a revolution.",
-    "riddle2": "My second is the queen of crime, whether with a Poirot or her pen, her composure has marked (one might even say printed) her imprint on the detective genre.",
+    "riddle1": "My first did not hold his tongue and wore a mustache, even if it must be put into perspective, it was much more common back then...In any case, we can say that he put a new definition of mass and his discoveries were a revolution.",
+    "riddle2": "My second is the queen of crime, whether with marple or her pen, her composure has marked (one might even say printed) her imprint on the detective genre.",
     "riddle3": "My third evolved from his birth in 1809 to his death in 1882, even though he is the instigator of a theory on the origin of species, natural selection is the same for everyone, after all.",
     "errorHiddenText": "Error",
-    "errorMessage": "Ouch Ouch Ouch, the answers are not correct!!!",
+    "errorMessage": "Ouch, the answers are not correct!!!",
     "labelFirst": "First",
     "aria-label_first": "First",
     "labelSecond": "Second",
@@ -194,9 +194,9 @@
     "hint2": "A great British physicist and cosmologist.",
     "hint3": "Affected by amyotrophic lateral sclerosis, he continued to work until his death in 2018.",
     "hint4": "Type the correct answer in the form field.",
-    "hint5": "Pssst, don't repeat it, but the correct answer is \"Stephen Hawking\"... Shh, shh, shh, it's a secret.",
+    "hint5": "Pssst, don't repeat it, but the correct answer is \"Stephen Hawking\"...Shh, shh, shh, it's a secret.",
     "errorHiddenText": "Error",
-    "errorMessage": "Ouch Ouch Ouch, the answer is incorrect!!!",
+    "errorMessage": "Ouch, the answer is incorrect!!!",
     "labelResponse": "Response",
     "aria-label_response": "Response",
     "validateButton": "Validate",
@@ -208,19 +208,19 @@
     "content_description": "Page describing hearing impairment",
     "pageTitle": "Hearing impairment",
     "descriptionHeading": "Description",
-    "descriptionText1": "A person with hearing impairments has an alteration in their ability to hear or perceive sounds normally.",
+    "descriptionText1": "A person with hearing impairments has issues for hearing or perceiving sounds normally.",
     "descriptionText2": "There are several levels of hearing loss, ranging from mild to severe, or even total.",
     "descriptionText3": "To meet the needs of people with hearing loss, it is important to implement appropriate solutions.",
     "userTypeHeading": "The type of user you embody",
     "userTypeText1": "You are hard of hearing.",
-    "userTypeText2": "Information transmitted by videos or audio tracks is not very useful without subtitles, audio descriptions, or text transcriptions.",
+    "userTypeText2": "Information transmitted by videos or audio tracks is not useful without subtitles, audio descriptions, or text transcriptions.",
     "userTypeText3": "By chance, a miracle gradually restores your hearing... in exchange for a bit of your time.",
     "rulesHeading": "Rules",
     "rule1": "5 audio files can be played, below.",
     "rule2": "The first sound is active, the others will appear one after the other after the complete listening of the previous sound.",
     "rule3": "The sound improves each time, following the level of decibel loss defined by the 4 levels of deafness.",
     "rule4": "Each sound gives the correct answer.",
-    "rule5": "One last detail... impatience leads to refreshing... hihihi",
+    "rule5": "One last detail... impatience leads to refreshing...hihihi",
     "errorHiddenText": "Error",
     "errorMessage": "Make an effort, are you sure you heard correctly?",
     "profoundDeafness": "Profound deafness",
@@ -241,13 +241,12 @@
     "content_description": "Page simulating a hearing impairment",
     "pageTitle": "Hearing impairment - Simulation",
     "errorHiddenText": "Error",
-    "errorMessage": "It's a miss, listen to the video again carefully!!!",
+    "errorMessage": "It's a miss, listen carefully the video once again!!!",
     "title_youtubeVideo": "youtube video - auditory riddle",
     "labelResponse": "Response",
     "aria-label_response": "Response",
     "validateButton": "Validate",
     "possibleResponses": [
-      "moonlight sonata",
       "moonlight sonata",
       "sonata 14",
       "mondscheinsonate"
@@ -299,22 +298,22 @@
     "labelPhoneNumber": "Phone Number:",
     "labelFruits": "Select your favorite fruits:",
     "labelHintsButton": "Take a hint (+{{duration}} {{unit}})",
-    "errorName": "The name is required",
+    "errorName": "The last name is required",
     "errorFirstName": "The first name is required",
     "errorPassword": "The password must be between 4 and 8 characters",
     "errorAge": "The age must be a number less than 18",
-    "errorEmail": "The email format is not valid. Example format: firstname.lastname@orange.com",
+    "errorEmail": "The email format is not valid. Example format: lastname.firstname@orange.com",
     "errorPhoneNumber": "The phone number format is not valid. Example format: +33612345678",
     "errorFruits": "Only 3 fruits must be selected!!!",
-    "detailEmail": "(format: firstname.lastname@domain.com)",
+    "detailEmail": "(format: lastname.firstname@domain.com)",
     "detailPhoneNumber": "(format: +33 followed by 9 digits)",
     "detailFruits": "(3 fruits)"
   },
   "formSimu": {
-    "tabTitle": "Satisfaction Form - Tota11y Lost",
+    "tabTitle": "Satisfaction form - Tota11y Lost",
     "content_description": "Simulation page of a form with a visual impairment (zoom at 500%+)",
-    "pageTitle": "Form with Verification",
-    "information": "You are visually impaired, you use a software magnifier at 500% to help you navigate.<br>Having the entirety of a website's information becomes difficult...<br>Your goal will be to navigate this site, find the form fields, and fill them out correctly.<br>The continuation is in the next element, to the right.<br>-->",
+    "pageTitle": "Form with check",
+    "information": "You are visually impaired, you use a software magnifier at 500% to help you navigate.<br>Having the entirety of a website's information becomes difficult...<br>Your goal will be to navigate through this site, find the form fields, and fill them out correctly.<br>The continuation is in the next element, to the right.<br>-->",
     "aria-label_information": "information about the form",
     "tooltip": "Sorry, lack of space... we were cut off.<br>So I was saying,<br>it obviously becomes an additional challenge to read this kind of tooltips.<br>If only this message would stop disappearing...<br>It would be simpler!<br>Go on... I think everyone must have zoomed out by now, this field is actually not mandatory ;p",
     "aria-label_tooltip": "information about the form",
@@ -322,22 +321,22 @@
     "timer": "00:00:00",
     "navigation": "To pass this step, you will simply need to hover over each tooltip next to the form fields, read the content, and answer the riddles.<br>Easy then.<br>The continuation is in the next element, to the left<br><--",
     "aria-label_navigation": "information about the form",
-    "lastPoint": "One last little point.<br>Don't forget, everything is big here, you will have to travel a bit to find the form fields...<br>The continuation is in the next element, to the left<br><--",
+    "lastPoint": "One last little point.<br>Don't forget, everything is big here, you will have to browse a bit to find the form fields...<br>The continuation is in the next element, to the left<br><--",
     "aria-label_lastPoint": "information about the form",
     "question1": "Question 1:",
     "tooltipRiddle1": "Riddle 1:<br>We are looking for a Name<br>- I was born a slave in Dorchester County.<br>- A head injury caused me a visual impairment.<br>- I am known for having been an abolitionist, escorting 300 slaves to freedom.",
-    "aria-label_solveRiddle1": "Solve the riddle and indicate the name of the person sought",
+    "aria-label_solveRiddle1": "Solve the riddle and indicate the name of the person we are looking for",
     "aria-describedby_solveRiddle1": "Riddle: I was born a slave in Dorchester County. A head injury caused me a visual impairment. I am known for having been an abolitionist, escorting 300 slaves to freedom.",
     "placeholder_response1": "response 1",
     "question2": "Question 2:",
-    "tooltipRiddle2": "Riddle 2:<br>What to put in this form field?<br>... The answer is much simpler.<br>If only this message would stop disappearing...<br>It would be simpler!<br>Go on... I think everyone must have zoomed out by now, this field is actually not mandatory in fact ;p",
+    "tooltipRiddle2": "Riddle 2:<br>What to put in this form field?<br>...The answer is much simpler.<br>If only this message would stop disappearing...<br>It would be simpler!<br>Go on...I think everyone must have zoomed out by now, this field is actually not mandatory ;p",
     "placeholder_response2": "response 2",
     "validateButton": "validate"
   },
         "hints": {
           "hintsTimer": "Hints will be available in",
           "hintsAvailable": "Hints are now available.",
-          "noMoreHints": "No more hints available",
+          "noMoreHints": "No more hint available",
           "intro": [
             "There is no mistake, you really need to click on the link 'here'",
             "There is more than one 'here' on this page...",
@@ -354,12 +353,12 @@
             "The simulation has been disabled."
           ],
           "formRegistration": [
-            "Yes, it's not easy to fill out a form when there are no labels... Labels have now been added.",
+            "It's not easy to fill out a form when there isn't any label... Labels have now been added.",
             "It can be frustrating not to know why you can't validate a form. Always allow the form to be validated and add error messages!!!",
             "It's good to have an error message, but if it's not precise it won't be useful. Error messages must be precise and related to the form fields to quickly determine the error. And voila, error messages have been added."
           ],
           "cognitive": [
-            "In this simulation, the number of letters per sentence does not change...",
+            "In this simulation, the amount of letters per sentence does not change...",
             "A little effort, if the exercise is really too difficult, there is hint 3.",
             "The simulation has been disabled."
           ],
@@ -369,22 +368,22 @@
             "The simulation has been disabled."
           ],
           "hearing": [
-            "Here we are looking for the last name of an American woman, who became famous for doing great things despite 3 disabilities.",
-            "Became blind, deaf, and mute at 18 months old, she became an author, speaker, and political activist, she inspired a play and a film based on her autobiography titled 'Deaf, Dumb, Blind: Story of My Life'. She also campaigned for women's voting rights, labor rights, and among others, anti-militarism.",
+            "Here we are looking for the last name of an American woman, who became famous for doing great things despite suffering from 3 different disabilities.",
+            "She became blind, deaf, and mute when she was 18 months old, she was an author, speaker, and political activist, she inspired a play and a film based on her autobiography titled 'The story of My Life' has been released. She also campaigned for women's voting rights, labor rights, and among others, anti-militarism.",
             "The answer is 'Helen Keller'"
           ],
           "hearingSimulation": [
-            "The answer to the riddle is a piece by a very famous composer who has a peculiarity... Especially for a composer",
-            "he realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in French.",
+            "The answer to the riddle is a piece by a very famous composer who has a peculiarity...Especially for a composer",
+            "He realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in English.",
             "It is the piece 'Moonlight Sonata' by Beethoven."
           ],
           "physical": [
             "You are lucky to have a correct responsiveness, so it's mostly a matter of timing...",
-            "Get as close as possible to the cross and do not make any sudden movements.",
+            "Get as close as possible to the cross and do not make any sudden movement.",
             "The simulation has been disabled."
           ],
           "physicalSimulation": [
-            "It's not random. The selected letters are all around the right letter chosen.",
+            "It's not random. The selected letters are all around the right letter.",
             "Just be patient...",
             "The simulation has been disabled."
           ]
@@ -398,6 +397,6 @@
     "minutes": "minutes",
     "todayTitle": "Best scores of the day",
     "generalTitle": "General ranking",
-    "alt_congratulationImage": "You have finished the escape game in {{version}} minutes"
+    "alt_congratulationImage": "You have finished the {{version}} minutes escape game"
   }
 }
