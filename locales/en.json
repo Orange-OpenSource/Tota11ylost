@@ -31,8 +31,14 @@
     "adventureType": "Type of adventure",
     "escapeGame": "Escape game",
     "duration": "Duration",
-    "30min": "30 min",
-    "60min": "60 min",
+    "30min": {
+      "label" : "30 min",
+      "title_30": "The short version of the escape game on five pages"
+    },
+    "60min": {
+      "label" : "60 min",
+      "title_60": "The classic version of the escape game on ten pages"
+    },
     "pseudo": "Your nickname",
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",

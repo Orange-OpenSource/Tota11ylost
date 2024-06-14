@@ -31,8 +31,14 @@
       "adventureType": "Tipo de aventura",
       "escapeGame": "Juego de escape",
       "duration": "Duración",
-      "30min": "30 min",
-      "60min": "60 min",
+      "30min": {
+        "label" : "30 min",
+        "title_30": "La versión corta del juego de escape en cinco páginas"
+      },
+      "60min": {
+        "label" : "60 min",
+        "title_60": "La versión clásica del juego de escape en diez páginas"
+      },
       "pseudo": "Tu apodo",
       "placeholder_enterPseudo": "Indique tu apodo",
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",

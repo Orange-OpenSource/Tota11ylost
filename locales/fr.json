@@ -31,8 +31,14 @@
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
     "duration": "Durée",
-    "30min": "30 min",
-    "60min": "60 min",
+    "30min": {
+      "label" : "30 min",
+      "title_30": "La version courte de l'escape game sur 5 pages"
+    },
+    "60min": {
+      "label" : "60 min",
+      "title_60": "La version classique de l'escape game sur 10 pages"
+    },
     "pseudo": "Votre pseudo",
     "placeholder_enterPseudo": "Indiquez votre pseudo",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
