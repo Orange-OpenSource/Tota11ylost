@@ -22,6 +22,7 @@ npm i -g http-server
 
 **Start the server :** (in your project directory)
 ```
+cd src
 http-server
 ```
 

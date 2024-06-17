@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function startAdventure() {
-  window.location.href = './pages/introduction.html';
+  window.location.href = '../../pages/introduction.html';
   restartTime();
 }
 
