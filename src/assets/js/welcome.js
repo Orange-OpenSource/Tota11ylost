@@ -31,4 +31,4 @@ function startAdventure() {
   restartTime();
 }
 
-setVersion('60');
+setVersion('15');
