@@ -354,6 +354,7 @@
     "hints": {
       "hintsTimer": "Las pistas estarán disponibles en",
       "hintsAvailable": "Las pistas están ahora disponibles.",
+      "hintsAvailableNow": "Las pistas están disponibles.",
       "noMoreHints": "No hay más pista disponible",
       "intro": [
         "No hay error, realmente necesitas hacer clic en el enlace 'aquí'",
