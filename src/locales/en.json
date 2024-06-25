@@ -31,9 +31,13 @@
     "adventureType": "Type of adventure",
     "escapeGame": "Escape game",
     "duration": "Duration",
+    "15min": {
+      "label" : "15 min",
+      "title_15": "The express version of the escape game on four pages"
+    },
     "30min": {
       "label" : "30 min",
-      "title_30": "The short version of the escape game on five pages"
+      "title_30": "The short version of the escape game on six pages"
     },
     "60min": {
       "label" : "60 min",
@@ -58,7 +62,7 @@
     },
     "descriptionText4": "It's up to you to get out, alone or in a group, against these difficulties.",
     "rulesHeading": "Rules",
-    "rule1": "You have 60 minutes to go as far as possible (and hopefully finish). For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
+    "rule1": "You must go as far as possible (and hopefully finish) within the time limit. For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
     "rule2": "For each new stage, a riddle based on one or more impairment(s) will be stated.",
     "rule3": "Each riddle has its own rules.",
     "rule4": "All pages contain at least one little trickery from us (hihihi).",

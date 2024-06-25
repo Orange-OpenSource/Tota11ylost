@@ -31,9 +31,13 @@
       "adventureType": "Tipo de aventura",
       "escapeGame": "Juego de escape",
       "duration": "Duración",
+      "15min": {
+        "label" : "15 min",
+        "title_15": "La versión express del juego de escape en cuatro páginas"
+      },
       "30min": {
         "label" : "30 min",
-        "title_30": "La versión corta del juego de escape en cinco páginas"
+        "title_30": "La versión corta del juego de escape en seis páginas"
       },
       "60min": {
         "label" : "60 min",
@@ -58,7 +62,7 @@
       },
       "descriptionText4": "Puedes afrontar las dificultades solo o en grupo.",
       "rulesHeading": "Reglas",
-      "rule1": "Tienes 60 minutos para llegar lo más lejos posible (y, esperamos, terminar). Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables",
+      "rule1": "Debes llegar lo más lejos posible (y con suerte terminar) dentro del límite de tiempo. Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables",
       "rule2": "Para cada nueva etapa, se te planteará un enigma basado en una o varias discapacidad(es).",
       "rule3": "Cada enigma tiene sus propias reglas.",
       "rule4": "Todas las páginas contienen al menos una pequeña travesura.",

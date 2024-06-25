@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const button15 = document.getElementById('15min');
   const button30 = document.getElementById('30min');
   const button60 = document.getElementById('60min');
 
+  button15.addEventListener('click', function () {
+    setVersion('15');
+  });
   button30.addEventListener('click', function () {
     setVersion('30');
   });

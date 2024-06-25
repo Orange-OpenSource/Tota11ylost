@@ -18,6 +18,10 @@ function is30Version() {
   return localStorage.getItem('version') === '30';
 }
 
+function is15Version() {
+  return localStorage.getItem('version') === '15';
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
   langManager.subscribe(() => {
     const link = document.getElementById('link30or60');
@@ -28,6 +32,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
           break;
         case 'physical-simulation.html':
           link.href = 'hearing.html';
+          break;
+        default:
+          break;
+      }
+    }
+    if (link && is15Version()) {
+      switch (link.href.split('/').pop()) {
+        case 'physical-simulation.html':
+          link.href = 'form-registration.html';
           break;
         default:
           break;
