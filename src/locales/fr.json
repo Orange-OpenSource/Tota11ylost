@@ -340,8 +340,8 @@
     "validateButton": "valider"
   },
   "hints": {
-    "hintsTimer": "Les indices seront disponibles dans",
     "hintsAvailable": "Les indices sont à présent disponibles.",
+    "hintsAvailableNow": "Les indices sont disponibles.",
     "noMoreHints": "Plus d'indice disponible",
     "intro": [
       "Il n'y a pas d'erreur, il faut bien cliquer sur le lien \"ici\"",
