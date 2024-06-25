@@ -31,12 +31,16 @@
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
     "duration": "Durée",
+    "15min": {
+      "label": "15 min",
+      "title_15": "La version express de l'escape game sur 4 pages"
+    },
     "30min": {
-      "label" : "30 min",
-      "title_30": "La version courte de l'escape game sur 5 pages"
+      "label": "30 min",
+      "title_30": "La version courte de l'escape game sur 6 pages"
     },
     "60min": {
-      "label" : "60 min",
+      "label": "60 min",
       "title_60": "La version classique de l'escape game sur 10 pages"
     },
     "pseudo": "Votre pseudo",
@@ -58,7 +62,7 @@
     },
     "descriptionText4": "À vous de vous en sortir, seul ou en groupe, contre ces difficultés.",
     "rulesHeading": "Règles",
-    "rule1": "Vous avez 60 minutes pour aller le plus loin possible (et finir nous l'espérons). Pour les utilisateurs de lecteur d'écran, une région a été positionnée sur le chronomètre pour vous en faciliter l'accès, on est quand-même gentil!",
+    "rule1": "Vous devez aller le plus loin possible (et finir nous l'espérons) dans le temps imparti. Pour les utilisateurs de lecteur d'écran, une région a été positionnée sur le chronomètre pour vous en faciliter l'accès, on est quand-même gentil!",
     "rule2": "Pour chaque nouvelle étape, une énigme basée sur une ou plusieurs déficience(s) vous sera énoncée.",
     "rule3": "Chaque énigme a ses propres règles.",
     "rule4": "Toutes les pages contiennent au moins une petite perfidie de notre part (hihihi).",
@@ -395,7 +399,7 @@
     "content_description": "Tableau des scores",
     "congratulations": "Bravo, vous venez de terminer l'Escape Game !",
     "finalTime": "Temps final",
-    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recos</a>.",
+    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommendations</a>.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
