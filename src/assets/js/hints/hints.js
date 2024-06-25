@@ -1,39 +1,7 @@
 const btnIndice = document.getElementById("indice");
-const displayTimer = document.getElementById("displayTimer");
 const hintsAvailable = document.getElementById("hintsAvailable");
 
 const pageID = document.getElementById("pageId").value;
-
-// Display timer before hint button activation
-function startTimer(duration, display) {
-  let start = Date.now(),
-    diff,
-    minutes,
-    seconds;
-
-  function timer() {
-    diff = duration - (((Date.now() - start) / 1000) | 0);
-
-    minutes = (diff / 60) % 60 | 0;
-    seconds = diff % 60 | 0;
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = " " + minutes + ":" + seconds;
-
-    if (diff <= 0) {
-      start = Date.now() + 1000;
-    }
-  }
-
-  timer();
-  setInterval(timer, 1000);
-}
-
-let display = document.querySelector("#hint-timer");
-
-startTimer(5 * 60, display);
 
 // Add param '?debug=true' at the end of the URL to reduce timer duration to 10s
 let params = new URLSearchParams(document.location.search);
@@ -43,8 +11,6 @@ let hintTimer = formRegistration ? 1 : (!debug ? 300000 : 10000);
 
 // Activate hint buttton and remove time after 5min
 setTimeout(() => {
-  btnIndice.removeAttribute("disabled");
-  displayTimer.classList.add("d-none");
   hintsAvailable.classList.remove("d-none");
 }, hintTimer);
 
@@ -114,7 +80,7 @@ if (!formRegistration) {
   window.addEventListener("unload", UnloadHandler, false);
 
   function PageShowHandler() {
-    btnIndice.setAttribute("disabled", true);
+    hintsAvailable.classList.add("d-none");
     window.addEventListener("unload", UnloadHandler, false);
   }
 
