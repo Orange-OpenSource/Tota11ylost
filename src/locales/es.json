@@ -1,5 +1,5 @@
 {
-    "common": {
+  "common": {
       "lang_lang": "es",
       "banner": {
         "alt_orangeLogo": "logo Orange",
@@ -22,8 +22,8 @@
         "cookiePolicy": "Política de cookies",
         "href_cookiePolicy": "https://www.orange.com/en/cookie-policy"
       }
-    },
-    "welcome": {
+  },
+  "welcome": {
       "tabTitle": "Inicio - Tota11y lost",
       "content_description": "Página de inicio de Tota11y lost",
       "intro": "Prueba de manera lúdica los desafíos que enfrentan las personas en situación de discapacidad digital.",
@@ -47,8 +47,8 @@
       "placeholder_enterPseudo": "Indique tu apodo",
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
       "buttonStartAdventure": "Iniciar la aventura"
-    },
-    "intro": {
+  },
+  "intro": {
       "tabTitle": "Introducción - Tota11y Lost",
       "content_description": "Página de introducción del juego de escape y primer enigma",
       "pageTitle": "Introducción",
@@ -69,8 +69,8 @@
       "rule5": "El juego ya ha comenzado...",
       "rule6": "Para poner a todos al mismo nivel, no se puede utilizar los DevTools ¡Confiamos en ti!",
       "startButton": "Para comenzar, haz clic en el enlace: aquí."
-    },
-    "visual": {
+  },
+  "visual": {
       "tabTitle": "Discapacidad visual - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad visual sobre el daltonismo",
       "pageTitle": "Discapacidad visual",
@@ -84,8 +84,8 @@
       "rule2": "¡Atención, en caso de error tendrás que empezar de nuevo!",
       "errorMessage": "¡Ups, color incorrecto! ¡Debes seguir las instrucciones!",
       "buttonsLabel": "Botón"
-    },
-    "visualSimu": {
+  },
+  "visualSimu": {
       "tabTitle": "Discapacidad visual - Simulación - Tota11y Lost",
       "content_description": "Página de simulación de una discapacidad visual grave (invidente)",
       "pageTitle": "Discapacidad visual - Simulación",
@@ -132,8 +132,8 @@
       ],
       "congratulations": "Enhorabuena, puedes presionar la tecla \"Enter\" para pasar a la siguiente prueba.",
       "error": "Ay, la prueba aún no se ha superado, ¡No puedes validar el desafío!"
-    },
-    "cognitive": {
+  },
+  "cognitive": {
       "tabTitle": "Discapacidad cognitiva - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad cognitiva",
       "pageTitle": "Discapacidad cognitiva",
@@ -155,8 +155,8 @@
         "sin dedo, esa laca es con recato",
         "sin dulce, estar lacia es correcto "
       ]
-    },
-    "cognitiveSimu": {
+  },
+  "cognitiveSimu": {
       "tabTitle": "Discapacidad cognitiva - Simulación - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad visual sobre el daltonismo",
       "pageTitle": "Discapacidad cognitiva - Simulación",
@@ -182,8 +182,8 @@
       "img_alice": "A11Y en el país de las maravillas",
       "img_hungry": "TENGO HAMBRE",
       "img_monkey": "Vamos, concéntrate un poco"
-    },
-    "physical": {
+  },
+  "physical": {
       "tabTitle": "Discapacidad motora - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad motora y simulación del uso del ratón con tal discapacidad",
       "pageTitle": "Discapacidad motora",
@@ -199,8 +199,8 @@
       "rule2": "Cierra este pop-up",
       "rule3": "Haz clic en el botón \"Validar\"",
       "validateLink": "Validar"
-    },
-    "physicalSimu": {
+  },
+  "physicalSimu": {
       "tabTitle": "Discapacidad motora - Simulación - Tota11y Lost",
       "content_description": "Página de simulación de una discapacidad motora con el uso del teclado",
       "pageTitle": "Discapacidad motora - Simulación",
@@ -219,8 +219,8 @@
       "validateButton": "Validar",
       "response": "stephen hawking",
       "copyPasteForbidden": "No puedes copiar y pegar, vamos..."
-    },
-    "hearing": {
+  },
+  "hearing": {
       "tabTitle": "Discapacidad auditiva - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad auditiva",
       "pageTitle": "Discapacidad auditiva",
@@ -252,8 +252,8 @@
         "helen keller",
         "keller"
       ]
-    },
-    "hearingSimu": {
+  },
+  "hearingSimu": {
       "tabTitle": "Discapacidad auditiva - Simulación - Tota11y Lost",
       "content_description": "Página de simulación de una discapacidad auditiva",
       "pageTitle": "Discapacidad auditiva - Simulación",
@@ -269,8 +269,8 @@
         "sonata 14",
 		"mondscheinsonate"
       ]
-    },
-    "form": {
+  },
+  "form": {
       "tabTitle": "Formulario de inscripción - Tota11y Lost",
       "content_description": "Página del formulario de inscripción para Tota11y Lost",
       "pageTitle": "Formulario de inscripción",
@@ -326,8 +326,8 @@
       "detailEmail": "(formato: nombreapellido@domain.com)",
       "detailPhoneNumber": "(formato: +34 seguido de 9 dígitos)",
       "detailFruits": "(3 frutas)"
-    },
-    "formSimu": {
+  },
+  "formSimu": {
       "tabTitle": "Formulario de satisfacción - Tota11y Lost",
       "content_description": "Página de simulación de un formulario con una discapacidad visual (zoom al 500%+)",
       "pageTitle": "Formulario con verificación",
@@ -350,8 +350,8 @@
       "tooltipRiddle2": "Enigma 2 :<br>¿Qué poner en este campo del formulario?<br>... La respuesta es mucho más sencilla.<br>Si solo este mensaje dejara de desaparecer...<br>¡Sería más fácil!<br>Vamos... Creo que todos han tenido que deszoomar ahora, este campo en realidad no es obligatorio ;p",
       "placeholder_response2": "respuesta 2",
       "validateButton": "validar"
-    },
-    "hints": {
+  },
+  "hints": {
       "hintsTimer": "Las pistas estarán disponibles en",
       "hintsAvailable": "Las pistas están ahora disponibles.",
       "noMoreHints": "No hay más pista disponible",
@@ -405,8 +405,8 @@
         "Solo tienes que ser paciente...",
         "La simulación ha sido desactivada."
       ]
-    },
-    "scores": {
+  },
+  "scores": {
       "tabTitle": "Tabla de posiciones - Tota11y Lost",
       "content_description": "Tabla de posiciones",
       "congratulations": "¡Felicidades, has terminado el juego de escape!",
@@ -416,5 +416,5 @@
       "todayTitle": "Mejores tiempos del día",
       "generalTitle": "Clasificación general",
       "alt_congratulationImage": "Terminaste el juego de escape {{version}} minutos"
-    }
+  }
   }

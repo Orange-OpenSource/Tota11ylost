@@ -24,8 +24,8 @@
     }
   },
   "welcome": {
-    "tabTitle": "Home - Tota11y lost",
-    "content_description": "Homepage of Tota11y lost",
+    "tabTitle": "Home - Tota11y Lost",
+    "content_description": "Homepage of Tota11y Lost",
     "intro": "Experience in a playful way the challenges faced by people with digital disabilities.",
     "rules": "Before starting, choose your adventure and your nickname",
     "adventureType": "Type of adventure",
@@ -235,7 +235,7 @@
     "rule2": "The first sound is active, the others will appear one after the other after the complete listening of the previous sound.",
     "rule3": "The sound improves each time, following the level of decibel loss defined by the 4 levels of deafness.",
     "rule4": "Each sound gives the correct answer.",
-    "rule5": "One last detail... impatience leads to refreshing...hihihi",
+    "rule5": "One last detail... Impatience leads to refreshing... Hihihi",
     "errorHiddenText": "Error",
     "errorMessage": "Make an effort, are you sure you heard correctly?",
     "profoundDeafness": "Profound deafness",
@@ -348,61 +348,61 @@
     "placeholder_response2": "response 2",
     "validateButton": "validate"
   },
-        "hints": {
-          "hintsTimer": "Hints will be available in",
-          "hintsAvailable": "Hints are now available.",
-          "noMoreHints": "No more hint available",
-          "intro": [
-            "There is no mistake, you really need to click on the link 'here'",
-            "There is more than one 'here' on this page...",
-            "The link is now visible in the paragraph above."
-          ],
-          "visual": [
-            "No need to copy from your neighbor, the solution is generated randomly...",
-            "Note on which button the error message appears, each button is only clickable once.",
-            "The simulation has been disabled."
-          ],
-          "visualSimulation": [
-            "Make sure to read the riddle, translate the form fields into braille and enter your answers.",
-            "We are looking for the inventor of braille",
-            "The simulation has been disabled."
-          ],
-          "formRegistration": [
-            "It's not easy to fill out a form when there isn't any label... Labels have now been added.",
-            "It can be frustrating not to know why you can't validate a form. Always allow the form to be validated and add error messages!!!",
-            "It's good to have an error message, but if it's not precise it won't be useful. Error messages must be precise and related to the form fields to quickly determine the error. And voila, error messages have been added."
-          ],
-          "cognitive": [
-            "In this simulation, the amount of letters per sentence does not change...",
-            "A little effort, if the exercise is really too difficult, there is hint 3.",
-            "The simulation has been disabled."
-          ],
-          "cognitiveSimulation": [
-            "We are looking for the names of three famous people, each in a different field.",
-            "A.E, A.C, C.D",
-            "The simulation has been disabled."
-          ],
-          "hearing": [
-            "Here we are looking for the last name of an American woman, who became famous for doing great things despite suffering from 3 different disabilities.",
-            "She became blind, deaf, and mute when she was 18 months old, she was an author, speaker, and political activist, she inspired a play and a film based on her autobiography titled 'The story of My Life' has been released. She also campaigned for women's voting rights, labor rights, and among others, anti-militarism.",
-            "The answer is 'Helen Keller'"
-          ],
-          "hearingSimulation": [
-            "The answer to the riddle is a piece by a very famous composer who has a peculiarity...Especially for a composer",
-            "He realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in English.",
-            "It is the piece 'Moonlight Sonata' by Beethoven."
-          ],
-          "physical": [
-            "You are lucky to have a correct responsiveness, so it's mostly a matter of timing...",
-            "Get as close as possible to the cross and do not make any sudden movement.",
-            "The simulation has been disabled."
-          ],
-          "physicalSimulation": [
-            "It's not random. The selected letters are all around the right letter.",
-            "Just be patient...",
-            "The simulation has been disabled."
-          ]
-        },
+  "hints": {
+    "hintsTimer": "Hints will be available in",
+    "hintsAvailable": "Hints are now available.",
+    "noMoreHints": "No more hint available",
+    "intro": [
+      "There is no mistake, you really need to click on the link 'here'",
+      "There is more than one 'here' on this page...",
+      "The link is now visible in the paragraph above."
+    ],
+    "visual": [
+      "No need to copy from your neighbor, the solution is generated randomly...",
+      "Note on which button the error message appears, each button is only clickable once.",
+      "The simulation has been disabled."
+    ],
+    "visualSimulation": [
+      "Make sure to read the riddle, translate the form fields into braille and enter your answers.",
+      "We are looking for the inventor of braille",
+      "The simulation has been disabled."
+    ],
+    "formRegistration": [
+      "It's not easy to fill out a form when there isn't any label... Labels have now been added.",
+      "It can be frustrating not to know why you can't validate a form. Always allow the form to be validated and add error messages!!!",
+      "It's good to have an error message, but if it's not precise it won't be useful. Error messages must be precise and related to the form fields to quickly determine the error. And voila, error messages have been added."
+    ],
+    "cognitive": [
+      "In this simulation, the amount of letters per sentence does not change...",
+      "A little effort, if the exercise is really too difficult, there is hint 3.",
+      "The simulation has been disabled."
+    ],
+    "cognitiveSimulation": [
+      "We are looking for the names of three famous people, each in a different field.",
+      "A.E, A.C, C.D",
+      "The simulation has been disabled."
+    ],
+    "hearing": [
+      "Here we are looking for the last name of an American woman, who became famous for doing great things despite suffering from 3 different disabilities.",
+      "She became blind, deaf, and mute when she was 18 months old, she was an author, speaker, and political activist, she inspired a play and a film based on her autobiography titled 'The story of My Life' has been released. She also campaigned for women's voting rights, labor rights, and among others, anti-militarism.",
+      "The answer is 'Helen Keller'"
+    ],
+    "hearingSimulation": [
+      "The answer to the riddle is a piece by a very famous composer who has a peculiarity...Especially for a composer",
+      "He realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in English.",
+      "It is the piece 'Moonlight Sonata' by Beethoven."
+    ],
+    "physical": [
+      "You are lucky to have a correct responsiveness, so it's mostly a matter of timing...",
+      "Get as close as possible to the cross and do not make any sudden movement.",
+      "The simulation has been disabled."
+    ],
+    "physicalSimulation": [
+      "It's not random. The selected letters are all around the right letter.",
+      "Just be patient...",
+      "The simulation has been disabled."
+    ]
+  },
   "scores": {
     "tabTitle": "Scoreboard - Tota11y Lost",
     "content_description": "Scoreboard",
