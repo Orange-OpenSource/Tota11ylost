@@ -22,7 +22,8 @@ function updateTextBloc(event) {
     var accessibleName = target.getAttribute('aria-label') || target.innerText || target.value || '';
 
     if (target.getAttribute("class") == "form-input") {
-      textBloc.innerHTML = br.braille(accessibleName);
+      const noAccentName= accessibleName.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      textBloc.innerHTML = br.braille(noAccentName);
     } else textBloc.innerHTML = accessibleName;
   }, "200");
 
