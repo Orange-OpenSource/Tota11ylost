@@ -351,6 +351,7 @@
         "hints": {
           "hintsTimer": "Hints will be available in",
           "hintsAvailable": "Hints are now available.",
+          "hintsAvailableNow": "Hints are available.",
           "noMoreHints": "No more hint available",
           "intro": [
             "There is no mistake, you really need to click on the link 'here'",
