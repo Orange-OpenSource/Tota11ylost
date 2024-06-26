@@ -57,8 +57,8 @@
     "descriptionText2": "Vous serez plongés dans un scénario dans lequel vous incarnerez un personnage ayant des déficiences différentes à chaque nouvelle étape franchie.",
     "descriptionText3": {
       "begin": "Vous devrez donc,",
-      "here": "ici,",
-      "end": "résoudre les énigmes et les défis un à un, surmonter des obstacles liés à l'accessibilité et à l'ergonomie pour avancer dans le jeu."
+      "here": "ici",
+      "end": ", résoudre les énigmes et les défis un à un, surmonter des obstacles liés à l'accessibilité et à l'ergonomie pour avancer dans le jeu."
     },
     "descriptionText4": "À vous de vous en sortir, seul ou en groupe, contre ces difficultés.",
     "rulesHeading": "Règles",

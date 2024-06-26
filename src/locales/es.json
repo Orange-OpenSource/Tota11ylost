@@ -56,9 +56,9 @@
       "descriptionText1": "Este juego de escape tiene como objetivo ofrecerte una experiencia inmersiva, sensibilizándote especialmente a los desafíos que enfrentan las personas con discapacidad digital.",
       "descriptionText2": "Te verás inmerso en una historia en la cual encarnarás a un personaje con diferentes deficiencias en cada nueva etapa superada.",
       "descriptionText3": {
-        "begin": "Entonces tendrás que",
+        "begin": "Entonces tendrás que,",
         "here": "aquí",
-        "end": "resolver los enigmas y desafíos uno por uno, superar obstáculos relacionados con la accesibilidad y la ergonomía para avanzar en el juego."
+        "end": ", resolver los enigmas y desafíos uno por uno, superar obstáculos relacionados con la accesibilidad y la ergonomía para avanzar en el juego."
       },
       "descriptionText4": "Puedes afrontar las dificultades solo o en grupo.",
       "rulesHeading": "Reglas",
