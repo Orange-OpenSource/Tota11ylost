@@ -43,7 +43,7 @@
       "label" : "60 min",
       "title_60": "The classic version of the escape game on ten pages"
     },
-    "pseudo": "Your nickname",
+    "pseudo": "Your nickname (mandatory)",
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "buttonStartAdventure": "Start the adventure"
@@ -57,8 +57,8 @@
     "descriptionText2": "You will be plunged into a scenario in which you will play a character with different impairments at each new stage.",
     "descriptionText3": {
       "begin": "You will have to,",
-      "here": "here,",
-      "end": "solve riddles and challenges one by one, overcome obstacles related to accessibility and ergonomics to progress in the game."
+      "here": "here",
+      "end": ", solve riddles and challenges one by one, overcome obstacles related to accessibility and ergonomics to progress in the game."
     },
     "descriptionText4": "It's up to you to get out, alone or in a group, against these difficulties.",
     "rulesHeading": "Rules",

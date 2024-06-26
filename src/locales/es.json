@@ -43,7 +43,7 @@
         "label" : "60 min",
         "title_60": "La versión clásica del juego de escape en diez páginas"
       },
-      "pseudo": "Tu apodo",
+      "pseudo": "Tu apodo (obligatorio)",
       "placeholder_enterPseudo": "Indique tu apodo",
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
       "buttonStartAdventure": "Iniciar la aventura"
@@ -56,9 +56,9 @@
       "descriptionText1": "Este juego de escape tiene como objetivo ofrecerte una experiencia inmersiva, sensibilizándote especialmente a los desafíos que enfrentan las personas con discapacidad digital.",
       "descriptionText2": "Te verás inmerso en una historia en la cual encarnarás a un personaje con diferentes deficiencias en cada nueva etapa superada.",
       "descriptionText3": {
-        "begin": "Entonces tendrás que",
+        "begin": "Entonces tendrás que,",
         "here": "aquí",
-        "end": "resolver los enigmas y desafíos uno por uno, superar obstáculos relacionados con la accesibilidad y la ergonomía para avanzar en el juego."
+        "end": ", resolver los enigmas y desafíos uno por uno, superar obstáculos relacionados con la accesibilidad y la ergonomía para avanzar en el juego."
       },
       "descriptionText4": "Puedes afrontar las dificultades solo o en grupo.",
       "rulesHeading": "Reglas",
@@ -354,6 +354,7 @@
   "hints": {
       "hintsTimer": "Las pistas estarán disponibles en",
       "hintsAvailable": "Las pistas están ahora disponibles.",
+      "hintsAvailableNow": "Las pistas están disponibles.",
       "noMoreHints": "No hay más pista disponible",
       "intro": [
         "No hay error, realmente necesitas hacer clic en el enlace 'aquí'",
