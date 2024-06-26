@@ -43,7 +43,7 @@
         "label" : "60 min",
         "title_60": "La versión clásica del juego de escape en diez páginas"
       },
-      "pseudo": "Tu apodo",
+      "pseudo": "Tu apodo (obligatorio)",
       "placeholder_enterPseudo": "Indique tu apodo",
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
       "buttonStartAdventure": "Iniciar la aventura"

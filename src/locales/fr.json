@@ -43,7 +43,7 @@
       "label": "60 min",
       "title_60": "La version classique de l'escape game sur 10 pages"
     },
-    "pseudo": "Votre pseudo",
+    "pseudo": "Votre pseudo (obligatoire)",
     "placeholder_enterPseudo": "Indiquez votre pseudo",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "buttonStartAdventure": "Démarrer l'aventure"

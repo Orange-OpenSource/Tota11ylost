@@ -43,7 +43,7 @@
       "label" : "60 min",
       "title_60": "The classic version of the escape game on ten pages"
     },
-    "pseudo": "Your nickname",
+    "pseudo": "Your nickname (mandatory)",
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "buttonStartAdventure": "Start the adventure"
