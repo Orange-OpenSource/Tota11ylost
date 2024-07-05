@@ -1,0 +1,28 @@
+Parts list under Orange SA Copyright
+Copyright (C) Orange SA
+
+The following parts are proprietary information of Orange.
+You shall not use or display any trade names, trademarks, service marks, products names, illustrations or designs used within the software
+or displayed on this website and owned by Orange SA and its subsidiaries,
+in whole or part of, in any medium, except as required for reasonable and customary use in describing the origin of the software
+and reproducing the content of the NOTICE and DOCUMENTATION files.
+Any use or displaying shall constitute an infringement under intellectual property laws of France and international conventions.
+            
+# Library
+            
+## Resources
+
+./docs/components/images/bars_tab_light.png
+./src/assets/img/Cursor arrow white.png
+./src/assets/img/Pause.png
+./src/assets/img/Play.png
+./src/assets/img/Start.svg
+./src/assets/img/Win.svg
+./src/assets/img/orange-logo.png
+./src/assets/img/précédent.png
+./src/assets/img/rank=bronze.svg
+./src/assets/img/rank=gold.svg
+./src/assets/img/rank=silver.svg
+./src/assets/img/suivant.png
+./src/assets/img/tooltip-white.png
+./src/assets/img/tooltip.png
