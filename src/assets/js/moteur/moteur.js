@@ -1,3 +1,16 @@
+/*
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+*/
+
 let normal = [
   -0.954486511205664, -0.390343505844172, 0.954967163741049, -0.741969088844115,
   0.415498313809018, 1.11448864081483, 0.76051606293719, 0.737922868989143,
