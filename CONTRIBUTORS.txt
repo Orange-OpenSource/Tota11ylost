@@ -1,4 +1,4 @@
-# This is the official list of people have contributed code to 
+# This is the official list of people have contributed code to
 # this repository.
 #
 # Names should be added to this file like so:
@@ -14,6 +14,6 @@
 
 Christopher BIAMONTE <christopher.biamonte@orange.com>
 Damien GOMEZ <damien.gomez@orange.com> <gomez_damien@hotmail.fr>
-Mewen LE HO <mewen.leho.ext@orange.com> 
-Guillaume PERE <guillaume.pere@orange.com>
+Mewen LE HÔ <mewen.leho.ext@orange.com>
+Guillaume PÉRÉ <guillaume.pere@orange.com>
 Yoann ROSELIER <yoann.roselier@orange.com>
