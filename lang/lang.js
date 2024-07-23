@@ -57,7 +57,7 @@ i18next
     fallbackLng: 'en', // Langue de secours
     debug: true,
     backend: {
-      loadPath: `${basePath}{{lng}}/{{ns}}.json`
+      loadPath: `${basePath}{{lng}}.json`,
     },
   }, function (err, t) {
     changeLanguage(getLang() || 'fr');
