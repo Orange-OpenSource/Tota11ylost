@@ -22,4 +22,3 @@ jobs:
           publish_dir: ./src
           publish_branch: gh-pages
           keep_files: true
-          cname: tota11ylost.orange.com/
