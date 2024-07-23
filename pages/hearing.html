@@ -1,0 +1,139 @@
+<!--
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+-->
+
+<!doctype html>
+<html data-i18n="common.lang_lang">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n="hearing.content_description"/>
+  <title data-i18n="hearing.tabTitle"></title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="../lang/lang.js"></script>
+</head>
+
+<body class="fs-2">
+  <input type="hidden"  id="pageId" name="pageId" value="hearing" />
+<header>
+  <div class="bg-dark py-2">
+    <div class="m-3 d-flex justify-content-between">
+      <div class="d-flex align-items-end">
+        <img src="../assets/img/orange-logo.png" class="mx-2" data-i18n="common.banner.alt_orangeLogo">
+        <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+      </div>
+      <div id="timer" class="d-flex align-items-center">
+      </div>
+    </div>
+  </div>
+  <div class="title-bar">
+    <div class="mx-4">
+      <h1 class="display-2" data-i18n="hearing.pageTitle"></h1>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="mx-4">
+    <h2 data-i18n="hearing.descriptionHeading"></h2>
+    <p data-i18n="hearing.descriptionText1"></p>
+    <p data-i18n="hearing.descriptionText2"></p>
+    <p data-i18n="hearing.descriptionText3"></p>
+    <h2 data-i18n="hearing.userTypeHeading"></h2>
+    <p data-i18n="hearing.userTypeText1"></p>
+    <p data-i18n="hearing.userTypeText2"></p>
+    <p data-i18n="hearing.userTypeText3"></p>
+    <h2 data-i18n="hearing.rulesHeading"></h2>
+    <ul>
+      <li data-i18n="hearing.rule1"></li>
+      <li data-i18n="hearing.rule2"></li>
+      <li data-i18n="hearing.rule3"></li>
+      <li data-i18n="hearing.rule4"></li>
+      <li data-i18n="hearing.rule5"></li>
+    </ul>
+
+    <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
+      <span class="alert-icon"><span class="visually-hidden" data-i18n="hearing.errorHiddenText"></span></span>
+      <p data-i18n="hearing.errorMessage"></p>
+    </div>
+    <div class="audio-container my-3">
+      <div class="row">
+        <div class="audio-item col">
+          <p class="audio-label" data-i18n="hearing.profoundDeafness"></p>
+          <audio id="audio1" controls>
+          </audio>
+        </div>
+
+        <div class="audio-item col">
+          <p class="audio-label" data-i18n="hearing.severeDeafness"></p>
+          <audio id="audio2" controls>
+          </audio>
+        </div>
+
+        <div class="audio-item col">
+          <p class="audio-label" data-i18n="hearing.moderateDeafness"></p>
+          <audio id="audio3" controls>
+          </audio>
+        </div>
+
+        <div class="audio-item col">
+          <p class="audio-label" data-i18n="hearing.mildDeafness"></p>
+          <audio id="audio4" controls>
+          </audio>
+        </div>
+
+        <div class="audio-item col">
+          <p class="audio-label" data-i18n="hearing.noDeafness"></p>
+          <audio id="audio5" controls>
+          </audio>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="reponse" class="form-label" data-i18n="hearing.labelResponse"></label>
+      <input type="text" class="form-control" id="reponse" autocomplete="off" data-i18n="hearing.aria-label_response">
+    </div>
+    <div class="mb-3">
+      <button class="btn fs-3 p-2 btn-primary" id="valider" data-i18n="hearing.validateButton"></button>
+    </div>
+    <div id="hintsAvailable" class="d-none">
+      <h2 data-i18n="form.hintsHeading"></h2>
+      <p role="alert" data-i18n="hints.hintsAvailable">
+      </p>
+      <div class="indicesDiv">
+        <div id="indice1" class="d-none" role="alert">
+          <h3 data-i18n="form.hint1Heading"></h3>
+        </div>
+        <div id="indice2" class="d-none" role="alert">
+          <h3 data-i18n="form.hint2Heading"></h3>
+        </div>
+        <div id="indice3" class="d-none" role="alert">
+          <h3 data-i18n="form.hint3Heading"></h3>
+        </div>
+        <div class="my-3">
+          <button type="button" class="btn fs-3 p-2 btn-primary" id="indice" disabled
+                  data-i18n="form.getHintButton"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/auditif/auditif.js"></script>
+<script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
+</body>
+</html>

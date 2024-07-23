@@ -1,0 +1,188 @@
+<!--
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+-->
+
+<!doctype html>
+<html data-i18n="common.lang_lang">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n="form.content_description"/>
+  <title data-i18n="form.tabTitle"></title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="../lang/lang.js"></script>
+</head>
+
+<body class="fs-2">
+  <input type="hidden"  id="pageId" name="pageId" value="formRegistration" />
+<header>
+  <div class="bg-dark py-2">
+    <div class="m-3 d-flex justify-content-between">
+      <div class="d-flex align-items-end">
+        <img src="../assets/img/orange-logo.png" class="mx-2" data-i18n="common.banner.alt_orangeLogo">
+        <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+      </div>
+      <div id="timer" class="d-flex align-items-center">
+      </div>
+    </div>
+  </div>
+  <div class="title-bar">
+    <div class="mx-4">
+      <h1 class="display-2" data-i18n="form.pageTitle"></h1>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="mx-4">
+    <h2 data-i18n="form.descriptionHeading"></h2>
+    <p data-i18n="form.descriptionText1"></p>
+    <p data-i18n="form.descriptionText2"></p>
+    <p data-i18n="form.descriptionText3"></p>
+
+    <h2 data-i18n="form.userTypeHeading"></h2>
+    <p data-i18n="form.userTypeText"></p>
+    <h2 data-i18n="form.rulesHeading"></h2>
+    <ul>
+      <li data-i18n="form.rule1"></li>
+      <li data-i18n="form.rule2"></li>
+      <li data-i18n="form.rule3"></li>
+      <li data-i18n="form.rule4"></li>
+      <li data-i18n="form.rule5"></li>
+    </ul>
+
+    <h2 data-i18n="form.formHeading"></h2>
+
+    <div class="form-container">
+
+      <p role="status" data-i18n="form.allFieldsRequired"></p>
+
+      <div id="errorDiv" class="alert alert-danger mb-3 d-none" role="alert">
+        <span class="alert-icon"></span>
+        <p data-i18n="form.errorInForm"></p>
+      </div>
+      <div class="mb-3" id="pistacheDiv">
+        <input type="text" id="pistache" class="form-control" aria-describedby="errorpistacheDiv">
+        <div id="errorpistacheDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorpistacheText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="cacahueteDiv">
+        <input type="text" id="cacahuete" class="form-control" aria-describedby="errorcacahueteText">
+        <div id="errorcacahueteDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorcacahueteText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="olivesDiv">
+        <input type="password" id="olives" class="form-control" aria-describedby="errorolivesText">
+        <div id="errorolivesDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorolivesText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="saucissonDiv">
+        <input type="text" id="saucisson" class="form-control" aria-describedby="errorsaucissonText">
+        <div id="errorsaucissonDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorsaucissonText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="chipsDiv">
+        <input type="text" id="chips" class="form-control" aria-describedby="errorchipsText">
+        <div id="errorchipsDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorchipsText"></p>
+        </div>
+      </div>
+      <div class="mb-3" id="tapenadeDiv">
+        <input type="text" id="tapenade" class="form-control" aria-describedby="errortapenadeText">
+        <div id="errortapenadeDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errortapenadeText"></p>
+        </div>
+      </div>
+      <fieldset aria-describedby="errorfruitText">
+        <legend id="legendFruit"></legend>
+        <div id="errorfruitDiv" class="alert alert-danger alert-sm d-none">
+          <span class="alert-icon"><span class="visually-hidden" data-i18n="form.formError"></span></span>
+          <p id="errorfruitText"></p>
+        </div>
+        <div class="mb-3">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="fraise" value="Fraise">
+            <label class="form-check-label" for="fraise" data-i18n="form.strawberry"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="pomme" value="Pomme">
+            <label class="form-check-label" for="pomme" data-i18n="form.apple"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="clementine" value="Clémentine">
+            <label class="form-check-label" for="clementine" data-i18n="form.clementine"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="ananas" value="Ananas">
+            <label class="form-check-label" for="ananas" data-i18n="form.pineapple"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="mangue" value="Mangue">
+            <label class="form-check-label" for="mangue" data-i18n="form.mango"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="litchi" value="Litchi">
+            <label class="form-check-label" for="litchi" data-i18n="form.lychee"></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="fruit" id="melon" value="Melon">
+            <label class="form-check-label" for="melon" data-i18n="form.melon"></label>
+          </div>
+          <div class="my-3">
+            <button type="button" class="btn fs-3 p-2 btn-primary" id="inscription" disabled
+                    data-i18n="form.signupButton"></button>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div id="hintsAvailable" class="d-none">
+      <h2 data-i18n="form.hintsHeading"></h2>
+      <p role="alert" data-i18n="hints.hintsAvailableNow">
+      </p>
+      <div class="indicesDiv">
+        <div id="indice1" class="d-none" role="alert">
+          <h3 data-i18n="form.hint1Heading"></h3>
+        </div>
+        <div id="indice2" class="d-none" role="alert">
+          <h3 data-i18n="form.hint2Heading"></h3>
+        </div>
+        <div id="indice3" class="d-none" role="alert">
+          <h3 data-i18n="form.hint3Heading"></h3>
+        </div>
+        <div class="my-3">
+          <button type="button" class="btn fs-3 p-2 btn-primary" id="indice" disabled
+                  data-i18n="form.getHintButton"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
+<script src="../assets/js/formulaire/formulaire2.js"></script>
+</body>
+</html>

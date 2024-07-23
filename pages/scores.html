@@ -1,0 +1,106 @@
+<!--
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+-->
+
+<!DOCTYPE html>
+<html data-i18n="common.lang_lang">
+<head>
+  <meta charset="utf-8">
+  <title data-i18n="scores.tabTitle"></title>
+  <meta name="description" data-i18n="scores.content_description"/>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="../lang/lang.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<header class="bg-dark text-white">
+  <nav class="navbar navbar-expand-lg supra" data-bs-theme="dark"
+       aria-label="Supra navigation - With an additional languages navbar example">
+    <div class="container-xxl">
+      <ul id="languageSelect" class="navbar-nav ms-auto" data-i18n="common.banner.aria-label_selectLanguage">
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-label="English version" lang="en" hreflang="en">English</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-label="Versión en español" lang="es" hreflang="es">Español</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-label="Version française" lang="fr" hreflang="fr"
+             aria-current="true">Français</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="m-3 d-flex align-items-end">
+    <img src="../assets/img/orange-logo.png" class="mx-2" data-i18n="common.banner.alt_orangeLogo">
+    <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+  </div>
+</header>
+
+<main class="d-flex flex-column m-3 mx-4">
+  <div class="d-flex flex-row">
+    <div class="col-6">
+      <h2 class="display-3 mb-4" data-i18n="scores.congratulations"></h2>
+      <p class="fs-6 fw-bold text-body-secondary" data-i18n="scores.finalTime"></p>
+      <div id="finalTimer" class="d-flex align-items-center"></div>
+      <p class="fw-bold mt-3 fs-4" data-i18n="scores.toKnowMore"></p>
+    </div>
+    <div class="col-5 m-3 position-relative text-dark scores-img">
+      <img id="congratulationImage" src="../assets/img/Win.svg" alt="">
+      <div class="position-absolute top-50 start-50 translate-middle mt-5" aria-hidden="true">
+        <p id="version" class="display-0 m-0 fw-bold text-center"></p>
+        <p class="fs-1 fw-bold text-center" data-i18n="scores.minutes"></p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex fw-bold flex-row">
+    <div class="border border-light col-5 m-3">
+      <p class="text-center my-3 fs-4" data-i18n="scores.todayTitle"></p>
+      <div class="scrollable-table-container">
+        <table class="table table-responsive" id="todayTable">
+          <tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="border border-light col-5 m-3">
+      <p class="text-center my-3 fs-4" data-i18n="scores.generalTitle"></p>
+      <div class="scrollable-table-container">
+        <table class="table table-responsive" id="generalTable">
+          <tr>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer bg-dark navbar-dark mt-auto">
+  <h2 class="visually-hidden" data-i18n="common.footer.sitemapAndInformation"></h2>
+  <div class="ms-4 footer-terms">
+    <ul class="navbar-nav gap-md-3">
+      <li class="fw-bold" data-i18n="common.footer.copyright"></li>
+      <li><a class="nav-link" data-i18n="common.footer.termsAndConditions;common.footer.href_termsAndConditions"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.privacy;common.footer.href_privacy"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.accessibilityStatement;common.footer.href_accessibilityStatement"></a></li>
+      <li><a class="nav-link" data-i18n="common.footer.cookiePolicy;common.footer.href_cookiePolicy"></a></li>
+    </ul>
+  </div>
+</footer>
+<script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/scores.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!--
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+-->
+
+<!doctype html>
+<html data-i18n="common.lang_lang" class="no-cursor">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n="visualSimu.content_description"/>
+  <title data-i18n="visualSimu.tabTitle"></title>
+  <link href="../assets/css/visuel/black.css" rel="stylesheet">
+  <link href="../assets/css/visuel/braille-small.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="../lang/lang.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+</head>
+<body class="fs-2">
+  <input type="hidden"  id="pageId" name="pageId" value="visualSimulation" />
+<header class="d-none">
+  <div class="bg-dark py-2">
+    <div class="m-3 d-flex justify-content-between">
+      <div class="d-flex align-items-end">
+        <img src="../assets/img/orange-logo.png" class="mx-2" data-i18n="common.banner.alt_orangeLogo">
+        <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+      </div>
+      <div id="timer" class="d-flex align-items-center">
+      </div>
+    </div>
+  </div>
+  <div class="title-bar">
+    <div class="mx-4">
+      <h1 class="display-2" data-i18n="visualSimu.pageTitle"></h1>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="text-bloc">
+  </div>
+  <div class="mx-4 fs-6 nonSelectionnable">
+    <h2 data-i18n="visualSimu.userTypeHeading"></h2>
+    <div class="d-inline visually-hidden">
+      <p class="d-inline" id="autofocus" tabindex="0" data-i18n="visualSimu.userTypeText1"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.userTypeText2"></p>
+      <h2 data-i18n="visualSimu.riddleHeading"></h2>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText1"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText2"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText3"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText4"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText5"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText6"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText7"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText8"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText9"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText10"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText11"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText12"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText13"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText14"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.riddleText15"></p>
+      <p class="d-inline" tabindex="0" data-i18n="visualSimu.formInstructions"></p>
+      <form id="myForm">
+        <label class="form-check-label d-none" for="nom" data-i18n="visualSimu.labelName"></label>
+        <input class="form-input" type="text" required id="nom" data-i18n="visualSimu.aria-label_name">
+        <label class="form-check-label d-none" for="prenom" data-i18n="visualSimu.labelFirstName"></label>
+        <input class="form-input" type="text" required id="prenom" data-i18n="visualSimu.aria-label_firstName">
+        <label class="form-check-label d-none" for="naissance" data-i18n="visualSimu.labelBirthDate"></label>
+        <input class="form-input" type="text" required id="naissance" data-i18n="visualSimu.aria-label_birthDate">
+        <label class="form-check-label d-none" for="mort" data-i18n="visualSimu.labelDeathDate"></label>
+        <input class="form-input" type="text" required id="mort" data-i18n="visualSimu.aria-label_deathDate">
+        <label class="form-check-label d-none" for="ville" data-i18n="visualSimu.labelRestingPlace"></label>
+        <input class="form-input" type="text" required id="ville" data-i18n="visualSimu.aria-label_restingPlace">
+      </form>
+      <div>
+        <a class="visuel21" href="" id="valider" data-i18n="visualSimu.validationError"></a>
+      </div>
+    </div>
+      <div id="hintsAvailable" class="d-none hints-visualSimulation">
+        <h2 data-i18n="form.hintsHeading"></h2>
+        <p role="alert" data-i18n="hints.hintsAvailable">
+        </p>
+        <div class="indicesDiv">
+          <div id="indice1" class="d-none" role="alert">
+            <h3 data-i18n="form.hint1Heading"></h3>
+          </div>
+          <div id="indice2" class="d-none" role="alert">
+            <h3 data-i18n="form.hint2Heading"></h3>
+          </div>
+          <div id="indice3" class="d-none" role="alert">
+            <h3 data-i18n="form.hint3Heading"></h3>
+          </div>
+          <div class="my-3">
+            <button type="button" class="btn fs-3 p-2 btn-primary" id="indice"
+                    data-i18n="form.getHintButton"></button>
+          </div>
+        </div>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/visuel/visuel21.js"></script>
+<script src="../assets/js/visuel/braille-tools.js"></script>
+<script src="../assets/js/timer/timer.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
+<script src="../assets/js/hints/_visualSimulation.js"></script>
+</body>
+</html>

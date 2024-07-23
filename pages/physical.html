@@ -1,0 +1,116 @@
+<!--
+Software Name: Tota11ylost
+SPDX-FileCopyrightText: Copyright (c) Orange SA
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+This software is distributed under the GNU Affero General Public License v3.0 or later,
+the text of which is available at https://opensource.org/license/agpl-v3
+or see the "LICENSE" file for more details.
+
+Authors: See CONTRIBUTORS.txt file
+Software description: Experience in a playful way the challenges faced by people with digital disabilities
+-->
+
+<!doctype html>
+<html data-i18n="common.lang_lang">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n="physical.content_description"
+        content=""/>
+  <title data-i18n="physical.tabTitle"></title>
+  <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/css/boosted.min.css" rel="stylesheet"
+        integrity="sha384-fyenpx19UpfUhZ+SD9o9IdxeIJKE6upKx0B54OcXy1TqnO660Qw9xw6rOASP+eir" crossorigin="anonymous">
+  <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="../lang/lang.js"></script>
+</head>
+
+<body class="physical fs-2 no-cursor">
+<input type="hidden" id="pageId" name="pageId" value="physical"/>
+<header>
+  <div class="bg-dark py-2">
+    <div class="m-3 d-flex justify-content-between">
+      <div class="d-flex align-items-end">
+        <img src="../assets/img/orange-logo.png" class="mx-2" data-i18n="common.banner.alt_orangeLogo">
+        <h1 class="fs-2 m-0" data-i18n="common.banner.title"></h1>
+      </div>
+      <div id="timer" class="d-flex align-items-center">
+      </div>
+    </div>
+  </div>
+  <div class="title-bar">
+    <div class="mx-4">
+      <h1 class="display-2" data-i18n="physical.pageTitle"></h1>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="mx-4 height40">
+    <div class="modal" tabindex="-1" id="modalMoteur" data-bs-backdrop="static">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button id="close-popup" class="my-2 ms-auto close-popup no-cursor border-0 btn"
+                    data-i18n="physical.aria-label_closeModal" role="button">X
+            </button>
+          </div>
+          <div class="modal-body">
+            <h1 data-i18n="physical.modalTitle"></h1>
+            <h2 data-i18n="physical.descriptionHeading"></h2>
+            <p data-i18n="physical.descriptionText1"></p>
+            <p data-i18n="physical.descriptionText2"></p>
+            <h2 data-i18n="physical.userTypeHeading"></h2>
+            <p data-i18n="physical.userTypeText"></p>
+            <h2 data-i18n="physical.rulesHeading"></h2>
+            <ul>
+              <li data-i18n="physical.rule1"></li>
+              <li data-i18n="physical.rule2"></li>
+              <li data-i18n="physical.rule3"></li>
+            </ul>
+            <div id="hintsAvailable" class="d-none">
+              <h2 data-i18n="form.hintsHeading"></h2>
+              <p role="alert" data-i18n="hints.hintsAvailable">
+              </p>
+              <div class="indicesDiv">
+                <div id="indice1" class="d-none" role="alert">
+                  <h3 data-i18n="form.hint1Heading"></h3>
+                </div>
+                <div id="indice2" class="d-none" role="alert">
+                  <h3 data-i18n="form.hint2Heading"></h3>
+                </div>
+                <div id="indice3" class="d-none" role="alert">
+                  <h3 data-i18n="form.hint3Heading"></h3>
+                </div>
+                <div class="my-3">
+                  <button type="button" class="btn fs-3 p-2 btn-primary no-cursor" id="indice" disabled
+                          data-i18n="form.getHintButton"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a id="link30or60" href="physical-simulation.html" class="valid fs-3 p-2" data-i18n="physical.validateLink"></a>
+
+    <div class="container">
+      <img id="falsecursor" src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
+           class="fakeCursor"/>
+    </div>
+  </div>
+</main>
+<script src="../assets/js/moteur/moteur.js"></script>
+<script src="../assets/js/timer/timer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/boosted@5.3.2/dist/js/boosted.bundle.min.js"
+        integrity="sha384-+lAXqnipqQpjxMdd/9Hp2GOzB4aIouKEYRZ7AE66h68BDob7UlMLpZY7w7SqrC+M"
+        crossorigin="anonymous"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/hints/hints.js"></script>
+<script src="../assets/js/hints/_physical.js"></script>
+
+</body>
+</html>
