@@ -11,10 +11,6 @@ Authors: See CONTRIBUTORS.txt file
 Software description: Experience in a playful way the challenges faced by people with digital disabilities
 */
 
-// Détecter l'environnement
-const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const basePath = isLocal ? '/locales/' : '/Tota11ylost/locales/';
-
 const langManager = function () {
   let tabFn = [];
   let langLoaded = false;
@@ -57,7 +53,7 @@ i18next
     fallbackLng: 'en', // Langue de secours
     debug: true,
     backend: {
-      loadPath: `${basePath}{{lng}}.json`,
+      loadPath: `./locales/{{lng}}.json`,
     },
   }, function (err, t) {
     changeLanguage(getLang() || 'fr');
