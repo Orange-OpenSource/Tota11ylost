@@ -69,7 +69,7 @@ btnIndice.addEventListener('click', (e) => {
 btnInscription.addEventListener("click", (e) => {
   alertError.classList.add('d-none')
   if (!errorForm()) {
-    document.location.assign('./pages/scores.html');
+    document.location.assign('./scores.html');
   } else {
     firstErrorInput ? firstErrorInput.focus() : nom.focus();
     console.log('____ focus', firstErrorInput);
