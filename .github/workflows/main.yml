@@ -20,5 +20,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./src
-          publish_branch: gh-pages
-          keep_files: true
