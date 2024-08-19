@@ -7,9 +7,9 @@ or displayed on this website and owned by Orange SA and its subsidiaries,
 in whole or part of, in any medium, except as required for reasonable and customary use in describing the origin of the software
 and reproducing the content of the NOTICE and DOCUMENTATION files.
 Any use or displaying shall constitute an infringement under intellectual property laws of France and international conventions.
-            
+
 # Library
-            
+
 ## Resources
 
 ./docs/components/images/bars_tab_light.png
@@ -24,5 +24,3 @@ Any use or displaying shall constitute an infringement under intellectual proper
 ./src/assets/img/rank=gold.svg
 ./src/assets/img/rank=silver.svg
 ./src/assets/img/suivant.png
-./src/assets/img/tooltip-white.png
-./src/assets/img/tooltip.png
