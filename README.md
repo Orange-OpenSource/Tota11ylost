@@ -4,7 +4,7 @@
 
 In your workspace directory :
 ```
-git clone https://gitlab.tech.orange/accessibility/escape-a11y.git
+git clone git@github.com:Orange-OpenSource/Tota11ylost.git
 ```
 
 ## Deploy it
