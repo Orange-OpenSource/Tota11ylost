@@ -11,7 +11,10 @@ Authors: See CONTRIBUTORS.txt file
 Software description: Experience in a playful way the challenges faced by people with digital disabilities
 */
 
-const basePath = '/locales/';
+// Détecter l'environnement
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const isOrangeSite = window.location.hostname.indexOf('tota11ylost.orange') > -1;
+const basePath = (isLocal || isOrangeSite) ? '/locales/' : '/Tota11ylost/locales/';
 
 const langManager = function () {
   let tabFn = [];
