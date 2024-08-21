@@ -16,29 +16,29 @@ const content = document.getElementById('content');
 
 function getRandomImage() {
   const images = [
-    {url: "./assets/img/cognitive/A11yce.jpg",
+    {url: "../assets/img/cognitive/A11yce.jpg",
       text: i18next.t('cognitiveSimu.img_alice'),
       color: 'yellow',
       size: '50px',
       top: '290px',
       opacity: true
     },
-    {url: "./assets/img/cognitive/calc.png"},
-    {url: "./assets/img/cognitive/game-master.jpg"},
-    {url: "./assets/img/cognitive/grinch-3.png"},
-    {url: "./assets/img/cognitive/hungry.jpg",
+    {url: "../assets/img/cognitive/calc.png"},
+    {url: "../assets/img/cognitive/game-master.jpg"},
+    {url: "../assets/img/cognitive/grinch-3.png"},
+    {url: "../assets/img/cognitive/hungry.jpg",
       text: i18next.t('cognitiveSimu.img_hungry'),
       color: 'red',
       size: '100px'
     },
-    {url: "./assets/img/cognitive/monkey.jpg",
+    {url: "../assets/img/cognitive/monkey.jpg",
       text: i18next.t('cognitiveSimu.img_monkey'),
       color: 'blue',
       size: '80px',
       top: '100px'
     },
-    {url: "./assets/img/cognitive/nyan-cat.png"},
-    {url: "./assets/img/cognitive/woof.png"},
+    {url: "../assets/img/cognitive/nyan-cat.png"},
+    {url: "../assets/img/cognitive/woof.png"},
   ]
   const randomIndex = Math.floor(Math.random() * images.length);
   return images[randomIndex];

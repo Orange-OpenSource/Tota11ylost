@@ -64,7 +64,7 @@ function validateForm() {
 
   if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity', {returnObjects: true}).find(response => response === ville)) {
     nextlink.innerText = i18next.t('visualSimu.congratulations');
-    nextlink.href = is30Version() ? "./cognitive-simulation.html" : "./cognitive.html";
+    nextlink.href = is30Version() ? "./scores.html" : "./cognitive.html";
   } else {
     nextlink.innerText = i18next.t('visualSimu.error');
     nextlink.href = "";
