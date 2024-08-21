@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (link && is30Version()) {
       switch (link.href.split('/').pop()) {
         case 'visual.html':
-          link.href = 'visual-simulation.html';
+          link.href = 'form-registration.html';
           break;
         case 'physical-simulation.html':
           link.href = 'hearing.html';
