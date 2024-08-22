@@ -54,14 +54,14 @@ const langManager = function () {
 i18next
   .use(i18nextHttpBackend)
   .init({
-    lng: 'fr', // Langue par défaut
-    fallbackLng: 'en', // Langue de secours
+    lng: 'en', // Langue par défaut
+    fallbackLng: 'fr', // Langue de secours
     debug: true,
     backend: {
       loadPath: `${basePath}{{lng}}.json`,
     },
   }, function (err, t) {
-    changeLanguage(getLang() || 'fr');
+    changeLanguage(getLang() || 'en');
     setActiveLanguage(getLang());
   });
 
@@ -141,5 +141,5 @@ function setLang(lang) {
 }
 
 function getLang() {
-  return localStorage.getItem('lang') || 'fr';
+  return localStorage.getItem('lang') || 'en';
 }
