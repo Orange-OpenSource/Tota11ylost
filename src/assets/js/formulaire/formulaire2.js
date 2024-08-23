@@ -69,7 +69,7 @@ btnIndice.addEventListener('click', (e) => {
 btnInscription.addEventListener("click", (e) => {
   alertError.classList.add('d-none')
   if (!errorForm()) {
-    is30Version() ? document.location.assign('./cognitive-simulation.html') : document.location.assign('./scores.html');
+    is30Version() ? document.location.assign('./cognitive-simulation.html') : document.location.assign('./scores.html?store=true');
   } else {
     firstErrorInput ? firstErrorInput.focus() : nom.focus();
     console.log('____ focus', firstErrorInput);

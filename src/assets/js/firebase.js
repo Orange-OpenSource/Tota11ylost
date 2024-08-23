@@ -22,14 +22,21 @@ import {
   where,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+function getEnvVariable(key) {
+  if (typeof window !== 'undefined' && window.env && window.env[key]) {
+    return window.env[key];
+  }
+  return process.env[key];
+}
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAjQ_xuPbBkFn3w-yk9EqxWwk6AN762v88",
-  authDomain: "tota11y-lost.firebaseapp.com",
-  projectId: "tota11y-lost",
-  storageBucket: "tota11y-lost.appspot.com",
-  messagingSenderId: "696348049651",
-  appId: "1:696348049651:web:f4b7aab8c7e393e8b1f786",
-  measurementId: "G-07KXED87T2"
+  apiKey: getEnvVariable('FIREBASE_API_KEY'),
+  authDomain: getEnvVariable('FIREBASE_AUTH_DOMAIN'),
+  projectId: getEnvVariable('FIREBASE_PROJECT_ID'),
+  storageBucket: getEnvVariable('FIREBASE_STORAGE_BUCKET'),
+  messagingSenderId: getEnvVariable('FIREBASE_MESSAGING_SENDER_ID'),
+  appId: getEnvVariable('FIREBASE_APP_ID'),
+  measurementId: getEnvVariable('FIREBASE_MEASUREMENT_ID')
 };
 
 const app = initializeApp(firebaseConfig);
