@@ -16,8 +16,15 @@ import {getBestScores, storePseudo} from "./firebase.js";
 async function updateDisplay() {
   const pseudo = getPseudo();
 
-  if (pseudo && pseudo.length > 0) {
+  // Add param '?store=true' at the end of the URL to reduce timer duration to 10s
+  let params = new URLSearchParams(document.location.search);
+  let store = params.get('store');
+
+  if (pseudo && pseudo.length > 0 && store) {
+    console.log("store")
     await storePseudo(pseudo, getVersion());
+  } else {
+    console.log("not store")
   }
   await updateATable('todayTable', pseudo);
   await updateATable('generalTable', pseudo);
