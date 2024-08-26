@@ -26,7 +26,7 @@ function getEnvVariable(key) {
   if (typeof window !== 'undefined' && window.env && window.env[key]) {
     return window.env[key];
   }
-  return process.env[key];
+  return '';
 }
 
 const firebaseConfig = {
