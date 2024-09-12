@@ -26,8 +26,8 @@
   "welcome": {
     "tabTitle": "Accueil - Tota11y Lost",
     "content_description": "Page d'accueil de Tota11y Lost",
-    "intro": "Expérimentez de manière ludique les défis auxquels sont confrontés les personnes en situation de handicap numérique.",
-    "rules": "Avant de démarrer, choisissez votre aventure et votre pseudo",
+    "intro": "Expérimenter de manière ludique les défis des personnes en situation de handicap numérique.",
+    "rules": "Avant de démarrer, choisir mon aventure et mon pseudo",
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
     "duration": "Durée",
@@ -43,8 +43,8 @@
       "label": "60 min",
       "title_60": "La version classique de l'escape game sur 10 pages"
     },
-    "pseudo": "Votre pseudo (obligatoire)",
-    "placeholder_enterPseudo": "Indiquez votre pseudo",
+    "pseudo": "Mon pseudo (obligatoire)",
+    "placeholder_enterPseudo": "Indiquer mon pseudo",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "buttonStartAdventure": "Démarrer l'aventure"
   },
@@ -404,7 +404,7 @@
     "content_description": "Tableau des scores",
     "congratulations": "Bravo, vous venez de terminer l'Escape Game !",
     "finalTime": "Temps final",
-    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommendations</a>.",
+    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommandations</a>.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
