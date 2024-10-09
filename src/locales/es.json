@@ -187,7 +187,7 @@
       "tabTitle": "Discapacidad motora - Tota11y Lost",
       "content_description": "Página de descripción de la discapacidad motora y simulación del uso del ratón con tal discapacidad",
       "pageTitle": "Discapacidad motora",
-      "aria-label_closeModal": "X cerrar el modal",
+      "aria-label_closeModal": "Cerrar el modal con escape",
       "modalTitle": "Discapacidad motora",
       "descriptionHeading": "Descripción",
       "descriptionText1": "Las personas con discapacidades motoras encuentran varios obstáculos cuando navegan por Internet.",

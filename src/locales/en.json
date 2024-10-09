@@ -185,7 +185,7 @@
     "tabTitle": "Motor impairment - Tota11y Lost",
     "content_description": "Page describing motor impairment and simulation of mouse use with such a disability",
     "pageTitle": "Motor impairment",
-    "aria-label_closeModal": "X close the modal",
+    "aria-label_closeModal": "Close the modal with escape",
     "modalTitle": "Motor impairment",
     "descriptionHeading": "Description",
     "descriptionText1": "People with motor impairments encounter various obstacles when navigating the Internet.",

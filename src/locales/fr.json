@@ -185,7 +185,7 @@
     "tabTitle": "Handicap moteur - Tota11y Lost",
     "content_description": "Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap",
     "pageTitle": "Handicap moteur",
-    "aria-label_closeModal": "X fermez la modale",
+    "aria-label_closeModal": "Fermez la modale avec la touche échap",
     "modalTitle": "Handicap moteur",
     "descriptionHeading": "Description",
     "descriptionText1": "Les personnes atteintes de déficiences motrices rencontrent divers obstacles lorsqu'elles naviguent sur Internet.",
