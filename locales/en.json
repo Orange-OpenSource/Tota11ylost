@@ -100,7 +100,7 @@
     "riddleText5": "You just have to know WHAT to enter...",
     "riddleText6": "and where...?",
     "riddleText7": "I'm nice, I'll leave a label on the form fields.",
-    "riddleText8": "And then, if there were to be dates, they would be in the format yyyy/mm/dd...that's for sure.",
+    "riddleText8": "And then, if there were to be dates, they would be in the format mm/dd/yyyy...that's for sure.",
     "riddleText9": "Riddle:",
     "riddleText10": "I, Louis, had to work with all my strength so that my disability would not hinder me",
     "riddleText11": "(my father told me I had thick skin)",
@@ -122,8 +122,8 @@
     "validationError": "Ouch, the test is still not successful, you cannot validate the challenge!!!",
     "name": "braille",
     "firstName": "louis",
-    "birthDate": "1809/01/04",
-    "deathDate": "1852/01/06",
+    "birthDate": "01/04/1809",
+    "deathDate": "01/06/1852",
     "deathCity": [
       "panthéon",
       "pantheon"
