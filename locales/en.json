@@ -54,20 +54,16 @@
     "pageTitle": "Introduction",
     "descriptionHeading": "Description",
     "descriptionText1": "This escape game aims to offer you an immersive experience, making you particularly aware of the challenges faced by people with digital disabilities.",
-    "descriptionText2": "You will be plunged into a scenario in which you will play a character with different impairments at each new stage.",
-    "descriptionText3": {
+    "descriptionText2": {
       "begin": "You will have to,",
       "here": "here",
       "end": ", solve riddles and challenges one by one, overcome obstacles related to accessibility and ergonomics to progress in the game."
     },
     "descriptionText4": "It's up to you to get out, alone or in a group, against these difficulties.",
     "rulesHeading": "Rules",
-    "rule1": "You must go as far as possible (and hopefully finish) within the time limit. For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
+    "rule1": "You must go as far as possible as fast possible and without any tool. ",
     "rule2": "For each new stage, a riddle based on one or more impairment(s) will be stated.",
-    "rule3": "Each riddle has its own rules.",
-    "rule4": "All pages contain at least one little trickery from us (hihihi).",
-    "rule5": "The game has already started...",
-    "rule6": "To level the playing field, the use of DevTools will be forbidden. We trust you!",
+    "rule3": "For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
     "startButton": "To begin, click on the link: here."
   },
   "visual": {
