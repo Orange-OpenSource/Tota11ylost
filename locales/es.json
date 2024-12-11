@@ -54,20 +54,15 @@
       "pageTitle": "Introducción",
       "descriptionHeading": "Descripción",
       "descriptionText1": "Este juego de escape tiene como objetivo ofrecerte una experiencia inmersiva, sensibilizándote especialmente a los desafíos que enfrentan las personas con discapacidad digital.",
-      "descriptionText2": "Te verás inmerso en una historia en la cual encarnarás a un personaje con diferentes deficiencias en cada nueva etapa superada.",
-      "descriptionText3": {
+      "descriptionText2": {
         "begin": "Entonces tendrás que,",
         "here": "aquí",
         "end": ", resolver los enigmas y desafíos uno por uno, superar obstáculos relacionados con la accesibilidad y la ergonomía para avanzar en el juego."
       },
-      "descriptionText4": "Puedes afrontar las dificultades solo o en grupo.",
       "rulesHeading": "Reglas",
-      "rule1": "Debes llegar lo más lejos posible (y con suerte terminar) dentro del límite de tiempo. Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables",
+      "rule1": "Debes llegar lo más lejos posible, lo más rapido posíble y sin ayuda tecnicá.",
       "rule2": "Para cada nueva etapa, se te planteará un enigma basado en una o varias discapacidad(es).",
-      "rule3": "Cada enigma tiene sus propias reglas.",
-      "rule4": "Todas las páginas contienen al menos una pequeña travesura.",
-      "rule5": "El juego ya ha comenzado...",
-      "rule6": "Para poner a todos al mismo nivel, no se puede utilizar los DevTools ¡Confiamos en ti!",
+      "rule3": "Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables.",
       "startButton": "Para comenzar, haz clic en el enlace: aquí."
   },
   "visual": {
