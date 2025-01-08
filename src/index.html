@@ -80,8 +80,8 @@ Software description: Experience in a playful way the challenges faced by people
 
     <form id="myForm">
       <div class="form-group col-9">
-        <label class="fs-4 my-3" for="pseudo" data-i18n="welcome.pseudo"></label>
-        <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
+        <h4 class="mt-3" id="pseudoLabel" data-i18n="welcome.pseudo"></h4>
+        <input type="text" class="form-control" id="pseudo" aria-labelledby="pseudoLabel" required oninput="setCustomValidity('')"
                  data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
       </div>
       <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
