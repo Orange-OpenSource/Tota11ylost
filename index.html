@@ -79,15 +79,12 @@ Software description: Experience in a playful way the challenges faced by people
     </div>
 
     <form id="myForm">
-      <fieldset>
-        <div class="form-group col-9">
-          <label class="fs-4 my-3" for="pseudo" data-i18n="welcome.pseudo"></label>
-          <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
+      <div class="form-group col-9">
+        <label class="fs-4 my-3" for="pseudo" data-i18n="welcome.pseudo"></label>
+        <input type="text" class="form-control" id="pseudo" required oninput="setCustomValidity('')"
                  data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
-        </div>
-        <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
-
-      </fieldset>
+      </div>
+      <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
     </form>
   </div>
   <div class="ms-5 col-4">
