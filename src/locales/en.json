@@ -20,7 +20,9 @@
       "accessibilityStatement": "Accessibility: non-compliant",
       "href_accessibilityStatement": "../assets/html/accessibility-statement.html",
       "cookiePolicy": "Cookie policy",
-      "href_cookiePolicy": "https://www.orange.com/en/cookie-policy"
+      "href_cookiePolicy": "https://www.orange.com/en/cookie-policy",
+      "licence": "AGPL-3.0 license",
+      "href_licence": "https://github.com/Orange-OpenSource/Tota11ylost?tab=AGPL-3.0-1-ov-file"
     }
   },
   "welcome": {
