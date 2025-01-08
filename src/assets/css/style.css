@@ -276,3 +276,7 @@ a.no-focus-outline:focus {
 .hints-visualSimulation .btn {
   color: #fff;
 }
+
+#indice[disabled] {
+  background-color: #000;
+}
