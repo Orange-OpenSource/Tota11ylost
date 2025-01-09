@@ -45,7 +45,7 @@ if (document.getElementById('finalTimer') !== null) {
 
   // Add aria-live section for screen readers
   const ariaLiveContent = `
-    <p class="visually-hidden" aria-live="polite" aria-atomic="true">
+    <p class="visually-hidden" role="status">
       ${getFormattedTime(getTime())}
     </p>`;
   document.getElementById('finalTimer').insertAdjacentHTML('beforeend', ariaLiveContent);
@@ -81,7 +81,7 @@ function updateTimer() {
 
     // Add aria-live section for screen readers
     const ariaLiveContent = `
-      <p class="visually-hidden" aria-live="polite" aria-atomic="true">
+      <p class="visually-hidden" role="status">
         ${getFormattedTime(getTime())}
       </p>`;
     timerElement.insertAdjacentHTML('beforeend', ariaLiveContent);
