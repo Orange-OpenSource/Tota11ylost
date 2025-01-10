@@ -61,3 +61,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   })
 })
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById('versionDisplay').innerHTML = getVersion() + 'min';
+});
