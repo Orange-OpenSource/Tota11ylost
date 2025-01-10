@@ -59,10 +59,13 @@ function validateForm() {
   let nom = document.getElementById('nom').value.toLowerCase();
   let prenom = document.getElementById('prenom').value.toLowerCase();
   let naissance = document.getElementById('naissance').value;
-  let mort = document.getElementById('mort').value;
-  let ville = document.getElementById('ville').value.toLowerCase();
+  // let mort = document.getElementById('mort').value;
+  // let ville = document.getElementById('ville').value.toLowerCase();
 
-  if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity', {returnObjects: true}).find(response => response === ville)) {
+  // if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate') && mort === i18next.t('visualSimu.deathDate') && i18next.t('visualSimu.deathCity', {returnObjects: true}).find(response => response === ville)) {
+  //   nextlink.innerText = i18next.t('visualSimu.congratulations');
+  //   nextlink.href = is30Version() ? "./scores.html?store=true" : "./cognitive.html";
+  if (nom === i18next.t('visualSimu.name') && prenom === i18next.t('visualSimu.firstName') && naissance === i18next.t('visualSimu.birthDate')) {
     nextlink.innerText = i18next.t('visualSimu.congratulations');
     nextlink.href = is30Version() ? "./scores.html?store=true" : "./cognitive.html";
   } else {
