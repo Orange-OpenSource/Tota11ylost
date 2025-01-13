@@ -281,7 +281,7 @@
       "rule1": "Completa todos los campos del formulario (¡puedes poner datos ficticios!).",
       "rule2": "Luego presiona el botón \"Inscribirse\".",
       "rule3": "Una vez que el formulario esté validado, podrás validar el enigma.",
-      "rule4": "Las pistas vendrán a ayudarte a medida que avances.",
+      "rule4": "A lo largo del juego, tendrás pistas para echarte una mano.",
       "formHeading": "El formulario de inscripción",
       "allFieldsRequired": "Todos los campos son obligatorios",
       "errorInForm": "Error en el formulario",
