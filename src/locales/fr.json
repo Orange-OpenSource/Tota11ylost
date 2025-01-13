@@ -8,7 +8,7 @@
     },
     "timer": {
       "title": "Chronomètre",
-      "aria-label_timerArea": "Zone du chronomètre de l'Escape game"
+      "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
     "footer": {
       "sitemapAndInformation": "Plan du site & informations",
@@ -31,19 +31,19 @@
     "intro": "Expérimenter de manière ludique les défis des personnes en situation de handicap numérique.",
     "rules": "Avant de démarrer, choisir mon aventure et mon pseudo",
     "adventureType": "Type d'aventure",
-    "escapeGame": "Escape game",
+    "escapeGame": "<span lang='en'>Escape game</span>",
     "duration": "Durée",
     "15min": {
       "label": "15 min",
-      "title_15": "La version express de l'escape game sur 4 pages"
+      "title_15": "La version express de l'<span lang='en'>escape game</span> sur 4 pages"
     },
     "30min": {
       "label": "30 min",
-      "title_30": "La version courte de l'escape game sur 6 pages"
+      "title_30": "La version courte de l'<span lang='en'>escape game</span> sur 6 pages"
     },
     "60min": {
       "label": "60 min",
-      "title_60": "La version classique de l'escape game sur 10 pages"
+      "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
     "pseudo": "Mon pseudo (obligatoire)",
     "placeholder_enterPseudo": "Indiquer mon pseudo",
@@ -52,10 +52,10 @@
   },
   "intro": {
     "tabTitle": "Introduction - Tota11y Lost",
-    "content_description": "Page d'introduction de l'escape game et première énigme",
+    "content_description": "Page d'introduction de l'<span lang='en'>escape game</span> et première énigme",
     "pageTitle": "Introduction",
     "descriptionHeading": "Description",
-    "descriptionText1": "Cet escape game a pour objectif de vous offrir une expérience immersive, vous sensibilisant plus particulièrement aux défis auxquels sont confrontés les personnes en situation de handicap numérique.",
+    "descriptionText1": "Cet <span lang='en'>escape game</span> a pour objectif de vous offrir une expérience immersive, vous sensibilisant plus particulièrement aux défis auxquels sont confrontés les personnes en situation de handicap numérique.",
     "descriptionText2": {
       "begin": "Vous devrez donc,",
       "here": "ici",
@@ -400,12 +400,12 @@
   "scores": {
     "tabTitle": "Tableau des scores - Tota11y Lost",
     "content_description": "Tableau des scores",
-    "congratulations": "Bravo, vous venez de terminer l'Escape Game !",
+    "congratulations": "Bravo, vous venez de terminer l'<span lang='en'>Escape game</span> !",
     "finalTime": "Temps final",
     "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommandations</a>.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
-    "alt_congratulationImage": "Vous avez fini l'escape game {{version}} minutes"
+    "alt_congratulationImage": "Vous avez fini l'<span lang='en'>escape game</span> {{version}} minutes"
   }
 }
