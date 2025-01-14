@@ -29,6 +29,7 @@ setTimeout(() => {
 // Hint system
 let indice = 0;
 
+// Time penalties when taking hints
 const indiceTime = [30, 120, 300, 0];
 
 btnIndice.addEventListener("click", (e) => {
