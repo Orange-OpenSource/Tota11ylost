@@ -1,5 +1,7 @@
 # Tota11y Lost
 
+Escape game allowing participants to experience the difficulties faced by customers in using digital products and services, such as websites, mobile applications, or digital documents
+
 ## Get the project files
 
 In your workspace directory :
