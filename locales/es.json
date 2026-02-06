@@ -65,7 +65,10 @@
       "rule1": "Debes llegar lo más lejos posible, lo más rapido posíble y sin ayuda tecnicá.",
       "rule2": "Para cada nueva etapa, se te planteará un enigma basado en una o varias discapacidad(es).",
       "rule3": "Para los usuarios con un lector de pantalla, hay una región en el cronómetro para facilitar el uso, somos bastante amables.",
-      "startButton": "Para comenzar, haz clic en el enlace: aquí."
+      "startButton": "Para comenzar, haz clic en el enlace: aquí.",
+      "modalTitle": "Disculpa",
+      "modalBody": "No soy un enlace, soy un botón...",
+      "modalButtonClose": "Cerrar"
   },
   "visual": {
       "tabTitle": "Discapacidad visual - Tota11y Lost",
