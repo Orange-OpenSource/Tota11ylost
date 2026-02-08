@@ -66,7 +66,10 @@
     "rule1": "You must go as far as possible as fast possible and without any tool. ",
     "rule2": "For each new stage, a riddle based on one or more impairment(s) will be stated.",
     "rule3": "For screen reader users, a region has been positioned on the timer to make it easier for you to access it, see how nice we are!",
-    "startButton": "To begin, click on the link: here."
+    "startButton": "To begin, click on the link: here.",
+    "modalTitle": "Too bad",
+    "modalBody": "I am a button and not a link...",
+    "modalButtonClose": "Close"
   },
   "visual": {
     "tabTitle": "Visual impairment - Tota11y Lost",

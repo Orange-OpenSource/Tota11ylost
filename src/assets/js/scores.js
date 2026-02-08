@@ -56,20 +56,48 @@ function addScoreLine(tableId, pseudo, timer, position, isCurrent) {
       break;
   }
 
+  // Declare default elements classes
+  let cellPositionClasses = ['py-7', 'vertical-align'];
+  let cellPseudoClasses = ['text-start', 'py-7'];
+  let pseudoClasses = ['mb-0'];
+  let timeClasses = ['mb-0', 'fs-6', isCurrent ? 'text-white' : 'text-body-secondary'];
+  let cellTrophyClasses = ['py-7', 'vertical-align'];
+
+  // Modify classes if the line is the current user
   if (isCurrent) {
     tr.id = 'current_' + tableId;
-    tr.innerHTML = `
-        <td class="py-7 current fs-5 vertical-align">${position}</td>
-        <td class="text-start py-7 current"><p class="mb-0 fs-5">${pseudo}</p><p class="mb-0 fs-6 text-white">${getFormattedTime(timer)}</p></td>
-        <td class="py-7 current vertical-align" aria-hidden="true">${coupeImgHTML}</td>
-    `;
-  } else {
-    tr.innerHTML = `
-        <td class="py-7 vertical-align">${position}</td>
-        <td class="text-start py-7"><p class="mb-0">${pseudo}</p><p class="mb-0 fs-6 text-body-secondary">${getFormattedTime(timer)}</p></td>
-        <td class="py-7 vertical-align" aria-hidden="true">${coupeImgHTML}</td>
-    `;
+
+    cellPositionClasses.push('current', 'fs-5');
+    cellPseudoClasses.push('current');
+    pseudoClasses.push('fs-5');
   }
+
+  // Create position cell
+  const cellPosition = document.createElement('td');
+  cellPosition.classList.add(...cellPositionClasses);
+  cellPosition.innerText = position;
+  tr.appendChild(cellPosition);
+
+  // Create pseudo + time cell
+  const cellPseudo = document.createElement('td');
+  cellPseudo.classList.add(...cellPseudoClasses);
+  const pPseudo = document.createElement('p');
+  pPseudo.classList.add(...pseudoClasses);
+  pPseudo.innerText = pseudo;
+  cellPseudo.appendChild(pPseudo);
+  const pTime = document.createElement('p');
+  pTime.classList.add(...timeClasses);
+  pTime.innerText = getFormattedTime(timer);
+  cellPseudo.appendChild(pTime);
+  tr.appendChild(cellPseudo);
+
+  // Create trophy cell
+  const cellTrophy = document.createElement('td');
+  cellTrophy.classList.add(...cellTrophyClasses);
+  cellTrophy.setAttribute('aria-hidden', 'true');
+  cellTrophy.innerHTML = coupeImgHTML;
+  tr.appendChild(cellTrophy);
+
   const tableBody = document.querySelector(`#${tableId} tbody`);
   tableBody.appendChild(tr);
 }
