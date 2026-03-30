@@ -1,0 +1,96 @@
+# This generic template instantiates all required OpenShift objects
+# It uses the following parameters that will be dynamically replaced by the deployment script:
+# - ${environment_name}
+# - ${environment_name_ssc}
+# - ${hostname}
+# - ${environment_name}
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: nuxt-boosted-template
+  description: an OpenShift template for nuxt-boosted
+# template parameters
+parameters:
+  - name: environment_name
+    description: the application target name to use in this environment (provided by GitLab CI template)
+    required: true
+  - name: environment_name_ssc
+    description: the application target name in SCREAMING_SNAKE_CASE format (provided by GitLab CI template)
+    required: true
+  - name: hostname
+    description: the environment hostname (provided by GitLab CI template)
+    required: true
+  - name: docker_image
+    description: the Docker image build in upstream stages (provided by the Docker template)
+    required: true
+objects:
+  # === Service
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        description: Exposes and load balances the application pods.
+      labels:
+        app: ${environment_name}
+      name: ${environment_name}
+    spec:
+      ports:
+        - name: http
+          port: 3000
+          protocol: TCP
+          targetPort: 3000
+      selector:
+        app: ${environment_name}
+  # === Deployment
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        description: The deployment configuration of application.
+      labels:
+        app: ${environment_name}
+      name: ${environment_name}
+    spec:
+      replicas: 1
+      revisionHistoryLimit: 2
+      selector:
+        matchLabels:
+          app: ${environment_name}
+      strategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 1
+          maxSurge: 1
+      template:
+        metadata:
+          labels:
+            app: ${environment_name}
+        spec:
+          containers:
+            - image: ${docker_image}
+              imagePullPolicy: Always
+              name: node-alpine
+              ports:
+                - containerPort: 3000
+                  name: http
+                  protocol: TCP
+              securityContext:
+                privileged: false
+  # === Route
+  - apiVersion: route.openshift.io/v1
+    kind: Route
+    metadata:
+      annotations:
+        description: The route exposes the service at a hostname.
+      labels:
+        app: ${environment_name}
+      name: ${environment_name}
+    spec:
+      host: ${hostname}
+      port:
+        targetPort: 3000
+      tls:
+        termination: edge
+      to:
+        kind: Service
+        name: ${environment_name}

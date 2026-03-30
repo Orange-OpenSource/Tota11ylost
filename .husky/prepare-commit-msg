@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+# Happens the issue number (in branch name if any) at the beginning of the commit message (after the conventional prefix)
+
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+# If branch name is HEAD (during rebase for example), do nothing
+if [ $BRANCH != 'HEAD' ]
+then
+    ISSUE_ID="${BRANCH%%-*}"
+    # If branch name = issue_id or issue_id is not an integer, it means that branch name has no wished format -> do nothing
+    if [ "$BRANCH" != "$ISSUE_ID" ] && echo "$ISSUE_ID" | grep -qE '^[0-9]+$'
+    then
+        case "$2," in
+          ,|message,|template,)
+            sed -i.bak "s/:/: [#$ISSUE_ID]/" "$1" ;;
+        esac
+    fi
+fi

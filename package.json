@@ -1,0 +1,51 @@
+{
+  "name": "nuxt-boosted-template",
+  "type": "module",
+  "version": "1.6.1",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test:watch": "vitest",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@nuxt/content": "^3.12.0",
+    "@nuxt/devtools": "latest",
+    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/test-utils": "^4.0.0",
+    "@nuxtjs/i18n": "^10.2.4",
+    "@pinia/nuxt": "^0.11.3",
+    "@vitest/coverage-v8": "^4.1.2",
+    "@vue/test-utils": "^2.4.6",
+    "@vueuse/nuxt": "^14.2.1",
+    "boosted": "^5.3.8",
+    "eslint": "^10.1.0",
+    "happy-dom": "^20.8.9",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "nuxt": "^4.4.2",
+    "sass": "^1.98.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2",
+    "vue": "^3.5.31",
+    "vue-router": "^5.0.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json,md,yml}": "eslint --cache --fix"
+  },
+  "dependencies": {
+    "firebase": "^12.11.0"
+  }
+}
