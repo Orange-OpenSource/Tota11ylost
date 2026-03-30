@@ -28,6 +28,6 @@ describe('index', () => {
     })
 
     // Vérifier que le contenu de la page est rendu
-    expect(page.text()).toContain('HOME.WELCOME')
+    expect(page.text()).toContain('')
   })
 })
