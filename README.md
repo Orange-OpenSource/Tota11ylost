@@ -37,3 +37,4 @@ localhost:8080
 - To use the project locally, you must copy the **firebaseConfig.js** file to **/src**.
 - If you access **scores.html** directly, the current score will not be saved. For it to be so, you must go to **scores.html?store=true**.
 - You can reduce the hint wait time to 10 seconds by adding **?debug=true** to your page URL.
+"" 
