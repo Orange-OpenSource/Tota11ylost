@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
   ],
 
+  // Uncomment for SPA mode
+  ssr: false,
+
   components: [
     {
       path: '~/components',
@@ -36,9 +39,6 @@ export default defineNuxtConfig({
     '~/assets/styles/game.scss',
     '~/assets/styles/game-braille.scss',
   ],
-
-  // Uncomment for SPA mode
-  // ssr: false,
 
   runtimeConfig: {
     backendUrl: '/',
