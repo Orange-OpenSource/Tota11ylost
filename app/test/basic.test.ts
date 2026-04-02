@@ -1,5 +1,7 @@
-import { describe } from 'vitest'
+import { describe, it } from 'vitest'
 
 describe('index', () => {
-  // Empty test suite
+  it('placeholder', () => {
+    // Empty test that always passes
+  })
 })
