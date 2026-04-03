@@ -68,14 +68,14 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          quietDeps: true, // Suppress warnings from dependencies
+          quietDeps: true,
           silenceDeprecations: ['legacy-js-api', 'import'],
         },
       },
     },
     build: {
       minify: 'esbuild',
-      cssMinify: 'esbuild',
+      cssMinify: false, // Disable CSS minification
     },
   },
 
