@@ -1,3 +1,3 @@
 window.env = {
-FIREBASE_API_KEY: ''
+FIREBASE_API_KEY: 'sdvsdfsdfsd'
 };
