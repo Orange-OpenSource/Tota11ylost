@@ -32,5 +32,5 @@ logs
 # Local Netlify folder
 .netlify
 
-#config
+#firebase config
 src/firebaseConfig.js
