@@ -134,22 +134,22 @@ function onSubmit() {
 function onHint(index: number) {
   hintLevel.value = index
   switch (index) {
-    case 1:
-      // Add labels
-      showLabels.value = true
-      break
-    case 2:
-      // Enable submit button
-      submitEnabled.value = true
-      break
-    case 3:
-      // Show detailed error messages + append extra details
-      showDetailedErrors.value = true
-      emailExtraDetail.value = ` ${t('form.detailEmail')}`
-      telephoneExtraDetail.value = ` ${t('form.detailPhoneNumber')}`
-      fruitExtraDetail.value = ` ${t('form.detailFruits')}`
-      errorForm()
-      break
+  case 1:
+    // Add labels
+    showLabels.value = true
+    break
+  case 2:
+    // Enable submit button
+    submitEnabled.value = true
+    break
+  case 3:
+    // Show detailed error messages + append extra details
+    showDetailedErrors.value = true
+    emailExtraDetail.value = ` ${t('form.detailEmail')}`
+    telephoneExtraDetail.value = ` ${t('form.detailPhoneNumber')}`
+    fruitExtraDetail.value = ` ${t('form.detailFruits')}`
+    errorForm()
+    break
   }
 }
 
