@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Scores (Final scoreboard with Firebase) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'scores.tabTitle' })
+definePageMeta({ layout: 'default', title: 'scores.tabTitle' })
 
 const route = useRoute()
 const gameStore = useGameStore()
@@ -43,10 +43,10 @@ const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 // Trophy image per position
 function trophySrc(position: number): string | null {
   switch (position) {
-    case 1: return '/game-assets/rank=gold.svg'
-    case 2: return '/game-assets/rank=silver.svg'
-    case 3: return '/game-assets/rank=bronze.svg'
-    default: return null
+  case 1: return '/game-assets/rank=gold.svg'
+  case 2: return '/game-assets/rank=silver.svg'
+  case 3: return '/game-assets/rank=bronze.svg'
+  default: return null
   }
 }
 
@@ -185,9 +185,6 @@ onMounted(loadScores)
           </div>
         </div>
       </main>
-
-      <!-- Footer -->
-      <TheFooter />
     </div>
   </ClientOnly>
 </template>
