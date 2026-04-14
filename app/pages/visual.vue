@@ -99,4 +99,8 @@ function getButtonClass(buttonId: string): string {
 .grey-markers li::marker {
   color: grey !important;
 }
+.btn-dark{
+    --bs-btn-bg: grey !important;
+    --bs-btn-border-color: grey !important;
+}
 </style>
