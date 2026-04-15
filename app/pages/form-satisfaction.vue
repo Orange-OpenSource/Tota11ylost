@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Form Satisfaction (Zoomed-at-500% + tooltips) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'formSimu.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'formSimu.tabTitle' })
 
 const router = useRouter()
 const gameStore = useGameStore()

@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Visual Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'visual.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
 
 const router = useRouter()
 const gameStore = useGameStore()

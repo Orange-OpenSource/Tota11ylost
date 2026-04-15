@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Form Registration (Inaccessible form challenge) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'form.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'form.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()
