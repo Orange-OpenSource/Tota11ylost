@@ -43,9 +43,9 @@ const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 // Trophy image per position
 function trophySrc(position: number): string | null {
   switch (position) {
-  case 1: return '/game-assets/rank=gold.svg'
-  case 2: return '/game-assets/rank=silver.svg'
-  case 3: return '/game-assets/rank=bronze.svg'
+  case 1: return 'assets/img/rank=gold.svg'
+  case 2: return 'assets/img/rank=silver.svg'
+  case 3: return 'assets/img/rank=bronze.svg'
   default: return null
   }
 }
@@ -94,7 +94,7 @@ onMounted(loadScores)
             </p>
           </div>
           <div class="col-5 m-3 position-relative text-dark scores-img">
-            <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
+            <img id="congratulationImage" src="~/assets/img/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
             <div class="position-absolute top-50 start-50 translate-middle mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
                 {{ version }}
