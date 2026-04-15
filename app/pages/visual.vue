@@ -77,7 +77,7 @@ function getButtonClass(buttonId: string): string {
             :key="btn.id"
             class="btn m-2 fs-3 p-2"
             :class="getButtonClass(btn.id)"
-            :aria-label="btn.label"
+            :aria-label="$t('visual.buttonsLabel')"
             @click="handleButtonClick(btn.id)"
           >
             {{ $t('visual.buttonsLabel') }}
@@ -85,7 +85,7 @@ function getButtonClass(buttonId: string): string {
         </div>
 
         <div v-if="showError" class="alert alert-danger" role="alert">
-          <span class="alert-icon" />
+          <span class="alert-icon" aria-hidden="true" />
           <p>{{ $t('visual.errorMessage') }}</p>
         </div>
 
