@@ -23,9 +23,12 @@ export function useHints(options: HintOptions) {
   const penaltyTimes = [30, 120, 300, 0]
 
   // Delay before hints become available: 5min normally, 10s in debug, custom or 1ms for form-registration
-  const isDebug = computed(() => {
-    return options.debug === true || route.query.debug === 'true'
-  })
+  const isDebug = ref(false)
+
+  function initDebugMode() {
+    const debugParam = route.query?.debug
+    isDebug.value = options.debug === true || debugParam === 'true'
+  }
 
   const hintDelay = computed(() => {
     if (options.delayMs !== undefined) return options.delayMs
@@ -68,6 +71,8 @@ export function useHints(options: HintOptions) {
   }
 
   onMounted(() => {
+    initDebugMode()
+
     const setupHintTimeout = () => {
       if (hintTimeout) clearTimeout(hintTimeout)
       hintTimeout = setTimeout(() => {
