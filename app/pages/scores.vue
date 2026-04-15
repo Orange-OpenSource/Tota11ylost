@@ -89,7 +89,7 @@ onMounted(loadScores)
             </div>
             <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
-          <div class="col-5 m-3 position-relative text-dark scores-img">
+          <div class="col-6 ms-5 m-3 position-relative text-dark scores-img d-flex justify-content-center">
             <img id="congratulationImage" src="~/assets/img/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
             <div class="position-absolute top-50 start-50 translate-middle mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
