@@ -80,18 +80,14 @@ onMounted(loadScores)
       <main class="d-flex flex-column m-3 mx-4">
         <div class="d-flex flex-row">
           <div class="col-6">
-            <h2 class="display-3 mb-4">
-              {{ $t('scores.congratulations') }}
-            </h2>
+            <h2 class="display-3 mb-4" v-html="$t('scores.congratulations')" />
             <p class="fs-6 fw-bold text-body-secondary">
               {{ $t('scores.finalTime') }}
             </p>
             <div class="d-flex align-items-center fs-3 fw-bold">
               {{ finalTimeDisplay }}
             </div>
-            <p class="fw-bold mt-3 fs-4">
-              {{ $t('scores.toKnowMore') }}
-            </p>
+            <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
           <div class="col-5 m-3 position-relative text-dark scores-img">
             <img id="congratulationImage" src="~/assets/img/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">

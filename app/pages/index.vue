@@ -33,7 +33,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p>{{ $t('welcome.escapeGame') }}</p>
+        <p v-html="$t('welcome.escapeGame')" />
 
         <h4 id="timeSelection" class="mt-3">
           {{ $t('welcome.duration') }}
