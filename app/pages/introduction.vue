@@ -30,7 +30,7 @@ function navigateViaLink() {
     <main>
       <div class="mx-4">
         <h2>{{ $t('intro.descriptionHeading') }}</h2>
-        <p>{{ $t('intro.descriptionText1') }}</p>
+        <p v-html="$t('intro.descriptionText1')" />
         <p>
           {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
             class="link text-decoration-none no-hover-effect"

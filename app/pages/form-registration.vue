@@ -165,7 +165,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
       <main>
         <div class="mx-4">
           <h2>{{ $t('form.descriptionHeading') }}</h2>
-          <p>{{ $t('form.descriptionText1') }}</p>
+          <p v-html="$t('form.descriptionText1')" />
           <p>{{ $t('form.descriptionText2') }}</p>
           <p>{{ $t('form.descriptionText3') }}</p>
 

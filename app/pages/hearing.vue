@@ -69,7 +69,7 @@ function onHint(index: number) {
       <main>
         <div class="mx-4">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
-          <p>{{ $t('hearing.descriptionText1') }}</p>
+          <p v-html="$t('hearing.descriptionText1')" />
           <p>{{ $t('hearing.descriptionText2') }}</p>
           <p>{{ $t('hearing.descriptionText3') }}</p>
 

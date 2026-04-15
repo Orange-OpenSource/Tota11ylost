@@ -114,7 +114,7 @@ onUnmounted(() => {
                 <div class="modal-body">
                   <h1>{{ $t('physical.modalTitle') }}</h1>
                   <h2>{{ $t('physical.descriptionHeading') }}</h2>
-                  <p>{{ $t('physical.descriptionText1') }}</p>
+                  <p v-html="$t('physical.descriptionText1')" />
                   <p>{{ $t('physical.descriptionText2') }}</p>
                   <h2>{{ $t('physical.userTypeHeading') }}</h2>
                   <p>{{ $t('physical.userTypeText') }}</p>

@@ -61,7 +61,7 @@ function getButtonClass(buttonId: string): string {
     <main>
       <div class="mx-4">
         <h2>{{ $t('visual.descriptionHeading') }}</h2>
-        <p>{{ $t('visual.descriptionText1') }}</p>
+        <p v-html="$t('visual.descriptionText1')" />
         <p>{{ $t('visual.descriptionText2') }}</p>
         <h2>{{ $t('visual.userTypeHeading') }}</h2>
         <p>{{ $t('visual.userTypeDescription') }}</p>
