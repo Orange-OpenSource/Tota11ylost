@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Form Registration (Inaccessible form challenge) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'form.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'form.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()
@@ -134,22 +134,22 @@ function onSubmit() {
 function onHint(index: number) {
   hintLevel.value = index
   switch (index) {
-    case 1:
-      // Add labels
-      showLabels.value = true
-      break
-    case 2:
-      // Enable submit button
-      submitEnabled.value = true
-      break
-    case 3:
-      // Show detailed error messages + append extra details
-      showDetailedErrors.value = true
-      emailExtraDetail.value = ` ${t('form.detailEmail')}`
-      telephoneExtraDetail.value = ` ${t('form.detailPhoneNumber')}`
-      fruitExtraDetail.value = ` ${t('form.detailFruits')}`
-      errorForm()
-      break
+  case 1:
+    // Add labels
+    showLabels.value = true
+    break
+  case 2:
+    // Enable submit button
+    submitEnabled.value = true
+    break
+  case 3:
+    // Show detailed error messages + append extra details
+    showDetailedErrors.value = true
+    emailExtraDetail.value = ` ${t('form.detailEmail')}`
+    telephoneExtraDetail.value = ` ${t('form.detailPhoneNumber')}`
+    fruitExtraDetail.value = ` ${t('form.detailFruits')}`
+    errorForm()
+    break
   }
 }
 
@@ -165,7 +165,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
       <main>
         <div class="mx-4">
           <h2>{{ $t('form.descriptionHeading') }}</h2>
-          <p>{{ $t('form.descriptionText1') }}</p>
+          <p v-html="$t('form.descriptionText1')" />
           <p>{{ $t('form.descriptionText2') }}</p>
           <p>{{ $t('form.descriptionText3') }}</p>
 

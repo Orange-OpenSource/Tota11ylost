@@ -1,7 +1,9 @@
-<script setup>
+<!-- Tota11y Lost - Game Layout -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
+<script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const title = computed(() => t(route.meta.title ?? 'DEFAULT_TITLE'))
+const title = computed(() => t(route.meta.title as string ?? 'common.banner.title'))
 
 useHead({ title })
 </script>
@@ -12,6 +14,5 @@ useHead({ title })
     <div class="flex-grow-1">
       <slot />
     </div>
-    <TheFooter class="flex-shrink-0" />
   </div>
 </template>

@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Physical (Motor) Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'physical.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'physical.tabTitle' })
 
 const gameStore = useGameStore()
 const router = useRouter()
@@ -114,7 +114,7 @@ onUnmounted(() => {
                 <div class="modal-body">
                   <h1>{{ $t('physical.modalTitle') }}</h1>
                   <h2>{{ $t('physical.descriptionHeading') }}</h2>
-                  <p>{{ $t('physical.descriptionText1') }}</p>
+                  <p v-html="$t('physical.descriptionText1')" />
                   <p>{{ $t('physical.descriptionText2') }}</p>
                   <h2>{{ $t('physical.userTypeHeading') }}</h2>
                   <p>{{ $t('physical.userTypeText') }}</p>

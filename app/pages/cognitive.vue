@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Cognitive Impairment Page (Dyslexia) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'cognitive.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'cognitive.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()
@@ -57,7 +57,7 @@ onMounted(() => {
         <h2 class="my-2">
           {{ $t('cognitive.descriptionHeading') }}
         </h2>
-        <p>{{ $t('cognitive.descriptionText1') }}</p>
+        <p v-html="$t('cognitive.descriptionText1')" />
         <p>{{ $t('cognitive.descriptionText2') }}</p>
         <p>{{ $t('cognitive.descriptionText3') }}</p>
         <h2>{{ $t('cognitive.userTypeHeading') }}</h2>

@@ -33,7 +33,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p>{{ $t('welcome.escapeGame') }}</p>
+        <p v-html="$t('welcome.escapeGame')" />
 
         <h4 id="timeSelection" class="mt-3">
           {{ $t('welcome.duration') }}
@@ -101,7 +101,7 @@ function startAdventure() {
         </form>
       </div>
       <div class="ms-5 col-4">
-        <img src="~/assets/img/Start.svg" alt="">
+        <img src="/game-assets/Start.svg" alt="">
       </div>
     </main>
   </div>
