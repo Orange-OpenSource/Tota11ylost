@@ -16,17 +16,17 @@ const overlayDisabled = ref(false)
 
 type ImageItem = { url: string, text?: string, color?: string, size?: string, top?: string, opacity?: boolean }
 
-const defaultImage: ImageItem = { url: '~/assets/img/cognitive/A11yce.jpg' }
+const defaultImage: ImageItem = { url: '/game-assets/cognitive/A11yce.jpg' }
 
 const images = computed(() => [
-  { url: '~/assets/img/cognitive/A11yce.jpg', text: t('cognitiveSimu.img_alice'), color: 'yellow', size: '50px', top: '290px', opacity: true },
-  { url: '~/assets/img/cognitive/calc.png' },
-  { url: '~/assets/img/cognitive/game-master.jpg' },
-  { url: '~/assets/img/cognitive/grinch-3.png' },
-  { url: '~/assets/img/cognitive/hungry.jpg', text: t('cognitiveSimu.img_hungry'), color: 'red', size: '100px' },
-  { url: '~/assets/img/cognitive/monkey.jpg', text: t('cognitiveSimu.img_monkey'), color: 'blue', size: '80px', top: '100px' },
-  { url: '~/assets/img/cognitive/nyan-cat.png' },
-  { url: '~/assets/img/cognitive/woof.png' },
+  { url: '/game-assets/cognitive/A11yce.jpg', text: t('cognitiveSimu.img_alice'), color: 'yellow', size: '50px', top: '290px', opacity: true },
+  { url: '/game-assets/cognitive/calc.png' },
+  { url: '/game-assets/cognitive/game-master.jpg' },
+  { url: '/game-assets/cognitive/grinch-3.png' },
+  { url: '/game-assets/cognitive/hungry.jpg', text: t('cognitiveSimu.img_hungry'), color: 'red', size: '100px' },
+  { url: '/game-assets/cognitive/monkey.jpg', text: t('cognitiveSimu.img_monkey'), color: 'blue', size: '80px', top: '100px' },
+  { url: '/game-assets/cognitive/nyan-cat.png' },
+  { url: '/game-assets/cognitive/woof.png' },
 ])
 
 const currentImage = ref<ImageItem>(defaultImage)

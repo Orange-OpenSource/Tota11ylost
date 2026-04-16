@@ -101,7 +101,7 @@ function startAdventure() {
         </form>
       </div>
       <div class="ms-5 col-4">
-        <img src="~/assets/img/Start.svg" alt="">
+        <img src="/game-assets/Start.svg" alt="">
       </div>
     </main>
   </div>

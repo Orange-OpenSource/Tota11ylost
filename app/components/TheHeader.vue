@@ -6,7 +6,7 @@
       <div class="m-3 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-end gap-3">
           <img
-            src="~/assets/img/orange-logo.png"
+            src="/game-assets/orange-logo.png"
             class="mx-2"
             alt=""
             style="max-height: 60px;"
