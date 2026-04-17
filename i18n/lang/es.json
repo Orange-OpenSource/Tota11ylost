@@ -126,10 +126,10 @@
     "rule2": "¡Atención, en caso de error tendrás que empezar de nuevo!",
     "errorMessage": "¡Ups, color incorrecto! ¡Debes seguir las instrucciones!",
     "buttonsLabel": "Botón",
-    "ButtonBlue" :"Botón azul",
-    "ButtonPurple": "Botón violeta",  
-    "ButtonGreen": "Botón verde",
-    "ButtonRed": "Botón rojo"
+    "blueButton":"Botón azul",
+    "purpleButton": "Botón violeta",  
+    "greenButton":"Botón verde",
+    "redButton": "Botón rojo"
   },
   "visualSimu": {
     "tabTitle": "Discapacidad visual - Simulación - Tota11y Lost",
