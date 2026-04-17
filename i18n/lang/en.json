@@ -126,7 +126,11 @@
     "rule1": "Click on the buttons in a specific order: green, blue, red, and then purple to pass this stage.",
     "rule2": "Be careful, if you make a mistake you will have to start all over again!",
     "errorMessage": "Oops, wrong color! You must follow the instructions, come on!!...",
-    "buttonsLabel": "Button"
+    "buttonsLabel": "Button",
+    "ButtonBlue" :"Button blue",
+    "ButtonPurple": "Button purple",  
+    "ButtonGreen": "Button green",
+    "ButtonRed": "Button red"
   },
   "visualSimu": {
     "tabTitle": "Visual impairment - Simulation - Tota11y Lost",

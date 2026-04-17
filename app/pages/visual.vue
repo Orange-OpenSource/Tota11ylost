@@ -8,10 +8,10 @@ const gameStore = useGameStore()
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
 const buttonDefs = ref([
-  { label: 'Bouton bleu', id: 'blue-button' },
-  { label: 'Bouton violet', id: 'purple-button' },
-  { label: 'Bouton vert', id: 'green-button' },
-  { label: 'Bouton rouge', id: 'red-button' },
+  { label: $t('visual.ButtonBlue'), id: 'blue-button' },
+  { label: $t('visual.ButtonPurple'), id: 'purple-button' },
+  { label: $t('visual.ButtonGreen'), id: 'green-button' },
+  { label: $t('visual.ButtonRed'), id: 'red-button' },
 ])
 
 const sequenceIndex = ref(0)
@@ -54,6 +54,16 @@ function getButtonClass(buttonId: string): string {
   if (buttonId.includes('red')) return 'red-button'
   return 'btn-dark'
 }
+function getAriaLabel(buttonId: string): string {
+  if (!colorsRevealed.value) return $t('visual.buttonsLabel') // ex: "Bouton"
+
+  if (buttonId.includes('blue')) return $t('visual.ButtonBlue')
+  if (buttonId.includes('purple')) return $t('visual.ButtonPurple')
+  if (buttonId.includes('green')) return $t('visual.ButtonGreen')
+  if (buttonId.includes('red')) return $t('visual.ButtonRed')
+
+  return $t('visual.buttonsLabel')
+}
 </script>
 
 <template>
@@ -77,7 +87,8 @@ function getButtonClass(buttonId: string): string {
             :key="btn.id"
             class="btn m-2 fs-3 p-2"
             :class="getButtonClass(btn.id)"
-            :aria-label="$t('visual.buttonsLabel')"
+            :aria-label="getAriaLabel(btn.id)"
+
             @click="handleButtonClick(btn.id)"
           >
             {{ $t('visual.buttonsLabel') }}
