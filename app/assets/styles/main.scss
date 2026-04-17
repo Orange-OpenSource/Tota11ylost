@@ -6,8 +6,7 @@ $functional-green: #228722;
 
 $font-path: '/fonts/';
 
-@font-face {
-    font-family: 'Verdana';
-    src: url('/fonts/Verdana.woff') format('woff');
+body{
+  font-family:'Verdana', sans-serif;
 }
 
