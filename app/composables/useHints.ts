@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (c) Orange SA
 
+import type { VueMessageType } from 'vue-i18n'
+
 export interface HintOptions {
   pageId: string
   isFormRegistration?: boolean
@@ -11,7 +13,7 @@ export interface HintOptions {
 }
 
 export function useHints(options: HintOptions) {
-  const { t } = useI18n()
+  const { t, tm, rt } = useI18n()
   const route = useRoute()
   const timer = useGameTimer()
 
@@ -69,10 +71,11 @@ export function useHints(options: HintOptions) {
     timer.addPenalty(penaltyTimes[idx] as number)
     currentHintIndex.value++
 
-    // Get hint text from i18n
-    const hintsArray = t(`hints.${options.pageId}`, { returnObjects: true })
-    if (Array.isArray(hintsArray) && hintsArray[currentHintIndex.value - 1]) {
-      hintTexts.value.push(hintsArray[currentHintIndex.value - 1] as string)
+    // Get hint text from i18n — tm() returns the raw message array, rt() resolves each item to a string
+    const hintsArray = tm(`hints.${options.pageId}`) as unknown as VueMessageType[]
+    const rawHint = hintsArray[currentHintIndex.value - 1]
+    if (Array.isArray(hintsArray) && rawHint) {
+      hintTexts.value.push(rt(rawHint))
     }
 
     // Call the page-specific hint callback
