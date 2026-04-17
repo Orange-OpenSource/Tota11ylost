@@ -25,6 +25,20 @@
       "title": "Chronomètre",
       "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
+    "time": {
+      "hour": {
+        "abbr": "h",
+        "full": "heure | heures"
+      },
+      "minute": {
+        "abbr": "min",
+        "full": "minute | minutes"
+      },
+      "second": {
+        "abbr": "s",
+        "full": "seconde | secondes"
+      }
+    },
     "footer": {
       "sitemapAndInformation": "Plan du site & informations",
       "copyright": "© Orange 2026",

@@ -25,6 +25,20 @@
       "title": "Timer",
       "aria-label_timerArea": "Timer area of the escape game"
     },
+    "time": {
+      "hour": {
+        "abbr": "h",
+        "full": "hour | hours"
+      },
+      "minute": {
+        "abbr": "min | mins",
+        "full": "minute | minutes"
+      },
+      "second": {
+        "abbr": "sec | secs",
+        "full": "second | seconds"
+      }
+    },
     "footer": {
       "sitemapAndInformation": "Sitemap & information",
       "copyright": "© Orange 2026",

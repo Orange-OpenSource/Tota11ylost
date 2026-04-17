@@ -5,7 +5,21 @@ defineProps<{
   isFinal?: boolean
 }>()
 
+const { t } = useI18n()
 const timer = useGameTimer()
+
+// Builds "X minutes Y secondes" for screen readers — the visual digits use aria-hidden
+const accessibleTime = computed(() => {
+  const d = timer.digits.value
+  const hours = d[0] ?? 0
+  const minutes = ((d[1] ?? 0) * 10) + (d[2] ?? 0)
+  const seconds = ((d[3] ?? 0) * 10) + (d[4] ?? 0)
+  const parts: string[] = []
+  if (hours > 0) parts.push(`${hours} ${t('common.time.hour.full', hours)}`)
+  parts.push(`${minutes} ${t('common.time.minute.full', minutes)}`)
+  parts.push(`${seconds} ${t('common.time.second.full', seconds)}`)
+  return parts.join(' ')
+})
 </script>
 
 <template>
@@ -45,7 +59,7 @@ const timer = useGameTimer()
 
     <!-- Screen reader accessible version -->
     <p class="visually-hidden" role="status">
-      {{ timer.displayTime.value }}
+      {{ accessibleTime }}
     </p>
   </div>
 </template>

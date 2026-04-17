@@ -42,12 +42,25 @@ export function useHints(options: HintOptions) {
   function getHintButtonLabel(): string {
     const time = penaltyTimes[currentHintIndex.value]
     if (!time) return t('hints.noMoreHints')
-    const unit = time < 60 ? 'sec' : 'min'
     const duration = time < 60 ? time : time / 60
+    const unit = time < 60
+      ? t('common.time.second.abbr', duration)
+      : t('common.time.minute.abbr', duration)
+    return t('form.labelHintsButton', { duration, unit })
+  }
+
+  function getHintButtonA11yLabel(): string {
+    const time = penaltyTimes[currentHintIndex.value]
+    if (!time) return t('hints.noMoreHints')
+    const duration = time < 60 ? time : time / 60
+    const unit = time < 60
+      ? t('common.time.second.full', duration)
+      : t('common.time.minute.full', duration)
     return t('form.labelHintsButton', { duration, unit })
   }
 
   const hintButtonLabel = computed(() => getHintButtonLabel())
+  const hintButtonA11yLabel = computed(() => getHintButtonA11yLabel())
 
   function takeHint() {
     if (noMoreHints.value || currentHintIndex.value >= 3) return
@@ -100,6 +113,7 @@ export function useHints(options: HintOptions) {
     noMoreHints,
     hintTexts,
     hintButtonLabel,
+    hintButtonA11yLabel,
     takeHint,
   }
 }
