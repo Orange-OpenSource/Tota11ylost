@@ -1,0 +1,6 @@
+These files correspond to :
+1 : profound deafness
+2 : severe deafness
+3 : moderate deafness
+4 : mild deafness
+5 : no deafness
