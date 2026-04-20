@@ -9,4 +9,21 @@ $font-path: '/fonts/';
 body{
   font-family:'Verdana', sans-serif;
 }
+header .supra {
+  display: flex !important;
+}
+header .navbar > .container{
+    display: flex  !important;
+    flex-wrap: nowrap  !important;
+    flex-direction: row  !important;
+    align-items: flex-end  !important;
+}
+header .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 20px !important;          
+}
 
+header .nav-item {
+    width: auto !important;
+}
