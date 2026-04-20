@@ -3,7 +3,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
 
-const { t, locale, messages } = useI18n()
+const { t, te } = useI18n()
 const router = useRouter()
 const gameStore = useGameStore()
 
@@ -11,27 +11,10 @@ const answer = ref('')
 const showError = ref(false)
 
 const possibleResponses = computed(() => {
-  // Force reactivity on locale change
-  void locale.value
-
   const responses: string[] = []
-  const currentMessages = messages.value[locale.value]
-
-  for (let i = 0; i < 5; i++) {
-    // Check if the key exists in the current language
-    const keyPath = `hearingSimu.possibleResponses.${i}`
-    const nested = keyPath.split('.').reduce((obj: unknown, key: string) => {
-      return typeof obj === 'object' && obj !== null ? (obj as Record<string, unknown>)[key] : undefined
-    }, currentMessages)
-
-    if (nested === undefined) {
-      break
-    }
-
-    const resp = t(keyPath)
-    responses.push(resp)
+  for (let i = 0; te(`hearingSimu.possibleResponses.${i}`); i++) {
+    responses.push(t(`hearingSimu.possibleResponses.${i}`).toLowerCase())
   }
-  console.log('Possible responses:', responses)
   return responses
 })
 
