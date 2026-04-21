@@ -5,7 +5,7 @@ definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()
-const dyslexia = useDyslexia('li', 2000)
+const dyslexia = useDyslexia('main li', 2000)
 
 const first = ref('')
 const second = ref('')
