@@ -93,7 +93,7 @@ onMounted(loadScores)
           </div>
           <div class="col-5 m-3 position-relative text-dark scores-img">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
-            <div class="position-absolute top-50 start-50 translate-middle mt-5" aria-hidden="true">
+            <div class="position-absolute top-50 end-0 translate-middle-y mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
                 {{ version }}
               </p>
