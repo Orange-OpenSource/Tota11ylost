@@ -1,45 +1,18 @@
 {
-  "DEFAULT_TITLE": "TBD",
+  "DEFAULT_TITLE": "Tota11y Lost",
   "HEADER": {
-    "TITLE": "Nuxt + Boosted",
-    "SUBTITLE": "Un template de démarrage pour vos projects",
-    "NAV": {
-      "ARIA": "Menu principal",
-      "ONE": "Menu1",
-      "TWO": "Menu2",
-      "TWO_SUB1": "Rubrique 1",
-      "TWO_SUB2": "Rubrique 2",
-      "LANG": {
-        "ARIA_EN": "Anglais",
-        "EN": "Anglais",
-        "ARIA_FR": "Français",
-        "FR": "Français",
-        "ARIA_NABVAR": "Sélection de la langue",
-        "ARIA_ES": "Espagnol",
-        "ES": "Espagnol"
-      },
-      "THREE": "Menu3"
-    },
-    "ARIA": {
-      "TITLE": "Accueil Nuxt + Boosted"
-    },
-    "REPOSITORY": "Repository"
+    "LANG": {
+      "ARIA_EN": "Anglais",
+      "EN": "Anglais",
+      "ARIA_FR": "Français",
+      "FR": "Français",
+      "ARIA_NABVAR": "Sélection de la langue",
+      "ARIA_ES": "Espagnol",
+      "ES": "Espagnol"
+    }
   },
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
-  },
-  "HOME": {
-    "TITLE": "Accueil",
-    "WELCOME": "Bienvenue sur le template Nuxt + Boosted",
-    "POPUP": {
-      "BUTTON": "Voir la popup"
-    }
-  },
-  "ONE": {
-    "TITLE": "Page 1"
-  },
-  "THREE": {
-    "TITLE": "Page 3"
   },
   "common": {
     "lang_lang": "fr",

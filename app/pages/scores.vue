@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Scores (Final scoreboard with Firebase) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'scores.tabTitle' })
+definePageMeta({ layout: 'default', title: 'scores.tabTitle' })
 
 const route = useRoute()
 const gameStore = useGameStore()
@@ -43,10 +43,10 @@ const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 // Trophy image per position
 function trophySrc(position: number): string | null {
   switch (position) {
-    case 1: return '/game-assets/rank=gold.svg'
-    case 2: return '/game-assets/rank=silver.svg'
-    case 3: return '/game-assets/rank=bronze.svg'
-    default: return null
+  case 1: return '/game-assets/rank_gold.svg'
+  case 2: return '/game-assets/rank_silver.svg'
+  case 3: return '/game-assets/rank_bronze.svg'
+  default: return null
   }
 }
 
@@ -56,6 +56,9 @@ function isCurrent(entry: ScoreEntry): boolean {
 
 async function loadScores() {
   try {
+    // Stop timer immediately when arriving on scores page
+    gameStore.finishTimer()
+
     // Store score if URL has ?store=true
     const store = route.query.store
     if (pseudo.value && pseudo.value.length > 0 && store) {
@@ -80,9 +83,7 @@ onMounted(loadScores)
       <main class="d-flex flex-column m-3 mx-4">
         <div class="d-flex flex-row">
           <div class="col-6">
-            <h2 class="display-3 mb-4">
-              {{ $t('scores.congratulations') }}
-            </h2>
+            <h2 class="display-3 mb-4" v-html="$t('scores.congratulations')" />
             <p class="fs-6 fw-bold text-body-secondary">
               {{ $t('scores.finalTime') }}
             </p>
@@ -91,7 +92,7 @@ onMounted(loadScores)
             </div>
             <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
-          <div class="col-5 m-3 position-relative text-dark scores-img">
+          <div class="col-6 ms-5 m-3 position-relative text-dark scores-img d-flex justify-content-center">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
             <div class="position-absolute top-50 end-0 translate-middle-y mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
@@ -135,7 +136,7 @@ onMounted(loadScores)
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"
                         alt=""
-                        :class="{ zoom: isCurrent(entry) }"
+                        class="trophy-img"
                       >
                     </td>
                   </tr>
@@ -173,7 +174,7 @@ onMounted(loadScores)
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"
                         alt=""
-                        :class="{ zoom: isCurrent(entry) }"
+                        class="trophy-img"
                       >
                     </td>
                   </tr>
@@ -183,9 +184,6 @@ onMounted(loadScores)
           </div>
         </div>
       </main>
-
-      <!-- Footer -->
-      <TheFooter />
     </div>
   </ClientOnly>
 </template>
@@ -208,13 +206,9 @@ onMounted(loadScores)
   max-width: 300px;
 }
 
-.zoom {
-  animation: zoom 1s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
+.trophy-img {
+  height: 40px;
+  width: auto;
 }
 
 .vertical-align {
