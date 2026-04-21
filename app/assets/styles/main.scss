@@ -1,7 +1,12 @@
 // Override Boosted's Sass default variables before inporting boosted scss
+@use 'boosted/scss/orange-helvetica';
+@use 'boosted/scss/boosted';
+
 $functional-green: #228722;
 
 $font-path: '/fonts/';
 
-@use 'boosted/scss/orange-helvetica';
-@use 'boosted/scss/boosted';
+body{
+  font-family:'Verdana', sans-serif;
+}
+

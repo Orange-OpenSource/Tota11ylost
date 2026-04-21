@@ -8,10 +8,10 @@ const gameStore = useGameStore()
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
 const buttonDefs = ref([
-  { label: 'Bouton bleu', id: 'blue-button' },
-  { label: 'Bouton violet', id: 'purple-button' },
-  { label: 'Bouton vert', id: 'green-button' },
-  { label: 'Bouton rouge', id: 'red-button' },
+  { label: $t('visual.blueButton'), id: 'blue-button' },
+  { label: $t('visual.purpleButton'), id: 'purple-button' },
+  { label: $t('visual.greenButton'), id: 'green-button' },
+  { label: $t('visual.redButton'), id: 'red-button' },
 ])
 
 const sequenceIndex = ref(0)
@@ -78,6 +78,7 @@ function getButtonClass(buttonId: string): string {
             class="btn m-2 fs-3 p-2"
             :class="getButtonClass(btn.id)"
             :aria-label="btn.label"
+
             @click="handleButtonClick(btn.id)"
           >
             {{ $t('visual.buttonsLabel') }}
@@ -85,7 +86,7 @@ function getButtonClass(buttonId: string): string {
         </div>
 
         <div v-if="showError" class="alert alert-danger" role="alert">
-          <span class="alert-icon" />
+          <span class="alert-icon" aria-hidden="true" />
           <p>{{ $t('visual.errorMessage') }}</p>
         </div>
 
