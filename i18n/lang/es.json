@@ -25,6 +25,20 @@
       "title": "Cronómetro",
       "aria-label_timerArea": "Área del temporizador del juego de escape"
     },
+    "time": {
+      "hour": {
+        "abbr": "h",
+        "full": "hora | horas"
+      },
+      "minute": {
+        "abbr": "min",
+        "full": "minuto | minutos"
+      },
+      "second": {
+        "abbr": "s",
+        "full": "segundo | segundos"
+      }
+    },
     "footer": {
       "sitemapAndInformation": "Mapa web",
       "copyright": "© Orange 2026",
