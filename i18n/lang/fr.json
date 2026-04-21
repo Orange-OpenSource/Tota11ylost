@@ -441,7 +441,7 @@
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
-    "alt_congratulationImage": "Vous avez fini l'<span lang='en'>escape game</span> {version} minutes"
+    "alt_congratulationImage": "Vous avez fini l'escape game {version} minutes"
   },
   "filter": {
     "title": "Filtrer votre déficience :",
