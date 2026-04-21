@@ -89,9 +89,7 @@ onMounted(loadScores)
             <div class="d-flex align-items-center fs-3 fw-bold">
               {{ finalTimeDisplay }}
             </div>
-            <p class="fw-bold mt-3 fs-4">
-              {{ $t('scores.toKnowMore') }}
-            </p>
+            <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
           <div class="col-5 m-3 position-relative text-dark scores-img">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
