@@ -1,10 +1,11 @@
 <!-- Tota11y Lost - Scores (Final scoreboard with Firebase) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'scores.tabTitle' })
+definePageMeta({ layout: 'default', title: 'scores.tabTitle' })
 
 const route = useRoute()
 const gameStore = useGameStore()
+const { t } = useI18n()
 const { storeScore, getGeneralScores, getTodayScores } = useFirebaseScores()
 
 interface ScoreEntry {
@@ -17,16 +18,29 @@ const generalScores = ref<ScoreEntry[]>([])
 const pseudo = computed(() => gameStore.pseudo)
 const version = computed(() => gameStore.version)
 
-// Format time from ms to displayable string
+// Visual format: "05min 30s" — aria-hidden, abbreviations from i18n (with EN plurals)
 function formatTime(ms: number): string {
   const totalSec = Math.floor(ms / 1000)
   const h = Math.floor(totalSec / 3600)
   const m = Math.floor((totalSec % 3600) / 60)
   const s = totalSec % 60
   const parts: string[] = []
-  if (h > 0) parts.push(`${h}h`)
-  parts.push(`${String(m).padStart(2, '0')}min`)
-  parts.push(`${String(s).padStart(2, '0')}s`)
+  if (h > 0) parts.push(`${h}${t('common.time.hour.abbr', h)}`)
+  parts.push(`${String(m).padStart(2, '0')}${t('common.time.minute.abbr', m)}`)
+  parts.push(`${String(s).padStart(2, '0')}${t('common.time.second.abbr', s)}`)
+  return parts.join(' ')
+}
+
+// Accessible format: "5 minutes 30 secondes" — visually hidden, for screen readers
+function formatTimeA11y(ms: number): string {
+  const totalSec = Math.floor(ms / 1000)
+  const h = Math.floor(totalSec / 3600)
+  const m = Math.floor((totalSec % 3600) / 60)
+  const s = totalSec % 60
+  const parts: string[] = []
+  if (h > 0) parts.push(`${h} ${t('common.time.hour.full', h)}`)
+  parts.push(`${m} ${t('common.time.minute.full', m)}`)
+  parts.push(`${s} ${t('common.time.second.full', s)}`)
   return parts.join(' ')
 }
 
@@ -43,10 +57,10 @@ const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 // Trophy image per position
 function trophySrc(position: number): string | null {
   switch (position) {
-    case 1: return '/game-assets/rank=gold.svg'
-    case 2: return '/game-assets/rank=silver.svg'
-    case 3: return '/game-assets/rank=bronze.svg'
-    default: return null
+  case 1: return '/game-assets/rank_gold.svg'
+  case 2: return '/game-assets/rank_silver.svg'
+  case 3: return '/game-assets/rank_bronze.svg'
+  default: return null
   }
 }
 
@@ -56,6 +70,9 @@ function isCurrent(entry: ScoreEntry): boolean {
 
 async function loadScores() {
   try {
+    // Stop timer immediately when arriving on scores page
+    gameStore.finishTimer()
+
     // Store score if URL has ?store=true
     const store = route.query.store
     if (pseudo.value && pseudo.value.length > 0 && store) {
@@ -80,18 +97,17 @@ onMounted(loadScores)
       <main class="d-flex flex-column m-3 mx-4">
         <div class="d-flex flex-row">
           <div class="col-6">
-            <h2 class="display-3 mb-4">
-              {{ $t('scores.congratulations') }}
-            </h2>
+            <h2 class="display-3 mb-4" v-html="$t('scores.congratulations')" />
             <p class="fs-6 fw-bold text-body-secondary">
               {{ $t('scores.finalTime') }}
             </p>
             <div class="d-flex align-items-center fs-3 fw-bold">
-              {{ finalTimeDisplay }}
+              <span aria-hidden="true">{{ finalTimeDisplay }}</span>
+              <span class="visually-hidden">{{ formatTimeA11y(finalElapsed) }}</span>
             </div>
             <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
-          <div class="col-5 m-3 position-relative text-dark scores-img">
+          <div class="col-6 ms-5 m-3 position-relative text-dark scores-img d-flex justify-content-center">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
             <div class="position-absolute top-50 end-0 translate-middle-y mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
@@ -127,7 +143,8 @@ onMounted(loadScores)
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
-                        {{ formatTime(entry.timer) }}
+                        <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                        <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
                     <td class="py-7 vertical-align" aria-hidden="true">
@@ -135,7 +152,7 @@ onMounted(loadScores)
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"
                         alt=""
-                        :class="{ zoom: isCurrent(entry) }"
+                        class="trophy-img"
                       >
                     </td>
                   </tr>
@@ -165,7 +182,8 @@ onMounted(loadScores)
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
-                        {{ formatTime(entry.timer) }}
+                        <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                        <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
                     <td class="py-7 vertical-align" aria-hidden="true">
@@ -173,7 +191,7 @@ onMounted(loadScores)
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"
                         alt=""
-                        :class="{ zoom: isCurrent(entry) }"
+                        class="trophy-img"
                       >
                     </td>
                   </tr>
@@ -183,9 +201,6 @@ onMounted(loadScores)
           </div>
         </div>
       </main>
-
-      <!-- Footer -->
-      <TheFooter />
     </div>
   </ClientOnly>
 </template>
@@ -208,13 +223,9 @@ onMounted(loadScores)
   max-width: 300px;
 }
 
-.zoom {
-  animation: zoom 1s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
+.trophy-img {
+  height: 40px;
+  width: auto;
 }
 
 .vertical-align {

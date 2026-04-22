@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright (c) Orange SA
 
+import type { VueMessageType } from 'vue-i18n'
+
 export interface HintOptions {
   pageId: string
   isFormRegistration?: boolean
@@ -11,7 +13,7 @@ export interface HintOptions {
 }
 
 export function useHints(options: HintOptions) {
-  const { t } = useI18n()
+  const { t, tm, rt } = useI18n()
   const route = useRoute()
   const timer = useGameTimer()
 
@@ -23,9 +25,12 @@ export function useHints(options: HintOptions) {
   const penaltyTimes = [30, 120, 300, 0]
 
   // Delay before hints become available: 5min normally, 10s in debug, custom or 1ms for form-registration
-  const isDebug = computed(() => {
-    return options.debug === true || route.query.debug === 'true'
-  })
+  const isDebug = ref(false)
+
+  function initDebugMode() {
+    const debugParam = route.query?.debug
+    isDebug.value = options.debug === true || debugParam === 'true'
+  }
 
   const hintDelay = computed(() => {
     if (options.delayMs !== undefined) return options.delayMs
@@ -39,12 +44,25 @@ export function useHints(options: HintOptions) {
   function getHintButtonLabel(): string {
     const time = penaltyTimes[currentHintIndex.value]
     if (!time) return t('hints.noMoreHints')
-    const unit = time < 60 ? 'sec' : 'min'
     const duration = time < 60 ? time : time / 60
+    const unit = time < 60
+      ? t('common.time.second.abbr', duration)
+      : t('common.time.minute.abbr', duration)
+    return t('form.labelHintsButton', { duration, unit })
+  }
+
+  function getHintButtonA11yLabel(): string {
+    const time = penaltyTimes[currentHintIndex.value]
+    if (!time) return t('hints.noMoreHints')
+    const duration = time < 60 ? time : time / 60
+    const unit = time < 60
+      ? t('common.time.second.full', duration)
+      : t('common.time.minute.full', duration)
     return t('form.labelHintsButton', { duration, unit })
   }
 
   const hintButtonLabel = computed(() => getHintButtonLabel())
+  const hintButtonA11yLabel = computed(() => getHintButtonA11yLabel())
 
   function takeHint() {
     if (noMoreHints.value || currentHintIndex.value >= 3) return
@@ -53,10 +71,11 @@ export function useHints(options: HintOptions) {
     timer.addPenalty(penaltyTimes[idx] as number)
     currentHintIndex.value++
 
-    // Get hint text from i18n
-    const hintsArray = t(`hints.${options.pageId}`, { returnObjects: true })
-    if (Array.isArray(hintsArray) && hintsArray[currentHintIndex.value - 1]) {
-      hintTexts.value.push(hintsArray[currentHintIndex.value - 1] as string)
+    // Get hint text from i18n — tm() returns the raw message array, rt() resolves each item to a string
+    const hintsArray = tm(`hints.${options.pageId}`) as unknown as VueMessageType[]
+    const rawHint = hintsArray[currentHintIndex.value - 1]
+    if (Array.isArray(hintsArray) && rawHint) {
+      hintTexts.value.push(rt(rawHint))
     }
 
     // Call the page-specific hint callback
@@ -68,6 +87,8 @@ export function useHints(options: HintOptions) {
   }
 
   onMounted(() => {
+    initDebugMode()
+
     const setupHintTimeout = () => {
       if (hintTimeout) clearTimeout(hintTimeout)
       hintTimeout = setTimeout(() => {
@@ -95,6 +116,7 @@ export function useHints(options: HintOptions) {
     noMoreHints,
     hintTexts,
     hintButtonLabel,
+    hintButtonA11yLabel,
     takeHint,
   }
 }

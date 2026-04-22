@@ -1,45 +1,18 @@
 {
-  "DEFAULT_TITLE": "TBD",
+  "DEFAULT_TITLE": "Tota11y Lost",
   "HEADER": {
-    "TITLE": "Nuxt + Boosted",
-    "SUBTITLE": "A template starter for your projects",
-    "NAV": {
-      "ARIA": "Main menu",
-      "ONE": "Main1",
-      "TWO": "Main2",
-      "TWO_SUB1": "Sub entry 1",
-      "TWO_SUB2": "Sub entry 2",
-      "LANG": {
-        "ARIA_EN": "English",
-        "EN": "English",
-        "ARIA_FR": "French",
-        "FR": "French",
-        "ARIA_NABVAR": "Language selection",
-        "ARIA_ES": "Spanish",
-        "ES": "Spanish"
-      },
-      "THREE": "Main3"
-    },
-    "ARIA": {
-      "TITLE": "Nuxt + Boosted home page"
-    },
-    "REPOSITORY": "Repository"
+    "LANG": {
+      "ARIA_EN": "English",
+      "EN": "English",
+      "ARIA_FR": "French",
+      "FR": "French",
+      "ARIA_NABVAR": "Language selection",
+      "ARIA_ES": "Spanish",
+      "ES": "Spanish"
+    }
   },
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
-  },
-  "HOME": {
-    "TITLE": "Home",
-    "WELCOME": "Welcome to Nuxt Template",
-    "POPUP": {
-      "BUTTON": "Show popup"
-    }
-  },
-  "ONE": {
-    "TITLE": "Page 1"
-  },
-  "THREE": {
-    "TITLE": "Page 3"
   },
   "common": {
     "lang_lang": "en",
@@ -51,6 +24,20 @@
     "timer": {
       "title": "Timer",
       "aria-label_timerArea": "Timer area of the escape game"
+    },
+    "time": {
+      "hour": {
+        "abbr": "h",
+        "full": "hour | hours"
+      },
+      "minute": {
+        "abbr": "min | mins",
+        "full": "minute | minutes"
+      },
+      "second": {
+        "abbr": "sec | secs",
+        "full": "second | seconds"
+      }
     },
     "footer": {
       "sitemapAndInformation": "Sitemap & information",

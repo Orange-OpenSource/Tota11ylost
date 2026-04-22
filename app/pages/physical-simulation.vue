@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Physical Simulation (Keyboard Swap) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'physicalSimu.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'physicalSimu.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()

@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Hearing (Progressive deafness simulation) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'hearing.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
 const { t, locale } = useI18n()
 const router = useRouter()
@@ -69,7 +69,7 @@ function onHint(index: number) {
       <main>
         <div class="mx-4">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
-          <p>{{ $t('hearing.descriptionText1') }}</p>
+          <p v-html="$t('hearing.descriptionText1')" />
           <p>{{ $t('hearing.descriptionText2') }}</p>
           <p>{{ $t('hearing.descriptionText3') }}</p>
 

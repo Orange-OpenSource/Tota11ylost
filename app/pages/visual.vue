@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Visual Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'visual.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
 
 const router = useRouter()
 const gameStore = useGameStore()
@@ -61,7 +61,7 @@ function getButtonClass(buttonId: string): string {
     <main>
       <div class="mx-4">
         <h2>{{ $t('visual.descriptionHeading') }}</h2>
-        <p>{{ $t('visual.descriptionText1') }}</p>
+        <p v-html="$t('visual.descriptionText1')" />
         <p>{{ $t('visual.descriptionText2') }}</p>
         <h2>{{ $t('visual.userTypeHeading') }}</h2>
         <p>{{ $t('visual.userTypeDescription') }}</p>

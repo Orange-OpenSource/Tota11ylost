@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Cognitive Simulation (Attention Disorder + Riddles) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'cognitiveSimu.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()

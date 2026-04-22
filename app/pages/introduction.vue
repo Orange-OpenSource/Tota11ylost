@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Introduction Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'intro.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'intro.tabTitle' })
 
 const gameStore = useGameStore()
 const router = useRouter()
@@ -30,7 +30,7 @@ function navigateViaLink() {
     <main>
       <div class="mx-4">
         <h2>{{ $t('intro.descriptionHeading') }}</h2>
-        <p>{{ $t('intro.descriptionText1') }}</p>
+        <p v-html="$t('intro.descriptionText1')" />
         <p>
           {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
             class="link text-decoration-none no-hover-effect"

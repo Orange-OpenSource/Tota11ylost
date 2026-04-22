@@ -1,7 +1,7 @@
 <!-- Tota11y Lost - Hearing Simulation (YouTube video riddle) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-definePageMeta({ layout: 'game', title: 'hearingSimu.tabTitle' })
+definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
 
 const { t, locale, messages } = useI18n()
 const router = useRouter()
