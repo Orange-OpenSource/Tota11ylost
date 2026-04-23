@@ -95,6 +95,51 @@ function startAdventure() {
               {{ $t('welcome.errorMessage') }}
             </div>
           </div>
+
+          <div role="group" aria-labelledby="filtersHeader">
+            <h4 id="filtersHeader">
+              Filtrer votre deficience :
+            </h4>
+            <ul class="chips-container">
+              <li class="chip chip-filter">
+                <input
+                  id="visual"
+                  type="checkbox"
+                  name="visual"
+                  value="visual"
+                >
+                <label class="chip-interactive" for="visual">visuel</label>
+              </li>
+              <li class="chip chip-filter">
+                <input
+                  id="physical"
+                  type="checkbox"
+                  name="physical"
+                  value="physical"
+                >
+                <label class="chip-interactive" for="physical">moteur</label>
+              </li>
+              <li class="chip chip-filter">
+                <input
+                  id="hearing"
+                  type="checkbox"
+                  name="hearing"
+                  value="hearing"
+                >
+                <label class="chip-interactive" for="hearing">auditif</label>
+              </li>
+              <li class="chip chip-filter">
+                <input
+                  id="cognitive"
+                  type="checkbox"
+                  name="cognitive"
+                  value="cognitive"
+                >
+                <label class="chip-interactive" for="cognitive">Cognitive</label>
+              </li>
+            </ul>
+          </div>
+
           <button type="submit" class="btn fs-3 p-2 btn-primary mt-4">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
