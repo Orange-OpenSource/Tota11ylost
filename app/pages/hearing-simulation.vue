@@ -1,27 +1,47 @@
 <!-- Tota11y Lost - Hearing Simulation (YouTube video riddle) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
+import enMessages from '~~/i18n/lang/en.json'
+import frMessages from '~~/i18n/lang/fr.json'
+import esMessages from '~~/i18n/lang/es.json'
+
 definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
 
-const { t, te } = useI18n()
+const { t, getLocaleMessage, setLocaleMessage } = useI18n({ useScope: 'global' })
 const router = useRouter()
 const gameStore = useGameStore()
 
 const answer = ref('')
 const showError = ref(false)
 
-const possibleResponses = computed(() => {
-  const responses: string[] = []
-  for (let i = 0; te(`hearingSimu.possibleResponses.${i}`); i++) {
-    responses.push(t(`hearingSimu.possibleResponses.${i}`).toLowerCase())
+// JSON imports are used only for their .length — values come from t() which handles compiled messages.
+// setLocaleMessage ensures all three locales are registered in vue-i18n regardless of which is active.
+const allLocaleMessages = { en: enMessages, fr: frMessages, es: esMessages } as const
+type SupportedLocale = keyof typeof allLocaleMessages
+
+const ALL_LOCALES: SupportedLocale[] = ['en', 'fr', 'es']
+
+for (const locale of ALL_LOCALES) {
+  if (!Object.keys(getLocaleMessage(locale)).length) {
+    setLocaleMessage(locale, allLocaleMessages[locale])
   }
-  return responses
+}
+
+const possibleResponses = computed(() => {
+  const responses = new Set<string>()
+  for (const locale of ALL_LOCALES) {
+    const count = allLocaleMessages[locale].hearingSimu.possibleResponses.length
+    for (let i = 0; i < count; i++) {
+      responses.add(t(`hearingSimu.possibleResponses.${i}`, 1, { locale }).toLowerCase())
+    }
+  }
+  return [...responses]
 })
 
 function validate() {
-  const userAnswer = answer.value.toLowerCase()
+  const userAnswer = answer.value.toLowerCase().trim()
 
-  if (possibleResponses.value.some(resp => userAnswer.includes(resp.toLowerCase()))) {
+  if (possibleResponses.value.some(resp => isFuzzyMatch(userAnswer, resp))) {
     const next = gameStore.getNextRoute('hearing-simulation')
     router.push(next)
   }
