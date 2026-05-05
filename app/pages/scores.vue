@@ -92,7 +92,7 @@ onMounted(loadScores)
 
 <template>
   <ClientOnly>
-    <div class="d-flex flex-column min-vh-100">
+    <div class="d-flex flex-column">
       <!-- Main -->
       <main class="d-flex flex-column m-3 mx-4">
         <div class="d-flex flex-row">

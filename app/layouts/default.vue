@@ -7,9 +7,9 @@ useHead({ title })
 </script>
 
 <template>
-  <div class="d-flex flex-column min-vh-100">
+  <div class="d-flex flex-column h-100">
     <TheHeader />
-    <div class="flex-grow-1">
+    <div class="flex-grow-1 overflow-auto">
       <slot />
     </div>
     <TheFooter class="flex-shrink-0" />

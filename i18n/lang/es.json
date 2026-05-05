@@ -113,9 +113,9 @@
     "rule2": "¡Atención, en caso de error tendrás que empezar de nuevo!",
     "errorMessage": "¡Ups, color incorrecto! ¡Debes seguir las instrucciones!",
     "buttonsLabel": "Botón",
-    "blueButton":"Botón azul",
-    "purpleButton": "Botón violeta",  
-    "greenButton":"Botón verde",
+    "blueButton": "Botón azul",
+    "purpleButton": "Botón violeta",
+    "greenButton": "Botón verde",
     "redButton": "Botón rojo"
   },
   "visualSimu": {
@@ -156,13 +156,6 @@
     "name": "braille",
     "firstName": "louis",
     "birthDate": "04/01/1809",
-    "deathDate": "06/01/1852",
-    "deathCity": [
-      "panteón",
-      "panteon",
-      "panthéon",
-      "pantheon"
-    ],
     "congratulations": "Enhorabuena, puedes presionar la tecla \"Enter\" para pasar a la siguiente prueba.",
     "error": "Ay, la prueba aún no se ha superado, ¡No puedes validar el desafío!"
   },

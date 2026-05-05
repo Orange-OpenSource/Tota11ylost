@@ -22,7 +22,7 @@ function startAdventure() {
 </script>
 
 <template>
-  <div class="d-flex flex-column min-vh-100">
+  <div class="d-flex flex-column">
     <main class="d-flex flex-row m-3 ms-4 flex-grow-1">
       <div class="col-6">
         <h2 class="mb-5">

@@ -114,10 +114,10 @@
     "rule2": "Attention, en cas d'erreur il faudra tout recommencer !",
     "errorMessage": "Hop là, mauvaise couleur ! Il faut suivre les instructions voyons !!...",
     "buttonsLabel": "Bouton",
-    "blueButton":"Bouton bleu",
-    "purpleButton": "Bouton violet",  
+    "blueButton": "Bouton bleu",
+    "purpleButton": "Bouton violet",
     "greenButton": "Bouton vert",
-    "redButton":"Bouton rouge"
+    "redButton": "Bouton rouge"
   },
   "visualSimu": {
     "tabTitle": "Handicap visuel - Simulation - Tota11y Lost",
@@ -157,11 +157,6 @@
     "name": "braille",
     "firstName": "louis",
     "birthDate": "04/01/1809",
-    "deathDate": "06/01/1852",
-    "deathCity": [
-      "panthéon",
-      "pantheon"
-    ],
     "congratulations": "Bravo !!! Vous pouvez appuyer sur la touche \"Entrée\" pour passer à l'épreuve suivante !!!",
     "error": "Aïe le test n'est toujours pas réussi, vous ne pouvez pas valider l'épreuve !!!"
   },

@@ -6,8 +6,9 @@
   font-family: 'Verdana', sans-serif;
 }
 
-html, body {
+html, body, #__nuxt {
   height: 100%;
+  overflow: hidden;
 }
 
 body {

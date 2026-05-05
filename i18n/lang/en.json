@@ -114,8 +114,8 @@
     "rule2": "Be careful, if you make a mistake you will have to start all over again!",
     "errorMessage": "Oops, wrong color! You must follow the instructions, come on!!...",
     "buttonsLabel": "Button",
-    "blueButton" :"Button blue",
-    "purpleButton": "Button purple",  
+    "blueButton": "Button blue",
+    "purpleButton": "Button purple",
     "greenButton": "Button green",
     "redButton": "Button red"
   },
@@ -157,11 +157,6 @@
     "name": "braille",
     "firstName": "louis",
     "birthDate": "01/04/1809",
-    "deathDate": "01/06/1852",
-    "deathCity": [
-      "panthéon",
-      "pantheon"
-    ],
     "congratulations": "Congratulations!!! You can press the \"Enter\" key to move on to the next challenge!!!",
     "error": "Ouch, the test is still not successful, you cannot validate the challenge!!!"
   },

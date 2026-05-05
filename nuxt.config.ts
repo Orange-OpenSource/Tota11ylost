@@ -25,7 +25,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s - Nuxt + Boosted Template',
+      titleTemplate: 'Tota11y Lost',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       meta: [
