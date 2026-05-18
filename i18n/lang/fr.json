@@ -114,10 +114,10 @@
     "rule2": "Attention, en cas d'erreur il faudra tout recommencer !",
     "errorMessage": "Hop là, mauvaise couleur ! Il faut suivre les instructions voyons !!...",
     "buttonsLabel": "Bouton",
-    "blueButton":"Bouton bleu",
-    "purpleButton": "Bouton violet",  
+    "blueButton": "Bouton bleu",
+    "purpleButton": "Bouton violet",
     "greenButton": "Bouton vert",
-    "redButton":"Bouton rouge"
+    "redButton": "Bouton rouge"
   },
   "visualSimu": {
     "tabTitle": "Handicap visuel - Simulation - Tota11y Lost",

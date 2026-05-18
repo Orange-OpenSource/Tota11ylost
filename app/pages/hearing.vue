@@ -40,7 +40,7 @@ function validate() {
     responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
-  if (responses.some(resp => userAnswer.includes(resp))) {
+  if (responses.some(resp => isFuzzyMatch(userAnswer, resp))) {
     router.push('/hearing-simulation')
   }
   else {
