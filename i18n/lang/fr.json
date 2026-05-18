@@ -346,10 +346,10 @@
     "errorFirstName": "Le prénom est obligatoire",
     "errorPassword": "Le mot de passe doit être entre 4 et 8 caractères",
     "errorAge": "L'âge doit être un nombre inférieur à 18",
-    "errorEmail": "Le format de l'email n'est pas valide. Exemple de format nom.prenomAROBASEorange.com",
+    "errorEmail": "Le format de l'email n'est pas valide. Exemple de format nom.prenom{'@'}orange.com",
     "errorPhoneNumber": "Le format du téléphone n'est pas valide. Exemple de format +33612345678",
     "errorFruits": "Seuls 3 fruits doivent être sélectionnés !!!",
-    "detailEmail": "(format : nom.prenomAROBASEdomain.com)",
+    "detailEmail": "(format : nom.prenom{'@'}domain.com)",
     "detailPhoneNumber": "(format : +33 suivi de 9 chiffres)",
     "detailFruits": "(3 fruits)"
   },

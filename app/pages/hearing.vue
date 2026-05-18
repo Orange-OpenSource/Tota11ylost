@@ -3,7 +3,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
-const { t, locale } = useI18n()
+const { t, locale, te } = useI18n()
 const router = useRouter()
 
 const answer = ref('')
@@ -35,17 +35,12 @@ function onSeeking(event: Event) {
 function validate() {
   const userAnswer = answer.value.toLowerCase()
 
-  // Collect responses until we can't find more (max 2)
   const responses: string[] = []
-  for (let i = 0; i < 2; i++) {
-    const resp = t(`hearing.possibleResponses.${i}`)
-    if (resp === `hearing.possibleResponses.${i}`) {
-      break
-    }
-    responses.push(resp)
+  for (let i = 0; te(`hearing.possibleResponses.${i}`); i++) {
+    responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
-  if (responses.some(resp => userAnswer.includes(resp.toLowerCase()))) {
+  if (responses.some(resp => userAnswer.includes(resp))) {
     router.push('/hearing-simulation')
   }
   else {

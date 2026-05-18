@@ -349,10 +349,10 @@
     "errorFirstName": "The first name is required",
     "errorPassword": "The password must be between 4 and 8 characters",
     "errorAge": "The age must be a number less than 18",
-    "errorEmail": "The email format is not valid. Example format: lastname.firstnameAROBASEorange.com",
+    "errorEmail": "The email format is not valid. Example format: lastname.firstname{'@'}orange.com",
     "errorPhoneNumber": "The phone number format is not valid. Example format: +33612345678",
     "errorFruits": "Only 3 fruits must be selected!!!",
-    "detailEmail": "(format: lastname.firstnameAROBASEdomain.com)",
+    "detailEmail": "(format: lastname.firstname{'@'}domain.com)",
     "detailPhoneNumber": "(format: +33 followed by 9 digits)",
     "detailFruits": "(3 fruits)"
   },
