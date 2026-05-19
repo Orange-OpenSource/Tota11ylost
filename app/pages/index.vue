@@ -3,8 +3,11 @@
 <script setup lang="ts">
 definePageMeta({ title: 'welcome.tabTitle' })
 
-const router = useRouter()
 const gameStore = useGameStore()
+
+onMounted(() => {
+  gameStore.setVersion('60')
+})
 
 const pseudo = ref('')
 const pseudoError = ref(false)
@@ -17,7 +20,6 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
 }
 </script>
 
@@ -33,7 +35,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p v-html="$t('welcome.escapeGame')" />
+        <p>{{ $t('welcome.escapeGame') }}</p>
 
         <h4 id="timeSelection" class="mt-3">
           {{ $t('welcome.duration') }}
@@ -77,6 +79,8 @@ function startAdventure() {
           </div>
         </div>
 
+        <DeficiencyFilter />
+
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
             <h4 id="pseudoLabel" class="mt-3">
@@ -94,50 +98,6 @@ function startAdventure() {
             <div v-if="pseudoError" class="alert alert-danger mt-2">
               {{ $t('welcome.errorMessage') }}
             </div>
-          </div>
-
-          <div role="group" aria-labelledby="filtersHeader">
-            <h4 id="filtersHeader">
-              Filtrer votre deficience :
-            </h4>
-            <ul class="chips-container">
-              <li class="chip chip-filter">
-                <input
-                  id="visual"
-                  type="checkbox"
-                  name="visual"
-                  value="visual"
-                >
-                <label class="chip-interactive" for="visual">visuel</label>
-              </li>
-              <li class="chip chip-filter">
-                <input
-                  id="physical"
-                  type="checkbox"
-                  name="physical"
-                  value="physical"
-                >
-                <label class="chip-interactive" for="physical">moteur</label>
-              </li>
-              <li class="chip chip-filter">
-                <input
-                  id="hearing"
-                  type="checkbox"
-                  name="hearing"
-                  value="hearing"
-                >
-                <label class="chip-interactive" for="hearing">auditif</label>
-              </li>
-              <li class="chip chip-filter">
-                <input
-                  id="cognitive"
-                  type="checkbox"
-                  name="cognitive"
-                  value="cognitive"
-                >
-                <label class="chip-interactive" for="cognitive">Cognitive</label>
-              </li>
-            </ul>
           </div>
 
           <button type="submit" class="btn fs-3 p-2 btn-primary mt-4">

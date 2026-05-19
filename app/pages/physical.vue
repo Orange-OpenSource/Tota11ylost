@@ -15,7 +15,7 @@ const lastMouseX = ref(0)
 const lastMouseY = ref(0)
 let tremorIntervalId: ReturnType<typeof setInterval> | null = null
 
-const nextRoute = computed(() => gameStore.getNextRoute('physical'))
+const nextRoute = computed(() => gameStore.moveToNextPage())
 
 // Tremor noise values
 const tremorNoise = [
