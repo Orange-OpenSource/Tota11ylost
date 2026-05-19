@@ -1,10 +1,11 @@
 <!-- Tota11y Lost - Visual Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
+import type RandomPage from '../components/RandomPage.vue'
+
 definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
 
-const router = useRouter()
-const gameStore = useGameStore()
+const randomPageRef = ref<InstanceType<typeof RandomPage> | null>(null)
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
 const buttonDefs = ref([
@@ -27,8 +28,7 @@ function handleButtonClick(buttonId: string) {
   if (buttonId === correctSequence[sequenceIndex.value]) {
     sequenceIndex.value++
     if (sequenceIndex.value === correctSequence.length) {
-      const next = gameStore.is15Version ? '/physical' : '/visual-simulation'
-      router.push(next)
+      randomPageRef.value?.goToNextPage()
     }
   }
   else {

@@ -3,8 +3,11 @@
 <script setup lang="ts">
 definePageMeta({ title: 'welcome.tabTitle' })
 
-const router = useRouter()
 const gameStore = useGameStore()
+
+onMounted(() => {
+  gameStore.setVersion('60')
+})
 
 const pseudo = ref('')
 const pseudoError = ref(false)
@@ -17,7 +20,6 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
 }
 </script>
 
@@ -33,7 +35,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p v-html="$t('welcome.escapeGame')" />
+        <p>{{ $t('welcome.escapeGame') }}</p>
 
         <fieldset class="control-items-list mt-medium">
           <legend>{{ $t('welcome.duration') }}</legend>
@@ -87,7 +89,9 @@ function startAdventure() {
               </div>
             </div>
           </div>
-        </fieldset>
+        </div>
+
+        <DeficiencyFilter />
 
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
@@ -116,7 +120,8 @@ function startAdventure() {
               </div>
             </div>
           </div>
-          <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
+
+          <button type="submit" class="btn fs-3 p-2 btn-primary mt-4">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>
