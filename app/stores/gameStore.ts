@@ -148,13 +148,15 @@ const pageRoutes = ref<Record<number, string>>({
 const moveToNextPage = (): string | null => {
     saveToLocalStorage()
 
-    if (selectedPages.value.length === 0) {
+    const currentPage = selectedPages.value[0]
+
+    if (!currentPage) {
       return null
     }
 
     selectedPages.value.shift()
 
-    return selectedPages.value[0] || null
+    return currentPage
   }
 
   const setPseudo = (newPseudo: string) => {

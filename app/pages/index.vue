@@ -10,6 +10,10 @@ onMounted(() => {
   gameStore.setVersion('60')
 })
 
+onMounted(() => {
+  gameStore.setVersion('60')
+})
+
 const pseudo = ref('')
 const pseudoError = ref(false)
 
@@ -21,7 +25,6 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
 }
 </script>
 
@@ -91,7 +94,9 @@ function startAdventure() {
               </div>
             </div>
           </div>
-        </fieldset>
+        </div>
+
+        <DeficiencyFilter />
 
         <DeficiencyFilter />
 
