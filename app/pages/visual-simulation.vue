@@ -172,6 +172,7 @@ onUnmounted(() => {
 
           <GameHints
             page-id="visualSimulation"
+            large-text
             :custom-class="simulationDisabled ? '' : 'hints-visualSimulation'"
             @hint="onHint"
           />

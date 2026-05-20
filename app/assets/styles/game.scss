@@ -10,6 +10,32 @@ html, body {
   height: 100%;
 }
 
+// OUDS reboot applies typographic max-widths on p, ul, ol, h1-h6 etc.
+// for editorial readability. Override globally for the game (full-width layout).
+main {
+  --bs-font-max-width-display-large: none;
+  --bs-font-max-width-display-medium: none;
+  --bs-font-max-width-display-small: none;
+  --bs-font-max-width-heading-xlarge: none;
+  --bs-font-max-width-heading-large: none;
+  --bs-font-max-width-heading-medium: none;
+  --bs-font-max-width-heading-small: none;
+  --bs-font-max-width-body-large: none;
+  --bs-font-max-width-body-medium: none;
+  --bs-font-max-width-body-small: none;
+  --bs-font-max-width-label-small: none;
+  --bs-font-max-width-label-medium: none;
+  --bs-font-max-width-label-large: none;
+  --bs-font-max-width-label-xlarge: none;
+}
+
+// OUDS removed form-check padding-start — restore Bootstrap default
+.radio-button-item {
+  padding-left: 1.75rem;
+  margin-left: -1.75rem;
+}
+
+
 body {
   font-family: 'Verdana', sans-serif;
 }

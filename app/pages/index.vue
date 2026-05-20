@@ -23,63 +23,75 @@ function startAdventure() {
 
 <template>
   <div class="d-flex flex-column min-vh-100">
-    <main class="d-flex flex-row m-3 ms-4 flex-grow-1">
+    <main class="d-flex flex-row m-medium ms-large flex-grow-1">
       <div class="col-6">
-        <h2 class="mb-5">
+        <h2 class="mb-3xlarge">
           {{ $t('welcome.intro') }}
         </h2>
-        <h3 class="col-9 mb-4">
+        <h3 class="col-9 mb-large">
           {{ $t('welcome.rules') }}
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
         <p v-html="$t('welcome.escapeGame')" />
 
-        <h4 id="timeSelection" class="mt-3">
-          {{ $t('welcome.duration') }}
-        </h4>
-        <div class="d-flex flex-row" role="group" aria-labelledby="timeSelection">
-          <div class="form-check me-3">
-            <input
-              id="15min"
-              class="form-check-input"
-              type="radio"
-              name="gameDuration"
-              :title="$t('welcome.15min.title_15')"
-              :checked="gameStore.version === '15'"
-              @change="gameStore.setVersion('15')"
-            >
-            <label class="form-check-label" for="15min">{{ $t('welcome.15min.label') }}</label>
+        <fieldset class="control-items-list mt-medium">
+          <legend>{{ $t('welcome.duration') }}</legend>
+          <div class="d-flex flex-row">
+            <div class="radio-button-item">
+              <div class="control-item-assets-container">
+                <input
+                  id="15min"
+                  class="control-item-indicator"
+                  type="radio"
+                  name="gameDuration"
+                  :title="$t('welcome.15min.title_15')"
+                  :checked="gameStore.version === '15'"
+                  @change="gameStore.setVersion('15')"
+                >
+              </div>
+              <div class="control-item-text-container">
+                <label class="control-item-label" for="15min">{{ $t('welcome.15min.label') }}</label>
+              </div>
+            </div>
+            <div class="radio-button-item ">
+              <div class="control-item-assets-container">
+                <input
+                  id="30min"
+                  class="control-item-indicator"
+                  type="radio"
+                  name="gameDuration"
+                  :title="$t('welcome.30min.title_30')"
+                  :checked="gameStore.version === '30'"
+                  @change="gameStore.setVersion('30')"
+                >
+              </div>
+              <div class="control-item-text-container">
+                <label class="control-item-label" for="30min">{{ $t('welcome.30min.label') }}</label>
+              </div>
+            </div>
+            <div class="radio-button-item ">
+              <div class="control-item-assets-container">
+                <input
+                  id="60min"
+                  class="control-item-indicator"
+                  type="radio"
+                  name="gameDuration"
+                  :title="$t('welcome.60min.title_60')"
+                  :checked="gameStore.version === '60'"
+                  @change="gameStore.setVersion('60')"
+                >
+              </div>
+              <div class="control-item-text-container">
+                <label class="control-item-label" for="60min">{{ $t('welcome.60min.label') }}</label>
+              </div>
+            </div>
           </div>
-          <div class="form-check me-3">
-            <input
-              id="30min"
-              class="form-check-input"
-              type="radio"
-              name="gameDuration"
-              :title="$t('welcome.30min.title_30')"
-              :checked="gameStore.version === '30'"
-              @change="gameStore.setVersion('30')"
-            >
-            <label class="form-check-label" for="30min">{{ $t('welcome.30min.label') }}</label>
-          </div>
-          <div class="form-check">
-            <input
-              id="60min"
-              class="form-check-input"
-              type="radio"
-              name="gameDuration"
-              :title="$t('welcome.60min.title_60')"
-              :checked="gameStore.version === '60'"
-              @change="gameStore.setVersion('60')"
-            >
-            <label class="form-check-label" for="60min">{{ $t('welcome.60min.label') }}</label>
-          </div>
-        </div>
+        </fieldset>
 
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
-            <h4 id="pseudoLabel" class="mt-3">
+            <h4 id="pseudoLabel" class="mt-small">
               {{ $t('welcome.pseudo') }}
             </h4>
             <input
@@ -91,16 +103,25 @@ function startAdventure() {
               :placeholder="$t('welcome.placeholder_enterPseudo')"
               @input="pseudoError = false"
             >
-            <div v-if="pseudoError" class="alert alert-danger mt-2">
-              {{ $t('welcome.errorMessage') }}
+            <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
+              <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
+                Error
+              </p>
+              <div class="alert-container">
+                <div class="alert-text-container">
+                  <p class="alert-label">
+                    {{ $t('welcome.errorMessage') }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <button type="submit" class="btn fs-3 p-2 btn-primary mt-4">
+          <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>
       </div>
-      <div class="ms-5 col-4">
+      <div class="ms-5xlarge col-4">
         <img src="/game-assets/Start.svg" alt="">
       </div>
     </main>

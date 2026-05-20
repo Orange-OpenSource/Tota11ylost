@@ -43,6 +43,12 @@ importers:
       '@nuxtjs/i18n':
         specifier: ^10.2.4
         version: 10.2.4(@vue/compiler-dom@3.5.32)(db0@0.3.4)(eslint@10.2.0(jiti@2.6.1))(ioredis@5.10.1)(magicast@0.5.2)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(rollup@4.60.1)(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))
+      '@ouds/web-common':
+        specifier: 1.2.0
+        version: 1.2.0(@popperjs/core@2.11.8)
+      '@ouds/web-orange':
+        specifier: 1.2.0
+        version: 1.2.0
       '@pinia/nuxt':
         specifier: ^0.11.3
         version: 0.11.3(magicast@0.5.2)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))
@@ -55,9 +61,6 @@ importers:
       '@vueuse/nuxt':
         specifier: ^14.2.1
         version: 14.2.1(magicast@0.5.2)(nuxt@4.4.2(@babel/core@7.29.0)(@babel/plugin-syntax-jsx@7.27.1(@babel/core@7.29.0))(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.32)(cac@6.7.14)(db0@0.3.4)(esbuild@0.27.2)(eslint@10.2.0(jiti@2.6.1))(ioredis@5.10.1)(magicast@0.5.2)(meow@13.2.0)(optionator@0.9.4)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(rolldown@1.0.0-rc.15)(rollup-plugin-visualizer@7.0.1(rolldown@1.0.0-rc.15)(rollup@4.60.1))(rollup@4.60.1)(sass@1.99.0)(terser@5.44.1)(typescript@6.0.2)(vite@8.0.8(@types/node@25.0.3)(esbuild@0.27.2)(jiti@2.6.1)(sass@1.99.0)(terser@5.44.1)(yaml@2.8.3))(yaml@2.8.3))(vue@3.5.32(typescript@6.0.2))
-      boosted:
-        specifier: ^5.3.8
-        version: 5.3.8(@popperjs/core@2.11.8)
       eslint:
         specifier: ^10.2.0
         version: 10.2.0(jiti@2.6.1)
@@ -1515,6 +1518,14 @@ packages:
 
   '@one-ini/wasm@0.1.1':
     resolution: {integrity: sha512-XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==}
+
+  '@ouds/web-common@1.2.0':
+    resolution: {integrity: sha512-/j7AXD31zXzBK9rO7ggnMfHWbF4iadVXk+AR/pJzoTBnAk66LBEY4DF/Q5wEUhfYvvStJfsFBb5I/JC4BRSjDA==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
+
+  '@ouds/web-orange@1.2.0':
+    resolution: {integrity: sha512-erLpj7OfQdNRwwRaJfopTS+40QVVaQC8xRfs7u+6rL9iLse/w87QY323ZPPPq9kI2emnt5anKBBch3FDj+iyRw==}
 
   '@oxc-minify/binding-android-arm-eabi@0.117.0':
     resolution: {integrity: sha512-5Hf2KsGRjxp3HnPU/mse7cQJa5tWfMFUPZQcgSMVsv2JZnGFFOIDzA0Oja2KDD+VPJqMpEJKc2dCHAGZgJxsGg==}
@@ -3375,11 +3386,6 @@ packages:
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
-
-  boosted@5.3.8:
-    resolution: {integrity: sha512-khvSYjW/iP9ciMWk/YbA2FpzH9OY7lpuOIVzBowdX1vaUvBWl5GW4juY1Zy4uHiHSFln3dhVKjzOQJQaxegL9Q==}
-    peerDependencies:
-      '@popperjs/core': ^2.11.8
 
   brace-expansion@2.1.0:
     resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
@@ -8993,6 +8999,12 @@ snapshots:
 
   '@one-ini/wasm@0.1.1': {}
 
+  '@ouds/web-common@1.2.0(@popperjs/core@2.11.8)':
+    dependencies:
+      '@popperjs/core': 2.11.8
+
+  '@ouds/web-orange@1.2.0': {}
+
   '@oxc-minify/binding-android-arm-eabi@0.117.0':
     optional: true
 
@@ -10512,10 +10524,6 @@ snapshots:
   birpc@4.0.0: {}
 
   boolbase@1.0.0: {}
-
-  boosted@5.3.8(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
 
   brace-expansion@2.1.0:
     dependencies:

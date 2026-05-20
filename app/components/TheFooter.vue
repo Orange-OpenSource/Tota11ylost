@@ -1,12 +1,12 @@
 <!-- Tota11y Lost - Footer -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <template>
-  <footer class="footer bg-dark navbar-dark mt-auto">
+  <footer class="footer bg-always-black navbar-dark mt-auto">
     <h2 class="visually-hidden">
       {{ $t('common.footer.sitemapAndInformation') }}
     </h2>
-    <div class="ms-4 footer-terms">
-      <ul class="navbar-nav gap-md-3">
+    <div class="ms-large footer-terms">
+      <ul class="navbar-nav gap-md-medium">
         <li class="fw-bold">
           {{ $t('common.footer.copyright') }}
         </li>

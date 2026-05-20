@@ -40,14 +40,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="fs-2">
+  <div class="fs-hm mw-none">
     <main>
-      <div class="mx-4">
-        <h2 class="my-2">
+      <div class="mx-large">
+        <h2 class="my-small">
           {{ $t('physicalSimu.riddleHeading') }}
         </h2>
         <ul>
-          <li>{{ $t('physicalSimu.userTypeText1') }}</li>
+          <li fs>
+            {{ $t('physicalSimu.userTypeText1') }}
+          </li>
           <li>{{ $t('physicalSimu.userTypeText2') }}</li>
           <li>{{ $t('physicalSimu.hint1') }}</li>
           <li>{{ $t('physicalSimu.hint2') }}</li>
@@ -59,15 +61,19 @@ onMounted(() => {
         <div
           v-if="showError"
           id="errorDiv"
-          class="alert alert-danger mb-3"
+          class="alert alert-message alert-negative mb-medium"
           role="alert"
         >
           <span class="alert-icon"><span class="visually-hidden">{{ $t('physicalSimu.errorHiddenText') }}</span></span>
-          <p>{{ $t('physicalSimu.errorMessage') }}</p>
+          <div class="alert-container">
+            <div class="alert-text-container">
+              <p>{{ $t('physicalSimu.errorMessage') }}</p>
+            </div>
+          </div>
         </div>
 
-        <div class="mb-3">
-          <label for="inputField" class="form-label">{{ $t('physicalSimu.labelResponse') }}</label>
+        <div class="mb-medium">
+          <label for="inputField" class="form-label fw-bold">{{ $t('physicalSimu.labelResponse') }}</label>
           <input
             id="inputField"
             ref="inputRef"
@@ -78,13 +84,13 @@ onMounted(() => {
             @paste="onPaste"
           >
         </div>
-        <div>
-          <button class="btn fs-3 p-2 btn-primary my-3" @click="validate">
+        <div class="mb-medium">
+          <button class="btn fs-hs p-small btn-brand my-medium" @click="validate">
             {{ $t('physicalSimu.validateButton') }}
           </button>
         </div>
 
-        <GameHints page-id="physicalSimulation" @hint="onHint" />
+        <GameHints page-id="physicalSimulation" large-text @hint="onHint" />
       </div>
     </main>
   </div>
