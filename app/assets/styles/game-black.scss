@@ -54,12 +54,14 @@ a {
   background-color: #000000 !important;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-default {
   --bs-btn-hover-border-color: none !important;
   --bs-btn-border-color: black !important;
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn-strong {
   --bs-btn-color: none;
   --bs-btn-bg: none;
   --bs-btn-border-color: none;
@@ -80,7 +82,8 @@ a {
   border-bottom: none !important;
 }
 
-.btn-outline-dark {
+.btn-outline-dark,
+.btn-minimal {
   --bs-btn-color: none;
   --bs-btn-border-color: none;
   --bs-btn-hover-color: none;

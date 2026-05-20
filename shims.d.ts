@@ -1,2 +1,2 @@
-declare module 'boosted';
-declare module 'boosted/dist/js/boosted.min';
+declare module '@ouds/web-common';
+declare module '@ouds/web-common/dist/js/ouds-web.min';

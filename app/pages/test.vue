@@ -27,7 +27,7 @@ function setGameVersion(version: '15' | '30' | '60') {
 </script>
 
 <template>
-  <div class="container my-5">
+  <div class="container-max-width my-5">
     <h1 class="mb-4">
       Test Page - Game Pages
     </h1>
@@ -49,7 +49,7 @@ function setGameVersion(version: '15' | '30' | '60') {
           <tbody>
             <tr v-for="page in pages" :key="page.path">
               <td>
-                <NuxtLink :to="page.path" class="btn btn-sm btn-primary">
+                <NuxtLink :to="page.path" class="btn btn-sm btn-brand">
                   Go
                 </NuxtLink>
               </td>

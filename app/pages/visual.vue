@@ -57,25 +57,29 @@ function getButtonClass(buttonId: string): string {
 </script>
 
 <template>
-  <div class="fs-2">
+  <div class="fs-hm mw-none">
     <main>
-      <div class="mx-4">
+      <div class="mx-large ">
         <h2>{{ $t('visual.descriptionHeading') }}</h2>
-        <p v-html="$t('visual.descriptionText1')" />
-        <p>{{ $t('visual.descriptionText2') }}</p>
+        <p class="fs-hm " v-html="$t('visual.descriptionText1')" />
+        <p class="fs-hm ">
+          {{ $t('visual.descriptionText2') }}
+        </p>
         <h2>{{ $t('visual.userTypeHeading') }}</h2>
-        <p>{{ $t('visual.userTypeDescription') }}</p>
+        <p class="fs-hm ">
+          {{ $t('visual.userTypeDescription') }}
+        </p>
         <h2>{{ $t('visual.rulesHeading') }}</h2>
         <ul class="grey-markers">
           <li>{{ $t('visual.rule1') }}</li>
           <li>{{ $t('visual.rule2') }}</li>
         </ul>
 
-        <div class="my-2">
+        <div class="my-small">
           <button
             v-for="btn in buttonDefs"
             :key="btn.id"
-            class="btn m-2 fs-3 p-2"
+            class="btn btn-strong m-small fs-hs p-small"
             :class="getButtonClass(btn.id)"
             :aria-label="btn.label"
 
@@ -85,12 +89,20 @@ function getButtonClass(buttonId: string): string {
           </button>
         </div>
 
-        <div v-if="showError" class="alert alert-danger" role="alert">
-          <span class="alert-icon" aria-hidden="true" />
-          <p>{{ $t('visual.errorMessage') }}</p>
+        <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+          <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
+            Error
+          </p>
+          <div class="alert-container">
+            <div class="alert-text-container">
+              <p class="alert-label">
+                {{ $t('visual.errorMessage') }}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <GameHints page-id="visual" @hint="onHint" />
+        <GameHints page-id="visual" large-text @hint="onHint" />
       </div>
     </main>
   </div>
