@@ -3,10 +3,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'physical.tabTitle' })
 
-const gameStore = useGameStore()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
-const falseCursorRef = ref<HTMLImageElement | null>(null)
 const modalVisible = ref(true)
 const tremorActive = ref(true)
 const cursorX = ref(0)
@@ -14,8 +12,6 @@ const cursorY = ref(0)
 const lastMouseX = ref(0)
 const lastMouseY = ref(0)
 let tremorIntervalId: ReturnType<typeof setInterval> | null = null
-
-const nextRoute = computed(() => gameStore.moveToNextPage())
 
 // Tremor noise values
 const tremorNoise = [
@@ -54,7 +50,7 @@ function handleFakeClick() {
     modalVisible.value = false
   }
   else if (element.id === 'link30or60' || element.closest('#link30or60')) {
-    router.push(nextRoute.value)
+    goToNextPage()
   }
 }
 
@@ -114,6 +110,7 @@ onUnmounted(() => {
                 <div class="modal-body">
                   <h1>{{ $t('physical.modalTitle') }}</h1>
                   <h2>{{ $t('physical.descriptionHeading') }}</h2>
+                  <!-- eslint-disable-next-line vue/no-v-html -->
                   <p v-html="$t('physical.descriptionText1')" />
                   <p>{{ $t('physical.descriptionText2') }}</p>
                   <h2>{{ $t('physical.userTypeHeading') }}</h2>
@@ -130,13 +127,14 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <NuxtLink
+          <a
             id="link30or60"
-            :to="nextRoute"
+            href="#"
             class="valid fs-3 p-2"
+            @click.prevent
           >
             {{ $t('physical.validateLink') }}
-          </NuxtLink>
+          </a>
         </div>
       </main>
 

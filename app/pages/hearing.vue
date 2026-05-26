@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
 const { t, locale } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -46,7 +46,7 @@ function validate() {
   }
 
   if (responses.some(resp => userAnswer.includes(resp.toLowerCase()))) {
-    router.push('/hearing-simulation')
+    goToNextPage()
   }
   else {
     showError.value = true
@@ -69,6 +69,7 @@ function onHint(index: number) {
       <main>
         <div class="mx-4">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
+          <!-- eslint-disable-next-line vue/no-v-html -->
           <p v-html="$t('hearing.descriptionText1')" />
           <p>{{ $t('hearing.descriptionText2') }}</p>
           <p>{{ $t('hearing.descriptionText3') }}</p>

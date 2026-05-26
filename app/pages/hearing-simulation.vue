@@ -4,8 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
 
 const { t, locale, messages } = useI18n()
-const router = useRouter()
-const gameStore = useGameStore()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -38,9 +37,8 @@ const possibleResponses = computed(() => {
 function validate() {
   const userAnswer = answer.value.toLowerCase()
 
-  if (possibleResponses.value.some(resp => userAnswer.includes(resp.toLowerCase()))) {
-    const next = gameStore.getNextRoute('hearing-simulation')
-    router.push(next)
+  if (possibleResponses.value.some((resp: string) => userAnswer.includes(resp.toLowerCase()))) {
+    goToNextPage()
   }
   else {
     showError.value = true

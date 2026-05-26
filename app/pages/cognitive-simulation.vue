@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 const dyslexia = useDyslexia('li', 2000)
 
 const first = ref('')
@@ -64,7 +64,7 @@ function validate() {
     && second.value.toLowerCase().includes(response2)
     && third.value.toLowerCase().includes(response3)
   ) {
-    router.push('/physical')
+    goToNextPage()
   }
   else {
     showError.value = true

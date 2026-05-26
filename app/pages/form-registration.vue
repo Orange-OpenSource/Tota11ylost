@@ -4,8 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'form.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
-const gameStore = useGameStore()
+const { goToNextPage } = useNextPage()
 
 // Form fields (food-named IDs like in original)
 const pistache = ref('') // nom
@@ -121,8 +120,7 @@ function onSubmit() {
   showGlobalError.value = false
 
   if (!errorForm()) {
-    const next = gameStore.getNextRoute('form-registration')
-    router.push(next)
+    goToNextPage()
   }
   else {
     if (hintLevel.value >= 2) {
@@ -165,6 +163,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
       <main>
         <div class="mx-4">
           <h2>{{ $t('form.descriptionHeading') }}</h2>
+          <!-- eslint-disable-next-line vue/no-v-html -->
           <p v-html="$t('form.descriptionText1')" />
           <p>{{ $t('form.descriptionText2') }}</p>
           <p>{{ $t('form.descriptionText3') }}</p>

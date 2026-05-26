@@ -150,7 +150,7 @@ onMounted(loadScores)
                     <td class="py-7 vertical-align" aria-hidden="true">
                       <img
                         v-if="trophySrc(index + 1)"
-                        :src="trophySrc(index + 1)!"
+                        :src="trophySrc(index + 1) || ''"
                         alt=""
                         class="trophy-img"
                       >
@@ -189,7 +189,7 @@ onMounted(loadScores)
                     <td class="py-7 vertical-align" aria-hidden="true">
                       <img
                         v-if="trophySrc(index + 1)"
-                        :src="trophySrc(index + 1)!"
+                        :src="trophySrc(index + 1) || ''"
                         alt=""
                         class="trophy-img"
                       >

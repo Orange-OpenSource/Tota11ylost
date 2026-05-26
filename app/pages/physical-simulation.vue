@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'physicalSimu.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 const keyboardSwap = useKeyboardSwap()
 
 const inputRef = ref<HTMLInputElement | null>(null)
@@ -14,7 +14,7 @@ function validate() {
   const response = inputRef.value?.value.toLowerCase() ?? ''
   const expected = t('physicalSimu.response')
   if (response === expected) {
-    router.push('/hearing')
+    goToNextPage()
   }
   else {
     showError.value = true

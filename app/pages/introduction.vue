@@ -3,25 +3,14 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'intro.tabTitle' })
 
-const gameStore = useGameStore()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
 const linkVisible = ref(false)
-
-// Determine link target based on version
-const nextPageLink = computed(() => {
-  if (gameStore.is30Version) return '/form-registration'
-  return '/visual'
-})
 
 function onHint(index: number) {
   if (index === 3) {
     linkVisible.value = true
   }
-}
-
-function navigateViaLink() {
-  router.push(nextPageLink.value)
 }
 </script>
 
@@ -30,13 +19,14 @@ function navigateViaLink() {
     <main>
       <div class="mx-4">
         <h2>{{ $t('intro.descriptionHeading') }}</h2>
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p v-html="$t('intro.descriptionText1')" />
         <p>
           {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
             class="link text-decoration-none no-hover-effect"
             :class="linkVisible ? 'link-info' : 'masked-link no-focus-outline'"
             href="#"
-            @click.prevent="navigateViaLink"
+            @click.prevent="goToNextPage"
           >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
         </p>
 

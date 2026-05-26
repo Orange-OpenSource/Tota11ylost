@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'cognitive.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 const dyslexia = useDyslexia('.dyslexia', 500)
 
 interface DyslexiaLink {
@@ -20,7 +20,7 @@ function shuffle<T>(array: T[]): T[] {
 
 function buildLinks() {
   links.value = shuffle([
-    { label: t('cognitive.buttonLabel1'), href: '/cognitive-simulation' },
+    { label: t('cognitive.buttonLabel1'), href: '/next' },
     { label: t('cognitive.buttonLabel2'), href: '/cognitive' },
     { label: t('cognitive.buttonLabel3'), href: '/cognitive' },
     { label: t('cognitive.buttonLabel4'), href: '/cognitive' },
@@ -33,7 +33,7 @@ function navigate(link: DyslexiaLink) {
     window.location.reload()
   }
   else {
-    router.push(link.href)
+    goToNextPage()
   }
 }
 
@@ -57,6 +57,7 @@ onMounted(() => {
         <h2 class="my-2">
           {{ $t('cognitive.descriptionHeading') }}
         </h2>
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <p v-html="$t('cognitive.descriptionText1')" />
         <p>{{ $t('cognitive.descriptionText2') }}</p>
         <p>{{ $t('cognitive.descriptionText3') }}</p>
