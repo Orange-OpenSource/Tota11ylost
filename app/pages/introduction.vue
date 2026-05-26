@@ -29,7 +29,7 @@ function navigateViaLink() {
             class="text-decoration-none no-hover-effect"
             :class="linkVisible ? 'visible-link' : 'masked-link no-focus-outline'"
             href="#"
-            @click.prevent="navigateViaLink"
+            @click.prevent="goToNextPage"
           >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
         </p>
 

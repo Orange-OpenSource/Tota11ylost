@@ -2,7 +2,6 @@
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
-
 const { goToNextPage } = useNextPage()
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
