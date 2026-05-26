@@ -1,11 +1,8 @@
 <!-- Tota11y Lost - Visual Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-import type RandomPage from '../components/RandomPage.vue'
-
 definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
-
-const randomPageRef = ref<InstanceType<typeof RandomPage> | null>(null)
+const { goToNextPage } = useNextPage()
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
 const buttonDefs = ref([
@@ -28,7 +25,7 @@ function handleButtonClick(buttonId: string) {
   if (buttonId === correctSequence[sequenceIndex.value]) {
     sequenceIndex.value++
     if (sequenceIndex.value === correctSequence.length) {
-      randomPageRef.value?.goToNextPage()
+      goToNextPage()
     }
   }
   else {

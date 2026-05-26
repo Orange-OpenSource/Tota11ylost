@@ -3,8 +3,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
-const { t, locale, te } = useI18n()
-const router = useRouter()
+const { t, locale } = useI18n()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -40,8 +40,8 @@ function validate() {
     responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
-  if (responses.some(resp => isFuzzyMatch(userAnswer, resp))) {
-    router.push('/hearing-simulation')
+  if (responses.some(resp => userAnswer.includes(resp.toLowerCase()))) {
+    goToNextPage()
   }
   else {
     showError.value = true
@@ -64,6 +64,10 @@ function onHint(index: number) {
       <main>
         <div class="mx-large">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <p v-html="$t('hearing.descriptionText1')" />
+          <p>{{ $t('hearing.descriptionText2') }}</p>
+          <p>{{ $t('hearing.descriptionText3') }}</p>
           <p class="fs-hm" v-html="$t('hearing.descriptionText1')" />
           <p class="fs-hm">
             {{ $t('hearing.descriptionText2') }}

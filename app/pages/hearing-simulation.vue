@@ -7,9 +7,8 @@ import esMessages from '~~/i18n/lang/es.json'
 
 definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
 
-const { t, getLocaleMessage, setLocaleMessage } = useI18n({ useScope: 'global' })
-const router = useRouter()
-const gameStore = useGameStore()
+const { t, locale, messages } = useI18n()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -41,9 +40,8 @@ const possibleResponses = computed(() => {
 function validate() {
   const userAnswer = answer.value.toLowerCase().trim()
 
-  if (possibleResponses.value.some(resp => isFuzzyMatch(userAnswer, resp))) {
-    const next = gameStore.getNextRoute('hearing-simulation')
-    router.push(next)
+  if (possibleResponses.value.some((resp: string) => userAnswer.includes(resp.toLowerCase()))) {
+    goToNextPage()
   }
   else {
     showError.value = true
