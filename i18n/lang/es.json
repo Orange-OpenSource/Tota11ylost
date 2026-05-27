@@ -25,6 +25,20 @@
       "title": "Cronómetro",
       "aria-label_timerArea": "Área del temporizador del juego de escape"
     },
+    "time": {
+      "hour": {
+        "abbr": "h",
+        "full": "hora | horas"
+      },
+      "minute": {
+        "abbr": "min",
+        "full": "minuto | minutos"
+      },
+      "second": {
+        "abbr": "s",
+        "full": "segundo | segundos"
+      }
+    },
     "footer": {
       "sitemapAndInformation": "Mapa web",
       "copyright": "© Orange 2026",
@@ -337,10 +351,10 @@
     "errorFirstName": "El nombre es obligatorio",
     "errorPassword": "La contraseña debe tener entre 4 y 8 caracteres",
     "errorAge": "La edad debe ser un número menor a 18",
-    "errorEmail": "El formato del correo electrónico no es válido. Ejemplo de formato: nombreapellidoAROBASEorange.com",
+    "errorEmail": "El formato del correo electrónico no es válido. Ejemplo de formato: nombreapellido{'@'}orange.com",
     "errorPhoneNumber": "El formato del teléfono no es válido. Ejemplo de formato: +34612345678",
     "errorFruits": "¡Solo se deben seleccionar 3 frutas!",
-    "detailEmail": "(formato: nombreapellidoAROBASEdomain.com)",
+    "detailEmail": "(formato: nombreapellido{'@'}domain.com)",
     "detailPhoneNumber": "(formato: +34 seguido de 9 dígitos)",
     "detailFruits": "(3 frutas)"
   },

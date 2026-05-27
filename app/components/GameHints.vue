@@ -38,6 +38,7 @@ const hints = useHints({
           type="button"
           class="btn fs-3 p-2 btn-primary"
           :disabled="hints.noMoreHints.value"
+          :aria-label="hints.noMoreHints.value ? $t('hints.noMoreHints') : hints.hintButtonA11yLabel.value"
           @click="hints.takeHint()"
         >
           {{ hints.noMoreHints.value ? $t('hints.noMoreHints') : hints.hintButtonLabel.value }}

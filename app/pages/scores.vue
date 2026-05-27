@@ -5,6 +5,7 @@ definePageMeta({ layout: 'default', title: 'scores.tabTitle' })
 
 const route = useRoute()
 const gameStore = useGameStore()
+const { t } = useI18n()
 const { storeScore, getGeneralScores, getTodayScores } = useFirebaseScores()
 
 interface ScoreEntry {
@@ -17,16 +18,29 @@ const generalScores = ref<ScoreEntry[]>([])
 const pseudo = computed(() => gameStore.pseudo)
 const version = computed(() => gameStore.version)
 
-// Format time from ms to displayable string
+// Visual format: "05min 30s" — aria-hidden, abbreviations from i18n (with EN plurals)
 function formatTime(ms: number): string {
   const totalSec = Math.floor(ms / 1000)
   const h = Math.floor(totalSec / 3600)
   const m = Math.floor((totalSec % 3600) / 60)
   const s = totalSec % 60
   const parts: string[] = []
-  if (h > 0) parts.push(`${h}h`)
-  parts.push(`${String(m).padStart(2, '0')}min`)
-  parts.push(`${String(s).padStart(2, '0')}s`)
+  if (h > 0) parts.push(`${h}${t('common.time.hour.abbr', h)}`)
+  parts.push(`${String(m).padStart(2, '0')}${t('common.time.minute.abbr', m)}`)
+  parts.push(`${String(s).padStart(2, '0')}${t('common.time.second.abbr', s)}`)
+  return parts.join(' ')
+}
+
+// Accessible format: "5 minutes 30 secondes" — visually hidden, for screen readers
+function formatTimeA11y(ms: number): string {
+  const totalSec = Math.floor(ms / 1000)
+  const h = Math.floor(totalSec / 3600)
+  const m = Math.floor((totalSec % 3600) / 60)
+  const s = totalSec % 60
+  const parts: string[] = []
+  if (h > 0) parts.push(`${h} ${t('common.time.hour.full', h)}`)
+  parts.push(`${m} ${t('common.time.minute.full', m)}`)
+  parts.push(`${s} ${t('common.time.second.full', s)}`)
   return parts.join(' ')
 }
 
@@ -88,7 +102,8 @@ onMounted(loadScores)
               {{ $t('scores.finalTime') }}
             </p>
             <div class="d-flex align-items-center fs-3 fw-bold">
-              {{ finalTimeDisplay }}
+              <span aria-hidden="true">{{ finalTimeDisplay }}</span>
+              <span class="visually-hidden">{{ formatTimeA11y(finalElapsed) }}</span>
             </div>
             <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
           </div>
@@ -128,7 +143,8 @@ onMounted(loadScores)
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
-                        {{ formatTime(entry.timer) }}
+                        <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                        <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
                     <td class="py-7 vertical-align" aria-hidden="true">
@@ -166,7 +182,8 @@ onMounted(loadScores)
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
-                        {{ formatTime(entry.timer) }}
+                        <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                        <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
                     <td class="py-7 vertical-align" aria-hidden="true">

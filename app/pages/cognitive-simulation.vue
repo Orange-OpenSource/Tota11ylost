@@ -5,7 +5,7 @@ definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
 const { t } = useI18n()
 const router = useRouter()
-const dyslexia = useDyslexia('li', 2000)
+const dyslexia = useDyslexia('main li', 2000)
 
 const first = ref('')
 const second = ref('')
@@ -58,9 +58,9 @@ function validate() {
   const response3 = t('cognitiveSimu.listOfResponses.2')
 
   if (
-    first.value.toLowerCase().includes(response1)
-    && second.value.toLowerCase().includes(response2)
-    && third.value.toLowerCase().includes(response3)
+    isFuzzyMatch(first.value.toLowerCase(), response1)
+    && isFuzzyMatch(second.value.toLowerCase(), response2)
+    && isFuzzyMatch(third.value.toLowerCase(), response3)
   ) {
     router.push('/physical')
   }
