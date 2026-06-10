@@ -41,7 +41,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
           :checked="!gameStore.categoriesRestantes.includes(def.id)"
           @change="(e) => handleDeficiencyChange(def.id, e)"
         >
-        <label class="chip-interactive" :for="def.id">{{ def.label }}</label>
+        <label class="chip-interactive" :for="def.id">{{ def.label }}<img :src="`/icons/${def.id}.svg`" :alt="def.label" class="icon"></label>
       </li>
     </ul>
   </div>
