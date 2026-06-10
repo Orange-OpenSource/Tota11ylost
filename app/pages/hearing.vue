@@ -3,8 +3,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
-const { t, locale, te } = useI18n()
-const router = useRouter()
+const { t, locale } = useI18n()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -36,12 +36,12 @@ function validate() {
   const userAnswer = answer.value.toLowerCase()
 
   const responses: string[] = []
-  for (let i = 0; te(`hearing.possibleResponses.${i}`); i++) {
+  for (let i = 0; t(`hearing.possibleResponses.${i}`); i++) {
     responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
-  if (responses.some(resp => isFuzzyMatch(userAnswer, resp))) {
-    router.push('/hearing-simulation')
+  if (responses.some(resp => userAnswer.includes(resp.toLowerCase()))) {
+    goToNextPage()
   }
   else {
     showError.value = true

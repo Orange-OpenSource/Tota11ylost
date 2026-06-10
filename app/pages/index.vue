@@ -3,8 +3,12 @@
 <script setup lang="ts">
 definePageMeta({ title: 'welcome.tabTitle' })
 
-const router = useRouter()
 const gameStore = useGameStore()
+const router = useRouter()
+
+onMounted(() => {
+  gameStore.setVersion('60')
+})
 
 const pseudo = ref('')
 const pseudoError = ref(false)
@@ -33,7 +37,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p v-html="$t('welcome.escapeGame')" />
+        <p>{{ $t('welcome.escapeGame') }}</p>
 
         <fieldset class="control-items-list mt-medium">
           <legend>{{ $t('welcome.duration') }}</legend>
@@ -88,6 +92,8 @@ function startAdventure() {
             </div>
           </div>
         </fieldset>
+
+        <DeficiencyFilter />
 
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">

@@ -4,8 +4,8 @@
 definePageMeta({ layout: 'without-footer', title: 'visualSimu.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
-const gameStore = useGameStore()
+const { goToNextPage } = useNextPage()
+const _gameStore = useGameStore()
 const { toBraille } = useBraille()
 
 const nom = ref('')
@@ -43,7 +43,7 @@ function validateForm() {
     && naissance.value === expectedBirthDate
   ) {
     validationMessage.value = t('visualSimu.congratulations')
-    validationLink.value = gameStore.is30Version ? '/scores?store=true' : '/cognitive'
+    validationLink.value = 'next'
   }
   else {
     validationMessage.value = t('visualSimu.error')
@@ -53,7 +53,7 @@ function validateForm() {
 
 function navigateNext() {
   if (validationLink.value) {
-    router.push(validationLink.value)
+    goToNextPage()
   }
 }
 

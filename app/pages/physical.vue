@@ -3,10 +3,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'physical.tabTitle' })
 
-const gameStore = useGameStore()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
-const falseCursorRef = ref<HTMLImageElement | null>(null)
 const modalVisible = ref(true)
 const tremorActive = ref(true)
 const cursorX = ref(0)
@@ -14,8 +12,6 @@ const cursorY = ref(0)
 const lastMouseX = ref(0)
 const lastMouseY = ref(0)
 let tremorIntervalId: ReturnType<typeof setInterval> | null = null
-
-const nextRoute = computed(() => gameStore.getNextRoute('physical'))
 
 // Tremor noise values
 const tremorNoise = [
@@ -54,7 +50,7 @@ function handleFakeClick() {
     modalVisible.value = false
   }
   else if (element.id === 'link30or60' || element.closest('#link30or60')) {
-    router.push(nextRoute.value)
+    goToNextPage()
   }
 }
 
@@ -134,13 +130,14 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <NuxtLink
+          <a
             id="link30or60"
-            :to="nextRoute"
+            href="#"
             class="valid fs-hs p-small"
+            @click.prevent
           >
             {{ $t('physical.validateLink') }}
-          </NuxtLink>
+          </a>
         </div>
       </main>
 

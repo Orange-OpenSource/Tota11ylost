@@ -2,9 +2,7 @@
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
-
-const router = useRouter()
-const gameStore = useGameStore()
+const { goToNextPage } = useNextPage()
 
 const correctSequence = ['green-button', 'blue-button', 'red-button', 'purple-button']
 const buttonDefs = ref([
@@ -27,8 +25,7 @@ function handleButtonClick(buttonId: string) {
   if (buttonId === correctSequence[sequenceIndex.value]) {
     sequenceIndex.value++
     if (sequenceIndex.value === correctSequence.length) {
-      const next = gameStore.is15Version ? '/physical' : '/visual-simulation'
-      router.push(next)
+      goToNextPage()
     }
   }
   else {
@@ -115,5 +112,5 @@ function getButtonClass(buttonId: string): string {
 .btn-dark{
     --bs-btn-bg: grey !important;
     --bs-btn-border-color: grey !important;
-}
+  }
 </style>
