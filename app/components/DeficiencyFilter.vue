@@ -42,7 +42,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
           :aria-label="$t(def.labelKey)"
           @change="(e) => handleDeficiencyChange(def.id, e)"
         >
-        <label class="chip-interactive" :for="def.id">{{ $t(def.labelKey) }}</label>
+        <label class="chip-interactive" :for="def.id">{{ $t(def.labelKey) }}<img :src="`/icons/${def.id}.svg`" :alt="$t(def.labelKey)" class="icon"></label>
       </li>
     </ul>
   </div>

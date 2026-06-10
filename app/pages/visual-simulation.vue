@@ -5,10 +5,6 @@ definePageMeta({ layout: 'without-footer', title: 'visualSimu.tabTitle' })
 
 const { t } = useI18n()
 const { goToNextPage } = useNextPage()
-<<<<<<< HEAD
-=======
-const _gameStore = useGameStore()
->>>>>>> ac3f84f (chore: merge ouds and random page)
 const { toBraille } = useBraille()
 
 const nom = ref('')
