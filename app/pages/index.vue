@@ -41,7 +41,7 @@ function startAdventure() {
         </h3>
 
         <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p v-html="$t('welcome.escapeGame')" />
+        <p>{{ $t('welcome.escapeGame') }}</p>
 
         <fieldset class="control-items-list mt-medium">
           <legend>{{ $t('welcome.duration') }}</legend>

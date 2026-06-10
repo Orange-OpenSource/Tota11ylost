@@ -1,8 +1,6 @@
 <!-- Tota11y Lost - Visual Impairment Page -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-import type RandomPage from '../components/RandomPage.vue'
-
 definePageMeta({ layout: 'without-footer', title: 'visual.tabTitle' })
 const { goToNextPage } = useNextPage()
 
@@ -116,5 +114,5 @@ function getButtonClass(buttonId: string): string {
 .btn-dark{
     --bs-btn-bg: grey !important;
     --bs-btn-border-color: grey !important;
-}
+  }
 </style>
