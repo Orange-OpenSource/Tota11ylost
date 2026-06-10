@@ -30,76 +30,20 @@ function startAdventure() {
 </script>
 
 <template>
-  <div class="d-flex flex-column min-vh-100">
-    <main class="d-flex flex-row m-medium ms-large flex-grow-1">
-      <div class="col-6">
-        <h2 class="mb-3xlarge">
-          {{ $t('welcome.intro') }}
-        </h2>
-        <h3 class="col-9 mb-large">
-          {{ $t('welcome.rules') }}
-        </h3>
+  <div class="d-flex flex-column min-vh-100 position-relative">
+    <div class=" bg-tertiary d-flex justify-content-end  position-absolute" style="width: 100%; z-index: -1;">
+      <img src="/game-assets/rocket_boy.svg" alt="" class="me-3xlarge">
+    </div>
+    <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
+      <div class="col-8  ">
+        <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
+          <h2 class="mb-3xlarge">
+            {{ $t('welcome.intro') }}
+          </h2>
+          <h3 class="col-9 mb-large">
+            {{ $t('welcome.rules') }}
+          </h3>
 
-        <h4>{{ $t('welcome.adventureType') }}</h4>
-        <p>{{ $t('welcome.escapeGame') }}</p>
-
-        <fieldset class="control-items-list mt-medium">
-          <legend>{{ $t('welcome.duration') }}</legend>
-          <div class="d-flex flex-row">
-            <div class="radio-button-item">
-              <div class="control-item-assets-container">
-                <input
-                  id="15min"
-                  class="control-item-indicator"
-                  type="radio"
-                  name="gameDuration"
-                  :title="$t('welcome.15min.title_15')"
-                  :checked="gameStore.version === '15'"
-                  @change="gameStore.setVersion('15')"
-                >
-              </div>
-              <div class="control-item-text-container">
-                <label class="control-item-label" for="15min">{{ $t('welcome.15min.label') }}</label>
-              </div>
-            </div>
-            <div class="radio-button-item ">
-              <div class="control-item-assets-container">
-                <input
-                  id="30min"
-                  class="control-item-indicator"
-                  type="radio"
-                  name="gameDuration"
-                  :title="$t('welcome.30min.title_30')"
-                  :checked="gameStore.version === '30'"
-                  @change="gameStore.setVersion('30')"
-                >
-              </div>
-              <div class="control-item-text-container">
-                <label class="control-item-label" for="30min">{{ $t('welcome.30min.label') }}</label>
-              </div>
-            </div>
-            <div class="radio-button-item ">
-              <div class="control-item-assets-container">
-                <input
-                  id="60min"
-                  class="control-item-indicator"
-                  type="radio"
-                  name="gameDuration"
-                  :title="$t('welcome.60min.title_60')"
-                  :checked="gameStore.version === '60'"
-                  @change="gameStore.setVersion('60')"
-                >
-              </div>
-              <div class="control-item-text-container">
-                <label class="control-item-label" for="60min">{{ $t('welcome.60min.label') }}</label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <DeficiencyFilter />
-
-        <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
             <h4 id="pseudoLabel" class="mt-small">
               {{ $t('welcome.pseudo') }}
@@ -126,13 +70,69 @@ function startAdventure() {
               </div>
             </div>
           </div>
+          <h4>{{ $t('welcome.adventureType') }}</h4>
+          <p v-html="$t('welcome.escapeGame')" />
+
+          <fieldset class="control-items-list mt-medium">
+            <legend>{{ $t('welcome.duration') }}</legend>
+            <div class="d-flex flex-row">
+              <div class="radio-button-item">
+                <div class="control-item-assets-container">
+                  <input
+                    id="15min"
+                    class="control-item-indicator"
+                    type="radio"
+                    name="gameDuration"
+                    :title="$t('welcome.15min.title_15')"
+                    :checked="gameStore.version === '15'"
+                    @change="gameStore.setVersion('15')"
+                  >
+                </div>
+                <div class="control-item-text-container">
+                  <label class="control-item-label" for="15min">{{ $t('welcome.15min.label') }}</label>
+                </div>
+              </div>
+              <div class="radio-button-item ">
+                <div class="control-item-assets-container">
+                  <input
+                    id="30min"
+                    class="control-item-indicator"
+                    type="radio"
+                    name="gameDuration"
+                    :title="$t('welcome.30min.title_30')"
+                    :checked="gameStore.version === '30'"
+                    @change="gameStore.setVersion('30')"
+                  >
+                </div>
+                <div class="control-item-text-container">
+                  <label class="control-item-label" for="30min">{{ $t('welcome.30min.label') }}</label>
+                </div>
+              </div>
+              <div class="radio-button-item ">
+                <div class="control-item-assets-container">
+                  <input
+                    id="60min"
+                    class="control-item-indicator"
+                    type="radio"
+                    name="gameDuration"
+                    :title="$t('welcome.60min.title_60')"
+                    :checked="gameStore.version === '60'"
+                    @change="gameStore.setVersion('60')"
+                  >
+                </div>
+                <div class="control-item-text-container">
+                  <label class="control-item-label" for="60min">{{ $t('welcome.60min.label') }}</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <DeficiencyFilter />
+
           <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>
-      </div>
-      <div class="ms-5xlarge col-4">
-        <img src="/game-assets/Start.svg" alt="">
       </div>
     </main>
   </div>

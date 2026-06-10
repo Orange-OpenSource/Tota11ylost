@@ -60,7 +60,7 @@
     "intro": "Expérimenter de manière ludique les défis des personnes en situation de handicap numérique.",
     "rules": "Avant de démarrer, choisir mon aventure et mon pseudo",
     "adventureType": "Type d'aventure",
-    "escapeGame": "<span lang='en'>Escape game</span>",
+    "escapeGame": "Escape game",
     "duration": "Durée",
     "15min": {
       "label": "15 min",
