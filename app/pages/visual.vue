@@ -55,6 +55,7 @@ function getButtonClass(buttonId: string): string {
 
 <template>
   <div class="fs-hm mw-none">
+    <GameHeader :page-title="$t('visual.pageTitle')" />
     <main>
       <div class="mx-large ">
         <h2>{{ $t('visual.descriptionHeading') }}</h2>

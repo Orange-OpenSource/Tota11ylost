@@ -6,6 +6,7 @@ definePageMeta({ layout: 'without-footer', title: 'intro.tabTitle' })
 const { goToNextPage } = useNextPage()
 
 const linkVisible = ref(false)
+const modalVisible = ref(false)
 
 function onHint(index: number) {
   if (index === 3) {
@@ -19,80 +20,105 @@ function navigateViaLink() {
 </script>
 
 <template>
-  <div>
-    <main>
-      <div class="mx-xlarge mt-medium">
-        <h2>{{ $t('intro.descriptionHeading') }}</h2>
-        <p class="fs-hm" v-html="$t('intro.descriptionText1')" />
-        <p class="fs-hm">
-          {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
-            class="text-decoration-none no-hover-effect"
-            :class="linkVisible ? 'visible-link' : 'masked-link no-focus-outline'"
-            href="#"
-            @click.prevent="navigateViaLink"
-          >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
-        </p>
+  <ClientOnly>
+    <div>
+      <GameHeader :page-title="$t('intro.pageTitle')" />
+      <main>
+        <div class="mx-xlarge mt-medium">
+          <h2>{{ $t('intro.descriptionHeading') }}</h2>
+          <p class="fs-hm" v-html="$t('intro.descriptionText1')" />
+          <p class="fs-hm">
+            {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
+              class="text-decoration-none no-hover-effect"
+              :class="linkVisible ? 'visible-link' : 'masked-link no-focus-outline'"
+              href="#"
+              @click.prevent="navigateViaLink"
+            >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
+          </p>
 
-        <h2>{{ $t('intro.rulesHeading') }}</h2>
-        <ul>
-          <li class="fs-hm">
-            {{ $t('intro.rule1') }}
-          </li>
-          <li class="fs-hm">
-            {{ $t('intro.rule2') }}
-          </li>
-          <li class="fs-hm">
-            {{ $t('intro.rule3') }}
-          </li>
-        </ul>
+          <h2>{{ $t('intro.rulesHeading') }}</h2>
+          <ul>
+            <li class="fs-hm">
+              {{ $t('intro.rule1') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('intro.rule2') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('intro.rule3') }}
+            </li>
+          </ul>
 
-        <button
-          class="btn fs-hs p-small btn-brand my-small"
-          data-bs-toggle="modal"
-          data-bs-target="#tooBadModal"
-        >
-          {{ $t('intro.startButton') }}
-        </button>
+          <button
+            class="btn fs-hs p-small btn-brand my-small"
+            @click="modalVisible = true"
+          >
+            {{ $t('intro.startButton') }}
+          </button>
 
-        <!-- "Too bad" Modal -->
-        <div
-          id="tooBadModal"
-          class="modal fade"
-          tabindex="-1"
-          aria-labelledby="tooBadModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 id="tooBadModalLabel" class="modal-title h5">
-                  {{ $t('intro.modalTitle') }}
-                </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                  <span class="visually-hidden">{{ $t('intro.modalButtonClose') }}</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p class="fs-hm">
-                  {{ $t('intro.modalBody') }}
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-minimal" data-bs-dismiss="modal">
-                  {{ $t('intro.modalButtonClose') }}
-                </button>
+          <!-- "Too bad" Modal -->
+          <div
+            v-if="modalVisible"
+            class="modal d-block"
+            tabindex="-1"
+            aria-labelledby="tooBadModalLabel"
+            aria-modal="true"
+            role="dialog"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 id="tooBadModalLabel" class="modal-title h5">
+                    {{ $t('intro.modalTitle') }}
+                  </h1>
+                  <button type="button" class="btn-close" @click="modalVisible = false">
+                    <span class="visually-hidden">{{ $t('intro.modalButtonClose') }}</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="fs-hm">
+                    {{ $t('intro.modalBody') }}
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-minimal" @click="modalVisible = false">
+                    {{ $t('intro.modalButtonClose') }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <GameHints page-id="intro" large-text @hint="onHint" />
-      </div>
-    </main>
-  </div>
+          <GameHints page-id="intro" large-text @hint="onHint" />
+        </div>
+      </main>
+    </div>
+  </ClientOnly>
 </template>
 
 <style lang="scss" scoped>
+.modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.5) !important;
+
+  .modal-dialog {
+    margin: auto;
+  }
+
+  .modal-content {
+    background-color: white !important;
+    color: #000 !important;
+  }
+}
+
 .no-hover-effect {
   cursor: auto !important;
 

@@ -93,9 +93,8 @@ onUnmounted(() => {
 <template>
   <ClientOnly>
     <div class="fs-hm mw-none">
-      <GameHeader :page-title="$t('cognitiveSimu.pageTitle')" />
-
       <main>
+        <GameHeader :page-title="$t('cognitiveSimu.pageTitle')" />
         <div class="mx-large">
           <h2 class="my-small">
             {{ $t('cognitiveSimu.riddleHeading') }}

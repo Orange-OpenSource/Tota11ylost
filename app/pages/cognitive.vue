@@ -52,6 +52,7 @@ onMounted(() => {
 
 <template>
   <div class="fs-hm mw-none">
+    <GameHeader :page-title="$t('cognitive.pageTitle')" />
     <main>
       <div class="mx-large">
         <h2 class="my-small">

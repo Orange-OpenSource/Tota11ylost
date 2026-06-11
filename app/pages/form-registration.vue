@@ -160,6 +160,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
 <template>
   <ClientOnly>
     <div class="fs-hm mw-none">
+      <GameHeader :page-title="$t('form.pageTitle')" />
       <main>
         <div class="mx-large">
           <h2>{{ $t('form.descriptionHeading') }}</h2>
