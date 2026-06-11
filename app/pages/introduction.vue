@@ -28,13 +28,13 @@ function navigateViaLink() {
 <template>
   <div>
     <main>
-      <div class="mx-4">
+      <div class="mx-xlarge mt-medium">
         <h2>{{ $t('intro.descriptionHeading') }}</h2>
-        <p v-html="$t('intro.descriptionText1')" />
-        <p>
+        <p class="fs-hm" v-html="$t('intro.descriptionText1')" />
+        <p class="fs-hm">
           {{ $t('intro.descriptionText2.begin') }}&nbsp;<a
-            class="link text-decoration-none no-hover-effect"
-            :class="linkVisible ? 'link-info' : 'masked-link no-focus-outline'"
+            class="text-decoration-none no-hover-effect"
+            :class="linkVisible ? 'visible-link' : 'masked-link no-focus-outline'"
             href="#"
             @click.prevent="navigateViaLink"
           >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
@@ -42,13 +42,19 @@ function navigateViaLink() {
 
         <h2>{{ $t('intro.rulesHeading') }}</h2>
         <ul>
-          <li>{{ $t('intro.rule1') }}</li>
-          <li>{{ $t('intro.rule2') }}</li>
-          <li>{{ $t('intro.rule3') }}</li>
+          <li class="fs-hm">
+            {{ $t('intro.rule1') }}
+          </li>
+          <li class="fs-hm">
+            {{ $t('intro.rule2') }}
+          </li>
+          <li class="fs-hm">
+            {{ $t('intro.rule3') }}
+          </li>
         </ul>
 
         <button
-          class="btn fs-3 p-2 btn-primary my-2"
+          class="btn fs-hs p-small btn-brand my-small"
           data-bs-toggle="modal"
           data-bs-target="#tooBadModal"
         >
@@ -74,10 +80,12 @@ function navigateViaLink() {
                 </button>
               </div>
               <div class="modal-body">
-                <p>{{ $t('intro.modalBody') }}</p>
+                <p class="fs-hm">
+                  {{ $t('intro.modalBody') }}
+                </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-minimal" data-bs-dismiss="modal">
                   {{ $t('intro.modalButtonClose') }}
                 </button>
               </div>
@@ -85,7 +93,7 @@ function navigateViaLink() {
           </div>
         </div>
 
-        <GameHints page-id="intro" @hint="onHint" />
+        <GameHints page-id="intro" large-text @hint="onHint" />
       </div>
     </main>
   </div>
@@ -98,6 +106,22 @@ function navigateViaLink() {
   &:hover {
     text-decoration: none !important;
     color: inherit !important;
+  }
+}
+
+a {
+  font-weight: normal;
+}
+
+.visible-link {
+  color: var(--bs-link-color);
+  font-weight: normal;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+
+  &:hover {
+    color: var(--bs-link-hover-color) !important;
+    text-decoration: underline !important;
   }
 }
 </style>

@@ -90,12 +90,12 @@ onUnmounted(() => {
 
 <template>
   <ClientOnly>
-    <div class="fs-2">
+    <div class="fs-hm mw-none">
       <GameHeader :page-title="$t('cognitiveSimu.pageTitle')" />
 
       <main>
-        <div class="mx-4">
-          <h2 class="my-2">
+        <div class="mx-large">
+          <h2 class="my-small">
             {{ $t('cognitiveSimu.riddleHeading') }}
           </h2>
           <ul class="riddles">
@@ -104,13 +104,17 @@ onUnmounted(() => {
             <li>{{ $t('cognitiveSimu.riddle3') }}</li>
           </ul>
 
-          <div v-if="showError" class="alert alert-danger mb-3" role="alert">
+          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
             <span class="alert-icon"><span class="visually-hidden">{{ $t('cognitiveSimu.errorHiddenText') }}</span></span>
-            <p>{{ $t('cognitiveSimu.errorMessage') }}</p>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p>{{ $t('cognitiveSimu.errorMessage') }}</p>
+              </div>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="premier" class="form-label">{{ $t('cognitiveSimu.labelFirst') }}</label>
+          <div class="mb-medium">
+            <label for="premier" class="form-label fw-bold">{{ $t('cognitiveSimu.labelFirst') }}</label>
             <input
               id="premier"
               v-model="first"
@@ -119,8 +123,8 @@ onUnmounted(() => {
               :aria-label="$t('cognitiveSimu.aria-label_first')"
             >
           </div>
-          <div class="mb-3">
-            <label for="deuxieme" class="form-label">{{ $t('cognitiveSimu.labelSecond') }}</label>
+          <div class="mb-medium">
+            <label for="deuxieme" class="form-label fw-bold">{{ $t('cognitiveSimu.labelSecond') }}</label>
             <input
               id="deuxieme"
               v-model="second"
@@ -129,8 +133,8 @@ onUnmounted(() => {
               :aria-label="$t('cognitiveSimu.aria-label_second')"
             >
           </div>
-          <div class="mb-3">
-            <label for="troisieme" class="form-label">{{ $t('cognitiveSimu.labelThird') }}</label>
+          <div class="mb-medium">
+            <label for="troisieme" class="form-label fw-bold">{{ $t('cognitiveSimu.labelThird') }}</label>
             <input
               id="troisieme"
               v-model="third"
@@ -139,8 +143,8 @@ onUnmounted(() => {
               :aria-label="$t('cognitiveSimu.aria-label_third')"
             >
           </div>
-          <div class="mb-3">
-            <button class="btn fs-3 p-2 btn-primary" @click="validate">
+          <div class="mb-medium">
+            <button class="btn fs-hs p-small btn-brand" @click="validate">
               {{ $t('cognitiveSimu.validateButton') }}
             </button>
           </div>
@@ -166,7 +170,7 @@ onUnmounted(() => {
             </div>
           </div>
 
-          <GameHints page-id="cognitiveSimulation" @hint="onHint" />
+          <GameHints page-id="cognitiveSimulation" large-text @hint="onHint" />
         </div>
       </main>
     </div>

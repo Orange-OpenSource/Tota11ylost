@@ -161,16 +161,22 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
 
 <template>
   <ClientOnly>
-    <div class="fs-2">
+    <div class="fs-hm mw-none">
       <main>
-        <div class="mx-4">
+        <div class="mx-large">
           <h2>{{ $t('form.descriptionHeading') }}</h2>
-          <p v-html="$t('form.descriptionText1')" />
-          <p>{{ $t('form.descriptionText2') }}</p>
-          <p>{{ $t('form.descriptionText3') }}</p>
+          <p class="fs-hm" v-html="$t('form.descriptionText1')" />
+          <p class="fs-hm">
+            {{ $t('form.descriptionText2') }}
+          </p>
+          <p class="fs-hm">
+            {{ $t('form.descriptionText3') }}
+          </p>
 
           <h2>{{ $t('form.userTypeHeading') }}</h2>
-          <p>{{ $t('form.userTypeText') }}</p>
+          <p class="fs-hm">
+            {{ $t('form.userTypeText') }}
+          </p>
 
           <h2>{{ $t('form.rulesHeading') }}</h2>
           <ul>
@@ -184,7 +190,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
           <h2>{{ $t('form.formHeading') }}</h2>
 
           <div class="form-container">
-            <p role="status">
+            <p class="fs-hm" role="status">
               {{ $t('form.allFieldsRequired') }}
             </p>
 
@@ -192,15 +198,19 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
             <div
               v-if="showGlobalError"
               id="errorDiv"
-              class="alert alert-danger mb-3"
+              class="alert alert-message alert-negative mb-medium"
               role="alert"
             >
               <span class="alert-icon" />
-              <p>{{ $t('form.errorInForm') }}</p>
+              <div class="alert-container">
+                <div class="alert-text-container">
+                  <p>{{ $t('form.errorInForm') }}</p>
+                </div>
+              </div>
             </div>
 
             <!-- Nom (pistache) -->
-            <div id="pistacheDiv" class="mb-3">
+            <div id="pistacheDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="nom"
@@ -214,16 +224,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errorpistacheText"
               >
-              <div v-if="errors.pistache" class="alert alert-danger alert-sm">
+              <div v-if="errors.pistache" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorpistacheText">
-                  {{ errors.pistache }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorpistacheText">
+                      {{ errors.pistache }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Prenom (cacahuete) -->
-            <div id="cacahueteDiv" class="mb-3">
+            <div id="cacahueteDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="prenom"
@@ -237,16 +251,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errorcacahueteText"
               >
-              <div v-if="errors.cacahuete" class="alert alert-danger alert-sm">
+              <div v-if="errors.cacahuete" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorcacahueteText">
-                  {{ errors.cacahuete }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorcacahueteText">
+                      {{ errors.cacahuete }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Password (olives) -->
-            <div id="olivesDiv" class="mb-3">
+            <div id="olivesDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="password"
@@ -260,16 +278,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errorolivesText"
               >
-              <div v-if="errors.olives" class="alert alert-danger alert-sm">
+              <div v-if="errors.olives" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorolivesText">
-                  {{ errors.olives }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorolivesText">
+                      {{ errors.olives }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Age (saucisson) -->
-            <div id="saucissonDiv" class="mb-3">
+            <div id="saucissonDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="age"
@@ -283,16 +305,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errorsaucissonText"
               >
-              <div v-if="errors.saucisson" class="alert alert-danger alert-sm">
+              <div v-if="errors.saucisson" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorsaucissonText">
-                  {{ errors.saucisson }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorsaucissonText">
+                      {{ errors.saucisson }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Email (chips) -->
-            <div id="chipsDiv" class="mb-3">
+            <div id="chipsDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="email"
@@ -308,16 +334,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errorchipsText"
               >
-              <div v-if="errors.chips" class="alert alert-danger alert-sm">
+              <div v-if="errors.chips" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorchipsText">
-                  {{ errors.chips }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorchipsText">
+                      {{ errors.chips }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Telephone (tapenade) -->
-            <div id="tapenadeDiv" class="mb-3">
+            <div id="tapenadeDiv" class="mb-medium">
               <label
                 v-if="showLabels"
                 id="telephone"
@@ -333,11 +363,15 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 class="form-control"
                 aria-describedby="errortapenadeText"
               >
-              <div v-if="errors.tapenade" class="alert alert-danger alert-sm">
+              <div v-if="errors.tapenade" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errortapenadeText">
-                  {{ errors.tapenade }}
-                </p>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errortapenadeText">
+                      {{ errors.tapenade }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -348,27 +382,37 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                   {{ $t('form.labelFruits') }}{{ fruitExtraDetail }}
                 </template>
               </legend>
-              <div v-if="errors.fruit" class="alert alert-danger alert-sm">
+              <div v-if="errors.fruit" class="alert alert-message alert-negative alert-sm">
                 <span class="alert-icon"><span class="visually-hidden">{{ $t('form.formError') }}</span></span>
-                <p id="errorfruitText">
-                  {{ errors.fruit }}
-                </p>
-              </div>
-              <div class="mb-3">
-                <div v-for="fruit in fruits" :key="fruit.id" class="form-check form-check-inline">
-                  <input
-                    :id="fruit.id"
-                    v-model="selectedFruits"
-                    class="form-check-input"
-                    type="checkbox"
-                    :value="fruit.value"
-                  >
-                  <label class="form-check-label" :for="fruit.id">{{ $t(fruit.key) }}</label>
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p id="errorfruitText">
+                      {{ errors.fruit }}
+                    </p>
+                  </div>
                 </div>
-                <div class="my-3">
+              </div>
+              <div class="mb-medium">
+                <div class="d-lg-flex flex-row flex-wrap gap-small">
+                  <div v-for="fruit in fruits" :key="fruit.id" class="checkbox-item flex-fill">
+                    <div class="control-item-assets-container">
+                      <input
+                        :id="fruit.id"
+                        v-model="selectedFruits"
+                        class="control-item-indicator"
+                        type="checkbox"
+                        :value="fruit.value"
+                      >
+                    </div>
+                    <div class="control-item-text-container">
+                      <label class="control-item-label fs-hm fw-bold" :for="fruit.id">{{ $t(fruit.key) }}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-medium">
                   <button
                     type="button"
-                    class="btn fs-3 p-2 btn-primary"
+                    class="btn fs-hs p-small btn-brand"
                     :disabled="!submitEnabled"
                     @click="onSubmit"
                   >
@@ -379,9 +423,20 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
             </fieldset>
           </div>
 
-          <GameHints page-id="formRegistration" :delay-ms="1" @hint="onHint" />
+          <GameHints
+            page-id="formRegistration"
+            large-text
+            :delay-ms="1"
+            @hint="onHint"
+          />
         </div>
       </main>
     </div>
   </ClientOnly>
 </template>
+
+<style>
+  .form-label{
+    font-weight: bold;
+  }
+</style>

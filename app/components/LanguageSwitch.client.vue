@@ -15,8 +15,8 @@ function toggleLang(lang: LocaleType) {
 </script>
 
 <template>
-  <nav class="navbar navbar-dark navbar-expand-lg bg-dark supra" :aria-label="t('HEADER.LANG.ARIA_NABVAR')">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg bg-always-black supra" data-bs-theme="dark" :aria-label="t('HEADER.LANG.ARIA_NABVAR')">
+    <div class="container-fluid">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a

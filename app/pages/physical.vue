@@ -86,11 +86,11 @@ onUnmounted(() => {
 
 <template>
   <ClientOnly>
-    <div class="physical fs-2" :class="{ 'no-cursor': tremorActive }">
+    <div class="physical fs-hm" :class="{ 'no-cursor': tremorActive }">
       <GameHeader :page-title="$t('physical.pageTitle')" />
 
       <main>
-        <div class="mx-4 height40">
+        <div class="mx-large height40">
           <!-- Instructions Modal -->
           <div
             v-if="modalVisible"
@@ -103,7 +103,7 @@ onUnmounted(() => {
                 <div class="modal-header">
                   <button
                     id="close-popup"
-                    class="my-2 ms-auto close-popup border-0 btn"
+                    class="my-small ms-auto close-popup border-none btn"
                     :class="{ 'no-cursor': tremorActive }"
                     :aria-label="$t('physical.aria-label_closeModal')"
                     @click="modalVisible = false"
@@ -114,17 +114,21 @@ onUnmounted(() => {
                 <div class="modal-body">
                   <h1>{{ $t('physical.modalTitle') }}</h1>
                   <h2>{{ $t('physical.descriptionHeading') }}</h2>
-                  <p v-html="$t('physical.descriptionText1')" />
-                  <p>{{ $t('physical.descriptionText2') }}</p>
+                  <p class="fs-hm" v-html="$t('physical.descriptionText1')" />
+                  <p class="fs-hm">
+                    {{ $t('physical.descriptionText2') }}
+                  </p>
                   <h2>{{ $t('physical.userTypeHeading') }}</h2>
-                  <p>{{ $t('physical.userTypeText') }}</p>
+                  <p class="fs-hm">
+                    {{ $t('physical.userTypeText') }}
+                  </p>
                   <h2>{{ $t('physical.rulesHeading') }}</h2>
                   <ul>
                     <li>{{ $t('physical.rule1') }}</li>
                     <li>{{ $t('physical.rule2') }}</li>
                     <li>{{ $t('physical.rule3') }}</li>
                   </ul>
-                  <GameHints page-id="physical" @hint="onHint" />
+                  <GameHints page-id="physical" large-text @hint="onHint" />
                 </div>
               </div>
             </div>
@@ -133,7 +137,7 @@ onUnmounted(() => {
           <NuxtLink
             id="link30or60"
             :to="nextRoute"
-            class="valid fs-3 p-2"
+            class="valid fs-hs p-small"
           >
             {{ $t('physical.validateLink') }}
           </NuxtLink>

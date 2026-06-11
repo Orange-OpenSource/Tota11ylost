@@ -7,6 +7,7 @@ const props = defineProps<{
   delayMs?: number
   debug?: boolean
   customClass?: string
+  largeText?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -25,18 +26,20 @@ const hints = useHints({
 <template>
   <div v-show="hints.hintsAvailable.value" :class="customClass">
     <h2>{{ $t('form.hintsHeading') }}</h2>
-    <p role="alert">
+    <p :class="{ 'fs-hm': largeText }" role="alert">
       {{ isFormRegistration ? $t('hints.hintsAvailableNow') : $t('hints.hintsAvailable') }}
     </p>
     <div class="indicesDiv">
       <div v-for="(text, i) in hints.hintTexts.value" :key="i" role="alert">
         <h3>{{ $t(`form.hint${(i as number) + 1}Heading`) }}</h3>
-        <p>{{ text }}</p>
+        <p :class="{ 'fs-hm': largeText }">
+          {{ text }}
+        </p>
       </div>
-      <div class="my-3">
+      <div class="my-medium">
         <button
           type="button"
-          class="btn fs-3 p-2 btn-primary"
+          class="btn fs-hs p-small btn-brand"
           :disabled="hints.noMoreHints.value"
           :aria-label="hints.noMoreHints.value ? $t('hints.noMoreHints') : hints.hintButtonA11yLabel.value"
           @click="hints.takeHint()"
