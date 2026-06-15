@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.6.1",
   "private": true,
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.6.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -19,34 +19,34 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.0",
-    "@commitlint/config-conventional": "^20.5.0",
-    "@nuxt/content": "^3.12.0",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
+    "@nuxt/content": "^3.14.0",
     "@nuxt/devtools": "latest",
-    "@nuxt/eslint": "^1.15.2",
-    "@nuxt/test-utils": "^4.0.2",
-    "@nuxtjs/i18n": "^10.2.4",
-    "@ouds/web-common": "1.2.0",
-    "@ouds/web-orange": "1.2.0",
+    "@nuxt/eslint": "^1.16.0",
+    "@nuxt/test-utils": "^4.0.3",
+    "@nuxtjs/i18n": "^10.4.0",
+    "@ouds/web-common": "1.3.0",
+    "@ouds/web-orange": "1.3.0",
     "@pinia/nuxt": "^0.11.3",
-    "@vitest/coverage-v8": "^4.1.4",
-    "@vue/test-utils": "^2.4.6",
-    "@vueuse/nuxt": "^14.2.1",
-    "eslint": "^10.2.0",
-    "happy-dom": "^20.8.9",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vue/test-utils": "^2.4.11",
+    "@vueuse/nuxt": "^14.3.0",
+    "eslint": "^10.5.0",
+    "happy-dom": "^20.10.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "nuxt": "^4.4.2",
-    "sass": "^1.99.0",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.4",
-    "vue": "^3.5.32",
-    "vue-router": "^5.0.4"
+    "lint-staged": "^17.0.7",
+    "nuxt": "^4.4.8",
+    "sass": "^1.101.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9",
+    "vue": "^3.5.38",
+    "vue-router": "^5.1.0"
   },
   "lint-staged": {
     "*.{js,ts,vue,json,md,yml}": "eslint --cache --fix"
   },
   "dependencies": {
-    "firebase": "^12.12.0"
+    "firebase": "^12.14.0"
   }
 }
