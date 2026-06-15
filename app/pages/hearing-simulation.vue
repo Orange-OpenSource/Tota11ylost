@@ -1,46 +1,26 @@
 <!-- Tota11y Lost - Hearing Simulation (YouTube video riddle) -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later / Copyright (c) Orange SA -->
 <script setup lang="ts">
-import enMessages from '~~/i18n/lang/en.json'
-import frMessages from '~~/i18n/lang/fr.json'
-import esMessages from '~~/i18n/lang/es.json'
-
 definePageMeta({ layout: 'without-footer', title: 'hearingSimu.tabTitle' })
-
-const { t, locale, messages } = useI18n()
+const { t } = useI18n()
 const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
 
-// JSON imports are used only for their .length — values come from t() which handles compiled messages.
-// setLocaleMessage ensures all three locales are registered in vue-i18n regardless of which is active.
-const allLocaleMessages = { en: enMessages, fr: frMessages, es: esMessages } as const
-type SupportedLocale = keyof typeof allLocaleMessages
-
-const ALL_LOCALES: SupportedLocale[] = ['en', 'fr', 'es']
-
-for (const locale of ALL_LOCALES) {
-  if (!Object.keys(getLocaleMessage(locale)).length) {
-    setLocaleMessage(locale, allLocaleMessages[locale])
-  }
-}
-
-const possibleResponses = computed(() => {
-  const responses = new Set<string>()
-  for (const locale of ALL_LOCALES) {
-    const count = allLocaleMessages[locale].hearingSimu.possibleResponses.length
-    for (let i = 0; i < count; i++) {
-      responses.add(t(`hearingSimu.possibleResponses.${i}`, 1, { locale }).toLowerCase())
-    }
-  }
-  return [...responses]
-})
-
 function validate() {
   const userAnswer = answer.value.toLowerCase().trim()
 
-  if (possibleResponses.value.some((resp: string) => userAnswer.includes(resp.toLowerCase()))) {
+  // Vérifier si la réponse contient l'un des mots-clés attendus
+  const expectedAnswers = [
+    t('hearingSimu.possibleResponses.0'),
+    t('hearingSimu.possibleResponses.1'),
+    t('hearingSimu.possibleResponses.2'),
+    t('hearingSimu.possibleResponses.3'),
+    t('hearingSimu.possibleResponses.4'),
+  ].map(a => a.toLowerCase())
+
+  if (expectedAnswers.some(answer => userAnswer.includes(answer))) {
     goToNextPage()
   }
   else {

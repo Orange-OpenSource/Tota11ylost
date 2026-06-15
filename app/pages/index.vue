@@ -91,7 +91,7 @@ function startAdventure() {
               </div>
             </div>
           </div>
-        </div>
+        </fieldset>
 
         <DeficiencyFilter />
 
