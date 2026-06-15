@@ -101,7 +101,7 @@ onMounted(loadScores)
             <p class="fs-bl fw-bold text-muted">
               {{ $t('scores.finalTime') }}
             </p>
-            <div class="d-flex align-items-center fs-hs fw-bold">
+            <div class="d-flex align-items-center fs-3 fw-bold">
               <span aria-hidden="true">{{ finalTimeDisplay }}</span>
               <span class="visually-hidden">{{ formatTimeA11y(finalElapsed) }}</span>
             </div>
@@ -109,8 +109,8 @@ onMounted(loadScores)
           </div>
           <div class="col-6 ms-2xlarge m-medium position-relative text-always-black scores-img d-flex justify-content-center">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
-            <div class="position-absolute top-50 start-50 translate-middle mt-3xlarge" aria-hidden="true">
-              <p class="display-0 m-none fw-bold text-center">
+            <div class="position-absolute top-50 end-0 translate-middle-y mt-5" aria-hidden="true">
+              <p class="display-0 m-0 fw-bold text-center">
                 {{ version }}
               </p>
               <p class="fs-hxl fw-bold text-center">
@@ -142,7 +142,7 @@ onMounted(loadScores)
                       <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                         {{ entry.pseudo }}
                       </p>
-                      <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
+                      <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
                         <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
                         <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
@@ -181,7 +181,7 @@ onMounted(loadScores)
                       <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                         {{ entry.pseudo }}
                       </p>
-                      <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
+                      <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
                         <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
                         <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
