@@ -71,7 +71,7 @@ const infoIconPath = 'M22.675,0.02c-0.006,0-0.014,0.001-0.02,0.001c-0.007,0-0.01
         <h1 class="form-satisfaction-title">
           {{ $t('formSimu.simpleField') }}
         </h1>
-        <div class="text-center text-bg-dark">
+        <div class="text-center" style="background-color: var(--bs-color-always-black);">
           <GameTimer />
         </div>
         <div class="custom-tooltip-wrapper" style="margin-top: 50px;">

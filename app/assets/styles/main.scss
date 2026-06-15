@@ -1,6 +1,5 @@
-// Override Boosted's Sass default variables before inporting boosted scss
-@use 'boosted/scss/orange-helvetica';
-@use 'boosted/scss/boosted';
+// OUDS Web Orange — replaces Boosted
+@import '@ouds/web-orange/scss/ouds-web';
 
 $functional-green: #228722;
 

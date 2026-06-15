@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Modal } from 'boosted'
+import { Modal } from '@ouds/web-common'
 
 const props = defineProps({
   modelValue: { type: Boolean, required: true },

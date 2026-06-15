@@ -1,5 +1,5 @@
-import boosted from 'boosted/dist/js/boosted.min'
+import oudsWeb from '@ouds/web-common/dist/js/ouds-web.min'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.provide('boosted', boosted)
+  nuxtApp.provide('oudsWeb', oudsWeb)
 })

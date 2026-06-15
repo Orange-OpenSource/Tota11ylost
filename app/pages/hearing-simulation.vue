@@ -53,16 +53,16 @@ function validate() {
 
 <template>
   <ClientOnly>
-    <div class="fs-2">
+    <div class="fs-small mw-none">
       <GameHeader :page-title="$t('hearingSimu.pageTitle')" />
 
       <main>
-        <div class="mx-4">
-          <h2 class="display-2 my-4">
+        <div class="mx-large">
+          <h2 class="display-2 my-large fs-ds">
             {{ $t('hearingSimu.pageTitle') }}
           </h2>
 
-          <div class="mb-3 text-center">
+          <div class="mb-medium text-center">
             <iframe
               width="560"
               height="315"
@@ -73,13 +73,17 @@ function validate() {
             />
           </div>
 
-          <div v-if="showError" class="alert alert-danger mb-3" role="alert">
+          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
             <span class="alert-icon"><span class="visually-hidden">{{ $t('hearingSimu.errorHiddenText') }}</span></span>
-            <p>{{ $t('hearingSimu.errorMessage') }}</p>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p>{{ $t('hearingSimu.errorMessage') }}</p>
+              </div>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="hearingSimuAnswer" class="form-label">{{ $t('hearingSimu.labelResponse') }}</label>
+          <div class="mb-medium">
+            <label for="hearingSimuAnswer" class="form-label fs-hm fw-bold">{{ $t('hearingSimu.labelResponse') }}</label>
             <input
               id="hearingSimuAnswer"
               v-model="answer"
@@ -88,13 +92,13 @@ function validate() {
               :aria-label="$t('hearingSimu.aria-label_response')"
             >
           </div>
-          <div class="mb-3">
-            <button class="btn fs-3 p-2 btn-primary" @click="validate">
+          <div class="mb-medium">
+            <button class="btn fs-hs p-small btn-brand" @click="validate">
               {{ $t('hearingSimu.validateButton') }}
             </button>
           </div>
 
-          <GameHints page-id="hearingSimulation" />
+          <GameHints page-id="hearingSimulation" large-text />
         </div>
       </main>
     </div>

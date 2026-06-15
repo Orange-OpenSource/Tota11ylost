@@ -51,17 +51,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="fs-2">
+  <div class="fs-hm mw-none">
     <main>
-      <div class="mx-4">
-        <h2 class="my-2">
+      <div class="mx-large">
+        <h2 class="my-small">
           {{ $t('cognitive.descriptionHeading') }}
         </h2>
-        <p v-html="$t('cognitive.descriptionText1')" />
-        <p>{{ $t('cognitive.descriptionText2') }}</p>
-        <p>{{ $t('cognitive.descriptionText3') }}</p>
+        <p class="fs-hm" v-html="$t('cognitive.descriptionText1')" />
+        <p class="fs-hm ">
+          {{ $t('cognitive.descriptionText2') }}
+        </p>
+        <p class="fs-hm ">
+          {{ $t('cognitive.descriptionText3') }}
+        </p>
         <h2>{{ $t('cognitive.userTypeHeading') }}</h2>
-        <p>{{ $t('cognitive.userTypeText') }}</p>
+        <p class="fs-hm ">
+          {{ $t('cognitive.userTypeText') }}
+        </p>
         <h2>{{ $t('cognitive.rulesHeading') }}</h2>
         <ul>
           <li>{{ $t('cognitive.rule1') }}</li>
@@ -77,7 +83,7 @@ onMounted(() => {
           <button
             v-for="(link, i) in links"
             :key="i"
-            class="btn btn-primary m-2 dyslexia fs-3 p-2"
+            class="btn btn-brand m-small dyslexia fs-hs p-small"
             role="link"
             @click="navigate(link)"
           >
@@ -85,7 +91,7 @@ onMounted(() => {
           </button>
         </div>
 
-        <GameHints page-id="cognitive" @hint="onHint" />
+        <GameHints page-id="cognitive" large-text @hint="onHint" />
       </div>
     </main>
   </div>

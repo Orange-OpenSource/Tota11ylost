@@ -94,26 +94,26 @@ onMounted(loadScores)
   <ClientOnly>
     <div class="d-flex flex-column min-vh-100">
       <!-- Main -->
-      <main class="d-flex flex-column m-3 mx-4">
+      <main class="d-flex flex-column m-medium mx-large">
         <div class="d-flex flex-row">
           <div class="col-6">
-            <h2 class="display-3 mb-4" v-html="$t('scores.congratulations')" />
-            <p class="fs-6 fw-bold text-body-secondary">
+            <h2 class="display-3 mb-large fs-hxl" v-html="$t('scores.congratulations')" />
+            <p class="fs-bl fw-bold text-muted">
               {{ $t('scores.finalTime') }}
             </p>
             <div class="d-flex align-items-center fs-3 fw-bold">
               <span aria-hidden="true">{{ finalTimeDisplay }}</span>
               <span class="visually-hidden">{{ formatTimeA11y(finalElapsed) }}</span>
             </div>
-            <p class="fw-bold mt-3 fs-4" v-html="$t('scores.toKnowMore')" />
+            <p class="fw-bold mt-medium fs-bl" v-html="$t('scores.toKnowMore')" />
           </div>
-          <div class="col-6 ms-5 m-3 position-relative text-dark scores-img d-flex justify-content-center">
+          <div class="col-6 ms-2xlarge m-medium position-relative text-always-black scores-img d-flex justify-content-center">
             <img id="congratulationImage" src="/game-assets/Win.svg" :alt="$t('scores.alt_congratulationImage', { version })">
             <div class="position-absolute top-50 end-0 translate-middle-y mt-5" aria-hidden="true">
               <p class="display-0 m-0 fw-bold text-center">
                 {{ version }}
               </p>
-              <p class="fs-1 fw-bold text-center">
+              <p class="fs-hxl fw-bold text-center">
                 {{ $t('scores.minutes') }}
               </p>
             </div>
@@ -123,8 +123,8 @@ onMounted(loadScores)
         <!-- Score tables -->
         <div class="d-flex fw-bold flex-row">
           <!-- Today -->
-          <div class="border border-light col-5 m-3">
-            <p class="text-center my-3 fs-4">
+          <div class="border col-5 m-medium">
+            <p class="text-center my-medium fs-hs">
               {{ $t('scores.todayTitle') }}
             </p>
             <div class="scrollable-table-container">
@@ -135,11 +135,11 @@ onMounted(loadScores)
                     :key="`today-${index}`"
                     :class="{ 'current-score': isCurrent(entry) }"
                   >
-                    <td class="py-7 vertical-align" :class="{ 'current': isCurrent(entry), 'fs-5': isCurrent(entry) }">
+                    <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                       {{ index + 1 }}
                     </td>
-                    <td class="text-start py-7" :class="{ current: isCurrent(entry) }">
-                      <p class="mb-0" :class="{ 'fs-5': isCurrent(entry) }">
+                    <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
+                      <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
@@ -147,7 +147,7 @@ onMounted(loadScores)
                         <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
-                    <td class="py-7 vertical-align" aria-hidden="true">
+                    <td class="py-small vertical-align" aria-hidden="true">
                       <img
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"
@@ -162,8 +162,8 @@ onMounted(loadScores)
           </div>
 
           <!-- General -->
-          <div class="border border-light col-5 m-3">
-            <p class="text-center my-3 fs-4">
+          <div class="border col-5 m-medium">
+            <p class="text-center my-medium fs-hs">
               {{ $t('scores.generalTitle') }}
             </p>
             <div class="scrollable-table-container">
@@ -174,11 +174,11 @@ onMounted(loadScores)
                     :key="`general-${index}`"
                     :class="{ 'current-score': isCurrent(entry) }"
                   >
-                    <td class="py-7 vertical-align" :class="{ 'current': isCurrent(entry), 'fs-5': isCurrent(entry) }">
+                    <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                       {{ index + 1 }}
                     </td>
-                    <td class="text-start py-7" :class="{ current: isCurrent(entry) }">
-                      <p class="mb-0" :class="{ 'fs-5': isCurrent(entry) }">
+                    <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
+                      <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                         {{ entry.pseudo }}
                       </p>
                       <p class="mb-0 fs-6" :class="isCurrent(entry) ? 'text-white' : 'text-body-secondary'">
@@ -186,7 +186,7 @@ onMounted(loadScores)
                         <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                       </p>
                     </td>
-                    <td class="py-7 vertical-align" aria-hidden="true">
+                    <td class="py-small vertical-align" aria-hidden="true">
                       <img
                         v-if="trophySrc(index + 1)"
                         :src="trophySrc(index + 1)!"

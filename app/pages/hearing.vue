@@ -58,40 +58,64 @@ function onHint(index: number) {
 
 <template>
   <ClientOnly>
-    <div class="fs-2">
+    <div class="fs-hm mw-none">
       <GameHeader :page-title="$t('hearing.pageTitle')" />
 
       <main>
-        <div class="mx-4">
+        <div class="mx-large">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
-          <p v-html="$t('hearing.descriptionText1')" />
-          <p>{{ $t('hearing.descriptionText2') }}</p>
-          <p>{{ $t('hearing.descriptionText3') }}</p>
+          <p class="fs-hm" v-html="$t('hearing.descriptionText1')" />
+          <p class="fs-hm">
+            {{ $t('hearing.descriptionText2') }}
+          </p>
+          <p class="fs-hm">
+            {{ $t('hearing.descriptionText3') }}
+          </p>
 
           <h2>{{ $t('hearing.userTypeHeading') }}</h2>
-          <p>{{ $t('hearing.userTypeText1') }}</p>
-          <p>{{ $t('hearing.userTypeText2') }}</p>
-          <p>{{ $t('hearing.userTypeText3') }}</p>
+          <p class="fs-hm">
+            {{ $t('hearing.userTypeText1') }}
+          </p>
+          <p class="fs-hm">
+            {{ $t('hearing.userTypeText2') }}
+          </p>
+          <p class="fs-hm">
+            {{ $t('hearing.userTypeText3') }}
+          </p>
 
           <h2>{{ $t('hearing.rulesHeading') }}</h2>
           <ul>
-            <li>{{ $t('hearing.rule1') }}</li>
-            <li>{{ $t('hearing.rule2') }}</li>
-            <li>{{ $t('hearing.rule3') }}</li>
-            <li>{{ $t('hearing.rule4') }}</li>
-            <li>{{ $t('hearing.rule5') }}</li>
+            <li class="fs-hm">
+              {{ $t('hearing.rule1') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('hearing.rule2') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('hearing.rule3') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('hearing.rule4') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('hearing.rule5') }}
+            </li>
           </ul>
 
-          <div v-if="showError" class="alert alert-danger mb-3" role="alert">
+          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
             <span class="alert-icon"><span class="visually-hidden">{{ $t('hearing.errorHiddenText') }}</span></span>
-            <p>{{ $t('hearing.errorMessage') }}</p>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p>{{ $t('hearing.errorMessage') }}</p>
+              </div>
+            </div>
           </div>
 
-          <div class="audio-container my-3">
+          <div class="audio-container my-medium">
             <div class="row g-3">
               <div v-for="level in maxLevel" :key="level" class="col">
                 <div class="audio-item">
-                  <p class="audio-label fw-bold mb-2 text-center">
+                  <p class="audio-label fs-hm fw-bold mb-small text-center">
                     {{ $t(`hearing.${getDeafnessLabel(level)}`) }}
                   </p>
                   <audio
@@ -110,8 +134,8 @@ function onHint(index: number) {
             </div>
           </div>
 
-          <div class="mb-3">
-            <label for="hearingAnswer" class="form-label">{{ $t('hearing.labelResponse') }}</label>
+          <div class="mb-medium">
+            <label for="hearingAnswer" class="form-label fw-bold">{{ $t('hearing.labelResponse') }}</label>
             <input
               id="hearingAnswer"
               v-model="answer"
@@ -120,13 +144,13 @@ function onHint(index: number) {
               :aria-label="$t('hearing.aria-label_response')"
             >
           </div>
-          <div class="mb-3">
-            <button class="btn fs-3 p-2 btn-primary" @click="validate">
+          <div class="mb-medium">
+            <button class="btn fs-hs p-small btn-brand" @click="validate">
               {{ $t('hearing.validateButton') }}
             </button>
           </div>
 
-          <GameHints page-id="hearing" @hint="onHint" />
+          <GameHints page-id="hearing" large-text @hint="onHint" />
         </div>
       </main>
     </div>
