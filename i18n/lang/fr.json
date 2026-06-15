@@ -57,8 +57,8 @@
   "welcome": {
     "tabTitle": "Accueil - Tota11y Lost",
     "content_description": "Page d'accueil de Tota11y Lost",
-    "intro": "Expérimenter de manière ludique les défis des personnes en situation de handicap numérique.",
-    "rules": "Avant de démarrer, choisir mon aventure et mon pseudo",
+    "intro": "Une expérience ludique et immersive",
+    "rules": "Appréhendez les défis quotidiens rencontrés par les personnes en situation de handicap numérique. Une aventure pour mieux comprendre et agir en faveur de l'inclusion.",
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
     "duration": "Durée",
@@ -74,9 +74,10 @@
       "label": "60 min",
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
-    "pseudo": "Mon pseudo (obligatoire)",
-    "placeholder_enterPseudo": "Indiquer mon pseudo",
+    "pseudo": "Votre aventure",
+    "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
+    "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
     "buttonStartAdventure": "Démarrer l'aventure"
   },
   "intro": {
