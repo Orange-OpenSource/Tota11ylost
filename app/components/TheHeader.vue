@@ -16,7 +16,9 @@
           </h1>
         </div>
         <!-- Timer Display -->
-        <GameTimer />
+        <div class="flex-shrink-0">
+          <GameTimer />
+        </div>
       </div>
     </div>
   </header>
