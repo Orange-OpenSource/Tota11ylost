@@ -36,9 +36,9 @@ function startAdventure() {
           <h2 class="mb-3xlarge">
             {{ $t('welcome.intro') }}
           </h2>
-          <h3 class="col-9 mb-large">
+          <p class="col-9 mb-large">
             {{ $t('welcome.rules') }}
-          </h3>
+          </p>
 
           <div class="form-group col-9">
             <h4 id="pseudoLabel" class="mt-small">
@@ -47,16 +47,21 @@ function startAdventure() {
             <input
               v-model="pseudo"
               type="text"
-              class="form-control"
+              class="form-control p-xlarge w-75"
               aria-labelledby="pseudoLabel"
               required
               :placeholder="$t('welcome.placeholder_enterPseudo')"
+              style="border-top: transparent; border-left: transparent; border-right: transparent; "
               @input="pseudoError = false"
             >
+            <p class="col-9 mb-large">
+              {{ $t('welcome.pseudo_alert') }}
+            </p>
             <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
               <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
                 Error
               </p>
+
               <div class="alert-container">
                 <div class="alert-text-container">
                   <p class="alert-label">
