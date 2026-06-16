@@ -31,7 +31,7 @@ const accessibleTime = computed(() => {
       :style="!isFinal ? 'background-color: var(--bs-color-always-white); color: var(--bs-color-always-black); margin-right: auto;' : 'background-color: var(--bs-color-always-black); color: var(--bs-color-always-white); margin-right: auto;'"
       :aria-label="`${t('common.timer.title')}: ${timer.displayTime}`"
     >
-      <img src="/game-assets/timer.svg" alt="" style="width: 1.5em; height: 1.5em; display: inline-block; margin-right: 0.5em; vertical-align: middle; image-rendering: smooth;">
+      <img src="/game-assets/timer.svg" alt="Chronomètre" style="width: 1.5em; height: 1.5em; display: inline-block; margin-right: 0.5em; vertical-align: middle; image-rendering: smooth;">
       {{ timer.displayTime }}
     </p>
 
