@@ -110,9 +110,9 @@ function startAdventure() {
               @input="pseudoError = false"
             >
             <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
-              <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
+              <span class="alert-icon" aria-hidden="true"><p class="visually-hidden">
                 Error
-              </p>
+              </p></span>
               <div class="alert-container">
                 <div class="alert-text-container">
                   <p class="alert-label">
