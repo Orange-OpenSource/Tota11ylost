@@ -51,11 +51,11 @@ function startAdventure() {
             <input
               v-model="pseudo"
               type="text"
-              class="form-control p-xlarge w-75"
+              class="form-control p-medium"
               aria-labelledby="pseudoLabel"
               required
               :placeholder="$t('welcome.placeholder_enterPseudo')"
-              style="border-top: transparent; border-left: transparent; border-right: transparent; "
+              style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px;"
               @input="pseudoError = false"
             >
             <p class="col-9 mb-large">
@@ -75,7 +75,9 @@ function startAdventure() {
             </div>
           </div>
           <h4>{{ $t('welcome.adventureType') }}</h4>
-          <p v-html="$t('welcome.escapeGame')" />
+          <select class="form-select p-medium " style="background-color: var(--bs-body-bg);border: 2px solid #d3d3d3; border-radius: 0; width: 555px;">
+            <option v-html="$t('welcome.escapeGame')" />
+          </select>
 
           <fieldset class="control-items-list mt-medium">
             <legend>{{ $t('welcome.duration') }}</legend>
