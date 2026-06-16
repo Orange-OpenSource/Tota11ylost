@@ -113,9 +113,9 @@
     "rule2": "¡Atención, en caso de error tendrás que empezar de nuevo!",
     "errorMessage": "¡Ups, color incorrecto! ¡Debes seguir las instrucciones!",
     "buttonsLabel": "Botón",
-    "blueButton":"Botón azul",
-    "purpleButton": "Botón violeta",  
-    "greenButton":"Botón verde",
+    "blueButton": "Botón azul",
+    "purpleButton": "Botón violeta",
+    "greenButton": "Botón verde",
     "redButton": "Botón rojo"
   },
   "visualSimu": {
@@ -440,7 +440,7 @@
   "scores": {
     "tabTitle": "Tabla de posiciones - Tota11y Lost",
     "content_description": "Tabla de posiciones",
-    "congratulations": "¡Felicidades, has terminado el juego de escape!",
+    "congratulations": "¡Felicidades {pseudo}, has terminado el juego de escape en <span>{finalTimeDisplay}</span>!",
     "finalTime": "Tiempo final",
     "toKnowMore": "Para aprender más, visita <a href='https://a11y-guidelines.orange.com/en/'>nuestro sitio de recomendaciones</a>.",
     "minutes": "minutos",

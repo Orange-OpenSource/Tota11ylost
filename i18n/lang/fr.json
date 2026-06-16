@@ -436,12 +436,15 @@
   "scores": {
     "tabTitle": "Tableau des scores - Tota11y Lost",
     "content_description": "Tableau des scores",
-    "congratulations": "Bravo, vous venez de terminer l'Escape game !",
-    "finalTime": "Temps final",
-    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommandations</a>.",
+    "congratulations": " Bravo <strong>{ pseudo }</strong>, vous venez de terminer votre aventure en <span>{ finalTimeDisplay}</span> !",
+    "finalTime": "Voici un rappel de votre aventure :",
+    "toKnowMore": "Pour en apprendre plus sur l'accessibilité numérique,rendez-vous sur notre site de recommandations. <a href='https://a11y-guidelines.orange.com/fr/'>Accéder au site</a>.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
-    "alt_congratulationImage": "Vous avez fini l'escape game {version} minutes"
+    "alt_congratulationImage": "Vous avez fini l'escape game {version} minutes",
+    "timeList": "Durée :",
+    "defeciencyList": "Déficience(s) signalée(s) :",
+    "aventureType": "Type d'aventure : Escape Game"
   }
 }
