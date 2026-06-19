@@ -7,7 +7,7 @@
         <div class="d-flex align-items-end gap-3 flex-nowrap">
           <NuxtLink to="/" :aria-label="$t('common.banner.alt_orangeLogo')">
             <img
-              src="~/assets/img/orange-logo.png"
+              src="/game-assets/orange-logo.png"
               class="mx-2"
               :alt="$t('common.banner.alt_orangeLogo')"
               style="max-height: 60px;"
