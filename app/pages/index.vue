@@ -4,7 +4,6 @@
 definePageMeta({ title: 'welcome.tabTitle' })
 
 const gameStore = useGameStore()
-const router = useRouter()
 
 onMounted(() => {
   gameStore.setVersion('60')
@@ -94,7 +93,7 @@ function startAdventure() {
               </div>
             </div>
           </div>
-        </div>
+        </fieldset>
 
         <DeficiencyFilter />
 
