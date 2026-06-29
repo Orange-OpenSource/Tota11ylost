@@ -58,7 +58,9 @@ function getButtonClass(buttonId: string): string {
     <main>
       <div class="mx-large ">
         <h2>{{ $t('visual.descriptionHeading') }}</h2>
-        <p class="fs-hm " v-html="$t('visual.descriptionText1')" />
+        <p class="fs-hm ">
+          {{ $t('visual.descriptionText1') }}
+        </p>
         <p class="fs-hm ">
           {{ $t('visual.descriptionText2') }}
         </p>
@@ -87,9 +89,9 @@ function getButtonClass(buttonId: string): string {
         </div>
 
         <div v-if="showError" class="alert alert-message alert-negative" role="alert">
-          <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
+          <span class="alert-icon" aria-hidden="true"><p class="visually-hidden">
             Error
-          </p>
+          </p></span>
           <div class="alert-container">
             <div class="alert-text-container">
               <p class="alert-label">
