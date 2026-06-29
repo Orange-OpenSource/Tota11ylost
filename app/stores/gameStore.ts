@@ -20,16 +20,14 @@ const pageRoutes = ref<Record<number, string>>({
     14: '/contrast',
     15: '/diplopie',
     16: '/memorie',
-    17: '/index',
-    18: '/introduction',
 
   })
 
   const deficiency = ref<Record<string, number[]>>({
-    visual: [1, 10, 11, 13, 14, 15],
+    visual: [1, 10, 11, 13, 14, 15, 2],
     physical: [5, 6, 12],
     hearing: [7, 8],
-    cognitive: [3, 4, 16],
+    cognitive: [3, 4, 16, 9],
   })
 
   const selectedPages = ref<string[]>([])
@@ -67,7 +65,6 @@ const pageRoutes = ref<Record<number, string>>({
       cat => cat !== deficiencyName,
     )
 
-    // Enlever aussi les pages de cette catégorie de selectedPages
     const pagesInCategory = deficiency.value[deficiencyName] || []
     selectedPages.value = selectedPages.value.filter((page) => {
       return !pagesInCategory.some(pageNum => pageRoutes.value[pageNum] === page)
@@ -84,7 +81,7 @@ const pageRoutes = ref<Record<number, string>>({
           if (page && !selectedPages.value.includes(page)) {
             selectedPages.value.push(page)
           }
- else {
+    else {
             break // Pas de page dispo dans cette catégorie
           }
         }
@@ -165,25 +162,9 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
   version.value = newVersion
   selectedPages.value = []
 
-  const nonRandomPages = [18, 2, 9]
   const randomCategories = ['visual', 'physical', 'hearing', 'cognitive']
 
-  if (newVersion === '15') {
-    for (const page of nonRandomPages) {
-      const route = pageRoutes.value[page]
-      if (route) {
-        selectedPages.value.push(route)
-      }
-    }
-  }
- else if (newVersion === '30') {
-    for (const page of nonRandomPages) {
-      const route = pageRoutes.value[page]
-      if (route) {
-        selectedPages.value.push(route)
-      }
-    }
-
+  if (newVersion === '30') {
     for (const category of randomCategories) {
       const page = pickRandomPageFromCategory(category)
       if (page && !selectedPages.value.includes(page)) {
@@ -191,21 +172,14 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
     }
   }
   }
- else if (newVersion === '60') {
-    for (const page of nonRandomPages) {
-      const route = pageRoutes.value[page]
-      if (route) {
-        selectedPages.value.push(route)
-      }
-    }
-
+  else if (newVersion === '60') {
     for (const category of randomCategories) {
         for (let i = 0; i < 2; i++) {
         const page = pickRandomPageFromCategory(category)
         if (page && !selectedPages.value.includes(page)) {
           selectedPages.value.push(page)
         }
- else {
+  else {
         break
       }
   }
