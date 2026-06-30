@@ -134,7 +134,7 @@
     "content_description": "Page simulating a severe visual impairment (blindness)",
     "pageTitle": "Visual impairment - Simulation",
     "userTypeHeading": "The type of user",
-    "userTypeText1": "This challenge is a bit special. To navigate with the keyboard on this page, use the \"Tab\" key to move forward and the \"Shift+Tab\" combination to move backward.",
+    "userTypeText1": "This challenge is a bit special. To navigate with the keyboard on this page, use ⇥ Tab (move forward) and ⇧ Shift + ⇥ Tab (move backward). Your input will appear as a blinking white cursor, ↵ Enter (validate).",
     "userTypeText2": "Here, you are facing the most impacting digital disability: blind or very visually impaired.",
     "riddleHeading": "Riddle",
     "riddleText1": "Hard to know where you're going in the dark, huh?",
