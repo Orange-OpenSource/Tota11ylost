@@ -4,7 +4,7 @@
     <LanguageSwitch />
     <div class="bg-dark py-2">
       <div class="m-3 d-flex flex-row justify-content-between align-items-center flex-nowrap">
-        <div class="d-flex align-items-end gap-3 flex-nowrap">
+        <div class="d-flex align-items-end gap-3 flex-nowrap ">
           <NuxtLink to="/" :aria-label="$t('common.banner.alt_orangeLogo')">
             <img
               src="/game-assets/orange-logo.png"

@@ -9,10 +9,6 @@ onMounted(() => {
   gameStore.setVersion('60')
 })
 
-onMounted(() => {
-  gameStore.setVersion('60')
-})
-
 const pseudo = ref('')
 const pseudoError = ref(false)
 
@@ -94,8 +90,6 @@ function startAdventure() {
             </div>
           </div>
         </fieldset>
-
-        <DeficiencyFilter />
 
         <DeficiencyFilter />
 
