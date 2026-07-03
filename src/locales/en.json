@@ -49,8 +49,7 @@
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "buttonStartAdventure": "Start the adventure",
-    "errorPseudoTooShort": "Nickname must be at least {min} characters.",
-    "errorPseudoTooLong": "Nickname must not exceed {max} characters.",
+    "errorPseudoTooShort": "Nickname must be at least 3 characters.",
     "errorPseudoProfanity": "This nickname contains inappropriate terms. Please choose another one."
   },
   "intro": {

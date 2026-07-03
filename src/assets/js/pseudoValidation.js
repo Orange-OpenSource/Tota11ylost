@@ -308,7 +308,7 @@ const PROFANITY_WORDS = [
 /**
  * Validates a pseudo (username) and returns an error code or null if valid
  * @param {string} pseudo - The username to validate
- * @returns {string|null} - Error code ('tooShort', 'tooLong', 'profanity') or null if valid
+ * @returns {string|null} - Error code ('tooShort', 'profanity') or null if valid
  */
 function validatePseudo(pseudo) {
   const trimmed = pseudo.trim();
@@ -316,11 +316,6 @@ function validatePseudo(pseudo) {
   // Check minimum length
   if (trimmed.length < PSEUDO_MIN_LENGTH) {
     return 'tooShort';
-  }
-
-  // Check maximum length
-  if (trimmed.length > PSEUDO_MAX_LENGTH) {
-    return 'tooLong';
   }
 
   // Check for profanity - convert to lowercase for comparison
@@ -359,20 +354,16 @@ function validatePseudo(pseudo) {
 }
 
 /**
- * Gets the error message for a given error code
- * @param {string} errorCode - The error code ('tooShort', 'tooLong', 'profanity')
- * @returns {string} - The localized error message
+ * Returns the translation key for a given error code
+ * @param {string} errorCode - The error code ('tooShort', 'profanity')
+ * @returns {string} - The translation key
  */
 function getPseudoErrorMessage(errorCode) {
-  if (!errorCode) return '';
-
   switch (errorCode) {
     case 'tooShort':
-      return i18next.t('welcome.errorPseudoTooShort', { min: PSEUDO_MIN_LENGTH });
-    case 'tooLong':
-      return i18next.t('welcome.errorPseudoTooLong', { max: PSEUDO_MAX_LENGTH });
+      return 'welcome.errorPseudoTooShort';
     case 'profanity':
-      return i18next.t('welcome.errorPseudoProfanity');
+      return 'welcome.errorPseudoProfanity';
     default:
       return '';
   }
@@ -389,16 +380,13 @@ function displayPseudoError(errorCode, errorContainer) {
   if (errorCode) {
     const errorMessage = getPseudoErrorMessage(errorCode);
     errorContainer.innerHTML = `
-      <div class="alert alert-danger fade show mt-2" role="alert">
-        <span class="alert-icon" aria-hidden="true"></span>
-        <div class="alert-container">
-          <div class="alert-text-container">
-            <p class="alert-label m-0">${errorMessage}</p>
-          </div>
-        </div>
+      <div class="alert alert-danger alert-sm mt-2" role="alert">
+        <span class="alert-icon"><span class="visually-hidden">Error</span></span>
+        <p data-i18n="${errorMessage}"></p>
       </div>
     `;
     errorContainer.classList.remove('d-none');
+    updateTranslations();
   } else {
     errorContainer.innerHTML = '';
     errorContainer.classList.add('d-none');
