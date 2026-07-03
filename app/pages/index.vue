@@ -8,7 +8,7 @@ const gameStore = useGameStore()
 onMounted(() => {
   gameStore.setVersion('60')
 })
-
+const { goToNextPage } = useNextPage()
 const pseudo = ref('')
 const pseudoError = ref(false)
 
@@ -121,7 +121,7 @@ function startAdventure() {
             </div>
           </div>
 
-          <button type="submit" class="btn fs-3 p-2 btn-primary mt-4">
+          <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" @click.prevent="goToNextPage">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>

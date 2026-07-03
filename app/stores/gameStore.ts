@@ -1,6 +1,3 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
-
 export const useGameStore = defineStore('game', () => {
   // STATE
 const pageRoutes = ref<Record<number, string>>({
@@ -20,14 +17,16 @@ const pageRoutes = ref<Record<number, string>>({
     14: '/contrast',
     15: '/diplopie',
     16: '/memorie',
+    17: '/index',
+    18: '/introduction',
 
   })
 
   const deficiency = ref<Record<string, number[]>>({
-    visual: [1, 10, 11, 13, 14, 15, 2],
+    visual: [2, 1, 10, 11, 13, 14, 15],
     physical: [5, 6, 12],
     hearing: [7, 8],
-    cognitive: [3, 4, 16, 9],
+    cognitive: [9, 3, 4, 16],
   })
 
   const selectedPages = ref<string[]>([])
@@ -38,6 +37,16 @@ const pageRoutes = ref<Record<number, string>>({
   const timerStartTime = ref<number | null>(null)
   const timerFinishTime = ref<number | null>(null)
   const lang = ref('en')
+
+  // HELPERS
+  const shuffleArray = <T>(arr: T[]): T[] => {
+    const a = [...arr]
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[a[i], a[j]] = [a[j]!, a[i]!]
+    }
+    return a
+  }
 
   // ACTIONS
   const saveToLocalStorage = () => {
@@ -60,100 +69,102 @@ const pageRoutes = ref<Record<number, string>>({
     }
   }
 
+  const randomizePages = () => {
+    // 15 min : fixe — page 18, puis 2 et 9 dans un ordre aléatoire
+    if (version.value === '15') {
+      const pair = Math.random() < 0.5 ? [2, 9] : [9, 2]
+      selectedPages.value = [18, ...pair]
+        .map(n => pageRoutes.value[n])
+        .filter((r): r is string => !!r)
+      saveToLocalStorage()
+      return
+    }
+
+    const limits: Record<'30' | '60', number> = { 30: 7, 60: 11 }
+    const activeCategories = [...categoriesRestantes.value]
+    const pageNumbers: number[] = [18]
+    const remaining = limits[version.value as '30' | '60'] - 1
+
+    if (activeCategories.length === 0 || remaining <= 0) {
+      selectedPages.value = pageNumbers.map(n => pageRoutes.value[n]).filter((r): r is string => !!r)
+      saveToLocalStorage()
+      return
+    }
+
+    // Bucket par catégorie : page forcée en tête, puis pool aléatoire
+    // visual → 2 en premier, cognitive → 9 en premier
+    const FORCED: Partial<Record<string, number>> = { visual: 2, cognitive: 9 }
+    const shuffledCategories = shuffleArray(activeCategories)
+    const availablePages: number[][] = shuffledCategories.map((cat) => {
+      const forced = FORCED[cat]
+      const pool = shuffleArray((deficiency.value[cat] ?? []).filter(p => p !== forced))
+      return forced !== undefined ? [forced, ...pool] : pool
+    })
+
+    // Distribution équitable avec redistribution si un bucket est épuisé
+    const counts = availablePages.map(() => 0)
+    let left = remaining
+
+    while (left > 0) {
+      const eligible = availablePages
+        .map((b, i) => ({ i, avail: b.length - counts[i]! }))
+        .filter(x => x.avail > 0)
+
+      if (eligible.length === 0) break
+
+      const n = eligible.length
+      const base = Math.floor(left / n)
+      let distributed = 0
+
+      for (let j = 0; j < eligible.length; j++) {
+        const { i } = eligible[j]!
+        const canTake = Math.min(base + (j < left % n ? 1 : 0), availablePages[i]!.length - counts[i]!)
+        counts[i]! += canTake
+        distributed += canTake
+      }
+
+      left -= distributed
+      if (distributed === 0) break
+    }
+
+    // Assembler les groupes dans l'ordre des catégories mélangées
+    for (let i = 0; i < shuffledCategories.length; i++) {
+      pageNumbers.push(...availablePages[i]!.slice(0, counts[i]))
+    }
+
+    selectedPages.value = pageNumbers.map(n => pageRoutes.value[n]).filter((r): r is string => !!r)
+    saveToLocalStorage()
+  }
+
   const removeDeficiencyFromCategories = (deficiencyName: string) => {
     categoriesRestantes.value = categoriesRestantes.value.filter(
       cat => cat !== deficiencyName,
     )
-
-    const pagesInCategory = deficiency.value[deficiencyName] || []
-    selectedPages.value = selectedPages.value.filter((page) => {
-      return !pagesInCategory.some(pageNum => pageRoutes.value[pageNum] === page)
-    })
-
-    const limits: Record<'15' | '30' | '60', number> = { 15: 3, 30: 7, 60: 11 }
-    const limit = limits[version.value]
-
-      for (const category of categoriesRestantes.value) {
-        if (selectedPages.value.length >= limit) break
-
-        while (selectedPages.value.length < limit) {
-          const page = pickRandomPageFromCategory(category)
-          if (page && !selectedPages.value.includes(page)) {
-            selectedPages.value.push(page)
-          }
-    else {
-            break // Pas de page dispo dans cette catégorie
-          }
-        }
-      }
-    saveToLocalStorage()
+    randomizePages()
   }
 
   const addDeficiencyToCategories = (deficiencyName: string) => {
-  if (!categoriesRestantes.value.includes(deficiencyName)) {
-    categoriesRestantes.value.push(deficiencyName)
-
-    const limits: Record<'15' | '30' | '60', number> = { 15: 3, 30: 7, 60: 11 }
-    const limit = limits[version.value]
-
-    // Ajouter une page seulement si on n'a pas atteint la limite
-    if (selectedPages.value.length < limit) {
-      const randomPage = pickRandomPageFromCategory(deficiencyName)
-      if (randomPage && !selectedPages.value.includes(randomPage)) {
-        selectedPages.value.push(randomPage)
-      }
+    if (!categoriesRestantes.value.includes(deficiencyName)) {
+      categoriesRestantes.value.push(deficiencyName)
     }
-
-    // Remplir jusqu'à la limite avec les catégories disponibles
-    for (const category of categoriesRestantes.value) {
-      if (selectedPages.value.length >= limit) break
-
-      while (selectedPages.value.length < limit) {
-        const page = pickRandomPageFromCategory(category)
-        if (page && !selectedPages.value.includes(page)) {
-          selectedPages.value.push(page)
-        }
- else {
-          break
-        }
-      }
-    }
+    randomizePages()
   }
-
-  saveToLocalStorage()
-}
 
   const resetAll = () => {
-    selectedPages.value = []
     categoriesRestantes.value = ['visual', 'physical', 'hearing', 'cognitive']
-    saveToLocalStorage()
-  }
-
-  const pickRandomPageFromCategory = (categoryName: string): string => {
-    const pagesInCategory = deficiency.value[categoryName]
-
-    if (!pagesInCategory || pagesInCategory.length === 0) {
-      return ''
-    }
-
-    const randomIndex = Math.floor(Math.random() * pagesInCategory.length)
-    const pageNumber = pagesInCategory[randomIndex]
-    if (pageNumber === undefined) return ''
-    return pageRoutes.value[pageNumber] || ''
+    randomizePages()
   }
 
 const moveToNextPage = (): string | null => {
     saveToLocalStorage()
 
-    const currentPage = selectedPages.value[0]
-
-    if (!currentPage) {
+    if (selectedPages.value.length === 0) {
       return null
     }
 
     selectedPages.value.shift()
 
-    return currentPage
+    return selectedPages.value[0] || null
   }
 
   const setPseudo = (newPseudo: string) => {
@@ -161,35 +172,9 @@ const moveToNextPage = (): string | null => {
   }
 
 const setVersion = (newVersion: '15' | '30' | '60') => {
-  version.value = newVersion
-  selectedPages.value = []
-
-  const randomCategories = ['visual', 'physical', 'hearing', 'cognitive']
-
-  if (newVersion === '30') {
-    for (const category of randomCategories) {
-      const page = pickRandomPageFromCategory(category)
-      if (page && !selectedPages.value.includes(page)) {
-        selectedPages.value.push(page)
-    }
+    version.value = newVersion
+    randomizePages()
   }
-  }
-  else if (newVersion === '60') {
-    for (const category of randomCategories) {
-        for (let i = 0; i < 2; i++) {
-        const page = pickRandomPageFromCategory(category)
-        if (page && !selectedPages.value.includes(page)) {
-          selectedPages.value.push(page)
-        }
-  else {
-        break
-      }
-  }
-}
-}
-
-  saveToLocalStorage()
-}
 
   const startTimer = () => {
     timerStartTime.value = Date.now()
@@ -240,8 +225,8 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
     loadFromLocalStorage,
     removeDeficiencyFromCategories,
     addDeficiencyToCategories,
+    randomizePages,
     resetAll,
-    pickRandomPageFromCategory,
     moveToNextPage,
     nextRandomPage,
     setPseudo,
