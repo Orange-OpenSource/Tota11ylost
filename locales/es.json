@@ -50,7 +50,6 @@
       "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
       "buttonStartAdventure": "Iniciar la aventura",
       "errorPseudoTooShort": "El apodo debe tener al menos 3 caracteres.",
-      "errorPseudoTooLong": "El apodo no debe superar los 20 caracteres.",
       "errorPseudoProfanity": "Este apodo contiene términos inapropiados. Por favor, elige otro."
   },
   "intro": {
