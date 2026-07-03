@@ -30,11 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
   myForm.addEventListener('submit', function () {
     event.preventDefault();
     const pseudo = document.getElementById('pseudo').value;
-    if (pseudo.length > 0) {
+    const errorContainer = document.getElementById('pseudoErrorContainer');
+
+    // Validate pseudo
+    const errorCode = validatePseudo(pseudo);
+    
+    if (errorCode) {
+      // Show error message and don't proceed
+      displayPseudoError(errorCode, errorContainer);
+      pseudoInput.focus();
+    } else {
+      // Clear any previous errors
+      displayPseudoError(null, errorContainer);
+      // Save and navigate
       setPseudo(pseudo);
       startAdventure();
-    } else {
-      console.error('empty username');
     }
   });
 });

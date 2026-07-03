@@ -48,7 +48,10 @@
     "pseudo": "Mon pseudo (obligatoire)",
     "placeholder_enterPseudo": "Indiquer mon pseudo",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
-    "buttonStartAdventure": "Démarrer l'aventure"
+    "buttonStartAdventure": "Démarrer l'aventure",
+    "errorPseudoTooShort": "Le pseudo doit contenir au moins 3 caractères.",
+    "errorPseudoTooLong": "Le pseudo ne doit pas dépasser 20 caractères.",
+    "errorPseudoProfanity": "Ce pseudo contient des termes inappropriés. Veuillez en choisir un autre."
   },
   "intro": {
     "tabTitle": "Introduction - Tota11y Lost",

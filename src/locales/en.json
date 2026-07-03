@@ -48,7 +48,10 @@
     "pseudo": "Your nickname (mandatory)",
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
-    "buttonStartAdventure": "Start the adventure"
+    "buttonStartAdventure": "Start the adventure",
+    "errorPseudoTooShort": "Nickname must be at least {min} characters.",
+    "errorPseudoTooLong": "Nickname must not exceed {max} characters.",
+    "errorPseudoProfanity": "This nickname contains inappropriate terms. Please choose another one."
   },
   "intro": {
     "tabTitle": "Introduction - Tota11y Lost",
