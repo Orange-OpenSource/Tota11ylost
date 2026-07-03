@@ -93,14 +93,16 @@ Software description: Experience in a playful way the challenges faced by people
     <form id="myForm">
       <div class="form-group col-9">
         <h4 class="mt-3" id="pseudoLabel" data-i18n="welcome.pseudo"></h4>
-        <input type="text" class="form-control" id="pseudo" aria-labelledby="pseudoLabel" required oninput="setCustomValidity('')"
-                 data-i18n="welcome.placeholder_enterPseudo;welcome.oninvalid_errorMessageEmptyPseudo">
+        <input type="text" class="form-control" id="pseudo" aria-labelledby="pseudoLabel" aria-describedby="pseudoErrorContainer"
+                 data-i18n="welcome.placeholder_enterPseudo"
+                 maxlength="20">
+        <div id="pseudoErrorContainer" class="d-none"></div>
       </div>
       <button type="submit" class="btn fs-3 p-2 btn-primary mt-4" id="start" data-i18n="welcome.buttonStartAdventure"></button>
     </form>
   </div>
   <div class="ms-5 col-4">
-    <img src="assets/img/Start.svg" alt="">
+    <img src="assets/img/Start.svg" alt="" role="presentation">
   </div>
 </main>
 
@@ -118,6 +120,7 @@ Software description: Experience in a playful way the challenges faced by people
   </div>
 </footer>
 <script src="assets/js/timer/timer.js"></script>
+<script src="assets/js/pseudoValidation.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/welcome.js"></script>
 </body>
