@@ -3,7 +3,10 @@
 <script setup lang="ts">
 definePageMeta({ title: 'welcome.tabTitle' })
 
-const router = useRouter()
+onMounted(() => {
+  gameStore.setVersion('60')
+})
+const { goToNextPage } = useNextPage()
 const gameStore = useGameStore()
 
 const pseudo = ref('')
@@ -17,7 +20,6 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
 }
 </script>
 
@@ -89,6 +91,8 @@ function startAdventure() {
           </div>
         </fieldset>
 
+        <DeficiencyFilter />
+
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
             <h4 id="pseudoLabel" class="mt-small">
@@ -104,9 +108,9 @@ function startAdventure() {
               @input="pseudoError = false"
             >
             <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
-              <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
-                Error
-              </p>
+              <span class="alert-icon" aria-hidden="true">
+                <p class="visually-hidden">Error</p>
+              </span>
               <div class="alert-container">
                 <div class="alert-text-container">
                   <p class="alert-label">
@@ -116,7 +120,7 @@ function startAdventure() {
               </div>
             </div>
           </div>
-          <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
+          <button type="submit" class="btn fs-hs p-small btn-brand mt-large" @click.prevent="goToNextPage">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>

@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'hearing.tabTitle' })
 
 const { t, locale, te } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
 const answer = ref('')
 const showError = ref(false)
@@ -41,7 +41,7 @@ function validate() {
   }
 
   if (responses.some(resp => isFuzzyMatch(userAnswer, resp))) {
-    router.push('/hearing-simulation')
+    goToNextPage()
   }
   else {
     showError.value = true

@@ -4,7 +4,7 @@
 definePageMeta({ layout: 'without-footer', title: 'cognitive.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 const dyslexia = useDyslexia('.dyslexia', 500)
 
 interface DyslexiaLink {
@@ -33,7 +33,7 @@ function navigate(link: DyslexiaLink) {
     window.location.reload()
   }
   else {
-    router.push(link.href)
+    goToNextPage()
   }
 }
 
