@@ -380,7 +380,7 @@ function displayPseudoError(errorCode, errorContainer) {
   if (errorCode) {
     const errorMessage = getPseudoErrorMessage(errorCode);
     errorContainer.innerHTML = `
-      <div class="alert alert-danger alert-sm mt-2" role="alert">
+      <div class="alert alert-danger mt-3" role="alert">
         <span class="alert-icon"><span class="visually-hidden">Error</span></span>
         <p data-i18n="${errorMessage}"></p>
       </div>
