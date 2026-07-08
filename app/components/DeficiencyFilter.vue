@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import { useGameStore } from '../stores/gameStore'
 
 const gameStore = useGameStore()
+const { t } = useI18n({ useScope: 'global' })
 
 onMounted(() => {
   gameStore.loadFromLocalStorage()

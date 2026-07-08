@@ -37,6 +37,9 @@ function startAdventure() {
     <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
       <div class="col-8  ">
         <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
+          <p class="text-brand-primary p-small fs-hl">
+            {{ $t('welcome.accessibility') }}
+          </p>
           <h2 class="mb-3xlarge">
             {{ $t('welcome.intro') }}
           </h2>
@@ -44,40 +47,57 @@ function startAdventure() {
             {{ $t('welcome.rules') }}
           </p>
 
-          <div class="form-group col-9">
-            <h4 id="pseudoLabel" class="mt-small">
-              {{ $t('welcome.pseudo') }}
-            </h4>
-            <input
-              v-model="pseudo"
-              type="text"
-              class="form-control p-medium"
-              aria-labelledby="pseudoLabel"
-              required
-              :placeholder="$t('welcome.placeholder_enterPseudo')"
-              style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px;"
-              @input="pseudoError = false"
-            >
-            <p class="col-9 mb-large">
-              {{ $t('welcome.pseudo_alert') }}
-            </p>
-            <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
-              <span class="alert-icon" aria-hidden="true">
-                <p class="visually-hidden">Error</p>
-              </span>
-              <div class="alert-container">
-                <div class="alert-text-container">
-                  <p class="alert-label">
-                    {{ $t('welcome.errorMessage') }}
-                  </p>
-                </div>
+          <h4 id="aventureLabel" class="mt-small">
+            {{ $t('welcome.aventure') }}
+          </h4>
+          <div class="text-input">
+            <div class="text-input-container text-input-container-outlined">
+              <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
+              <input
+                id="exampleTextInputOutlined"
+                v-model="pseudo"
+                type="text"
+                class="text-input-field"
+                aria-labelledby="pseudoLabel"
+                required
+                placeholder=""
+                style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px;"
+                @input="pseudoError = false"
+              >
+            </div>
+          </div>
+          <p class="col-9 mb-large">
+            {{ $t('welcome.pseudo_alert') }}
+          </p>
+          <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
+            <span class="alert-icon" aria-hidden="true">
+              <p class="visually-hidden">
+                Error
+              </p>
+            </span>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p class="alert-label">
+                  {{ $t('welcome.errorMessage') }}
+                </p>
               </div>
             </div>
           </div>
           <h4>{{ $t('welcome.adventureType') }}</h4>
-          <select class="form-select p-medium " style="background-color: var(--bs-body-bg);border: 2px solid #d3d3d3; border-radius: 0; width: 555px;">
-            <option v-html="$t('welcome.escapeGame')" />
-          </select>
+
+          <div class="select-input mb-medium">
+            <div class="select-input-container">
+              <label style="color: black;" for="exampleDisabledSelect">{{ $t('welcome.escapeGame') }}</label>
+              <select
+                id="exampleDisabledSelect"
+                style="background-color: white; border: 2px solid #d3d3d3;"
+                disabled
+                class="select-input-field"
+              >
+                <option value="" disabled selected />
+              </select>
+            </div>
+          </div>
 
           <fieldset class="control-items-list mt-medium">
             <legend>{{ $t('welcome.duration') }}</legend>
@@ -132,7 +152,16 @@ function startAdventure() {
               </div>
             </div>
           </fieldset>
-
+          <div class="alert alert-message alert-info">
+            <div class="alert-icon" />
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p class="alert-label">
+                  Veuiller indiquer si vous avez une ou plusieurs déficiences pour que nous puissions adapter l'expérience. Cette information ne sera pas relier à votre pseudo.
+                </p>
+              </div>
+            </div>
+          </div>
           <DeficiencyFilter />
 
           <button type="submit" class="btn fs-hs p-small btn-brand mt-large">

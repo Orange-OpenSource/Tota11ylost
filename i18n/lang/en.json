@@ -14,6 +14,13 @@
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
   },
+  "deficiencyFilter": {
+    "title": "Filter your deficiency:",
+    "visual": "Visual",
+    "physical": "Motor",
+    "hearing": "Hearing",
+    "cognitive": "Cognitive"
+  },
   "common": {
     "lang_lang": "en",
     "banner": {
@@ -74,9 +81,10 @@
       "label": "60 min",
       "title_60": "The classic version of the escape game on ten pages"
     },
-    "pseudo": "Your nickname (mandatory)",
+    "aventure": "Your adventure",
     "placeholder_enterPseudo": "Enter your nickname",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
+    "accessibility": "Accessibility in action",
     "buttonStartAdventure": "Start the adventure"
   },
   "intro": {
