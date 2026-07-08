@@ -83,6 +83,8 @@
     },
     "aventure": "Your adventure",
     "placeholder_enterPseudo": "Enter your nickname",
+    "pseudo_alert": "This nickname will be publicly displayed on the scoreboard.",
+    "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt the experience. This information will not be linked to your nickname.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "accessibility": "Accessibility in action",
     "buttonStartAdventure": "Start the adventure"
