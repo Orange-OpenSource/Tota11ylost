@@ -85,6 +85,7 @@
     "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
+    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
     "accessibility": "L'accessibilité en action",
     "buttonStartAdventure": "Démarrer l'aventure"
   },

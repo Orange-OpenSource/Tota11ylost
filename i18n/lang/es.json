@@ -83,6 +83,8 @@
     },
     "aventure": "Tu aventura",
     "placeholder_enterPseudo": "Indique tu apodo",
+    "pseudo_alert": "Este apodo se mostrará públicamente en la tabla de puntuaciones.",
+    "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
     "accessibility": "L'accessibilitat en acció",
     "buttonStartAdventure": "Iniciar la aventura"

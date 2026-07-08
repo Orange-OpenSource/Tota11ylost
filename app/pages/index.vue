@@ -148,12 +148,12 @@ function startAdventure() {
               </div>
             </div>
           </fieldset>
-          <div class="alert alert-message alert-info">
+          <div class="alert alert-message alert-info mb-medium">
             <div class="alert-icon" />
             <div class="alert-container">
               <div class="alert-text-container">
                 <p class="alert-label">
-                  Veuiller indiquer si vous avez une ou plusieurs déficiences pour que nous puissions adapter l'expérience. Cette information ne sera pas relier à votre pseudo.
+                  {{ $t('welcome.deficiencyInfo') }}
                 </p>
               </div>
             </div>
