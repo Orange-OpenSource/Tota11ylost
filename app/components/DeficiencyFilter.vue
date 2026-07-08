@@ -1,18 +1,20 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
 import { useGameStore } from '../stores/gameStore'
 
 const gameStore = useGameStore()
+const { t } = useI18n({ useScope: 'global' })
 
 onMounted(() => {
   gameStore.loadFromLocalStorage()
 })
 
-const deficiencies = [
-  { id: 'visual', label: 'visuel' },
-  { id: 'physical', label: 'moteur' },
-  { id: 'hearing', label: 'auditif' },
-  { id: 'cognitive', label: 'Cognitive' },
-]
+const deficiencies = computed(() => [
+  { id: 'visual', label: t('deficiencyFilter.visual') },
+  { id: 'physical', label: t('deficiencyFilter.physical') },
+  { id: 'hearing', label: t('deficiencyFilter.hearing') },
+  { id: 'cognitive', label: t('deficiencyFilter.cognitive') },
+])
 
 const handleDeficiencyChange = (deficiency: string, event: Event) => {
   const isChecked = (event.target as HTMLInputElement).checked
@@ -29,7 +31,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
 <template>
   <div role="group" aria-labelledby="filtersHeader">
     <h4 id="filtersHeader">
-      Filtrer votre deficience :
+      {{ t('deficiencyFilter.title') }}
     </h4>
     <ul class="chips-container">
       <li v-for="def in deficiencies" :key="def.id" class="chip chip-filter">

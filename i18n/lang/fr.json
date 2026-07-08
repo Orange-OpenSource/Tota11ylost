@@ -14,6 +14,13 @@
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
   },
+  "deficiencyFilter": {
+    "title": "Filtrer votre déficience :",
+    "visual": "Visuel",
+    "physical": "Moteur",
+    "hearing": "Auditif",
+    "cognitive": "Cognitif"
+  },
   "common": {
     "lang_lang": "fr",
     "banner": {
@@ -74,10 +81,11 @@
       "label": "60 min",
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
-    "pseudo": "Votre aventure",
+    "aventure": "Aventure",
     "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
+    "accessibility": "L'accessibilité en action",
     "buttonStartAdventure": "Démarrer l'aventure"
   },
   "intro": {

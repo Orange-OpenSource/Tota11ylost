@@ -14,6 +14,13 @@
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
   },
+  "deficiencyFilter": {
+    "title": "Filtrar su discapacidad:",
+    "visual": "Visual",
+    "physical": "Motora",
+    "hearing": "Auditiva",
+    "cognitive": "Cognitiva"
+  },
   "common": {
     "lang_lang": "es",
     "banner": {
@@ -74,9 +81,10 @@
       "label": "60 min",
       "title_60": "La versión clásica del juego de escape en diez páginas"
     },
-    "pseudo": "Tu apodo (obligatorio)",
+    "aventure": "Tu aventura",
     "placeholder_enterPseudo": "Indique tu apodo",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
+    "accessibility": "L'accessibilitat en acció",
     "buttonStartAdventure": "Iniciar la aventura"
   },
   "intro": {
