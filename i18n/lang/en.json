@@ -114,8 +114,8 @@
     "rule2": "Be careful, if you make a mistake you will have to start all over again!",
     "errorMessage": "Oops, wrong color! You must follow the instructions, come on!!...",
     "buttonsLabel": "Button",
-    "blueButton" :"Button blue",
-    "purpleButton": "Button purple",  
+    "blueButton": "Button blue",
+    "purpleButton": "Button purple",
     "greenButton": "Button green",
     "redButton": "Button red"
   },
@@ -445,5 +445,11 @@
     "todayTitle": "Best scores of the day",
     "generalTitle": "General ranking",
     "alt_congratulationImage": "You have finished the {version} minutes escape game"
+  },
+  "filter": {
+    "deficiencyVisual": "visual",
+    "deficiencyPhysical": "physical",
+    "deficiencyHearing": "hearing",
+    "deficiencyCognitive": "cognitive"
   }
 }

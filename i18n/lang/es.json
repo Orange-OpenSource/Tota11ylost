@@ -113,9 +113,9 @@
     "rule2": "¡Atención, en caso de error tendrás que empezar de nuevo!",
     "errorMessage": "¡Ups, color incorrecto! ¡Debes seguir las instrucciones!",
     "buttonsLabel": "Botón",
-    "blueButton":"Botón azul",
-    "purpleButton": "Botón violeta",  
-    "greenButton":"Botón verde",
+    "blueButton": "Botón azul",
+    "purpleButton": "Botón violeta",
+    "greenButton": "Botón verde",
     "redButton": "Botón rojo"
   },
   "visualSimu": {
@@ -447,5 +447,11 @@
     "todayTitle": "Mejores tiempos del día",
     "generalTitle": "Clasificación general",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
+  },
+  "filter": {
+    "deficiencyVisual": "visual",
+    "deficiencyPhysical": "físico",
+    "deficiencyHearing": "auditivo",
+    "deficiencyCognitive": "cognitivo"
   }
 }
