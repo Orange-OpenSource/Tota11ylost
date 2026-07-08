@@ -122,9 +122,19 @@ onMounted(loadScores)
                   {{ formatTimeA11y(finalElapsed) }}
                 </li>
               </ul>
-              <p class="fw-bold mt-medium fs-bl alert-label" v-html="$t('scores.toKnowMore')" />
 
-              <a href="./" class="btn ">Nouvelle aventure</a>
+              <div class="alert alert-message alert-info">
+                <div class="alert-icon" />
+                <div class="alert-container">
+                  <div class="alert-text-container">
+                    <p class="alert-label">
+                      {{ $t('scores.toKnowMore') }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="./" class="btn btn-default">Nouvelle aventure</a>
             </div>
 
             <!-- Score tables -->
