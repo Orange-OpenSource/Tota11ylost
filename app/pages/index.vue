@@ -4,7 +4,6 @@
 definePageMeta({ title: 'welcome.tabTitle' })
 
 const gameStore = useGameStore()
-const router = useRouter()
 
 onMounted(() => {
   gameStore.setVersion('60')
@@ -19,9 +18,7 @@ function startAdventure() {
     return
   }
   gameStore.setPseudo(pseudo.value.trim())
-  gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
 }
 </script>
 
@@ -33,9 +30,9 @@ function startAdventure() {
     <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
       <div class="col-8  ">
         <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
-          <p class="text-brand-primary p-small fs-hl">
+          <h1 style="font-size: 22px;" class="text-brand-primary p-small fs-hl">
             {{ $t('welcome.accessibility') }}
-          </p>
+          </h1>
           <h2 class="mb-3xlarge">
             {{ $t('welcome.intro') }}
           </h2>
@@ -46,7 +43,7 @@ function startAdventure() {
           <h4 id="aventureLabel" class="mt-small">
             {{ $t('welcome.aventure') }}
           </h4>
-          <div class="text-input">
+          <div class="text-input w-75">
             <div class="text-input-container text-input-container-outlined">
               <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
               <input
@@ -81,14 +78,14 @@ function startAdventure() {
           </div>
           <h4>{{ $t('welcome.adventureType') }}</h4>
 
-          <div class="select-input mb-medium">
+          <div class="select-input mb-medium w-75">
             <div class="select-input-container">
               <label style="color: black;" for="exampleDisabledSelect">{{ $t('welcome.escapeGame') }}</label>
               <select
                 id="exampleDisabledSelect"
                 style="background-color: white; border: 2px solid #d3d3d3;"
                 disabled
-                class="select-input-field"
+                class="select-input-field w-70"
               >
                 <option value="" disabled selected />
               </select>
