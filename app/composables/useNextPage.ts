@@ -7,9 +7,8 @@ export const useNextPage = () => {
         if (nextPage) {
             await router.push(nextPage)
         }
- else {
+else {
             gameStore.resetAll()
-            alert('Bravo ! Tu as fini toutes les pages!')
             await router.push('./scores')
         }
     }
