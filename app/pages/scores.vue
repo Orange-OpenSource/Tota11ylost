@@ -17,6 +17,13 @@ const todayScores = ref<ScoreEntry[]>([])
 const generalScores = ref<ScoreEntry[]>([])
 const pseudo = computed(() => gameStore.pseudo)
 const version = computed(() => gameStore.version)
+const categoriesRestantes = computed(() => gameStore.categoriesRestantes)
+
+// Catégories sélectionnées (inverse des restantes)
+const selectedCategories = computed(() => {
+  const allCategories = ['visual', 'physical', 'hearing', 'cognitive']
+  return allCategories.filter(cat => !categoriesRestantes.value.includes(cat))
+})
 
 // Visual format: "05min 30s" — aria-hidden, abbreviations from i18n (with EN plurals)
 function formatTime(ms: number): string {
@@ -105,10 +112,10 @@ onMounted(loadScores)
 
       <main class="d-flex flex-row m-medium ms-large flex-grow-1">
         <div class="col-8">
-          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary">
-            <div class="col-6 w-75">
-              <h2 class="display-3 mb-large fs-hxl" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
-              <p class="fs-bl fw-bold text-muted">
+          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85">
+            <div class="col-6 w-100">
+              <h2 class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
+              <p class="fs-bl fw-bold text-muted w-100">
                 {{ $t('scores.finalTime') }}
               </p>
               <ul class="align-items-center fs-hs fw-bold">
@@ -121,15 +128,24 @@ onMounted(loadScores)
                 <li class="visually-hidden">
                   {{ formatTimeA11y(finalElapsed) }}
                 </li>
+                <li aria-hidden="true" class="">
+                  <p>{{ $t('scores.defeciencyList') }}  {{ selectedCategories.join(' et ') }}</p>
+                </li>
               </ul>
 
-              <div class="alert alert-message alert-info">
+              <div class="alert alert-message alert-info " style="margin-right: 20px; margin-bottom: 20px;">
                 <div class="alert-icon" />
                 <div class="alert-container">
                   <div class="alert-text-container">
                     <p class="alert-label">
                       {{ $t('scores.toKnowMore') }}
                     </p>
+                    <a
+                      :href="$t('scores.link')"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="alert-link"
+                    >{{ $t('scores.nameLink') }}</a>
                   </div>
                 </div>
               </div>
