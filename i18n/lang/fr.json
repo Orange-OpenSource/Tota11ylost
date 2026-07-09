@@ -445,6 +445,8 @@
   "scores": {
     "tabTitle": "Tableau des scores",
     "content_description": "Tableau des scores",
+    "nameLink": "Accéder au site",
+    "link": "https://a11y-guidelines.orange.com/fr/web/checklist-incontournables/",
     "congratulations": " Bravo <strong>{ pseudo }</strong>, vous venez de terminer votre aventure en <span>{ finalTimeDisplay}</span> !",
     "finalTime": "Voici un rappel de votre aventure :",
     "toKnowMore": "Pour en apprendre plus sur l'accessibilité numérique,rendez-vous sur notre site de recommandations.",
