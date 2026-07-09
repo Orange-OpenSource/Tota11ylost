@@ -106,7 +106,7 @@ onMounted(loadScores)
       <main class="d-flex flex-row m-medium ms-large flex-grow-1">
         <div class="col-8">
           <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary">
-            <div class="col-6">
+            <div class="col-6 w-75">
               <h2 class="display-3 mb-large fs-hxl" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
               <p class="fs-bl fw-bold text-muted">
                 {{ $t('scores.finalTime') }}
@@ -138,9 +138,12 @@ onMounted(loadScores)
             </div>
 
             <!-- Score tables -->
-            <div class="d-flex fw-bold flex-row">
+            <h3 class=" my-medium fs-hs fw-bold">
+              {{ $t('scores.tabTitle') }}
+            </h3>
+            <div class="d-flex gap-medium ">
               <!-- Today -->
-              <div class="border col-5 m-medium">
+              <div class="border col-6 w-75">
                 <p class="text-center my-medium fs-hs">
                   {{ $t('scores.todayTitle') }}
                 </p>
@@ -179,7 +182,7 @@ onMounted(loadScores)
               </div>
 
               <!-- General -->
-              <div class="border col-5 m-medium">
+              <div class="border col-6  w-75">
                 <p class="text-center my-medium fs-hs">
                   {{ $t('scores.generalTitle') }}
                 </p>
