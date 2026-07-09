@@ -443,11 +443,11 @@
     ]
   },
   "scores": {
-    "tabTitle": "Tableau des scores - Tota11y Lost",
+    "tabTitle": "Tableau des scores",
     "content_description": "Tableau des scores",
     "congratulations": " Bravo <strong>{ pseudo }</strong>, vous venez de terminer votre aventure en <span>{ finalTimeDisplay}</span> !",
     "finalTime": "Voici un rappel de votre aventure :",
-    "toKnowMore": "Pour en apprendre plus sur l'accessibilité numérique,rendez-vous sur notre site de recommandations. <a href='https://a11y-guidelines.orange.com/fr/'>Accéder au site</a>.",
+    "toKnowMore": "Pour en apprendre plus sur l'accessibilité numérique,rendez-vous sur notre site de recommandations.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
