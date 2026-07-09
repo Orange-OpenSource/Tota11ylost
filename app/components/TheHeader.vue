@@ -20,7 +20,7 @@ const route = useRoute()
           </h1>
         </div>
         <!-- Timer Display -->
-        <div v-if="route.name !== 'index'" class="flex-shrink-0">
+        <div v-if="route.name !== 'index' && route.name !== 'scores'" class="flex-shrink-0">
           <GameTimer />
         </div>
       </div>
