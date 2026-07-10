@@ -61,16 +61,6 @@ const finalElapsed = computed(() => {
 
 const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 
-// Trophy image per position
-function trophySrc(position: number): string | null {
-  switch (position) {
-  case 1: return '/game-assets/rank_gold.svg'
-  case 2: return '/game-assets/rank_silver.svg'
-  case 3: return '/game-assets/rank_bronze.svg'
-  default: return null
-  }
-}
-
 function isCurrent(entry: ScoreEntry): boolean {
   return entry.pseudo === pseudo.value
 }
@@ -114,7 +104,7 @@ onMounted(loadScores)
         <div class="col-8">
           <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85">
             <div class="col-6 w-100">
-              <h4 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
+              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
               <p class="fs-bl fw-bold text-muted w-100">
                 {{ $t('scores.finalTime') }}
               </p>
@@ -171,9 +161,6 @@ onMounted(loadScores)
                         :key="`today-${index}`"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
-                          {{ index + 1 }}
-                        </td>
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
                           <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                             {{ entry.pseudo }}
@@ -183,13 +170,9 @@ onMounted(loadScores)
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" aria-hidden="true">
-                          <img
-                            v-if="trophySrc(index + 1)"
-                            :src="trophySrc(index + 1) || ''"
-                            alt=""
-                            class="trophy-img"
-                          >
+                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                          <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
+                          <span v-else>{{ index + 1 }}</span>
                         </td>
                       </tr>
                     </tbody>
@@ -210,9 +193,6 @@ onMounted(loadScores)
                         :key="`general-${index}`"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
-                          {{ index + 1 }}
-                        </td>
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
                           <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
                             {{ entry.pseudo }}
@@ -222,13 +202,9 @@ onMounted(loadScores)
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" aria-hidden="true">
-                          <img
-                            v-if="trophySrc(index + 1)"
-                            :src="trophySrc(index + 1) || ''"
-                            alt=""
-                            class="trophy-img"
-                          >
+                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                          <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
+                          <span v-else>{{ index + 1 }}</span>
                         </td>
                       </tr>
                     </tbody>
