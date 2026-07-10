@@ -39,9 +39,9 @@ function startAdventure() {
     <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
       <div class="col-8  ">
         <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
-          <h1 style="font-size: 22px; margin-left: -10px;" class="text-brand-primary p-small ">
+          <h2 style="font-size: 22px; margin-left: -10px;" class="text-brand-primary p-small ">
             {{ $t('welcome.accessibility') }}
-          </h1>
+          </h2>
           <h2 class="mb-3xlarge">
             {{ $t('welcome.intro') }}
           </h2>
