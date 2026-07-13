@@ -3,16 +3,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'intro.tabTitle' })
 
-const gameStore = useGameStore()
-const router = useRouter()
+const { goToNextPage } = useNextPage()
 
 const linkVisible = ref(false)
-
-// Determine link target based on version
-const nextPageLink = computed(() => {
-  if (gameStore.is30Version) return '/form-registration'
-  return '/visual'
-})
 
 function onHint(index: number) {
   if (index === 3) {
@@ -21,7 +14,7 @@ function onHint(index: number) {
 }
 
 function navigateViaLink() {
-  router.push(nextPageLink.value)
+  goToNextPage()
 }
 </script>
 

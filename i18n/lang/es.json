@@ -449,6 +449,7 @@
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
   "filter": {
+    "title": "Filtra tu deficiencia:",
     "deficiencyVisual": "visual",
     "deficiencyPhysical": "físico",
     "deficiencyHearing": "auditivo",
