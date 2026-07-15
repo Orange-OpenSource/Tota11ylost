@@ -101,42 +101,63 @@ jobs:
 
           echo "GitLab credentials are configured."
           
-      - name: Diagnose GitLab token
+      - name: Diagnose GitLab access
         env:
           GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
         run: |
           set -eu
 
-          RESPONSE_FILE="/tmp/gitlab-project-response.json"
+          RESPONSE_FILE="/tmp/gitlab-response"
+          HEADERS_FILE="/tmp/gitlab-headers"
 
           HTTP_STATUS="$(
             curl \
               --silent \
               --show-error \
+              --dump-header "${HEADERS_FILE}" \
               --output "${RESPONSE_FILE}" \
               --write-out "%{http_code}" \
               --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
               "https://gitlab.tech.orange/api/v4/projects/574357"
           )"
 
-          echo "GitLab API status: ${HTTP_STATUS}"
+          echo "GitLab HTTP status: ${HTTP_STATUS}"
+          echo "Response Content-Type:"
+          grep -i '^content-type:' "${HEADERS_FILE}" || true
 
-          node -e "
-            const fs = require('fs');
-            const body = JSON.parse(fs.readFileSync('${RESPONSE_FILE}', 'utf8'));
+          CONTENT_TYPE="$(
+            grep -i '^content-type:' "${HEADERS_FILE}" \
+              | tail -n 1 \
+              | tr -d '\r' \
+              || true
+          )"
 
-            console.log('GitLab response:', {
-              message: body.message || null,
-              projectId: body.id || null,
-              projectPath: body.path_with_namespace || null
-            });
-          "
+          if printf '%s' "${CONTENT_TYPE}" | grep -qi 'application/json'; then
+            node -e "
+              const fs = require('fs');
+              const body = JSON.parse(
+                fs.readFileSync('${RESPONSE_FILE}', 'utf8')
+              );
 
-          if [ "${HTTP_STATUS}" != "200" ]; then
-            echo "::error::GitLab token cannot access project 574357."
-            exit 1
+              console.log({
+                message: body.message || null,
+                projectId: body.id || null,
+                projectPath: body.path_with_namespace || null
+              });
+            "
+          else
+            echo "Non-JSON response received."
+            grep -io '<title>[^<]*' "${RESPONSE_FILE}" \
+              | head -n 1 \
+              | sed 's/<title>//i' \
+              || true
           fi
 
+          if [ "${HTTP_STATUS}" != "200" ]; then
+            echo "::error::GitLab is not accessible from this GitHub runner."
+            exit 1
+          fi
+          
       - name: Clone tota11y-scan from GitLab
         env:
           GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
