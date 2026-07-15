@@ -3,8 +3,11 @@
 <script setup lang="ts">
 definePageMeta({ title: 'welcome.tabTitle' })
 
-const router = useRouter()
+onMounted(() => {
+  gameStore.setVersion('60')
+})
 const gameStore = useGameStore()
+const router = useRouter()
 
 const pseudo = ref('')
 const pseudoError = ref(false)
@@ -17,7 +20,12 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
-  router.push('/introduction')
+
+  // index is not in selectedPages, so navigate to the first page without shifting
+  const firstPage = gameStore.selectedPages[0]
+  if (firstPage) {
+    router.push(firstPage)
+  }
 }
 </script>
 
@@ -89,6 +97,8 @@ function startAdventure() {
           </div>
         </fieldset>
 
+        <DeficiencyFilter />
+
         <form @submit.prevent="startAdventure">
           <div class="form-group col-9">
             <h4 id="pseudoLabel" class="mt-small">
@@ -104,9 +114,9 @@ function startAdventure() {
               @input="pseudoError = false"
             >
             <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
-              <span class="alert-icon" aria-hidden="true" /><p class="visually-hidden">
-                Error
-              </p>
+              <span class="alert-icon" aria-hidden="true">
+                <p class="visually-hidden">Error</p>
+              </span>
               <div class="alert-container">
                 <div class="alert-text-container">
                   <p class="alert-label">

@@ -47,6 +47,7 @@
     "*.{js,ts,vue,json,md,yml}": "eslint --cache --fix"
   },
   "dependencies": {
-    "firebase": "^12.14.0"
+    "firebase": "^12.14.0",
+    "pinia": "^3.0.4"
   }
 }

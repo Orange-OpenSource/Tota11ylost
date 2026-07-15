@@ -4,8 +4,8 @@
 definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
 const { t } = useI18n()
-const router = useRouter()
-const dyslexia = useDyslexia('main li', 2000)
+const { goToNextPage } = useNextPage()
+const dyslexia = useDyslexia('li', 2000)
 
 const first = ref('')
 const second = ref('')
@@ -20,13 +20,15 @@ const defaultImage: ImageItem = { url: '/game-assets/cognitive/A11yce.jpg' }
 
 const images = computed(() => [
   { url: '/game-assets/cognitive/A11yce.jpg', text: t('cognitiveSimu.img_alice'), color: 'yellow', size: '50px', top: '290px', opacity: true },
-  { url: '/game-assets/cognitive/calc.png' },
-  { url: '/game-assets/cognitive/game-master.jpg' },
-  { url: '/game-assets/cognitive/grinch-3.png' },
+  { url: '/game-assets/cognitive/calc.png', text: 'trop smart', color: 'blue', size: '20px' },
+  { url: '/game-assets/cognitive/game-master.jpg', text: 'HAHAH', color: 'red', size: '100px' },
+  { url: '/game-assets/cognitive/grinch-3.png', text: 'Bouh noel...', color: 'red', size: '50px' },
   { url: '/game-assets/cognitive/hungry.jpg', text: t('cognitiveSimu.img_hungry'), color: 'red', size: '100px' },
   { url: '/game-assets/cognitive/monkey.jpg', text: t('cognitiveSimu.img_monkey'), color: 'blue', size: '80px', top: '100px' },
-  { url: '/game-assets/cognitive/nyan-cat.png' },
-  { url: '/game-assets/cognitive/woof.png' },
+  { url: '/game-assets/cognitive/nyan-cat.png', text: 'Miaou Miaouuuuuu', color: 'green', size: '100px' },
+  { url: '/game-assets/cognitive/hungry.jpg', text: 'Miam...', color: 'green', size: '100px' },
+  { url: '/game-assets/cognitive/monkey.jpg', text: 'youpi !!!', color: 'orange', size: '180px', top: '100px' },
+  { url: '/game-assets/cognitive/woof.png', text: 'Wouf Wouf', color: 'green', size: '100px' },
 ])
 
 const currentImage = ref<ImageItem>(defaultImage)
@@ -62,7 +64,7 @@ function validate() {
     && isFuzzyMatch(second.value.toLowerCase(), response2)
     && isFuzzyMatch(third.value.toLowerCase(), response3)
   ) {
-    router.push('/physical')
+    goToNextPage()
   }
   else {
     showError.value = true
