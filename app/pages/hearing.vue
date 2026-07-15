@@ -36,7 +36,7 @@ function validate() {
   const userAnswer = answer.value.toLowerCase()
 
   const responses: string[] = []
-  for (let i = 0; t(`hearing.possibleResponses.${i}`); i++) {
+  for (let i = 0; te(`hearing.possibleResponses.${i}`); i++) {
     responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
