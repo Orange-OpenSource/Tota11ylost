@@ -77,29 +77,29 @@ jobs:
       A11Y_TARGET: "web"
 
     steps:
-      - name: Download tota11y-scan from GitLab
+      - name: Clone tota11y-scan from GitLab
         env:
+          GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
           GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+          SCANNER_REF: "main"
         run: |
           set -eu
 
-          mkdir .tota11y-scan
+          printf '%s\n' \
+            "machine gitlab.tech.orange" \
+            "login ${GITLAB_USERNAME}" \
+            "password ${GITLAB_TOKEN}" \
+            > "${HOME}/.netrc"
 
-          curl \
-            --fail \
-            --silent \
-            --show-error \
-            --location \
-            --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
-            "https://gitlab.tech.orange/api/v4/projects/574357/repository/archive.tar.gz?sha=v1.0.46" \
-            --output tota11y-scan.tar.gz
+          chmod 600 "${HOME}/.netrc"
 
-          tar \
-            --extract \
-            --gzip \
-            --file tota11y-scan.tar.gz \
-            --directory .tota11y-scan \
-            --strip-components=1
+          git clone \
+            --depth 1 \
+            --branch "${SCANNER_REF}" \
+            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
+            .tota11y-scan
+
+          rm -f "${HOME}/.netrc"
 
       - name: Configure private npm registry
         working-directory: .tota11y-scan
