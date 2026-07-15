@@ -33,3 +33,47 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./src
           cname: tota11ylost.orange.com
+
+  wait_for_deployment:
+      name: Wait for deployed website
+      needs: build_and_deploy
+      runs-on: ubuntu-latest
+  
+      steps:
+        - name: Wait for GitHub Pages
+          run: |
+            set -eu
+  
+            for attempt in $(seq 1 30); do
+              if curl \
+                --fail \
+                --silent \
+                --show-error \
+                --output /dev/null \
+                "https://tota11ylost.orange.com"; then
+                echo "Website is reachable."
+                exit 0
+              fi
+  
+              echo "Website not ready yet: attempt ${attempt}/30"
+              sleep 10
+            done
+  
+            echo "Website did not become reachable before timeout."
+            exit 1
+  
+    accessibility:
+      name: Accessibility scan
+      needs: wait_for_deployment
+      uses: Orange-OpenSource/tota11y-scan/.github/workflows/tota11y-scan-reusable.yml@v1.0.46
+      with:
+        scanner_repository: "Orange-OpenSource/tota11y-scan"
+        scanner_ref: "v1.0.46"
+        engine_package_version: "1.0.45"
+        test_type: "essentials"
+        target: "web"
+        urls: "https://tota11ylost.orange.com"
+        allow_failure: true
+        artifact_retention_days: 30
+      secrets:
+        npm_token: ${{ secrets.TOTA11Y_NPM_TOKEN }}
