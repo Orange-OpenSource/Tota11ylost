@@ -78,6 +78,23 @@ jobs:
 
     steps:
       - name: Clone tota11y-scan from GitLab
+          if [ -z "${GITLAB_USERNAME:-}" ]; then
+            echo "TOTA11Y_GITLAB_USERNAME is missing"
+            exit 1
+          fi
+          
+          if [ -z "${GITLAB_TOKEN:-}" ]; then
+            echo "TOTA11Y_GITLAB_TOKEN is missing"
+            exit 1
+          fi
+          
+          echo "GitLab username is configured."
+          echo "GitLab token is configured."
+          echo "Testing repository access..."
+          
+          git ls-remote \
+            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
+            HEAD
         env:
           GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
           GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
