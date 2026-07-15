@@ -230,6 +230,8 @@ onMounted(loadScores)
 }
 
 .current {
+
+  border: 2px solid var(--bs-primary, #ff7900);
   color: #fff;
 }
 
