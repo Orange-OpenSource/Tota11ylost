@@ -78,3 +78,109 @@ jobs:
 
     container:
       image: mcr.microsoft.com/playwright:v1.60.0-noble
+
+    env:
+      A11Y_URLS: "https://tota11ylost.orange.com"
+      A11Y_TEST_TYPE: "essentials"
+      A11Y_TARGET: "web"
+      A11Y_FETCH_PAST_RUNS: "0"
+      PLAYWRIGHT_BROWSERS_PATH: "/ms-playwright"
+
+    steps:
+      - name: Validate GitLab secrets
+        env:
+          GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
+          if [ -z "${GITLAB_USERNAME:-}" ]; then
+            echo "::error::TOTA11Y_GITLAB_USERNAME is missing."
+            exit 1
+          fi
+
+          if [ -z "${GITLAB_TOKEN:-}" ]; then
+            echo "::error::TOTA11Y_GITLAB_TOKEN is missing."
+            exit 1
+          fi
+
+          echo "GitLab credentials are configured."
+
+      - name: Clone tota11y-scan from GitLab
+        env:
+          GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+          SCANNER_REF: "main"
+        run: |
+          set -eu
+
+          NETRC_FILE="${HOME}/.netrc"
+          trap 'rm -f "${NETRC_FILE}"' EXIT
+
+          printf '%s\n' \
+            "machine gitlab.tech.orange" \
+            "login ${GITLAB_USERNAME}" \
+            "password ${GITLAB_TOKEN}" \
+            > "${NETRC_FILE}"
+
+          chmod 600 "${NETRC_FILE}"
+
+          git ls-remote \
+            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
+            HEAD
+
+          git clone \
+            --depth 1 \
+            --branch "${SCANNER_REF}" \
+            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
+            .tota11y-scan
+
+      - name: Configure private npm registry
+        working-directory: .tota11y-scan
+        env:
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
+          export NPM_CONFIG_USERCONFIG="${PWD}/.npmrc.github"
+
+          npm \
+            --userconfig "${NPM_CONFIG_USERCONFIG}" \
+            config set \
+            @tota11y-scan:registry \
+            "https://gitlab.tech.orange/api/v4/projects/574357/packages/npm/"
+
+          npm \
+            --userconfig "${NPM_CONFIG_USERCONFIG}" \
+            config set -- \
+            "//gitlab.tech.orange/api/v4/projects/574357/packages/npm/:_authToken" \
+            "${GITLAB_TOKEN}"
+
+          echo "NPM_CONFIG_USERCONFIG=${NPM_CONFIG_USERCONFIG}" \
+            >> "${GITHUB_ENV}"
+
+      - name: Install tota11y-scan
+        working-directory: .tota11y-scan
+        run: |
+          set -eu
+          npm ci
+          node scripts/patch-engine-auth.js
+
+      - name: Run accessibility scan
+        working-directory: .tota11y-scan
+        run: npm run ci:a11y
+
+      - name: Upload accessibility reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-reports
+          path: |
+            .tota11y-scan/a11y-report.json
+            .tota11y-scan/reports
+          if-no-files-found: ignore
+          retention-days: 30
+    continue-on-error: true
+
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
