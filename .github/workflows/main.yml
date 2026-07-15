@@ -66,6 +66,7 @@ jobs:
     name: Accessibility scan
     needs: wait_for_deployment
     uses: Orange-OpenSource/tota11y-scan/.github/workflows/tota11y-scan-reusable.yml@v1.0.46
+
     with:
       scanner_repository: "Orange-OpenSource/tota11y-scan"
       scanner_ref: "v1.0.46"
@@ -73,7 +74,8 @@ jobs:
       test_type: "essentials"
       target: "web"
       urls: "https://tota11ylost.orange.com"
-        allow_failure: true
-        artifact_retention_days: 30
-      secrets:
-        npm_token: ${{ secrets.TOTA11Y_NPM_TOKEN }}
+      allow_failure: true
+      artifact_retention_days: 30
+
+    secrets:
+      npm_token: ${{ secrets.TOTA11Y_NPM_TOKEN }}
