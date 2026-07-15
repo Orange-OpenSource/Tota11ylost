@@ -3,15 +3,13 @@ export const useNextPage = () => {
     const router = useRouter()
 
     const goToNextPage = async () => {
-        console.log('Current page:')
-        const nextPage = gameStore.moveToNextPage()
+        const currentRoute = router.currentRoute.value.path
+        const nextPage = gameStore.moveToNextPage(currentRoute)
         if (nextPage) {
             await router.push(nextPage)
-            console.log('Navigating to next page:', nextPage)
         }
- else {
+        else {
             gameStore.resetAll()
-            alert('Bravo ! Tu as fini toutes les pages!')
             await router.push('./scores')
         }
     }

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useGameStore } from '../stores/gameStore'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
 const gameStore = useGameStore()
 
 onMounted(() => {
@@ -10,10 +8,10 @@ onMounted(() => {
 })
 
 const deficiencies = [
-  { id: 'visual', label: t('filter.deficiencyVisual') },
-  { id: 'physical', label: t('filter.deficiencyPhysical') },
-  { id: 'hearing', label: t('filter.deficiencyHearing') },
-  { id: 'cognitive', label: t('filter.deficiencyCognitive') },
+  { id: 'visual', labelKey: 'filter.deficiencyVisual' },
+  { id: 'physical', labelKey: 'filter.deficiencyPhysical' },
+  { id: 'hearing', labelKey: 'filter.deficiencyHearing' },
+  { id: 'cognitive', labelKey: 'filter.deficiencyCognitive' },
 ]
 
 const handleDeficiencyChange = (deficiency: string, event: Event) => {
@@ -31,7 +29,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
 <template>
   <div role="group" aria-labelledby="filtersHeader">
     <h4 id="filtersHeader">
-      Filtrer votre deficience :
+      {{ $t('filter.title') }}
     </h4>
     <ul class="chips-container">
       <li v-for="def in deficiencies" :key="def.id" class="chip chip-filter">
@@ -41,10 +39,10 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
           :name="def.id"
           :value="def.id"
           :checked="!gameStore.categoriesRestantes.includes(def.id)"
-          :aria-label="def.label"
+          :aria-label="$t(def.labelKey)"
           @change="(e) => handleDeficiencyChange(def.id, e)"
         >
-        <label class="chip-interactive" :for="def.id">{{ def.label }}</label>
+        <label class="chip-interactive" :for="def.id">{{ $t(def.labelKey) }}</label>
       </li>
     </ul>
   </div>

@@ -20,7 +20,7 @@ function shuffle<T>(array: T[]): T[] {
 
 function buildLinks() {
   links.value = shuffle([
-    { label: t('cognitive.buttonLabel1'), href: '/cognitive-simulation' },
+    { label: t('cognitive.buttonLabel1'), href: '/next' },
     { label: t('cognitive.buttonLabel2'), href: '/cognitive' },
     { label: t('cognitive.buttonLabel3'), href: '/cognitive' },
     { label: t('cognitive.buttonLabel4'), href: '/cognitive' },

@@ -6,8 +6,8 @@ definePageMeta({ title: 'welcome.tabTitle' })
 onMounted(() => {
   gameStore.setVersion('60')
 })
-const { goToNextPage } = useNextPage()
 const gameStore = useGameStore()
+const router = useRouter()
 
 const pseudo = ref('')
 const pseudoError = ref(false)
@@ -20,6 +20,12 @@ function startAdventure() {
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
   gameStore.saveToLocalStorage()
+
+  // index is not in selectedPages, so navigate to the first page without shifting
+  const firstPage = gameStore.selectedPages[0]
+  if (firstPage) {
+    router.push(firstPage)
+  }
 }
 </script>
 
@@ -120,7 +126,7 @@ function startAdventure() {
               </div>
             </div>
           </div>
-          <button type="submit" class="btn fs-hs p-small btn-brand mt-large" @click.prevent="goToNextPage">
+          <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>

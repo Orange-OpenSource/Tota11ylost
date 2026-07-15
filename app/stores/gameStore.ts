@@ -157,14 +157,16 @@ const pageRoutes = ref<Record<number, string>>({
     randomizePages()
   }
 
-const moveToNextPage = (): string | null => {
-    saveToLocalStorage()
-
+const moveToNextPage = (currentRoute: string): string | null => {
     if (selectedPages.value.length === 0) {
       return null
     }
 
-    selectedPages.value.shift()
+    // Only shift if the current page is the one at the head of the queue
+    if (selectedPages.value[0] === currentRoute) {
+      selectedPages.value.shift()
+      saveToLocalStorage()
+    }
 
     return selectedPages.value[0] || null
   }

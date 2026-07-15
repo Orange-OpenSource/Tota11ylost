@@ -3,8 +3,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'formSimu.tabTitle' })
 
-const router = useRouter()
 const gameStore = useGameStore()
+const { goToNextPage } = useNextPage()
 
 const reponse1 = ref('')
 const reponse2 = ref('')
@@ -23,7 +23,7 @@ function validateForm() {
 function onValidate() {
   if (isValid.value) {
     gameStore.finishTimer()
-    router.push('/scores?store=true')
+    goToNextPage()
   }
 }
 
