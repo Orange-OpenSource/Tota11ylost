@@ -36,7 +36,7 @@ function validate() {
   const userAnswer = answer.value.toLowerCase()
 
   const responses: string[] = []
-  for (let i = 0; t(`hearing.possibleResponses.${i}`); i++) {
+  for (let i = 0; te(`hearing.possibleResponses.${i}`); i++) {
     responses.push(t(`hearing.possibleResponses.${i}`).toLowerCase())
   }
 
@@ -64,10 +64,6 @@ function onHint(index: number) {
       <main>
         <div class="mx-large">
           <h2>{{ $t('hearing.descriptionHeading') }}</h2>
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <p v-html="$t('hearing.descriptionText1')" />
-          <p>{{ $t('hearing.descriptionText2') }}</p>
-          <p>{{ $t('hearing.descriptionText3') }}</p>
           <p class="fs-hm" v-html="$t('hearing.descriptionText1')" />
           <p class="fs-hm">
             {{ $t('hearing.descriptionText2') }}
