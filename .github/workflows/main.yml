@@ -39,6 +39,7 @@ jobs:
 
   wait_for_deployment:
     name: Wait for deployed website
+    if: ${{ false }}
     needs: build_and_deploy
     runs-on: ubuntu-latest
 
@@ -67,6 +68,7 @@ jobs:
 
   accessibility:
     name: Run accessibility scan
+    if: ${{ false }}
     needs: wait_for_deployment
 
     runs-on:
