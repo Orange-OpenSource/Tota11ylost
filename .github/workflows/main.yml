@@ -65,17 +65,75 @@ jobs:
   accessibility:
     name: Accessibility scan
     needs: wait_for_deployment
-    uses: Orange-OpenSource/tota11y-scan/.github/workflows/tota11y-scan-reusable.yml@v1.0.46
+    runs-on: ubuntu-latest
+    continue-on-error: true
 
-    with:
-      scanner_repository: "Orange-OpenSource/tota11y-scan"
-      scanner_ref: "v1.0.46"
-      engine_package_version: "1.0.45"
-      test_type: "essentials"
-      target: "web"
-      urls: "https://tota11ylost.orange.com"
-      allow_failure: true
-      artifact_retention_days: 30
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
 
-    secrets:
-      npm_token: ${{ secrets.TOTA11Y_NPM_TOKEN }}
+    env:
+      A11Y_URLS: "https://tota11ylost.orange.com"
+      A11Y_TEST_TYPE: "essentials"
+      A11Y_TARGET: "web"
+
+    steps:
+      - name: Download tota11y-scan from GitLab
+        env:
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
+          mkdir .tota11y-scan
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            --location \
+            --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
+            "https://gitlab.tech.orange/api/v4/projects/574357/repository/archive.tar.gz?sha=v1.0.46" \
+            --output tota11y-scan.tar.gz
+
+          tar \
+            --extract \
+            --gzip \
+            --file tota11y-scan.tar.gz \
+            --directory .tota11y-scan \
+            --strip-components=1
+
+      - name: Configure private npm registry
+        working-directory: .tota11y-scan
+        env:
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
+          npm config set \
+            @tota11y-scan:registry \
+            "https://gitlab.tech.orange/api/v4/projects/574357/packages/npm/"
+
+          npm config set -- \
+            "//gitlab.tech.orange/api/v4/projects/574357/packages/npm/:_authToken" \
+            "${GITLAB_TOKEN}"
+
+      - name: Install scanner
+        working-directory: .tota11y-scan
+        run: |
+          npm ci
+          node scripts/patch-engine-auth.js
+          npx playwright install --with-deps chromium
+
+      - name: Run accessibility scan
+        working-directory: .tota11y-scan
+        run: npm run ci:a11y
+
+      - name: Upload accessibility reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-reports
+          path: |
+            .tota11y-scan/a11y-report.json
+            .tota11y-scan/reports
+          if-no-files-found: warn
+          retention-days: 30
