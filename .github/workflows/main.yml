@@ -180,7 +180,3 @@ jobs:
             .tota11y-scan/reports
           if-no-files-found: ignore
           retention-days: 30
-    continue-on-error: true
-
-    container:
-      image: mcr.microsoft.com/playwright:v1.60.0-noble
