@@ -1,9 +1,12 @@
-name: Publish website
+name: Publish website and run accessibility scan
 
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   build_and_deploy:
@@ -13,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Generate firebaseConfig.js
         run: |
@@ -35,35 +38,35 @@ jobs:
           cname: tota11ylost.orange.com
 
   wait_for_deployment:
-      name: Wait for deployed website
-      needs: build_and_deploy
-      runs-on: ubuntu-latest
-  
-      steps:
-        - name: Wait for GitHub Pages
-          run: |
-            set -eu
-  
-            for attempt in $(seq 1 30); do
-              if curl \
-                --fail \
-                --silent \
-                --show-error \
-                --output /dev/null \
-                "https://tota11ylost.orange.com"; then
-                echo "Website is reachable."
-                exit 0
-              fi
-  
-              echo "Website not ready yet: attempt ${attempt}/30"
-              sleep 10
-            done
-  
-            echo "Website did not become reachable before timeout."
-            exit 1
-  
+    name: Wait for deployed website
+    needs: build_and_deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for GitHub Pages
+        run: |
+          set -eu
+
+          for attempt in $(seq 1 30); do
+            if curl \
+              --fail \
+              --silent \
+              --show-error \
+              --output /dev/null \
+              "https://tota11ylost.orange.com"; then
+              echo "Website is reachable."
+              exit 0
+            fi
+
+            echo "Website not ready: attempt ${attempt}/30"
+            sleep 10
+          done
+
+          echo "::error::Website did not become reachable before timeout."
+          exit 1
+
   accessibility:
-    name: Accessibility scan
+    name: Run accessibility scan
     needs: wait_for_deployment
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -75,26 +78,30 @@ jobs:
       A11Y_URLS: "https://tota11ylost.orange.com"
       A11Y_TEST_TYPE: "essentials"
       A11Y_TARGET: "web"
+      A11Y_FETCH_PAST_RUNS: "0"
+      PLAYWRIGHT_BROWSERS_PATH: "/ms-playwright"
 
     steps:
-      - name: Clone tota11y-scan from GitLab
+      - name: Validate GitLab secrets
+        env:
+          GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
           if [ -z "${GITLAB_USERNAME:-}" ]; then
-            echo "TOTA11Y_GITLAB_USERNAME is missing"
+            echo "::error::TOTA11Y_GITLAB_USERNAME is missing."
             exit 1
           fi
-          
+
           if [ -z "${GITLAB_TOKEN:-}" ]; then
-            echo "TOTA11Y_GITLAB_TOKEN is missing"
+            echo "::error::TOTA11Y_GITLAB_TOKEN is missing."
             exit 1
           fi
-          
-          echo "GitLab username is configured."
-          echo "GitLab token is configured."
-          echo "Testing repository access..."
-          
-          git ls-remote \
-            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
-            HEAD
+
+          echo "GitLab credentials are configured."
+
+      - name: Clone tota11y-scan from GitLab
         env:
           GITLAB_USERNAME: ${{ secrets.TOTA11Y_GITLAB_USERNAME }}
           GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
@@ -102,21 +109,30 @@ jobs:
         run: |
           set -eu
 
+          NETRC_FILE="${HOME}/.netrc"
+          trap 'rm -f "${NETRC_FILE}"' EXIT
+
           printf '%s\n' \
             "machine gitlab.tech.orange" \
             "login ${GITLAB_USERNAME}" \
             "password ${GITLAB_TOKEN}" \
-            > "${HOME}/.netrc"
+            > "${NETRC_FILE}"
 
-          chmod 600 "${HOME}/.netrc"
+          chmod 600 "${NETRC_FILE}"
+
+          echo "Testing access to the GitLab repository..."
+
+          git ls-remote \
+            "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
+            HEAD
+
+          echo "Cloning tota11y-scan ref ${SCANNER_REF}..."
 
           git clone \
             --depth 1 \
             --branch "${SCANNER_REF}" \
             "https://gitlab.tech.orange/damien.gomez/tota11y-scan.git" \
             .tota11y-scan
-
-          rm -f "${HOME}/.netrc"
 
       - name: Configure private npm registry
         working-directory: .tota11y-scan
@@ -125,24 +141,35 @@ jobs:
         run: |
           set -eu
 
-          npm config set \
+          export NPM_CONFIG_USERCONFIG="${PWD}/.npmrc.github"
+
+          npm \
+            --userconfig "${NPM_CONFIG_USERCONFIG}" \
+            config set \
             @tota11y-scan:registry \
             "https://gitlab.tech.orange/api/v4/projects/574357/packages/npm/"
 
-          npm config set -- \
+          npm \
+            --userconfig "${NPM_CONFIG_USERCONFIG}" \
+            config set -- \
             "//gitlab.tech.orange/api/v4/projects/574357/packages/npm/:_authToken" \
             "${GITLAB_TOKEN}"
 
-      - name: Install scanner
+          echo "NPM_CONFIG_USERCONFIG=${NPM_CONFIG_USERCONFIG}" >> "${GITHUB_ENV}"
+
+      - name: Install tota11y-scan
         working-directory: .tota11y-scan
         run: |
+          set -eu
+
           npm ci
           node scripts/patch-engine-auth.js
-          npx playwright install --with-deps chromium
 
       - name: Run accessibility scan
         working-directory: .tota11y-scan
-        run: npm run ci:a11y
+        run: |
+          set -eu
+          npm run ci:a11y
 
       - name: Upload accessibility reports
         if: always()
@@ -152,5 +179,5 @@ jobs:
           path: |
             .tota11y-scan/a11y-report.json
             .tota11y-scan/reports
-          if-no-files-found: warn
+          if-no-files-found: ignore
           retention-days: 30
