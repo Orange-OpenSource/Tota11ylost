@@ -100,6 +100,42 @@ jobs:
           fi
 
           echo "GitLab credentials are configured."
+          
+      - name: Diagnose GitLab token
+        env:
+          GITLAB_TOKEN: ${{ secrets.TOTA11Y_GITLAB_TOKEN }}
+        run: |
+          set -eu
+
+          RESPONSE_FILE="/tmp/gitlab-project-response.json"
+
+          HTTP_STATUS="$(
+            curl \
+              --silent \
+              --show-error \
+              --output "${RESPONSE_FILE}" \
+              --write-out "%{http_code}" \
+              --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" \
+              "https://gitlab.tech.orange/api/v4/projects/574357"
+          )"
+
+          echo "GitLab API status: ${HTTP_STATUS}"
+
+          node -e "
+            const fs = require('fs');
+            const body = JSON.parse(fs.readFileSync('${RESPONSE_FILE}', 'utf8'));
+
+            console.log('GitLab response:', {
+              message: body.message || null,
+              projectId: body.id || null,
+              projectPath: body.path_with_namespace || null
+            });
+          "
+
+          if [ "${HTTP_STATUS}" != "200" ]; then
+            echo "::error::GitLab token cannot access project 574357."
+            exit 1
+          fi
 
       - name: Clone tota11y-scan from GitLab
         env:
