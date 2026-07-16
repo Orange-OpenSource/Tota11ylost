@@ -9,7 +9,6 @@ export const useNextPage = () => {
             await router.push(nextPage)
         }
         else {
-            gameStore.resetAll()
             await router.push('./scores')
         }
     }
