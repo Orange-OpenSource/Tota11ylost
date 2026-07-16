@@ -9,7 +9,7 @@ onMounted(() => {
   gameStore.setVersion('60')
 })
 const router = useRouter()
-
+gameStore.resetAll()
 const pseudo = ref('')
 const pseudoError = ref(false)
 
@@ -19,6 +19,8 @@ function startAdventure() {
     return
   }
   gameStore.setPseudo(pseudo.value.trim())
+  gameStore.startTimer()
+
   gameStore.saveToLocalStorage()
 
   // index is not in selectedPages, so navigate to the first page without shifting
