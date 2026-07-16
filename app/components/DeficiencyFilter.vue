@@ -28,9 +28,9 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
 
 <template>
   <div role="group" aria-labelledby="filtersHeader">
-    <h4 id="filtersHeader">
+    <p id="filtersHeader">
       {{ $t('filter.title') }}
-    </h4>
+    </p>
     <ul class="chips-container">
       <li v-for="def in deficiencies" :key="def.id" class="chip chip-filter">
         <input
@@ -42,7 +42,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
           :aria-label="$t(def.labelKey)"
           @change="(e) => handleDeficiencyChange(def.id, e)"
         >
-        <label class="chip-interactive" :for="def.id">{{ $t(def.labelKey) }}</label>
+        <label class="chip-interactive" :for="def.id">{{ $t(def.labelKey) }}<img :src="`/icons/${def.id}.svg`" :alt="$t(def.labelKey)" class="icon"></label>
       </li>
     </ul>
   </div>

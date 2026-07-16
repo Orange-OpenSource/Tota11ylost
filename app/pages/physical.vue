@@ -133,7 +133,7 @@ onUnmounted(() => {
           <a
             id="link30or60"
             href="#"
-            class="valid fs-3 p-2"
+            class="valid fs-hs p-small"
             @click.prevent
           >
             {{ $t('physical.validateLink') }}

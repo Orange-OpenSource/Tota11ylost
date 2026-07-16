@@ -14,6 +14,13 @@
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
   },
+  "deficiencyFilter": {
+    "title": "Filtrar su discapacidad:",
+    "visual": "Visual",
+    "physical": "Motora",
+    "hearing": "Auditiva",
+    "cognitive": "Cognitiva"
+  },
   "common": {
     "lang_lang": "es",
     "banner": {
@@ -74,9 +81,12 @@
       "label": "60 min",
       "title_60": "La versión clásica del juego de escape en diez páginas"
     },
-    "pseudo": "Tu apodo (obligatorio)",
+    "aventure": "Tu aventura",
     "placeholder_enterPseudo": "Indique tu apodo",
+    "pseudo_alert": "Este apodo se mostrará públicamente en la tabla de puntuaciones.",
+    "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
+    "accessibility": "L'accessibilitat en acció",
     "buttonStartAdventure": "Iniciar la aventura"
   },
   "intro": {
@@ -440,9 +450,11 @@
   "scores": {
     "tabTitle": "Tabla de posiciones - Tota11y Lost",
     "content_description": "Tabla de posiciones",
-    "congratulations": "¡Felicidades, has terminado el juego de escape!",
+    "nameLink": "Aprende más",
+    "link": "https://a11y-guidelines.orange.com/en/",
+    "congratulations": "¡Felicidades {pseudo}, has terminado el juego de escape en <span>{finalTimeDisplay}</span>!",
     "finalTime": "Tiempo final",
-    "toKnowMore": "Para aprender más, visita <a href='https://a11y-guidelines.orange.com/en/'>nuestro sitio de recomendaciones</a>.",
+    "toKnowMore": "Para saber más sobre la accesibilidad digital, consulta nuestro sitio de recomendaciones.",
     "minutes": "minutos",
     "todayTitle": "Mejores tiempos del día",
     "generalTitle": "Clasificación general",

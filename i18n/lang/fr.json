@@ -14,6 +14,13 @@
   "FOOTER": {
     "COPYRIGHT": "© Orange 2026"
   },
+  "deficiencyFilter": {
+    "title": "Filtrer votre déficience :",
+    "visual": "Visuel",
+    "physical": "Moteur",
+    "hearing": "Auditif",
+    "cognitive": "Cognitif"
+  },
   "common": {
     "lang_lang": "fr",
     "banner": {
@@ -57,10 +64,10 @@
   "welcome": {
     "tabTitle": "Accueil - Tota11y Lost",
     "content_description": "Page d'accueil de Tota11y Lost",
-    "intro": "Expérimenter de manière ludique les défis des personnes en situation de handicap numérique.",
-    "rules": "Avant de démarrer, choisir mon aventure et mon pseudo",
+    "intro": "Une expérience ludique et immersive",
+    "rules": "Appréhendez les défis quotidiens rencontrés par les personnes en situation de handicap numérique. Une aventure pour mieux comprendre et agir en faveur de l'inclusion.",
     "adventureType": "Type d'aventure",
-    "escapeGame": "<span lang='en'>Escape game</span>",
+    "escapeGame": "Escape game",
     "duration": "Durée",
     "15min": {
       "label": "15 min",
@@ -74,9 +81,12 @@
       "label": "60 min",
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
-    "pseudo": "Mon pseudo (obligatoire)",
-    "placeholder_enterPseudo": "Indiquer mon pseudo",
+    "aventure": "Aventure",
+    "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
+    "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
+    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
+    "accessibility": "L'accessibilité en action",
     "buttonStartAdventure": "Démarrer l'aventure"
   },
   "intro": {
@@ -433,14 +443,19 @@
     ]
   },
   "scores": {
-    "tabTitle": "Tableau des scores - Tota11y Lost",
+    "tabTitle": "Tableau des scores",
     "content_description": "Tableau des scores",
-    "congratulations": "Bravo, vous venez de terminer l'<span lang='en'>Escape game</span> !",
-    "finalTime": "Temps final",
-    "toKnowMore": "Pour en apprendre plus, visiter <a href='https://a11y-guidelines.orange.com/fr/'>notre site des recommandations</a>.",
+    "nameLink": "Accéder au site",
+    "link": "https://a11y-guidelines.orange.com/fr/web/checklist-incontournables/",
+    "congratulations": " Bravo <strong>{ pseudo }</strong>, vous venez de terminer votre aventure en <span>{ finalTimeDisplay}</span> !",
+    "finalTime": "Voici un rappel de votre aventure :",
+    "toKnowMore": "Pour en apprendre plus sur l'accessibilité numérique,rendez-vous sur notre site de recommandations.",
     "minutes": "minutes",
     "todayTitle": "Meilleurs scores du jour",
     "generalTitle": "Classement général",
+    "timeList": "Durée :",
+    "defeciencyList": "Déficience(s) signalée(s) :",
+    "aventureType": "Type d'aventure : Escape Game",
     "alt_congratulationImage": "Vous avez fini l'escape game {version} minutes"
   },
   "filter": {
