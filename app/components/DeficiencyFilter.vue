@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
 import { useGameStore } from '../stores/gameStore'
 
 const gameStore = useGameStore()
-const { t } = useI18n({ useScope: 'global' })
 
 onMounted(() => {
   gameStore.loadFromLocalStorage()
@@ -30,9 +28,9 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
 
 <template>
   <div role="group" aria-labelledby="filtersHeader">
-    <h4 id="filtersHeader">
+    <p id="filtersHeader">
       {{ $t('filter.title') }}
-    </h4>
+    </p>
     <ul class="chips-container">
       <li v-for="def in deficiencies" :key="def.id" class="chip chip-filter">
         <input

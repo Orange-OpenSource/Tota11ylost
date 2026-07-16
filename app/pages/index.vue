@@ -50,18 +50,18 @@ function startAdventure() {
           <h4 id="aventureLabel" class="mt-small">
             {{ $t('welcome.aventure') }}
           </h4>
-          <div class="text-input w-50">
+          <div class="text-input w-50 bg-secondary">
             <div class="text-input-container text-input-container-outlined">
               <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
               <input
                 id="exampleTextInputOutlined"
                 v-model="pseudo"
                 type="text"
-                class="text-input-field"
+                class="text-input-field "
                 aria-labelledby="pseudoLabel"
                 required
                 placeholder=""
-                style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px;"
+                style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px; font-weight: bold;"
                 @input="pseudoError = false"
               >
             </div>
@@ -83,25 +83,28 @@ function startAdventure() {
               </div>
             </div>
           </div>
-          <h4>{{ $t('welcome.adventureType') }}</h4>
 
           <div class="select-input mb-medium w-50">
             <div class="select-input-container">
-              <label style="color: black;" for="exampleDisabledSelect">{{ $t('welcome.escapeGame') }}</label>
+              <label class="form-label " style="color: black; " for="exampleDisabledSelect">
+                {{ $t('welcome.adventureType') }}
+              </label>
               <select
                 id="exampleDisabledSelect"
-                style="background-color: white; border: 2px solid #d3d3d3;"
+                style="background-color: white; border: 2px solid #d3d3d3; color: black; font-weight: bold; width: 100%;"
                 disabled
-                class="select-input-field w-70"
+                class="select-input-field"
               >
-                <option value="" disabled selected />
+                <option value="" selected>
+                  {{ $t('welcome.escapeGame') }}
+                </option>
               </select>
             </div>
           </div>
 
           <fieldset class="control-items-list mt-medium">
-            <legend>{{ $t('welcome.duration') }}</legend>
-            <div class="d-flex flex-row">
+            <p>{{ $t('welcome.duration') }} :</p>
+            <div class="d-flex flex-row m-large">
               <div class="radio-button-item">
                 <div class="control-item-assets-container">
                   <input
@@ -164,7 +167,7 @@ function startAdventure() {
           </div>
           <DeficiencyFilter />
 
-          <button type="submit" class="btn fs-hs p-small btn-brand mt-large">
+          <button type="submit" class="btn btn-strong fs-hs p-small  mt-large">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>
@@ -172,3 +175,12 @@ function startAdventure() {
     </main>
   </div>
 </template>
+
+<style scoped>
+.select-input-field,
+.select-input-field option {
+  color: black !important;
+  background-color: white !important;
+  -webkit-text-fill-color: black !important;
+}
+</style>
