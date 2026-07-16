@@ -5,8 +5,6 @@ definePageMeta({ title: 'welcome.tabTitle' })
 
 const gameStore = useGameStore()
 
-const { goToNextPage } = useNextPage()
-
 onMounted(() => {
   gameStore.setVersion('60')
 })
@@ -52,7 +50,7 @@ function startAdventure() {
           <h4 id="aventureLabel" class="mt-small">
             {{ $t('welcome.aventure') }}
           </h4>
-          <div class="text-input w-75">
+          <div class="text-input w-50">
             <div class="text-input-container text-input-container-outlined">
               <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
               <input
@@ -87,7 +85,7 @@ function startAdventure() {
           </div>
           <h4>{{ $t('welcome.adventureType') }}</h4>
 
-          <div class="select-input mb-medium w-75">
+          <div class="select-input mb-medium w-50">
             <div class="select-input-container">
               <label style="color: black;" for="exampleDisabledSelect">{{ $t('welcome.escapeGame') }}</label>
               <select
@@ -154,7 +152,7 @@ function startAdventure() {
               </div>
             </div>
           </fieldset>
-          <div class="alert alert-message alert-info mb-medium">
+          <div class="alert alert-message alert-info mb-medium w-75">
             <div class="alert-icon" />
             <div class="alert-container">
               <div class="alert-text-container">
