@@ -56,7 +56,13 @@ function updateTextBloc(event: FocusEvent) {
   }
   else {
     // For paragraphs and other elements, display readable text
-    textBloc.value = text
+    // Replace i18n keys with inline images for Tab/Shift icons
+    if (ariaLabel.includes(t('visualSimu.userTypeText1_part1'))) {
+      textBloc.value = `${t('visualSimu.userTypeText1_part1')} <img src="/game-assets/icon-tab.png" alt="" aria-hidden="true" class="keyboard-icon"> ${t('visualSimu.userTypeText1_part2')} <img src="/game-assets/icon-shift.png" alt="" aria-hidden="true" class="keyboard-icon"> <img src="/game-assets/icon-tab.png" alt="" aria-hidden="true" class="keyboard-icon"> ${t('visualSimu.userTypeText1_part3')}`
+    }
+    else {
+      textBloc.value = text
+    }
   }
 }
 
@@ -128,8 +134,28 @@ onUnmounted(() => {
 
           <!-- All invisible but focusable elements -->
           <div class="visually-hidden" role="region">
-            <p tabindex="0" :aria-label="$t('visualSimu.userTypeText1')">
-              {{ $t('visualSimu.userTypeText1') }}
+            <p tabindex="0" :aria-label="$t('visualSimu.userTypeText1_part1') + ' ' + $t('visualSimu.userTypeText1_part2') + ' ' + $t('visualSimu.userTypeText1_part3')">
+              {{ $t('visualSimu.userTypeText1_part1') }}
+              <img
+                src="/game-assets/icon-tab.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              {{ $t('visualSimu.userTypeText1_part2') }}
+              <img
+                src="/game-assets/icon-shift.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              <img
+                src="/game-assets/icon-tab.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              {{ $t('visualSimu.userTypeText1_part3') }}
             </p>
             <p tabindex="0" :aria-label="$t('visualSimu.userTypeText2')">
               {{ $t('visualSimu.userTypeText2') }}
@@ -276,5 +302,12 @@ onUnmounted(() => {
 @keyframes blink-cursor {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+.keyboard-icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 0.2em;
 }
 </style>
