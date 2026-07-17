@@ -14,6 +14,35 @@ const validationMessage = ref('')
 const validationLink = ref('')
 const textBloc = ref('')
 const simulationDisabled = ref(false)
+const focusedField = ref<string | null>(null)
+const textBlocWidth = ref(0)
+
+const cursorOffset = computed(() => {
+  if (!focusedField.value) return 0
+  const fields: Record<string, Ref<string>> = { nom, prenom, naissance }
+  return fields[focusedField.value]?.value.length ?? 0
+})
+
+// Position = largeur réelle du bloc + marge fixe de 1rem + décalage par frappe
+const cursorLeft = computed(() => {
+  return textBlocWidth.value + 16 + cursorOffset.value * 16 // en px
+})
+
+function onFieldFocus(fieldName: string, event: FocusEvent) {
+  focusedField.value = fieldName
+  updateTextBloc(event)
+  nextTick(() => {
+    const bloc = document.getElementById('text-bloc')
+    if (bloc) {
+      const rect = bloc.getBoundingClientRect()
+      textBlocWidth.value = rect.left + rect.width
+    }
+  })
+}
+
+function onFieldBlur() {
+  focusedField.value = null
+}
 
 function updateTextBloc(event: FocusEvent) {
   const target = event.target as HTMLElement
@@ -27,7 +56,13 @@ function updateTextBloc(event: FocusEvent) {
   }
   else {
     // For paragraphs and other elements, display readable text
-    textBloc.value = text
+    // Replace i18n keys with inline images for Tab/Shift icons
+    if (ariaLabel.includes(t('visualSimu.userTypeText1_part1'))) {
+      textBloc.value = `${t('visualSimu.userTypeText1_part1')} <img src="/game-assets/icon-tab.png" alt="" aria-hidden="true" class="keyboard-icon"> ${t('visualSimu.userTypeText1_part2')} <img src="/game-assets/icon-shift.png" alt="" aria-hidden="true" class="keyboard-icon"> <img src="/game-assets/icon-tab.png" alt="" aria-hidden="true" class="keyboard-icon"> ${t('visualSimu.userTypeText1_part3')}`
+    }
+    else {
+      textBloc.value = text
+    }
   }
 }
 
@@ -82,9 +117,14 @@ onUnmounted(() => {
 <template>
   <ClientOnly>
     <div class="fs-2 simulation-page" :class="{ 'no-cursor': !simulationDisabled }">
-      <!-- Braille display area - white on black - at top and visible -->
+      <!-- Braille display area with typing cursor -->
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div id="text-bloc" v-html="textBloc" />
+      <div
+        v-if="focusedField"
+        class="typing-cursor"
+        :style="{ left: cursorLeft + 'px' }"
+      />
 
       <main>
         <div class="mx-4 fs-6">
@@ -94,8 +134,28 @@ onUnmounted(() => {
 
           <!-- All invisible but focusable elements -->
           <div class="visually-hidden" role="region">
-            <p tabindex="0" :aria-label="$t('visualSimu.userTypeText1')">
-              {{ $t('visualSimu.userTypeText1') }}
+            <p tabindex="0" :aria-label="$t('visualSimu.userTypeText1_part1') + ' ' + $t('visualSimu.userTypeText1_part2') + ' ' + $t('visualSimu.userTypeText1_part3')">
+              {{ $t('visualSimu.userTypeText1_part1') }}
+              <img
+                src="/game-assets/icon-tab.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              {{ $t('visualSimu.userTypeText1_part2') }}
+              <img
+                src="/game-assets/icon-shift.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              <img
+                src="/game-assets/icon-tab.png"
+                alt=""
+                aria-hidden="true"
+                class="keyboard-icon"
+              >
+              {{ $t('visualSimu.userTypeText1_part3') }}
             </p>
             <p tabindex="0" :aria-label="$t('visualSimu.userTypeText2')">
               {{ $t('visualSimu.userTypeText2') }}
@@ -127,7 +187,8 @@ onUnmounted(() => {
                 tabindex="0"
                 :aria-label="$t('visualSimu.aria-label_name')"
                 @input="validateForm"
-                @focusin="updateTextBloc"
+                @focusin="onFieldFocus('nom', $event)"
+                @blur="onFieldBlur"
               >
 
               <label class="visually-hidden" for="prenom">{{ $t('visualSimu.labelFirstName') }}</label>
@@ -140,7 +201,8 @@ onUnmounted(() => {
                 tabindex="0"
                 :aria-label="$t('visualSimu.aria-label_firstName')"
                 @input="validateForm"
-                @focusin="updateTextBloc"
+                @focusin="onFieldFocus('prenom', $event)"
+                @blur="onFieldBlur"
               >
 
               <label class="visually-hidden" for="naissance">{{ $t('visualSimu.labelBirthDate') }}</label>
@@ -153,7 +215,8 @@ onUnmounted(() => {
                 tabindex="0"
                 :aria-label="$t('visualSimu.aria-label_birthDate')"
                 @input="validateForm"
-                @focusin="updateTextBloc"
+                @focusin="onFieldFocus('naissance', $event)"
+                @blur="onFieldBlur"
               >
             </form>
 
@@ -225,5 +288,26 @@ onUnmounted(() => {
   * {
     cursor: none !important;
   }
+}
+
+.typing-cursor {
+  position: fixed;
+  top: calc(10rem + 2rem); // aligne avec le haut du bloc (margin-top: 10rem + padding: 2rem)
+  width: 3px;
+  height: 2.5rem;
+  background-color: white;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.keyboard-icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 0.2em;
 }
 </style>
