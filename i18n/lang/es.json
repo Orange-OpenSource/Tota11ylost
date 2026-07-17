@@ -87,7 +87,9 @@
     "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
     "accessibility": "L'accessibilitat en acció",
-    "buttonStartAdventure": "Iniciar la aventura"
+    "buttonStartAdventure": "Iniciar la aventura",
+    "errorPseudoTooShort": "El apodo debe tener al menos 3 caracteres.",
+    "errorPseudoProfanity": "Este apodo contiene términos inapropiados. Por favor, elige otro."
   },
   "intro": {
     "tabTitle": "Introducción - Tota11y Lost",
