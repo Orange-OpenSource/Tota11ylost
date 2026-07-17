@@ -88,7 +88,9 @@ onUnmounted(() => {
 
       <main>
         <div class="mx-4 fs-6">
-          <h2>{{ $t('visualSimu.userTypeHeading') }}</h2>
+          <h2 class="visually-hidden">
+            {{ $t('visualSimu.pageTitle') }}
+          </h2>
 
           <!-- All invisible but focusable elements -->
           <div class="visually-hidden" role="region">

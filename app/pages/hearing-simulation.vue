@@ -56,10 +56,6 @@ function validate() {
 
       <main>
         <div class="mx-large">
-          <h2 class="display-2 my-large fs-ds">
-            {{ $t('hearingSimu.pageTitle') }}
-          </h2>
-
           <div class="mb-medium text-center">
             <iframe
               width="560"

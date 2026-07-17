@@ -6,6 +6,7 @@ definePageMeta({ layout: 'without-footer', title: 'intro.tabTitle' })
 const { goToNextPage } = useNextPage()
 
 const linkVisible = ref(false)
+const modalVisible = ref(false)
 
 function onHint(index: number) {
   if (index === 3) {
@@ -20,6 +21,7 @@ function navigateViaLink() {
 
 <template>
   <div>
+    <GameHeader :page-title="$t('intro.pageTitle')" />
     <main>
       <div class="mx-xlarge mt-medium">
         <h2>{{ $t('intro.descriptionHeading') }}</h2>
@@ -48,19 +50,19 @@ function navigateViaLink() {
 
         <button
           class="btn fs-hs p-small btn-brand my-small"
-          data-bs-toggle="modal"
-          data-bs-target="#tooBadModal"
+          @click="modalVisible = true"
         >
           {{ $t('intro.startButton') }}
         </button>
 
         <!-- "Too bad" Modal -->
         <div
-          id="tooBadModal"
-          class="modal fade"
+          v-if="modalVisible"
+          class="modal d-block"
           tabindex="-1"
           aria-labelledby="tooBadModalLabel"
-          aria-hidden="true"
+          aria-modal="true"
+          role="dialog"
         >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -68,7 +70,7 @@ function navigateViaLink() {
                 <h1 id="tooBadModalLabel" class="modal-title h5">
                   {{ $t('intro.modalTitle') }}
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                <button type="button" class="btn-close" @click="modalVisible = false">
                   <span class="visually-hidden">{{ $t('intro.modalButtonClose') }}</span>
                 </button>
               </div>
@@ -78,7 +80,7 @@ function navigateViaLink() {
                 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-minimal" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-minimal" @click="modalVisible = false">
                   {{ $t('intro.modalButtonClose') }}
                 </button>
               </div>
@@ -93,6 +95,17 @@ function navigateViaLink() {
 </template>
 
 <style lang="scss" scoped>
+.modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5) ;
+
+  .modal-content {
+    background-color: white ;
+  }
+}
+
 .no-hover-effect {
   cursor: auto !important;
 
