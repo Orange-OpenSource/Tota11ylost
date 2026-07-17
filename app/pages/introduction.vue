@@ -35,18 +35,18 @@ function navigateViaLink() {
           >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
         </p>
 
-        <h2>{{ $t('intro.rulesHeading') }}</h2>
-        <ul>
-          <li class="fs-hm">
-            {{ $t('intro.rule1') }}
-          </li>
-          <li class="fs-hm">
-            {{ $t('intro.rule2') }}
-          </li>
-          <li class="fs-hm">
-            {{ $t('intro.rule3') }}
-          </li>
-        </ul>
+          <h2>{{ $t('intro.rulesHeading') }}</h2>
+          <ul>
+            <li class="fs-hm">
+              {{ $t('intro.rule1') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('intro.rule2') }}
+            </li>
+            <li class="fs-hm">
+              {{ $t('intro.rule3') }}
+            </li>
+          </ul>
 
         <button
           class="btn fs-hs p-small btn-brand my-small"
@@ -86,12 +86,12 @@ function navigateViaLink() {
               </div>
             </div>
           </div>
-        </div>
 
-        <GameHints page-id="intro" large-text @hint="onHint" />
+          <GameHints page-id="intro" large-text @hint="onHint" />
+        </div>
       </div>
-    </main>
-  </div>
+      </main>
+    </div>
 </template>
 
 <style lang="scss" scoped>

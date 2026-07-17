@@ -23,63 +23,16 @@ const accessibleTime = computed(() => {
 </script>
 
 <template>
-  <div class="d-flex align-items-center" :role="isFinal ? undefined : 'timer'" :aria-label="$t('common.timer.aria-label_timerArea')">
-    <p v-if="!isFinal" class="fs-bl fw-bold text-always-white me-xsmall mb-none">
-      {{ $t('common.timer.title') }}
-    </p>
-
-    <!-- Hours (if > 0) -->
-    <template v-if="timer.digits.value[0]">
-      <p
-        class="fs-hs fw-bold p-2xsmall me-2xsmall mb-none rounded-medium"
-        :class="isFinal ? 'text-always-white' : 'text-always-black'"
-        :style="isFinal ? 'background-color: var(--bs-color-always-black)' : 'background-color: var(--bs-color-always-white)'"
-        aria-hidden="true"
-      >
-        {{ timer.digits.value[0] }}
-      </p>
-      <p class="fs-hs fw-bold me-2xsmall mb-none text-always-white" aria-hidden="true">
-        :
-      </p>
-    </template>
-
-    <!-- Minutes -->
+  <div class="d-flex align-items-center gap-2 pe-3xlarge" :role="isFinal ? undefined : 'timer'" :aria-label="$t('common.timer.aria-label_timerArea')">
+    <!-- OUDS Tag with timer icon -->
     <p
-      class="fs-hs fw-bold p-2xsmall me-2xsmall mb-none rounded-medium"
-      :class="isFinal ? 'text-always-white' : 'text-always-black'"
-      :style="isFinal ? 'background-color: var(--bs-color-always-black)' : 'background-color: var(--bs-color-always-white)'"
-      aria-hidden="true"
+      class="tag"
+      :class="isFinal ? '' : 'tag-muted'"
+      :style="!isFinal ? 'background-color: var(--bs-color-always-white); color: var(--bs-color-always-black); margin-right: auto;' : 'background-color: var(--bs-color-always-black); color: var(--bs-color-always-white); margin-right: auto;'"
+      :aria-label="`${t('common.timer.title')}: ${timer.displayTime}`"
     >
-      {{ timer.digits.value[1] }}
-    </p>
-    <p
-      class="fs-hs fw-bold p-2xsmall me-2xsmall mb-none rounded-medium"
-      :class="isFinal ? 'text-always-white' : 'text-always-black'"
-      :style="isFinal ? 'background-color: var(--bs-color-always-black)' : 'background-color: var(--bs-color-always-white)'"
-      aria-hidden="true"
-    >
-      {{ timer.digits.value[2] }}
-    </p>
-    <p class="fs-hs fw-bold me-2xsmall mb-none text-always-white" aria-hidden="true">
-      :
-    </p>
-
-    <!-- Seconds -->
-    <p
-      class="fs-hs fw-bold p-2xsmall me-2xsmall mb-none rounded-medium"
-      :class="isFinal ? 'text-always-white' : 'text-always-black'"
-      :style="isFinal ? 'background-color: var(--bs-color-always-black)' : 'background-color: var(--bs-color-always-white)'"
-      aria-hidden="true"
-    >
-      {{ timer.digits.value[3] }}
-    </p>
-    <p
-      class="fs-hs fw-bold p-2xsmall me-2xsmall mb-none rounded-medium"
-      :class="isFinal ? 'text-always-white' : 'text-always-black'"
-      :style="isFinal ? 'background-color: var(--bs-color-always-black)' : 'background-color: var(--bs-color-always-white)'"
-      aria-hidden="true"
-    >
-      {{ timer.digits.value[4] }}
+      <img src="/game-assets/timer.svg" alt="Chronomètre" style="width: 1.5em; height: 1.5em; display: inline-block; margin-right: 0.5em; vertical-align: middle; image-rendering: smooth;">
+      {{ timer.displayTime }}
     </p>
 
     <!-- Screen reader accessible version -->
