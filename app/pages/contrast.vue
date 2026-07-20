@@ -4,7 +4,7 @@
       <h1>Contrast</h1>
       <RandomPage />
       <p style=" font-size: 1.25em; margin-left: 7px;">
-        Le bon libellé de bouton est “SUIVANT”
+        Quel est le contraste minimum de couleur nécessaire pour que le texte soit lisible ?<br> <br>Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
       </p>
 
       <div class="my-small ">
@@ -29,6 +29,36 @@
           </div>
         </div>
       </div>
+      <label style="font-size: 1.25em;" for="contrastLevelinput">votre réponse :</label>
+
+      <!-- <p style="font-size: 1.25em; margin-left: 7px;">
+        Le niveau de contraste peut être ajusté avec le curseur ci-dessus.
+      </p>
+
+      <p style="font-size: 1.25em; margin-left: 7px;">
+        Le niveau de contraste minimum pour que le texte soit lisible est de 4,5:1.
+      </p>
+
+      <p style="font-size: 1.25em; margin-left: 7px;">
+        Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
+      </p> -->
+      <input
+        id="inputField"
+        v-model="contrastAnswer"
+        type="text"
+        class="form-control"
+        autocomplete="off"
+        style="margin-bottom: 10px; margin-top: 10px; width: 200px;"
+        :aria-label="$t('contrast.aria-label_response')"
+        @keyup.enter="checkContrastAnswer"
+      >
+      <button
+        class="btn btn-strong m-small"
+        style="margin-bottom: 10px;"
+        @click="checkContrastAnswer"
+      >
+        Valider
+      </button>
     </div>
   </div>
 </template>
@@ -47,8 +77,9 @@ const buttonDefs = ref<ButtonDef[]>([
   { label: 'SUIVIES', id: 'suivies', bg: '#ed7926', color: '#ff6600' },
 ])
 
-const degradation = ref(0)
-const maxDegradation = 6
+// contrastLevel: 0 = invisible (bg et texte = fond), augmente vers maxContrast = couleurs d'origine
+const contrastLevel = ref(0)
+const maxContrast = 6
 
 function hexToRgb(hex: string) {
   const h = hex.replace('#', '')
@@ -70,13 +101,14 @@ function lerpColor(aHex: string, bHex: string, t: number) {
 }
 
 function buttonStyle(btn: ButtonDef) {
-  const t = Math.min(1, degradation.value / maxDegradation)
-  // blend towards page background (white)
-  const bg = lerpColor(btn.bg || '#ed7926', '#ffffff', t)
-  const color = lerpColor(btn.color || '#ff6600', '#ffffff', t)
+  const t = Math.min(1, contrastLevel.value / maxContrast)
+  // partir du fond (blanc) et interpoler vers la couleur d'origine
+  const bg = lerpColor('#ed7926', btn.bg || '#ed7926', t)
+  const color = lerpColor('#ed7926', btn.color || '#ff6600', t)
   return { backgroundColor: bg, color }
 }
 
+const contrastAnswer = ref('')
 const showError = ref(false)
 
 // Shuffle buttons on mount
@@ -87,17 +119,30 @@ onMounted(() => {
 function handleButtonClick(buttonId: string) {
   const selected = buttonDefs.value.find(b => b.id === buttonId)
   if (selected && selected.label === 'SUIVANT') {
-    goToNextPage()
+    alert('La bonne réponse est  4,5:1 !')
     return
   }
 
-  // mauvais choix : afficher erreur, augmenter la dégradation et reshuffle
+  // mauvais choix : afficher erreur, augmenter le contraste (rendre plus lisible) et reshuffle
   showError.value = true
-  degradation.value = Math.min(maxDegradation, degradation.value + 1)
+  contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
   buttonDefs.value.sort(() => Math.random() - 0.5)
   setTimeout(() => {
     showError.value = false
   }, 2000)
+}
+
+function checkContrastAnswer() {
+  const normalized = contrastAnswer.value.trim().replace(',', '.').toLowerCase()
+  if (normalized === '4.5:1' || normalized === '4.5/1' || normalized === '4,5:1' || normalized === '4,5/1') {
+    goToNextPage()
+  }
+  else {
+    showError.value = true
+    setTimeout(() => {
+      showError.value = false
+    }, 2000)
+  }
 }
 </script>
 
