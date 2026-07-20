@@ -3,7 +3,6 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default', title: 'scores.tabTitle' })
 
-const route = useRoute()
 const gameStore = useGameStore()
 const { t } = useI18n()
 const { storeScore, getGeneralScores, getTodayScores } = useFirebaseScores()
@@ -70,9 +69,8 @@ async function loadScores() {
     // Stop timer immediately when arriving on scores page
     gameStore.finishTimer()
 
-    // Store score if URL has ?store=true
-    const store = route.query.store
-    if (pseudo.value && pseudo.value.length > 0 && store) {
+    // Store score if a game was actually played (pseudo set + timer started)
+    if (pseudo.value && pseudo.value.length > 0 && gameStore.timerStartTime) {
       await storeScore(pseudo.value, version.value)
     }
 
