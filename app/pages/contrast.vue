@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="page ms-large mt-large">
-      <h1>Contrast</h1>
       <RandomPage />
-      <p style=" font-size: 1.25em; margin-left: 7px;">
-        Quel est le contraste minimum de couleur nécessaire pour que le texte soit lisible ?<br> <br>Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
+      <h2 style=" color: #f0f0f0;  margin-left: 10px; ">
+        Quel est le rapport de contraste minimum pour que le texte soit lisible ?
+      </h2>
+      <p style=" font-size: 1.25em; margin-left: 10px;">
+        Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
       </p>
 
       <div class="my-small ">
@@ -29,8 +31,25 @@
           </div>
         </div>
       </div>
-      <label style="font-size: 1.25em;" for="contrastLevelinput">votre réponse :</label>
+      <label style="font-size: 1.25em; margin-left: 10px;" for="contrastLevelinput">votre réponse :</label>
 
+      <input
+        id="inputField"
+        v-model="contrastAnswer"
+        type="text"
+        class="form-control"
+        autocomplete="off"
+        style="margin-bottom: 10px; margin-top: 10px; width: 200px; margin-left: 10px;"
+        :aria-label="$t('contrast.aria-label_response')"
+        @keyup.enter="checkContrastAnswer"
+      >
+      <button
+        class="btn btn-strong m-small"
+        style="margin-bottom: 10px;"
+        @click="checkContrastAnswer"
+      >
+        Valider
+      </button>
       <!-- <p style="font-size: 1.25em; margin-left: 7px;">
         Le niveau de contraste peut être ajusté avec le curseur ci-dessus.
       </p>
@@ -42,23 +61,6 @@
       <p style="font-size: 1.25em; margin-left: 7px;">
         Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
       </p> -->
-      <input
-        id="inputField"
-        v-model="contrastAnswer"
-        type="text"
-        class="form-control"
-        autocomplete="off"
-        style="margin-bottom: 10px; margin-top: 10px; width: 200px;"
-        :aria-label="$t('contrast.aria-label_response')"
-        @keyup.enter="checkContrastAnswer"
-      >
-      <button
-        class="btn btn-strong m-small"
-        style="margin-bottom: 10px;"
-        @click="checkContrastAnswer"
-      >
-        Valider
-      </button>
     </div>
   </div>
 </template>
@@ -77,7 +79,6 @@ const buttonDefs = ref<ButtonDef[]>([
   { label: 'SUIVIES', id: 'suivies', bg: '#ed7926', color: '#ff6600' },
 ])
 
-// contrastLevel: 0 = invisible (bg et texte = fond), augmente vers maxContrast = couleurs d'origine
 const contrastLevel = ref(0)
 const maxContrast = 6
 
@@ -102,7 +103,6 @@ function lerpColor(aHex: string, bHex: string, t: number) {
 
 function buttonStyle(btn: ButtonDef) {
   const t = Math.min(1, contrastLevel.value / maxContrast)
-  // partir du fond (blanc) et interpoler vers la couleur d'origine
   const bg = lerpColor('#ed7926', btn.bg || '#ed7926', t)
   const color = lerpColor('#ed7926', btn.color || '#ff6600', t)
   return { backgroundColor: bg, color }
@@ -119,11 +119,10 @@ onMounted(() => {
 function handleButtonClick(buttonId: string) {
   const selected = buttonDefs.value.find(b => b.id === buttonId)
   if (selected && selected.label === 'SUIVANT') {
-    alert('La bonne réponse est  4,5:1 !')
+    alert('Pour le niveau AA du WCAG, le rapport de contraste doit être d\'au moins 4,5:1 !')
     return
   }
 
-  // mauvais choix : afficher erreur, augmenter le contraste (rendre plus lisible) et reshuffle
   showError.value = true
   contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
   buttonDefs.value.sort(() => Math.random() - 0.5)
