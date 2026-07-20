@@ -3,7 +3,7 @@
     <div class="page ms-large mt-large">
       <h1>Contrast</h1>
       <RandomPage />
-      <p style="background-color: #ff6600; color: #ed7926; font-size: 1.25em; margin-left: 7px;">
+      <p style=" font-size: 1.25em; margin-left: 7px;">
         Le bon libellé de bouton est “SUIVANT”
       </p>
 
@@ -12,7 +12,7 @@
           v-for="btn in buttonDefs"
           :key="btn.id"
           class="btn btn-strong m-small fs-hs p-small"
-          style="background-color:#ed7926; color:#ff6600 ; "
+          :style="buttonStyle(btn)"
           :aria-label="btn.label"
           @click="handleButtonClick(btn.id)"
         >
@@ -36,14 +36,46 @@
 <script setup lang="ts">
 const { goToNextPage } = useNextPage()
 
-const buttonDefs = ref([
-  { label: 'SUIVANT', id: 'suivant' },
-  { label: 'SUIFANT', id: 'suifant' },
-  { label: 'SUIVAIT', id: 'suivait' },
-  { label: 'SUIVONS', id: 'suivons' },
-  { label: 'SUIVEUR', id: 'suiveur' },
-  { label: 'SUIVIES', id: 'suivies' },
+type ButtonDef = { label: string, id: string, bg?: string, color?: string }
+
+const buttonDefs = ref<ButtonDef[]>([
+  { label: 'SUIVANT', id: 'suivant', bg: '#ed7926', color: '#ff6600' },
+  { label: 'SUIFANT', id: 'suifant', bg: '#ed7926', color: '#ff6600' },
+  { label: 'SUIVAIT', id: 'suivait', bg: '#ed7926', color: '#ff6600' },
+  { label: 'SUIVONS', id: 'suivons', bg: '#ed7926', color: '#ff6600' },
+  { label: 'SUIVEUR', id: 'suiveur', bg: '#ed7926', color: '#ff6600' },
+  { label: 'SUIVIES', id: 'suivies', bg: '#ed7926', color: '#ff6600' },
 ])
+
+const degradation = ref(0)
+const maxDegradation = 6
+
+function hexToRgb(hex: string) {
+  const h = hex.replace('#', '')
+  const bigint = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16)
+  return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 }
+}
+
+function rgbToHex(r: number, g: number, b: number) {
+  return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('')
+}
+
+function lerpColor(aHex: string, bHex: string, t: number) {
+  const a = hexToRgb(aHex)
+  const b = hexToRgb(bHex)
+  const r = Math.round(a.r + (b.r - a.r) * t)
+  const g = Math.round(a.g + (b.g - a.g) * t)
+  const bl = Math.round(a.b + (b.b - a.b) * t)
+  return rgbToHex(r, g, bl)
+}
+
+function buttonStyle(btn: ButtonDef) {
+  const t = Math.min(1, degradation.value / maxDegradation)
+  // blend towards page background (white)
+  const bg = lerpColor(btn.bg || '#ed7926', '#ffffff', t)
+  const color = lerpColor(btn.color || '#ff6600', '#ffffff', t)
+  return { backgroundColor: bg, color }
+}
 
 const showError = ref(false)
 
@@ -59,8 +91,9 @@ function handleButtonClick(buttonId: string) {
     return
   }
 
-  // mauvais choix : afficher erreur et reshuffle
+  // mauvais choix : afficher erreur, augmenter la dégradation et reshuffle
   showError.value = true
+  degradation.value = Math.min(maxDegradation, degradation.value + 1)
   buttonDefs.value.sort(() => Math.random() - 0.5)
   setTimeout(() => {
     showError.value = false
