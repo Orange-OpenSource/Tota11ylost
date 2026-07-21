@@ -87,7 +87,9 @@
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
     "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
     "accessibility": "L'accessibilité en action",
-    "buttonStartAdventure": "Démarrer l'aventure"
+    "buttonStartAdventure": "Démarrer l'aventure",
+    "errorPseudoTooShort": "Le pseudo doit contenir au moins 3 caractères.",
+    "errorPseudoProfanity": "Ce pseudo contient des termes inappropriés. Veuillez en choisir un autre."
   },
   "intro": {
     "tabTitle": "Introduction - Tota11y Lost",

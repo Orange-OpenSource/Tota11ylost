@@ -9,15 +9,18 @@ onMounted(() => {
   gameStore.setVersion('60')
 })
 const router = useRouter()
+const { validatePseudo, getPseudoErrorMessage, PSEUDO_MAX_LENGTH } = usePseudoValidation()
 gameStore.resetAll()
 const pseudo = ref('')
-const pseudoError = ref(false)
+const pseudoErrorCode = ref<'tooShort' | 'profanity' | null>(null)
 
 function startAdventure() {
-  if (!pseudo.value.trim()) {
-    pseudoError.value = true
+  const error = validatePseudo(pseudo.value)
+  if (error) {
+    pseudoErrorCode.value = error
     return
   }
+  pseudoErrorCode.value = null
   gameStore.setPseudo(pseudo.value.trim())
   gameStore.startTimer()
 
@@ -61,30 +64,34 @@ function startAdventure() {
                 type="text"
                 class="text-input-field "
                 aria-labelledby="pseudoLabel"
-                required
+                aria-describedby="pseudoErrorContainer"
+                :maxlength="PSEUDO_MAX_LENGTH"
                 placeholder=""
                 style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px; font-weight: bold;"
-                @input="pseudoError = false"
+                @input="pseudoErrorCode = null"
               >
+            </div>
+          </div>
+          <div
+            v-if="pseudoErrorCode"
+            id="pseudoErrorContainer"
+            class="alert alert-message alert-negative mt-3"
+            role="alert"
+          >
+            <span class="alert-icon" aria-hidden="true">
+              <p class="visually-hidden">Error</p>
+            </span>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p class="alert-label">
+                  {{ $t(getPseudoErrorMessage(pseudoErrorCode)) }}
+                </p>
+              </div>
             </div>
           </div>
           <p class="col-9 mb-large">
             {{ $t('welcome.pseudo_alert') }}
           </p>
-          <div v-if="pseudoError" class="alert alert-message alert-negative mt-small">
-            <span class="alert-icon" aria-hidden="true">
-              <p class="visually-hidden">
-                Error
-              </p>
-            </span>
-            <div class="alert-container">
-              <div class="alert-text-container">
-                <p class="alert-label">
-                  {{ $t('welcome.errorMessage') }}
-                </p>
-              </div>
-            </div>
-          </div>
 
           <div class="select-input mb-medium w-50">
             <div class="select-input-container">

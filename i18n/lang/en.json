@@ -87,7 +87,9 @@
     "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt the experience. This information will not be linked to your nickname.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "accessibility": "Accessibility in action",
-    "buttonStartAdventure": "Start the adventure"
+    "buttonStartAdventure": "Start the adventure",
+    "errorPseudoTooShort": "Nickname must be at least 3 characters.",
+    "errorPseudoProfanity": "This nickname contains inappropriate terms. Please choose another one."
   },
   "intro": {
     "tabTitle": "Introduction - Tota11y Lost",
