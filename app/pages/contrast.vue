@@ -1,13 +1,37 @@
 <template>
-  <div>
-    <div class="page ms-large mt-large">
+  <div class="d-flex">
+    <div class=" page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
+      <div class="alert-container">
+        <div class="alert-text-container">
+          <div v-if="hintList.length" style="margin: 0; padding-left: 1.2rem; text-align: left;">
+            <p v-for="(hint, index) in hintList" :key="index">
+              {{ hint }}
+            </p>
+          </div>
+        </div>
+
+        <input
+          v-model="contrastInput"
+          type="text"
+          style="margin: 10px; padding: 5px; width: 200px;"
+          placeholder=""
+        >
+
+        <button
+          class="btn btn-strong m-small"
+          style="margin-bottom: 10px;"
+          @click="validateContrastAnswer"
+        >
+          Valider
+        </button>
+      </div>
+    </div>
+    <div class="page ms-large mt-4xlarge d-flex flex-column justify-content-center align-items-center text-center">
       <RandomPage />
-      <h2 style=" color: #f0f0f0;  margin-left: 10px; ">
-        Quel est le rapport de contraste minimum pour que le texte soit lisible ?
+
+      <h2 style=" color: #f0f0f0;font-size: 1.8em; margin-left: 10px;">
+        {{ h2Text }}
       </h2>
-      <p style=" font-size: 1.25em; margin-left: 10px;">
-        Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
-      </p>
 
       <div class="my-small ">
         <button
@@ -16,7 +40,7 @@
           class="btn btn-strong m-small fs-hs p-small"
           :style="buttonStyle(btn)"
           :aria-label="btn.label"
-          @click="handleButtonClick(btn.id)"
+          @click="handleButtonClick(btn.label)"
         >
           {{ btn.label }}
         </button>
@@ -31,36 +55,8 @@
           </div>
         </div>
       </div>
-      <label style="font-size: 1.25em; margin-left: 10px;" for="contrastLevelinput">votre réponse :</label>
 
-      <input
-        id="inputField"
-        v-model="contrastAnswer"
-        type="text"
-        class="form-control"
-        autocomplete="off"
-        style="margin-bottom: 10px; margin-top: 10px; width: 200px; margin-left: 10px;"
-        :aria-label="$t('contrast.aria-label_response')"
-        @keyup.enter="checkContrastAnswer"
-      >
-      <button
-        class="btn btn-strong m-small"
-        style="margin-bottom: 10px;"
-        @click="checkContrastAnswer"
-      >
-        Valider
-      </button>
-      <!-- <p style="font-size: 1.25em; margin-left: 7px;">
-        Le niveau de contraste peut être ajusté avec le curseur ci-dessus.
-      </p>
-
-      <p style="font-size: 1.25em; margin-left: 7px;">
-        Le niveau de contraste minimum pour que le texte soit lisible est de 4,5:1.
-      </p>
-
-      <p style="font-size: 1.25em; margin-left: 7px;">
-        Pour obtenir la bonne réponse, cliquez sur le bouton “SUIVANT”.
-      </p> -->
+      <GameHints page-id="contrast" large-text @hint="onHint" />
     </div>
   </div>
 </template>
@@ -70,17 +66,14 @@ const { goToNextPage } = useNextPage()
 
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
-const buttonDefs = ref<ButtonDef[]>([
-  { label: 'SUIVANT', id: 'suivant', bg: '#ed7926', color: '#ff6600' },
-  { label: 'SUIFANT', id: 'suifant', bg: '#ed7926', color: '#ff6600' },
-  { label: 'SUIVAIT', id: 'suivait', bg: '#ed7926', color: '#ff6600' },
-  { label: 'SUIVONS', id: 'suivons', bg: '#ed7926', color: '#ff6600' },
-  { label: 'SUIVEUR', id: 'suiveur', bg: '#ed7926', color: '#ff6600' },
-  { label: 'SUIVIES', id: 'suivies', bg: '#ed7926', color: '#ff6600' },
+const questions = ref([
+  { texte: 'Qui est impacté par un mauvais contraste ?', choix: ['les aveugles', 'tout le monde', 'personne'], reponse: 'tout le monde', indice: 'Le ratio est constitué de deux parties : une pour la luminosité la plus claire et l\'autre pour la plus sombre.' },
+  { texte: 'Est-ce que le contraste change selon la taille du texte ?', choix: ['Oui', 'Non', 'Parfois'], reponse: 'oui', indice: ' Le ratio de contraste est l\'équivalent d\'une acuité visuelle d\'environ 20/40' },
+  { texte: 'Quel outil permet de tester le contraste ?', choix: ['Cela existe pas', 'Pas besoin ça se voit', 'Contrast Color Analyzer'], reponse: 'Contrast Color Analyzer', indice: 'le ratio est 4.5:1 pour un texte normal et 3:1 pour un texte large. Il a a été défini pour garantir qu\'une personne ayant une perte de vision liée à l\'âge puisse lire un texte standard sans loupe ni technologie d\'assistance.' },
 ])
 
 const contrastLevel = ref(0)
-const maxContrast = 6
+const maxContrast = 3
 
 function hexToRgb(hex: string) {
   const h = hex.replace('#', '')
@@ -108,47 +101,76 @@ function buttonStyle(btn: ButtonDef) {
   return { backgroundColor: bg, color }
 }
 
-const contrastAnswer = ref('')
 const showError = ref(false)
+const contrastInput = ref('')
+const currentQuestionIndex = ref(0)
+const shuffleVersion = ref(0)
+const hintList = ref<string[]>([])
+const h2Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
 
-// Shuffle buttons on mount
-onMounted(() => {
-  buttonDefs.value.sort(() => Math.random() - 0.5)
+const buttonDefs = computed<ButtonDef[]>(() => {
+  const choices = questions.value[currentQuestionIndex.value]?.choix ?? []
+  const shuffledChoices = [...choices].sort(() => Math.random() - 0.5)
+
+  return shuffledChoices.map((choice, index) => ({
+    label: choice,
+    id: `choice-${currentQuestionIndex.value}-${shuffleVersion.value}-${index}`,
+    bg: '#ed7926',
+    color: '#ff6600',
+  }))
 })
 
-function handleButtonClick(buttonId: string) {
-  const selected = buttonDefs.value.find(b => b.id === buttonId)
-  if (selected && selected.label === 'SUIVANT') {
-    alert('Pour le niveau AA du WCAG, le rapport de contraste doit être d\'au moins 4,5:1 !')
+function onHint(index: number) {
+  if (index === 3) {
+    contrastLevel.value = maxContrast
+  }
+}
+
+function validateContrastAnswer() {
+  const normalizedInput = contrastInput.value.trim().replace(',', '.').toLowerCase()
+
+  if (normalizedInput === '4.5:1' || normalizedInput === '4.5/1') {
+    goToNextPage()
     return
   }
 
   showError.value = true
-  contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
-  buttonDefs.value.sort(() => Math.random() - 0.5)
   setTimeout(() => {
     showError.value = false
   }, 2000)
 }
 
-function checkContrastAnswer() {
-  const normalized = contrastAnswer.value.trim().replace(',', '.').toLowerCase()
-  if (normalized === '4.5:1' || normalized === '4.5/1' || normalized === '4,5:1' || normalized === '4,5/1') {
-    goToNextPage()
+function handleButtonClick(selectedLabel: string) {
+  const currentQuestion = questions.value[currentQuestionIndex.value]
+  if (!currentQuestion) {
+    return
+  }
+
+  if (selectedLabel.trim().toLowerCase() === currentQuestion.reponse.trim().toLowerCase()) {
+    const currentHint = questions.value[currentQuestionIndex.value]?.indice
+    if (currentHint) {
+      hintList.value.push(currentHint)
+    }
+
+    const isLastQuestion = currentQuestionIndex.value >= questions.value.length - 1
+
+    if (isLastQuestion) {
+      return
+    }
+
+    currentQuestionIndex.value += 1
   }
   else {
     showError.value = true
+    contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
     setTimeout(() => {
       showError.value = false
     }, 2000)
   }
+
+  shuffleVersion.value += 1
 }
 </script>
 
 <style scoped>
 </style>
-/*
-L'indice 1 affiche le message : "En plissant bien les yeux peut être..."
-L'indice 2 indique : "On augmente un peu le contraste de couleur." (Augmenter le contraste de couleur)
-L'indice 3 désactive la simulation et un message indique "La simulation a été désactivée et le contraste de couleur est maintenant conforme."
-*/
