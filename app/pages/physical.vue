@@ -4,46 +4,14 @@
 definePageMeta({ layout: 'without-footer', title: 'physical.tabTitle' })
 
 const { goToNextPage } = useNextPage()
+const { start: startTremor, stop: stopTremor } = useTremor()
 
 const modalVisible = ref(true)
+const modalRef = ref<HTMLElement | null>(null)
 const tremorActive = ref(true)
-const cursorX = ref(0)
-const cursorY = ref(0)
-const lastMouseX = ref(0)
-const lastMouseY = ref(0)
-let tremorIntervalId: ReturnType<typeof setInterval> | null = null
+const falseCursorRef = ref<HTMLImageElement | null>(null)
 
-// Tremor noise values
-const tremorNoise = [
-  -0.954, -0.390, 0.955, -0.742, 0.415, 1.114, 0.761, 0.738,
-  -0.538, 2.953, 1.297, 0.879, -0.431, 0.908, 1.329, -2.062,
-  0.854, 0.645, 0.296, 0.029,
-]
-
-function getRandomTremor(): number {
-  const idx = Math.round(Math.random() * (tremorNoise.length - 1))
-  return (tremorNoise[idx] ?? 0) * 40
-}
-
-function updateCursorPosition(e: MouseEvent) {
-  lastMouseX.value = e.clientX
-  lastMouseY.value = e.clientY
-}
-
-function applyTremor() {
-  if (!tremorActive.value) return
-
-  // Add tremor offset to make clicking difficult
-  const tremorX = getRandomTremor()
-  const tremorY = getRandomTremor()
-
-  cursorX.value = lastMouseX.value + tremorX
-  cursorY.value = lastMouseY.value + tremorY
-}
-
-function handleFakeClick() {
-  const element = document.elementFromPoint(cursorX.value, cursorY.value)
-
+function handleFakeClick(_x: number, _y: number, element: Element | null) {
   if (!element) return
 
   if (element.id === 'close-popup' || element.closest('#close-popup')) {
@@ -57,26 +25,16 @@ function handleFakeClick() {
 function onHint(index: number) {
   if (index === 3) {
     tremorActive.value = false
+    stopTremor()
   }
 }
 
-onMounted(() => {
-  document.addEventListener('mousemove', updateCursorPosition)
-  document.addEventListener('click', handleFakeClick)
-
-  // Continuous tremor animation
-  tremorIntervalId = setInterval(() => {
-    applyTremor()
-  }, 50)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('mousemove', updateCursorPosition)
-  document.removeEventListener('click', handleFakeClick)
-
-  if (tremorIntervalId) {
-    clearInterval(tremorIntervalId)
+onMounted(async () => {
+  await nextTick()
+  if (falseCursorRef.value) {
+    startTremor(falseCursorRef.value, handleFakeClick)
   }
+  modalRef.value?.focus()
 })
 </script>
 
@@ -90,9 +48,13 @@ onUnmounted(() => {
           <!-- Instructions Modal -->
           <div
             v-if="modalVisible"
+            ref="modalRef"
             class="modal d-block"
             tabindex="-1"
             style="background: rgba(0,0,0,0.5);"
+            role="dialog"
+            aria-modal="true"
+            @keydown.escape="modalVisible = false"
           >
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
@@ -147,10 +109,6 @@ onUnmounted(() => {
         ref="falseCursorRef"
         src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
         class="fake-cursor"
-        :style="{
-          left: `${cursorX}px`,
-          top: `${cursorY}px`,
-        }"
         alt=""
       >
     </div>

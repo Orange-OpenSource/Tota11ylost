@@ -7,6 +7,14 @@ const { goToNextPage } = useNextPage()
 
 const linkVisible = ref(false)
 const modalVisible = ref(false)
+const modalRef = ref<HTMLElement | null>(null)
+
+watch(modalVisible, async (visible) => {
+  if (visible) {
+    await nextTick()
+    modalRef.value?.focus()
+  }
+})
 
 function onHint(index: number) {
   if (index === 3) {
@@ -35,18 +43,18 @@ function navigateViaLink() {
           >{{ $t('intro.descriptionText2.here') }}</a>{{ $t('intro.descriptionText2.end') }}
         </p>
 
-          <h2>{{ $t('intro.rulesHeading') }}</h2>
-          <ul>
-            <li class="fs-hm">
-              {{ $t('intro.rule1') }}
-            </li>
-            <li class="fs-hm">
-              {{ $t('intro.rule2') }}
-            </li>
-            <li class="fs-hm">
-              {{ $t('intro.rule3') }}
-            </li>
-          </ul>
+        <h2>{{ $t('intro.rulesHeading') }}</h2>
+        <ul>
+          <li class="fs-hm">
+            {{ $t('intro.rule1') }}
+          </li>
+          <li class="fs-hm">
+            {{ $t('intro.rule2') }}
+          </li>
+          <li class="fs-hm">
+            {{ $t('intro.rule3') }}
+          </li>
+        </ul>
 
         <button
           class="btn fs-hs p-small btn-brand my-small"
@@ -58,11 +66,13 @@ function navigateViaLink() {
         <!-- "Too bad" Modal -->
         <div
           v-if="modalVisible"
+          ref="modalRef"
           class="modal d-block"
           tabindex="-1"
           aria-labelledby="tooBadModalLabel"
           aria-modal="true"
           role="dialog"
+          @keydown.escape="modalVisible = false"
         >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -90,8 +100,8 @@ function navigateViaLink() {
           <GameHints page-id="intro" large-text @hint="onHint" />
         </div>
       </div>
-      </main>
-    </div>
+    </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -112,6 +122,21 @@ function navigateViaLink() {
   &:hover {
     text-decoration: none !important;
     color: inherit !important;
+  }
+}
+
+.masked-link {
+  color: rgb(0, 0, 0) !important;
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus,
+  &:focus-visible {
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
   }
 }
 

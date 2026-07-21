@@ -35,6 +35,20 @@ main {
   margin-left: -1.75rem;
 }
 
+// OUDS applies the keyboard focus ring to the whole .radio-button-item container
+// (circle + label), which looks oversized and overlaps neighboring items.
+// Restrict the focus ring to the circle indicator itself instead.
+.radio-button-item:has(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// OUDS overrides the indicator color to a muted "focus" tone on :focus-visible,
+// which dims the checked (orange) dot/border. Keep it orange when checked.
+.control-item-indicator:checked:focus-visible {
+  --bs-control-item-indicator-color: var(--bs-color-action-selected);
+}
+
 
 body {
   font-family: 'Verdana', sans-serif;
@@ -45,6 +59,33 @@ body {
   cursor: text;
   text-decoration: none;
   color: rgb(0, 0, 0);
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus,
+  &:focus-visible {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    outline: none;
+    border: none;
+  }
+}
+
+// Remove default hover effects
+a.no-hover-effect {
+  &:hover,
+  &:active,
+  &:visited {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+// Remove browser default focus outline
+a.no-focus-outline:focus,
+a.no-focus-outline:focus-visible {
+  outline: none;
 }
 
 // Visual - color buttons
