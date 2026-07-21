@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex">
-    <div class=" page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
+    <div v-if="hintList.length" class="page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
       <div class="alert-container">
         <div class="alert-text-container">
-          <div v-if="hintList.length" style="margin: 0; padding-left: 1.2rem; text-align: left;">
+          <div style="margin: 0; padding-left: 1.2rem; text-align: left;">
             <p v-for="(hint, index) in hintList" :key="index">
               {{ hint }}
             </p>
@@ -106,6 +106,7 @@ const contrastInput = ref('')
 const currentQuestionIndex = ref(0)
 const shuffleVersion = ref(0)
 const hintList = ref<string[]>([])
+const shownHintIndexes = ref<Set<number>>(new Set())
 const h2Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
 
 const buttonDefs = computed<ButtonDef[]>(() => {
@@ -148,8 +149,9 @@ function handleButtonClick(selectedLabel: string) {
 
   if (selectedLabel.trim().toLowerCase() === currentQuestion.reponse.trim().toLowerCase()) {
     const currentHint = questions.value[currentQuestionIndex.value]?.indice
-    if (currentHint) {
+    if (currentHint && !shownHintIndexes.value.has(currentQuestionIndex.value)) {
       hintList.value.push(currentHint)
+      shownHintIndexes.value.add(currentQuestionIndex.value)
     }
 
     const isLastQuestion = currentQuestionIndex.value >= questions.value.length - 1
