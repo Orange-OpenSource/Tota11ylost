@@ -125,6 +125,21 @@ function navigateViaLink() {
   }
 }
 
+.masked-link {
+  color: rgb(0, 0, 0) !important;
+
+  &:hover,
+  &:active,
+  &:visited,
+  &:focus,
+  &:focus-visible {
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+  }
+}
+
 a {
   font-weight: normal;
 }
