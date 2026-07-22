@@ -1,64 +1,3 @@
-<template>
-  <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
-    <div v-if="hintList.length" class="page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
-      <h4 style=" margin-left: 10px;">
-        Les indices pour la question final :
-      </h4>
-      <ul style="margin: 0; padding-left: 1.2rem; text-align: left;">
-        <li v-for="(hint, index) in hintList" :key="index">
-          {{ hint }}
-        </li>
-      </ul>
-    </div>
-    <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
-      <RandomPage />
-
-      <h2 style=" color: #f0f0f0;font-size: 1.8em; margin-left: 10px;">
-        {{ h2Text }}
-      </h2>
-
-      <div class="my-small ">
-        <button
-          v-for="btn in buttonDefs"
-          :key="btn.id"
-          class="btn btn-strong m-small fs-hs p-small"
-          :style="buttonStyle(btn)"
-          :aria-label="btn.label"
-          @click="handleButtonClick(btn.label)"
-        >
-          {{ btn.label }}
-        </button>
-      </div>
-
-      <div v-if="showError" class="alert alert-message alert-negative" role="alert">
-        <div class="alert-container">
-          <div class="alert-text-container">
-            <p class="alert-label">
-              Mauvaise réponse, pourtant tout est écrit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
-        <h4>Quel est le rapport minimum de contrast pour un texte normal ?</h4>
-
-        <input
-          v-model="contrastInput"
-          type="text"
-          style="margin: 10px; padding: 5px; width: 200px;"
-          placeholder=""
-        >
-        <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
-          Valider
-        </button>
-      </div>
-
-      <GameHints page-id="contrast" large-text @hint="onHint" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const { goToNextPage } = useNextPage()
 
@@ -120,12 +59,6 @@ const buttonDefs = computed<ButtonDef[]>(() => {
   }))
 })
 
-function onHint(index: number) {
-  if (index === 3) {
-    contrastLevel.value = maxContrast
-  }
-}
-
 function validateContrastAnswer() {
   const normalizedInput = contrastInput.value.trim().replace(',', '.').toLowerCase()
 
@@ -174,5 +107,70 @@ function handleButtonClick(selectedLabel: string) {
 }
 </script>
 
+<template>
+  <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
+    <div v-if="hintList.length" class="page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
+      <h4 style=" font-size:2em; margin-left: 10px;">
+        Les indices pour la question final :
+      </h4>
+      <ul style="margin: 0; padding-left: 1.2rem; text-align: left;">
+        <li v-for="(hint, index) in hintList" :key="index" style=" font-size: 1.5em;">
+          {{ hint }}
+        </li>
+      </ul>
+    </div>
+    <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
+      <RandomPage />
+
+      <h2 style=" color: #f0f0f0;font-size: 1.8em; margin-left: 10px;">
+        {{ h2Text }}
+      </h2>
+
+      <div class="my-small ">
+        <button
+          v-for="btn in buttonDefs"
+          :key="btn.id"
+          class="btn btn-strong m-small fs-hs p-small"
+          :style="buttonStyle(btn)"
+          :aria-label="btn.label"
+          @click="handleButtonClick(btn.label)"
+        >
+          {{ btn.label }}
+        </button>
+      </div>
+
+      <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
+        <h4 style=" font-size:2em;">
+          Quel est le rapport minimum de contrast pour un texte normal ?
+        </h4>
+
+        <input
+          v-model="contrastInput"
+          type="text"
+          style="margin: 10px; padding: 5px; width: 200px;"
+          placeholder=""
+        >
+        <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
+          Valider
+        </button>
+      </div>
+
+      <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+        <div class="alert-container">
+          <div class="alert-text-container">
+            <p class="alert-label">
+              Mauvaise réponse, pourtant tout est écrit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
+li {
+  margin: 1.2rem;
+
+}
 </style>
