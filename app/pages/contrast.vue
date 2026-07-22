@@ -1,32 +1,16 @@
 <template>
-  <div class="d-flex">
+  <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
     <div v-if="hintList.length" class="page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
-      <div class="alert-container">
-        <div class="alert-text-container">
-          <div style="margin: 0; padding-left: 1.2rem; text-align: left;">
-            <p v-for="(hint, index) in hintList" :key="index">
-              {{ hint }}
-            </p>
-          </div>
-        </div>
-
-        <input
-          v-model="contrastInput"
-          type="text"
-          style="margin: 10px; padding: 5px; width: 200px;"
-          placeholder=""
-        >
-
-        <button
-          class="btn btn-strong m-small"
-          style="margin-bottom: 10px;"
-          @click="validateContrastAnswer"
-        >
-          Valider
-        </button>
-      </div>
+      <h4 style=" margin-left: 10px;">
+        Les indices pour la question final :
+      </h4>
+      <ul style="margin: 0; padding-left: 1.2rem; text-align: left;">
+        <li v-for="(hint, index) in hintList" :key="index">
+          {{ hint }}
+        </li>
+      </ul>
     </div>
-    <div class="page ms-large mt-4xlarge d-flex flex-column justify-content-center align-items-center text-center">
+    <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
       <RandomPage />
 
       <h2 style=" color: #f0f0f0;font-size: 1.8em; margin-left: 10px;">
@@ -54,6 +38,20 @@
             </p>
           </div>
         </div>
+      </div>
+
+      <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
+        <h4>Quel est le rapport minimum de contrast pour un texte normal ?</h4>
+
+        <input
+          v-model="contrastInput"
+          type="text"
+          style="margin: 10px; padding: 5px; width: 200px;"
+          placeholder=""
+        >
+        <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
+          Valider
+        </button>
       </div>
 
       <GameHints page-id="contrast" large-text @hint="onHint" />
@@ -107,6 +105,7 @@ const currentQuestionIndex = ref(0)
 const shuffleVersion = ref(0)
 const hintList = ref<string[]>([])
 const shownHintIndexes = ref<Set<number>>(new Set())
+const showFinalStep = computed(() => currentQuestionIndex.value >= questions.value.length)
 const h2Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
 
 const buttonDefs = computed<ButtonDef[]>(() => {
@@ -157,6 +156,7 @@ function handleButtonClick(selectedLabel: string) {
     const isLastQuestion = currentQuestionIndex.value >= questions.value.length - 1
 
     if (isLastQuestion) {
+      currentQuestionIndex.value = questions.value.length
       return
     }
 
