@@ -227,6 +227,45 @@
     "img_hungry": "J'AI FAIM",
     "img_monkey": "Allez, on se concentre un peu"
   },
+  "memorie": {
+    "tabTitle": "Handicap cognitif - Mémoire - Tota11y Lost",
+    "pageTitle": "Handicap cognitif - Mémoire",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Oublier des informations essentielles, perdre le fil d’une tâche en cours ou devoir constamment se remémorer des instructions rendent la navigation web frustrante et difficile. Une interface mal conçue, avec des informations qui disparaissent ou un manque de repères clairs, complique encore plus la situation. Une bonne accessibilité passe par des éléments bien structurés, une navigation prévisible et des aides à la mémoire, comme des rappels et des informations persistantes.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des troubles de la mémoire. Les informations importantes vous échappent rapidement, et il est difficile de vous rappeler des instructions ou des étapes précédentes.",
+    "rulesHeading": "Règles",
+    "rule1": "Lire le texte ci-dessous et mémoriser les informations nécessaires à la complétion des champs de formulaire.",
+    "rule2": "Attention, le texte et les étiquettes des champs de formulaires disparaissent après quelques secondes.",
+    "rule3": "Activer les indices 1 et 2 permets de remettre le texte et les étiquettes de champs de formulaires temporairement.",
+    "showTextButton": "Afficher le texte",
+    "textHeading": "Texte",
+    "storyText": "William Utermohlen (1933-2007) était un artiste américain connu pour son travail poignant sur la mémoire et l'identité. Diagnostiqué avec la maladie d'Alzheimer en 1995, il a réalisé une série d’environ 10 autoportraits jusqu’en 2000, illustrant la dégradation progressive de ses capacités cognitives. Son art est devenu un témoignage puissant de la perte de mémoire et de la perception altérée. Sa femme, Patricia Utermohlen, historienne de l’art, l’a accompagné et soutenu jusqu’à la fin de sa vie, œuvrant ensuite pour préserver et faire connaître son travail. Son œuvre reste une référence majeure pour comprendre les effets de la démence sur la créativité.",
+    "formHeading": "Le formulaire",
+    "allFieldsRequired": "Tous les champs sont obligatoires",
+    "question1": "Quel est le nom de l'artiste ?",
+    "question2": "Quel est le prénom de l'artiste ?",
+    "question3": "En quelle année sa maladie a-t-elle été diagnostiquée ?",
+    "question4": "Quel est le prénom de sa femme ?",
+    "question5": "En quelle année est-il décédé ?",
+    "question6": "Quelle est son année de naissance ?",
+    "question7": "Quel est le nom de sa maladie ?",
+    "question8": "Combien d'autoportraits a-t-il réalisé entre son diagnostic et 2000 ?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Valider",
+    "errorHiddenText": "Erreur",
+    "errorMessage": "Les informations indiquées ne sont pas conformes, un peu de mémoire !",
+    "requiredFieldError": "Ce champ est obligatoire"
+  },
   "physical": {
     "tabTitle": "Handicap moteur - Tota11y Lost",
     "content_description": "Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap",
@@ -423,6 +462,11 @@
     "cognitiveSimulation": [
       "Nous recherchons le nom de trois personnes célèbres, chacune dans un domaine différent.",
       "A.E, A.C, C.D",
+      "La simulation a été désactivée."
+    ],
+    "memorie": [
+      "Le texte a été reaffiché temporairement pendant 10 secondes",
+      "Le texte a été reaffiché temporairement pendant 20 secondes",
       "La simulation a été désactivée."
     ],
     "hearing": [
