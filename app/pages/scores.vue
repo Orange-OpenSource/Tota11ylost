@@ -14,6 +14,8 @@ interface ScoreEntry {
 
 const todayScores = ref<ScoreEntry[]>([])
 const generalScores = ref<ScoreEntry[]>([])
+const currentTodayRow = ref<HTMLElement | null>(null)
+const currentGeneralRow = ref<HTMLElement | null>(null)
 const pseudo = computed(() => gameStore.pseudo)
 const version = computed(() => gameStore.version)
 const categoriesRestantes = computed(() => gameStore.categoriesRestantes)
@@ -76,9 +78,25 @@ async function loadScores() {
 
     todayScores.value = await getTodayScores(version.value)
     generalScores.value = await getGeneralScores(version.value)
+
+    // Scroll to current user's score in both tables
+    await nextTick()
+    scrollToCurrentScore()
   }
   catch (e) {
     console.error('Failed to load scores:', e)
+  }
+}
+
+function scrollToCurrentScore() {
+  // Scroll to current user's row in today scores
+  if (currentTodayRow.value) {
+    currentTodayRow.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  // Scroll to current user's row in general scores
+  if (currentGeneralRow.value) {
+    currentGeneralRow.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 }
 
@@ -157,6 +175,7 @@ onMounted(loadScores)
                       <tr
                         v-for="(entry, index) in todayScores"
                         :key="`today-${index}`"
+                        :ref="(el) => { if (isCurrent(entry)) currentTodayRow = el as HTMLElement }"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
@@ -189,6 +208,7 @@ onMounted(loadScores)
                       <tr
                         v-for="(entry, index) in generalScores"
                         :key="`general-${index}`"
+                        :ref="(el) => { if (isCurrent(entry)) currentGeneralRow = el as HTMLElement }"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
