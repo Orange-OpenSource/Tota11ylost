@@ -145,6 +145,7 @@ onMounted(loadScores)
             <h3 class=" my-medium fs-hs fw-bold">
               {{ $t('scores.tabTitle') }}
             </h3>
+            <hr style="border: 3px solid #ff7900; width: 5%; margin-top: -10px;">
             <div class="d-flex gap-medium ">
               <!-- Today -->
               <div class="border col-6 w-75">
@@ -202,7 +203,7 @@ onMounted(loadScores)
                         </td>
                         <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                           <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
-                          <span v-else>{{ index + 1 }}</span>
+                          <span v-else style=" color: #000000; background-color: #f1f0f0; border-radius: 45%; padding: 0.6em 0.65em">{{ index + 1 }}</span>
                         </td>
                       </tr>
                     </tbody>
@@ -244,6 +245,9 @@ onMounted(loadScores)
   padding: 0.6em 0.65em
 }
 
+li::marker {
+  color: #000000;
+}
 .current-score .star {
   color: #fff;
   background-color: black;
