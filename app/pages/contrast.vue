@@ -45,7 +45,7 @@ const shuffleVersion = ref(0)
 const hintList = ref<string[]>([])
 const shownHintIndexes = ref<Set<number>>(new Set())
 const showFinalStep = computed(() => currentQuestionIndex.value >= questions.value.length)
-const h2Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
+const h3Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
 
 const buttonDefs = computed<ButtonDef[]>(() => {
   const choices = questions.value[currentQuestionIndex.value]?.choix ?? []
@@ -108,63 +108,89 @@ function handleButtonClick(selectedLabel: string) {
 </script>
 
 <template>
-  <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
-    <div v-if="hintList.length" class="page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center" role="status">
-      <h4 style=" font-size:2em; margin-left: 10px;">
-        Les indices pour la question final :
-      </h4>
-      <ul style="margin: 0; padding-left: 1.2rem; text-align: left;">
-        <li v-for="(hint, index) in hintList" :key="index" style=" font-size: 1.5em;">
-          {{ hint }}
-        </li>
-      </ul>
-    </div>
-    <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
-      <RandomPage />
+  <div class="fs-hm mw-none">
+    <GameHeader :page-title="$t('contrast.pageTitle')" />
+    <main>
+      <div class="mx-large">
+        <h2>{{ $t('contrast.descriptionHeading') }}</h2>
+        <p class="fs-hm">
+          {{ $t('contrast.descriptionText1') }}
+        </p>
+        <p class="fs-hm">
+          {{ $t('contrast.descriptionText2') }}
+        </p>
+        <h2>{{ $t('contrast.userTypeHeading') }}</h2>
+        <p class="fs-hm">
+          {{ $t('contrast.userTypeText') }}
+        </p>
 
-      <h2 style=" color: #f0f0f0;font-size: 1.8em; margin-left: 10px;">
-        {{ h2Text }}
-      </h2>
-
-      <div class="my-small ">
-        <button
-          v-for="btn in buttonDefs"
-          :key="btn.id"
-          class="btn btn-strong m-small fs-hs p-small"
-          :style="buttonStyle(btn)"
-          :aria-label="btn.label"
-          @click="handleButtonClick(btn.label)"
-        >
-          {{ btn.label }}
-        </button>
+        <h2>{{ $t('contrast.rulesHeading') }}</h2>
+        <ul>
+          <li>{{ $t('contrast.rule1') }}</li>
+          <li>{{ $t('contrast.rule2') }}</li>
+          <li>{{ $t('contrast.rule3') }}</li>
+        </ul>
       </div>
 
-      <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
-        <h4 style=" font-size:2em;">
-          Quel est le rapport minimum de contrast pour un texte normal ?
-        </h4>
+      <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
+        <div v-if="hintList.length" class=" w-50 page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center mb-4xlarge" role="status">
+          <h3 style="font-size: 1.25em;  margin-left: 10px;">
+            Les indices pour la question final :
+          </h3>
+          <ul style="margin: 0;margin-left: 1.3rem; padding-left: 1.2rem; text-align: left;">
+            <li v-for="(hint, index) in hintList" :key="index" style=" font-size: 0.8em; ">
+              {{ hint }}
+            </li>
+          </ul>
+        </div>
+        <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
+          <RandomPage />
 
-        <input
-          v-model="contrastInput"
-          type="text"
-          style="margin: 10px; padding: 5px; width: 200px;"
-          placeholder=""
-        >
-        <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
-          Valider
-        </button>
-      </div>
+          <h3 style=" color: #f0f0f0;font-size: 1.5em; margin-left: 10px;">
+            {{ h3Text }}
+          </h3>
 
-      <div v-if="showError" class="alert alert-message alert-negative" role="alert">
-        <div class="alert-container">
-          <div class="alert-text-container">
-            <p class="alert-label">
-              Mauvaise réponse, pourtant tout est écrit.
-            </p>
+          <div class="my-small ">
+            <button
+              v-for="btn in buttonDefs"
+              :key="btn.id"
+              class="btn btn-strong m-small fs-hs p-small"
+              :style="buttonStyle(btn)"
+              :aria-label="btn.label"
+              @click="handleButtonClick(btn.label)"
+            >
+              {{ btn.label }}
+            </button>
+          </div>
+
+          <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
+            <h3 style=" font-size: 1.5em; ">
+              Quel est le rapport minimum de contrast pour un texte normal ?
+            </h3>
+
+            <input
+              v-model="contrastInput"
+              type="text"
+              style="margin: 10px; padding: 5px; width: 200px;"
+              placeholder=""
+            >
+            <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
+              Valider
+            </button>
+          </div>
+
+          <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p class="alert-label">
+                  Mauvaise réponse, pourtant tout est écrit.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
