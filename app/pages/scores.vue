@@ -224,11 +224,29 @@ onMounted(loadScores)
 }
 
 .current-score {
-  background-color: var(--bs-primary, #ff7900);
+  border: 3px solid  #ff7900;
+  color:#000000
 }
 
 .current {
+  background-color: transparent !important;
+  color: #000000 !important;
+  font-size: 1rem;
+}
+.current p{
+  color: #414141 !important;
+}
+
+.star {
+  color: #000000;
+  background-color: #f1f0f0;
+  border-radius: 45%;
+  padding: 0.6em 0.65em
+}
+
+.current-score .star {
   color: #fff;
+  background-color: black;
 }
 
 .scores-img {
