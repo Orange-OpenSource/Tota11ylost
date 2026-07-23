@@ -133,9 +133,7 @@
     "content_description": "Página de simulación de una discapacidad visual grave (invidente)",
     "pageTitle": "Discapacidad visual - Simulación",
     "userTypeHeading": "El tipo de usuario",
-    "userTypeText1_part1": "Esta prueba es un poco especial. Para navegar con el teclado en esta página, usa Tab",
-    "userTypeText1_part2": "(avanzar) y Shift + Tab",
-    "userTypeText1_part3": "(retroceder). Tu entrada aparecerá como un cursor blanco parpadeante, Intro (validar).",
+    "userTypeText1": "Esta prueba es un poco especial. Para navegar con el teclado en esta página, usa la tecla 'Tab' para avanzar y la combinación 'Shift+Tab' para retroceder.",
     "userTypeText2": "Aquí, te enfrentas a la discapacidad digital más impactante: ciego o con visión muy reducida.",
     "riddleHeading": "Enigma",
     "riddleText1": "¿Difícil saber a dónde vas en la oscuridad, verdad?",
@@ -452,7 +450,7 @@
   "scores": {
     "tabTitle": "Tabla de posiciones - Tota11y Lost",
     "content_description": "Tabla de posiciones",
-    "nameLink": "Aprende más",
+    "nameLink": "Accede al sitio",
     "link": "https://a11y-guidelines.orange.com/en/",
     "congratulations": "¡Felicidades {pseudo}, has terminado el juego de escape en <span>{finalTimeDisplay}</span>!",
     "finalTime": "Tiempo final",
@@ -462,11 +460,18 @@
     "generalTitle": "Clasificación general",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
-  "filter": {
-    "title": "Filtra tu deficiencia:",
-    "deficiencyVisual": "visual",
-    "deficiencyPhysical": "físico",
-    "deficiencyHearing": "auditivo",
-    "deficiencyCognitive": "cognitivo"
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Página de descripción del contraste y de la simulación de contraste bajo",
+    "pageTitle": "Contraste",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Navegar por Internet es un desafío para una persona con problemas de contraste. Un diseño gráfico mal optimizado, con contrastes insuficientes entre el texto y el fondo o entre elementos interactivos, puede hacer que ciertos contenidos sean totalmente inaccesibles.",
+    "descriptionText2": "Una atención especial a las normas de accesibilidad (WCAG), especialmente en los ratios de contraste, es esencial para hacer una interfaz utilizable en este contexto.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Estás dentro de la piel de una persona con problemas de contraste. Los elementos visuales que carecen de diferenciación entre tonos claros y oscuros son casi invisibles para ti. Los textos grises claros sobre fondo blanco, o los botones pastel sobre un fondo de color similar, te plantean serios desafíos.",
+    "rulesHeading": "Reglas",
+    "rule1": "Lee atentamente y responde correctamente al cuestionario sobre el contraste.",
+    "rule2": "Para cada pregunta, desbloquearás una pista para la pregunta final.",
+    "rule3": "Cada respuesta incorrecta aumenta el contraste para que las opciones sean más visibles."
   }
 }

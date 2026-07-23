@@ -466,5 +466,19 @@
     "deficiencyPhysical": "physical",
     "deficiencyHearing": "hearing",
     "deficiencyCognitive": "cognitive"
+  },
+  "contrast": {
+    "tabTitle": "Contrast - Tota11y Lost",
+    "content_description": "Description page for contrast and low-contrast simulation",
+    "pageTitle": "Contrast",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Browsing the web is a challenge for a person with contrast problems. Poorly optimized graphic design, with insufficient contrast between text and background or between interactive elements, can make certain content completely inaccessible.",
+    "descriptionText2": "Special attention to accessibility rules (WCAG), particularly contrast ratios, is essential to make an interface usable in this context.",
+    "userTypeHeading": "The type of user you embody",
+    "userTypeText": "You are in the shoes of a person with contrast problems. Visual elements lacking differentiation between light and dark shades are almost invisible to you. Light gray text on a white background, or pastel buttons on a similarly colored background, present serious challenges.",
+    "rulesHeading": "Rules",
+    "rule1": "Read carefully and answer the contrast quiz correctly.",
+    "rule2": "For each question, you will unlock a hint for the final question.",
+    "rule3": "Each wrong answer increases the contrast to make the choices easier to see."
   }
 }

@@ -466,5 +466,19 @@
     "deficiencyPhysical": "physique",
     "deficiencyHearing": "auditif",
     "deficiencyCognitive": "cognitif"
+  },
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Page de description du contraste et de la simulation d'un contraste faible",
+    "pageTitle": "Contraste",
+    "descriptionHeading": "Description",
+    "descriptionText1": "La navigation sur internet est un défi pour une personne ayant des problèmes de contraste.Une conception graphique mal optimisée, avec des contrastes insuffisants entre le texte et l'arrière-plan ou entre des éléments interactifs,peut rendre certains contenus totalement inaccessibles.",
+    "descriptionText2": "Une attention particulière aux règles d'accessibilité (WCAG), notamment sur les ratios de contraste,est essentielle pour rendre une interface utilisable dans ce contexte.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des problèmes de contraste.Les éléments visuels qui manquent de différenciation entre les teintes claires et foncées sont presque invisibles pour vous.Les zones de texte gris clair sur fond blanc, ou les boutons pastel sur un arrière-plan de couleur similaire, vous posent de sérieux défis.",
+    "rulesHeading": "Règles",
+    "rule1": "Lisez attentivement et répondez correctement au QCM sur le contraste.",
+    "rule2": "Pour chaque question, vous débloquerez un indice pour la question de fin.",
+    "rule3": "Chaque mauvaise réponse augmente le contraste pour rendre les choix plus visibles."
   }
 }
