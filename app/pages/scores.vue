@@ -201,9 +201,21 @@ onMounted(loadScores)
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
-                          <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
-                          <span v-else style=" color: #000000; background-color: #f1f0f0; border-radius: 45%; padding: 0.6em 0.65em">{{ index + 1 }}</span>
+                        <td style=" border-radius: 45%;" class=" vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                          <span v-if="(index + 1) <= 3" class="star">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="14"
+                              height="14"
+                              viewBox="0 0 14 14"
+                              fill="none"
+                            ><path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M1.0498 5.67008L4.1998 8.47008L3.1498 12.6701L6.9998 10.5701L10.8498 12.6701L9.7998 8.47008L12.9498 5.67008L8.7498 4.97008L6.9998 1.33008L5.2498 4.97008L1.0498 5.67008Z"
+                              fill="black"
+                            /></svg> {{ index + 1 }}</span>
+                          <span v-else style=" color: #000000; background-color: #f1f0f0; border-radius: 45%; width: 32px; padding: 10px; font-weight: 600;"> {{ index + 1 }} </span>
                         </td>
                       </tr>
                     </tbody>
@@ -226,7 +238,8 @@ onMounted(loadScores)
 
 .current-score {
   border: 3px solid  #ff7900;
-  color:#000000
+  color:#000000;
+
 }
 
 .current {
@@ -239,10 +252,14 @@ onMounted(loadScores)
 }
 
 .star {
-  color: #000000;
   background-color: #f1f0f0;
-  border-radius: 45%;
-  padding: 0.6em 0.65em
+  padding-top: 6.8px;
+  padding-bottom: 6.8px;
+  padding-left: 10.3px;
+  padding-right: 10.3px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #000000;
 }
 
 li::marker {
