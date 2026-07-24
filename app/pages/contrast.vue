@@ -4,9 +4,9 @@ const { goToNextPage } = useNextPage()
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
 const questions = ref([
-  { texte: 'Qui est impacté par un mauvais contraste ?', choix: ['les aveugles', 'tout le monde', 'personne'], reponse: 'tout le monde', indice: 'Le ratio est constitué de deux parties : une pour la luminosité la plus claire et l\'autre pour la plus sombre.' },
-  { texte: 'Est-ce que le contraste change selon la taille du texte ?', choix: ['Oui', 'Non', 'Parfois'], reponse: 'oui', indice: ' Le ratio de contraste est l\'équivalent d\'une acuité visuelle d\'environ 20/40' },
-  { texte: 'Quel outil permet de tester le contraste ?', choix: ['Cela existe pas', 'Pas besoin ça se voit', 'Contrast Color Analyzer'], reponse: 'Contrast Color Analyzer', indice: 'le ratio est 4.5:1 pour un texte normal et 3:1 pour un texte large. Il a a été défini pour garantir qu\'une personne ayant une perte de vision liée à l\'âge puisse lire un texte standard sans loupe ni technologie d\'assistance.' },
+  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('contrast.hint1') },
+  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('contrast.hint2') },
+  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('contrast.hint3') },
 ])
 
 const contrastLevel = ref(0)
@@ -135,7 +135,7 @@ function handleButtonClick(selectedLabel: string) {
       <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
         <div v-if="hintList.length" class=" w-50 page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center mb-4xlarge" role="status">
           <h3 style="font-size: 1.25em;  margin-left: 10px;">
-            Les indices pour la question final :
+            {{ $t('contrast.indicetitle') }}
           </h3>
           <ul style="margin: 0;margin-left: 1.3rem; padding-left: 1.2rem; text-align: left;">
             <li v-for="(hint, index) in hintList" :key="index" style=" font-size: 0.8em; ">
@@ -165,7 +165,7 @@ function handleButtonClick(selectedLabel: string) {
 
           <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
             <h3 style=" font-size: 1.5em; ">
-              Quel est le rapport minimum de contrast pour un texte normal ?
+              {{ $t('contrast.questionFinal') }}
             </h3>
 
             <input
@@ -175,7 +175,7 @@ function handleButtonClick(selectedLabel: string) {
               placeholder=""
             >
             <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
-              Valider
+              {{ $t('contrast.next') }}
             </button>
           </div>
 
