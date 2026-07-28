@@ -102,7 +102,9 @@ onMounted(loadScores)
         <div class="col-8">
           <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85">
             <div class="col-6 w-100">
-              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
+              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100">
+                {{ $t('scores.congratulations', { pseudo, finalTimeDisplay }) }}
+              </h2>
               <p class="fs-bl fw-bold text-muted w-100">
                 {{ $t('scores.finalTime') }}
               </p>
@@ -152,7 +154,7 @@ onMounted(loadScores)
                 <p class="text-center my-medium fs-hs">
                   {{ $t('scores.todayTitle') }}
                 </p>
-                <div class="scrollable-table-container">
+                <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
                   <table class="table table-responsive">
                     <tbody>
                       <tr
@@ -184,7 +186,7 @@ onMounted(loadScores)
                 <p class="text-center my-medium fs-hs">
                   {{ $t('scores.generalTitle') }}
                 </p>
-                <div class="scrollable-table-container">
+                <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
                   <table class="table table-responsive">
                     <tbody>
                       <tr
