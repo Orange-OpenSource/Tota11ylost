@@ -30,11 +30,16 @@ function formatTime(ms: number): string {
   const h = Math.floor(totalSec / 3600)
   const m = Math.floor((totalSec % 3600) / 60)
   const s = totalSec % 60
-  const parts: string[] = []
-  if (h > 0) parts.push(`${h}${t('common.time.hour.abbr', h)}`)
-  parts.push(`${String(m).padStart(2, '0')}${t('common.time.minute.abbr', m)}`)
-  parts.push(`${String(s).padStart(2, '0')}${t('common.time.second.abbr', s)}`)
-  return parts.join(' ')
+
+  const hh = String(h).padStart(2, '0')
+  const mm = String(m).padStart(2, '0')
+  const ss = String(s).padStart(2, '0')
+
+  if (h > 0) {
+    return `${hh}:${mm}:${ss}`
+  }
+
+  return `${mm}:${ss}`
 }
 
 // Accessible format: "5 minutes 30 secondes" — visually hidden, for screen readers
@@ -150,7 +155,7 @@ onMounted(loadScores)
             <div class="d-flex gap-medium ">
               <!-- Today -->
               <div class="border col-6 w-75">
-                <p class="text-center my-medium fs-hs">
+                <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.todayTitle') }}
                 </p>
                 <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
@@ -162,7 +167,7 @@ onMounted(loadScores)
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
-                          <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
+                          <p class="mb-none fw-bold" :class="{ 'fs-bl': isCurrent(entry) }">
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
@@ -170,7 +175,7 @@ onMounted(loadScores)
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                        <td class="py-small vertical-align " :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                           <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
                           <span v-else>{{ index + 1 }}</span>
                         </td>
@@ -182,7 +187,7 @@ onMounted(loadScores)
 
               <!-- General -->
               <div class="border col-6  w-75">
-                <p class="text-center my-medium fs-hs">
+                <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.generalTitle') }}
                 </p>
                 <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
@@ -194,7 +199,7 @@ onMounted(loadScores)
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
-                          <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
+                          <p class="mb-none fw-bold" :class="{ 'fs-bl ': isCurrent(entry) }">
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
@@ -203,7 +208,7 @@ onMounted(loadScores)
                           </p>
                         </td>
 
-                        <td class="vertical-align" :class="{ current: isCurrent(entry) }">
+                        <td class="vertical-align " :class="{ current: isCurrent(entry) }">
                           <span
                             class="rank-badge"
                             :class="{ 'current-badge': isCurrent(entry), 'star': (index + 1) <= 3 }"
@@ -298,5 +303,6 @@ li::marker {
 
 .vertical-align {
   vertical-align: middle;
+
 }
 </style>
