@@ -9,7 +9,7 @@ const questions = ref([
   { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('contrast.hint3') },
 ])
 
-const contrastLevel = ref(0)
+const contrastLevel = ref(1)
 const maxContrast = 3
 
 function hexToRgb(hex: string) {
@@ -33,7 +33,7 @@ function lerpColor(aHex: string, bHex: string, t: number) {
 
 function buttonStyle(btn: ButtonDef) {
   const t = Math.min(1, contrastLevel.value / maxContrast)
-  const bg = lerpColor('#ed7926', btn.bg || '#ed7926', t)
+  const bg = lerpColor('#ed7926', btn.bg || '#E67018', t)
   const color = lerpColor('#ed7926', btn.color || '#ff6600', t)
   return { backgroundColor: bg, color }
 }
@@ -82,7 +82,7 @@ function handleButtonClick(selectedLabel: string) {
   if (selectedLabel.trim().toLowerCase() === currentQuestion.reponse.trim().toLowerCase()) {
     const currentHint = questions.value[currentQuestionIndex.value]?.indice
     if (currentHint && !shownHintIndexes.value.has(currentQuestionIndex.value)) {
-      hintList.value.push(currentHint)
+      alert(currentHint)
       shownHintIndexes.value.add(currentQuestionIndex.value)
     }
 
@@ -132,64 +132,53 @@ function handleButtonClick(selectedLabel: string) {
         </ul>
       </div>
 
-      <div :class="hintList.length ? 'd-flex flex-row justify-content-center align-items-start text-center' : 'd-flex flex-column justify-content-center align-items-center text-center'">
-        <div v-if="hintList.length" class=" w-50 page ms-large mt-4xlarge justify-content-center  d-flex flex-column  align-items-center text-center mb-4xlarge" role="status">
-          <h3 style="font-size: 1.25em;  margin-left: 10px;">
-            {{ $t('contrast.indicetitle') }}
-          </h3>
-          <ul style="margin: 0;margin-left: 1.3rem; padding-left: 1.2rem; text-align: left;">
-            <li v-for="(hint, index) in hintList" :key="index" style=" font-size: 0.8em; ">
-              {{ hint }}
-            </li>
-          </ul>
+      <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
+        <RandomPage />
+
+        <h3 class="questions">
+          {{ h3Text }}
+        </h3>
+
+        <div class="my-small ">
+          <button
+            v-for="btn in buttonDefs"
+            :key="btn.id"
+            class="btn btn-strong m-small fs-hs p-small"
+            :style="buttonStyle(btn)"
+            :aria-label="btn.label"
+            @click="handleButtonClick(btn.label)"
+          >
+            {{ btn.label }}
+          </button>
         </div>
-        <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
-          <RandomPage />
 
-          <h3 style=" color: #f0f0f0;font-size: 1.5em; margin-left: 10px;">
-            {{ h3Text }}
+        <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
+          <h3 style=" font-size: 1.5em; ">
+            {{ $t('contrast.questionFinal') }}
           </h3>
 
-          <div class="my-small ">
-            <button
-              v-for="btn in buttonDefs"
-              :key="btn.id"
-              class="btn btn-strong m-small fs-hs p-small"
-              :style="buttonStyle(btn)"
-              :aria-label="btn.label"
-              @click="handleButtonClick(btn.label)"
-            >
-              {{ btn.label }}
-            </button>
-          </div>
+          <input
+            v-model="contrastInput"
+            type="text"
+            style="margin: 10px; padding: 5px; width: 200px;"
+            placeholder=""
+          >
+          <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
+            {{ $t('contrast.next') }}
+          </button>
+        </div>
 
-          <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
-            <h3 style=" font-size: 1.5em; ">
-              {{ $t('contrast.questionFinal') }}
-            </h3>
-
-            <input
-              v-model="contrastInput"
-              type="text"
-              style="margin: 10px; padding: 5px; width: 200px;"
-              placeholder=""
-            >
-            <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
-              {{ $t('contrast.next') }}
-            </button>
-          </div>
-
-          <div v-if="showError" class="alert alert-message alert-negative" role="alert">
-            <div class="alert-container">
-              <div class="alert-text-container">
-                <p class="alert-label">
-                  Mauvaise réponse, pourtant tout est écrit.
-                </p>
-              </div>
+        <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+          <div class="alert-container">
+            <div class="alert-text-container">
+              <p class="alert-label">
+                Mauvaise réponse, pourtant tout est écrit.
+              </p>
             </div>
           </div>
         </div>
       </div>
+      <GameHints page-id="contrast" large-text />
     </main>
   </div>
 </template>
@@ -198,5 +187,13 @@ function handleButtonClick(selectedLabel: string) {
 li {
   margin: 1.2rem;
 
+}
+.hintstyle {
+  border: 2px solid black;
+}
+.questions{
+  color: #f3f1f1;
+  font-size: 1.5em;
+  margin-left: 10px;
 }
 </style>
