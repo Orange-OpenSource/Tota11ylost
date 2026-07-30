@@ -31,6 +31,19 @@ function formatTime(ms: number): string {
   const m = Math.floor((totalSec % 3600) / 60)
   const s = totalSec % 60
 
+  const parts: string[] = []
+  if (h > 0) parts.push(`${h}${t('common.time.hour.abbr', h)}`)
+  parts.push(`${String(m).padStart(2, '0')}${t('common.time.minute.abbr', m)}`)
+  parts.push(`${String(s).padStart(2, '0')}${t('common.time.second.abbr', s)}`)
+  return parts.join(' ')
+}
+
+function formatTime2(ms: number): string {
+  const totalSec = Math.floor(ms / 1000)
+  const h = Math.floor(totalSec / 3600)
+  const m = Math.floor((totalSec % 3600) / 60)
+  const s = totalSec % 60
+
   const hh = String(h).padStart(2, '0')
   const mm = String(m).padStart(2, '0')
   const ss = String(s).padStart(2, '0')
@@ -109,15 +122,15 @@ onMounted(loadScores)
             <div class="col-6 w-100">
               <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
 
-              <p class="fs-bl fw-bold text-muted w-100">
+              <p class="fs-bl  text-muted w-100">
                 {{ $t('scores.finalTime') }}
               </p>
-              <ul class="align-items-center fs-hs fw-bold">
+              <ul class="align-items-center fs-hs ">
                 <li class="">
                   <p>{{ $t('scores.aventureType') }}</p>
                 </li>
                 <li aria-hidden="true" class="">
-                  <p>{{ $t('scores.timeList') }}{{ finalTimeDisplay }}</p>
+                  <p>{{ $t('scores.timeList') }} {{ finalTimeDisplay }}</p>
                 </li>
                 <li class="visually-hidden">
                   {{ formatTimeA11y(finalElapsed) }}
@@ -131,14 +144,14 @@ onMounted(loadScores)
                 <div class="alert-icon" />
                 <div class="alert-container">
                   <div class="alert-text-container">
-                    <p class="alert-label">
+                    <p class="alert-label ">
                       {{ $t('scores.toKnowMore') }}
                     </p>
                     <a
                       :href="$t('scores.link')"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="alert-link"
+                      class="alert-link fw-bold"
                     >{{ $t('scores.nameLink') }}</a>
                   </div>
                 </div>
@@ -171,11 +184,11 @@ onMounted(loadScores)
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
-                            <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                            <span aria-hidden="true">{{ formatTime2(entry.timer) }}</span>
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align " :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                        <td class="py-small vertical-align d-flex flex-row-reverse pt-medium" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                           <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
                           <span v-else>{{ index + 1 }}</span>
                         </td>
@@ -203,12 +216,12 @@ onMounted(loadScores)
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
-                            <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                            <span aria-hidden="true">{{ formatTime2(entry.timer) }}</span>
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
 
-                        <td class="vertical-align " :class="{ current: isCurrent(entry) }">
+                        <td class="vertical-align  d-flex flex-row-reverse pt-medium" :class="{ current: isCurrent(entry) }">
                           <span
                             class="rank-badge"
                             :class="{ 'current-badge': isCurrent(entry), 'star': (index + 1) <= 3 }"
