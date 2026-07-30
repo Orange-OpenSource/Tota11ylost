@@ -111,14 +111,14 @@ onMounted(loadScores)
           id="congratulationImage"
           src="/game-assets/winners.png"
           :alt="$t('scores.alt_congratulationImage', { version })"
-          class="me-3xlarge"
+          class="me-3xlarge victoire-image"
         >
         <div class="position-absolute top-50 start-50 translate-middle mt-3xlarge" aria-hidden="true" />
       </div>
 
-      <main class="d-flex flex-row m-medium ms-large flex-grow-1">
-        <div class="col-8">
-          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85">
+      <main class="d-flex flex-row m-medium ms-large flex-grow-1 margin-main">
+        <div class="col-8 page">
+          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85 contenu">
             <div class="col-6 w-100">
               <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
 
@@ -165,9 +165,9 @@ onMounted(loadScores)
               {{ $t('scores.tabTitle') }}
             </h3>
             <hr style="border: 3px solid #ff7900; width: 5%; margin-top: -10px;">
-            <div class="d-flex gap-medium ">
+            <div class="d-flex gap-medium tabs">
               <!-- Today -->
-              <div class="border col-6 w-75">
+              <div class="border col-6 w-75 today">
                 <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.todayTitle') }}
                 </p>
@@ -199,7 +199,7 @@ onMounted(loadScores)
               </div>
 
               <!-- General -->
-              <div class="border col-6  w-75">
+              <div class="border col-6  w-75 general">
                 <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.generalTitle') }}
                 </p>
@@ -317,5 +317,40 @@ li::marker {
 .vertical-align {
   vertical-align: middle;
 
+}
+@media (max-width: 576px) { /*mobile */
+.victoire-image{
+  display: none;
+}
+.contenu{
+  padding: 0px !important;
+}
+.page{
+  width: 100%;
+}
+.tabs{
+  display:flex ;
+  flex-direction: column;
+}
+.today{
+width: 100% !important;
+}
+.general {
+width: 100% !important;
+margin-bottom: 20px;
+}
+.margin-main{
+  margin: 0px !important;
+}
+}
+@media (min-width: 577px ) and (max-width: 768px) {/*tablette*/
+.victoire-image{
+  border: 4px solid violet;
+}
+}
+@media (min-width: 768px) {/*ordi*/
+.victoire-image{
+  border:4px solid red;
+}
 }
 </style>
