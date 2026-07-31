@@ -111,7 +111,7 @@ onMounted(loadScores)
           id="congratulationImage"
           src="/game-assets/winners.png"
           :alt="$t('scores.alt_congratulationImage', { version })"
-          class="me-3xlarge victoire-image"
+          class="victoire-image"
         >
         <div class="position-absolute top-50 start-50 translate-middle mt-3xlarge" aria-hidden="true" />
       </div>
@@ -120,7 +120,7 @@ onMounted(loadScores)
         <div class="col-8 page">
           <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85 contenu">
             <div class="col-6 w-100">
-              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
+              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100 titre" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
 
               <p class="fs-bl  text-muted w-100">
                 {{ $t('scores.finalTime') }}
@@ -343,14 +343,20 @@ margin-bottom: 20px;
   margin: 0px !important;
 }
 }
-@media (min-width: 577px ) and (max-width: 768px) {/*tablette*/
+@media (min-width: 577px ) and (max-width: 898px) {/*tablette*/
 .victoire-image{
-  border: 4px solid violet;
+  width: 40%;
+}
+.margin-main{
+  margin: 0px !important;
+}
+.titre{
+  font-size: 24px !important;
 }
 }
-@media (min-width: 768px) {/*ordi*/
+@media (min-width: 898px) {/*ordi*/
 .victoire-image{
-  border:4px solid red;
+  width: 35.5%;
 }
 }
 </style>
