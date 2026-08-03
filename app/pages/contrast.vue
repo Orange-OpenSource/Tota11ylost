@@ -180,8 +180,8 @@ function handleButtonClick(selectedLabel: string) {
             </div>
           </div>
         </div>
+        <GameHints page-id="contrast" large-text />
       </div>
-      <GameHints page-id="contrast" large-text />
     </main>
 
     <div
@@ -216,10 +216,6 @@ function handleButtonClick(selectedLabel: string) {
 </template>
 
 <style scoped>
-li {
-  margin: 1.2rem;
-}
-
 .hintstyle {
   border: 2px solid black;
 }
