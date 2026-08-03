@@ -180,10 +180,8 @@ function handleButtonClick(selectedLabel: string) {
             </div>
           </div>
         </div>
-        <GameHints page-id="contrast" large-text />
       </div>
     </main>
-
     <div
       v-if="modalVisible"
       class="modal d-block"
@@ -212,6 +210,7 @@ function handleButtonClick(selectedLabel: string) {
         </div>
       </div>
     </div>
+    <GameHints page-id="contrast" large-text class=" mx-large" />
   </div>
 </template>
 
