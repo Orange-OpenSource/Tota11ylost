@@ -4,12 +4,14 @@ const { goToNextPage } = useNextPage()
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
 const questions = ref([
-  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('contrast.hint1') },
-  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('contrast.hint2') },
-  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('contrast.hint3') },
+  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('hints.contrast.0') },
+  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('hints.contrast.1') },
+  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('hints.contrast.2') },
 ])
 
+const modalVisible = ref(false)
 const contrastLevel = ref(1)
+const currentHintMessage = ref('')
 const maxContrast = 3
 
 function hexToRgb(hex: string) {
@@ -46,6 +48,7 @@ const hintList = ref<string[]>([])
 const shownHintIndexes = ref<Set<number>>(new Set())
 const showFinalStep = computed(() => currentQuestionIndex.value >= questions.value.length)
 const h3Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
+const currentHint = computed(() => questions.value[currentQuestionIndex.value]?.indice ?? '')
 
 const buttonDefs = computed<ButtonDef[]>(() => {
   const choices = questions.value[currentQuestionIndex.value]?.choix ?? []
@@ -80,9 +83,9 @@ function handleButtonClick(selectedLabel: string) {
   }
 
   if (selectedLabel.trim().toLowerCase() === currentQuestion.reponse.trim().toLowerCase()) {
-    const currentHint = questions.value[currentQuestionIndex.value]?.indice
-    if (currentHint && !shownHintIndexes.value.has(currentQuestionIndex.value)) {
-      alert(currentHint)
+    if (currentHint.value && !shownHintIndexes.value.has(currentQuestionIndex.value)) {
+      currentHintMessage.value = currentHint.value
+      modalVisible.value = true
       shownHintIndexes.value.add(currentQuestionIndex.value)
     }
 
@@ -168,7 +171,7 @@ function handleButtonClick(selectedLabel: string) {
           </button>
         </div>
 
-        <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+        <div v-if="showError" class="alert alert-message " role="alert">
           <div class="alert-container">
             <div class="alert-text-container">
               <p class="alert-label">
@@ -180,20 +183,79 @@ function handleButtonClick(selectedLabel: string) {
       </div>
       <GameHints page-id="contrast" large-text />
     </main>
+
+    <div
+      v-if="modalVisible"
+      class="modal d-block"
+      tabindex="-1"
+      aria-modal="true"
+      role="dialog"
+      style="background: rgba(0,0,0,0.5);"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              id="close-popup"
+              class="my-small ms-auto close-popup border-none btn"
+              :aria-label="$t('physical.aria-label_closeModal')"
+              @click="modalVisible = false"
+            >
+              X
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="modal-contrast">
+              {{ currentHintMessage }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 li {
   margin: 1.2rem;
-
 }
+
 .hintstyle {
   border: 2px solid black;
 }
-.questions{
+
+.questions {
   color: #f3f1f1;
   font-size: 1.5em;
   margin-left: 10px;
+}
+
+.modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.modal-dialog {
+  margin: auto;
+}
+
+.modal-content {
+  background-color: white !important;
+  color: #000 !important;
+  border: 1px solid #ddd;
+  padding-top: 0;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  padding-top: 0;
 }
 </style>
