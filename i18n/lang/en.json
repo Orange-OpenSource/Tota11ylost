@@ -438,6 +438,11 @@
       "He realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in English.",
       "It is the piece 'Moonlight Sonata' by Beethoven."
     ],
+    "contrast": [
+      "We slightly increase the contrast to help you see the answer choices better.",
+      "Just a little more contrast...",
+      "To help you, we’ll give you the correct contrast ratio: 4.5:1."
+    ],
     "physical": [
       "You are lucky to have a correct responsiveness, so it's mostly a matter of timing...",
       "Get as close as possible to the cross and do not make any sudden movement.",
@@ -475,9 +480,11 @@
     "pageTitle": "Contrast",
     "questionFinal": "What is the minimum contrast ratio for normal text?",
     "indicetitle": "Hints for the final question:",
-    "hint1": "The ratio consists of two parts: one for the lighter luminance and the other for the darker luminance.",
-    "hint2": "The contrast ratio is equivalent to a visual acuity of around 20/40.",
-    "hint3": "The ratio is 4.5:1 for normal text and 3:1 for large text. It was defined to ensure that a person with age-related vision loss can read standard text without a magnifier or assistive technology.",
+    "hints": [
+      "The ratio consists of two parts: one for the lighter luminance and the other for the darker luminance.",
+      "The contrast ratio is equivalent to a visual acuity of around 20/40.",
+      "The ratio is 4.5:1 for normal text and 3:1 for large text. It was defined to ensure that a person with age-related vision loss can read standard text without a magnifier or assistive technology."
+    ],
     "question1": "Question 1: Who is affected by poor contrast?",
     "question2": "Question 2: Does contrast change with text size?",
     "question3": "Question 3: Which tool can test contrast?",
