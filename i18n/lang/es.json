@@ -473,7 +473,7 @@
     "tabTitle": "Contraste - Tota11y Lost",
     "content_description": "Página de descripción del contraste y de la simulación de contraste bajo",
     "pageTitle": "Contraste",
-    "questionFinal": "¿Cuál es la relación de contraste mínima para el texto normal?",
+    "questionFinal": "Pregunta Final: ¿Cuál es la relación de contraste mínima para el texto normal?",
     "indicetitle": "Las pistas para la pregunta final :",
     "hints": [
       "La relación de contraste se compone de dos partes: una para la luminosidad más clara y otra para la más oscura.",

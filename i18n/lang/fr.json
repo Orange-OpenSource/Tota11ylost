@@ -478,7 +478,7 @@
     "tabTitle": "Contraste - Tota11y Lost",
     "content_description": "Page de description du contraste et de la simulation d'un contraste faible",
     "pageTitle": "Contraste",
-    "questionFinal": "Quel est le rapport minimum de contrast pour un texte normal ?",
+    "questionFinal": "Question Finale :Quel est le rapport minimum de contraste pour un texte normal ?",
     "indicetitle": "Les indices pour la question final :",
     "question1": "Question 1 :Qui est impacté par un mauvais contraste ?",
     "question2": "Question 2 :Est-ce que le contraste change selon la taille du texte ?",

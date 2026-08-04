@@ -13,6 +13,7 @@ const modalVisible = ref(false)
 const contrastLevel = ref(1)
 const currentHintMessage = ref('')
 const maxContrast = 3
+const forceBlackText = ref(false)
 
 function hexToRgb(hex: string) {
   const h = hex.replace('#', '')
@@ -36,7 +37,7 @@ function lerpColor(aHex: string, bHex: string, t: number) {
 function buttonStyle(btn: ButtonDef) {
   const t = Math.min(1, contrastLevel.value / maxContrast)
   const bg = lerpColor('#ed7926', btn.bg || '#E67018', t)
-  const color = lerpColor('#ed7926', btn.color || '#ff6600', t)
+  const color = forceBlackText.value ? '#000000' : lerpColor('#ed7926', btn.color || '#ff6600', t)
   return { backgroundColor: bg, color }
 }
 
@@ -58,9 +59,19 @@ const buttonDefs = computed<ButtonDef[]>(() => {
     label: choice,
     id: `choice-${currentQuestionIndex.value}-${shuffleVersion.value}-${index}`,
     bg: '#ed7926',
-    color: '#ff6600',
+    color: '#ed79aa',
   }))
 })
+function onHint(index: number) {
+  if (index === 1 || index === 2) {
+    contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
+    forceBlackText.value = false
+  }
+  else if (index === 3) {
+    contrastLevel.value = maxContrast
+    forceBlackText.value = true
+  }
+}
 
 function validateContrastAnswer() {
   const normalizedInput = contrastInput.value.trim().replace(',', '.').toLowerCase()
@@ -100,7 +111,6 @@ function handleButtonClick(selectedLabel: string) {
   }
   else {
     showError.value = true
-    contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
     setTimeout(() => {
       showError.value = false
     }, 2000)
@@ -136,8 +146,6 @@ function handleButtonClick(selectedLabel: string) {
       </div>
 
       <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
-        <RandomPage />
-
         <h3 class="questions">
           {{ h3Text }}
         </h3>
@@ -210,7 +218,12 @@ function handleButtonClick(selectedLabel: string) {
         </div>
       </div>
     </div>
-    <GameHints page-id="contrast" large-text class=" mx-large" />
+    <GameHints
+      page-id="contrast"
+      large-text
+      class=" mx-large"
+      @hint="onHint"
+    />
   </div>
 </template>
 

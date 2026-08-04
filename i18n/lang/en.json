@@ -478,7 +478,7 @@
     "tabTitle": "Contrast - Tota11y Lost",
     "content_description": "Description page for contrast and low-contrast simulation",
     "pageTitle": "Contrast",
-    "questionFinal": "What is the minimum contrast ratio for normal text?",
+    "questionFinal": "Final Question: What is the minimum contrast ratio for normal text?",
     "indicetitle": "Hints for the final question:",
     "hints": [
       "The ratio consists of two parts: one for the lighter luminance and the other for the darker luminance.",
