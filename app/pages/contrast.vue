@@ -4,9 +4,9 @@ const { goToNextPage } = useNextPage()
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
 const questions = ref([
-  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('hints.contrast.0') },
-  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('hints.contrast.1') },
-  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('hints.contrast.2') },
+  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('contrast.hints.0') },
+  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('contrast.hints.1') },
+  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('contrast.hints.2') },
 ])
 
 const modalVisible = ref(false)
