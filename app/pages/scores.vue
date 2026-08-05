@@ -157,7 +157,7 @@ onMounted(loadScores)
                 </div>
               </div>
 
-              <a href="./" class="btn btn-default">Nouvelle aventure</a>
+              <a href="./" class="btn btn-default">{{ $t('scores.newAdventure') }}</a>
             </div>
 
             <!-- Score tables -->
