@@ -161,7 +161,7 @@ onMounted(loadScores)
             </div>
 
             <!-- Score tables -->
-            <h3 class=" my-medium fs-hs fw-bold">
+            <h3 class=" my-medium fs-hs fw-bold titre_tabs">
               {{ $t('scores.tabTitle') }}
             </h3>
             <hr style="border: 3px solid #ff7900; width: 5%; margin-top: -10px;">
@@ -357,6 +357,20 @@ margin-bottom: 20px;
 @media (min-width: 898px) {/*ordi*/
 .victoire-image{
   width: 35.5%;
+}
+
+}
+@media (min-width: 1500px) {/*ordi*/
+.victoire-image{
+  width: 35.5%;
+}
+p, a, span, h3 {
+  font-size: 25px !important;
+}.titre{
+  font-size: 55px !important;
+}
+.titre_tabs{
+  margin-top: 4em !important;
 }
 }
 </style>
