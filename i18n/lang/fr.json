@@ -444,6 +444,11 @@
       "Ce n'est pas du hasard. Les lettres sélectionnées sont toutes autour de la bonne lettre.",
       "Il faut juste faire preuve de patience...",
       "La simulation a été désactivée."
+    ],
+    "puzzleGame": [
+      "La jauge se vide 2× plus lentement.",
+      "Le tremblement est réduit de moitié.",
+      "La simulation est désactivée."
     ]
   },
   "scores": {
@@ -468,5 +473,19 @@
     "deficiencyPhysical": "physique",
     "deficiencyHearing": "auditif",
     "deficiencyCognitive": "cognitif"
+  },
+  "puzzleGame": {
+    "tabTitle": "Puzzle - Déficience Motrice",
+    "pageTitle": "Handicap moteur",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Des tremblements, une faiblesse musculaire ou une mauvaise coordination rendent difficile l'utilisation de la souris. Une interface mal conçue, avec de petits éléments cliquables ou des interactions exigeant une grande précision, aggrave la situation.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des tremblements et des difficultés motrices. Cliquer précisément ou maintenir une action prolongée comme le glisser-déposer vous demande un effort immense et génère souvent des erreurs.",
+    "rulesHeading": "Règles",
+    "rule1": "Assemblez le puzzle numérique pour compléter cette étape.",
+    "rule2": "Vous n'avez pas le contrôle total de vos mains et faire un appui prolongé vous est compliqué.",
+    "gripGauge": "Jauge de préhension",
+    "pieceLabel": "Pièce {n}",
+    "victory": "Bravo ! Puzzle terminé !"
   }
 }
