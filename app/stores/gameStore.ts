@@ -34,15 +34,35 @@ const pageRoutes = ref<Record<number, string>>({
 
   const pseudo = ref('')
   const version = ref<'15' | '30' | '60'>('60')
+  const sessionCode = ref('')
   const timerStartTime = ref<number | null>(null)
   const timerFinishTime = ref<number | null>(null)
   const lang = ref('en')
 
   // HELPERS
-  const shuffleArray = <T>(arr: T[]): T[] => {
+
+  // Convertit un texte en nombre (seed) en additionnant les codes de chaque caractère
+  function textToSeed(text: string): number {
+    let seed = 0
+    for (const char of text) {
+      seed = seed + char.charCodeAt(0)
+    }
+    return seed
+  }
+
+  // Générateur aléatoire déterministe (LCG) : même seed → même séquence
+  function seededRandom(seed: number): () => number {
+    let current = seed
+    return () => {
+      current = (current * 9301 + 49297) % 233280
+      return current / 233280
+    }
+  }
+
+  const shuffleArray = <T>(arr: T[], randomFn: () => number = Math.random): T[] => {
     const a = [...arr]
     for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
+      const j = Math.floor(randomFn() * (i + 1))
       ;[a[i], a[j]] = [a[j]!, a[i]!]
     }
     return a
@@ -69,10 +89,27 @@ const pageRoutes = ref<Record<number, string>>({
     }
   }
 
+  // Parse le code de session : les 2 derniers caractères = durée (15/30/60), le reste = seed
+  const setSessionCode = (code: string) => {
+    sessionCode.value = code.trim()
+    if (sessionCode.value) {
+      const suffix = sessionCode.value.slice(-2)
+      if (['15', '30', '60'].includes(suffix)) {
+        version.value = suffix as '15' | '30' | '60'
+      }
+    }
+    randomizePages()
+  }
+
   const randomizePages = () => {
+    // Si un code de session est défini, on utilise un générateur seedé
+    const randomFn = sessionCode.value
+      ? seededRandom(textToSeed(sessionCode.value))
+      : Math.random
+
     // 15 min : fixe — page 18, puis 2 et 9 dans un ordre aléatoire
     if (version.value === '15') {
-      const pair = Math.random() < 0.5 ? [2, 9] : [9, 2]
+      const pair = randomFn() < 0.5 ? [2, 9] : [9, 2]
       selectedPages.value = [18, ...pair].map(n => pageRoutes.value[n]!)
       saveToLocalStorage()
       return
@@ -90,10 +127,10 @@ const pageRoutes = ref<Record<number, string>>({
     // Pool par catégorie : page forcée en tête, puis pool aléatoire
     // visual → 2 en premier, cognitive → 9 en premier
     const FORCED: Partial<Record<string, number>> = { visual: 2, cognitive: 9 }
-    const shuffledCategories = shuffleArray(categoriesRestantes.value)
+    const shuffledCategories = shuffleArray(categoriesRestantes.value, randomFn)
     const availablePages: number[][] = shuffledCategories.map((cat) => {
       const forced = FORCED[cat]
-      const pool = shuffleArray((deficiency.value[cat] ?? []).filter(p => p !== forced))
+      const pool = shuffleArray((deficiency.value[cat] ?? []).filter(p => p !== forced), randomFn)
       return forced !== undefined ? [forced, ...pool] : pool
     })
 
@@ -225,6 +262,7 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
     timerStartTime,
     timerFinishTime,
     lang,
+    sessionCode,
     saveToLocalStorage,
     loadFromLocalStorage,
     removeDeficiencyFromCategories,
@@ -235,6 +273,7 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
     nextRandomPage,
     setPseudo,
     setVersion,
+    setSessionCode,
     startTimer,
     finishTimer,
     addTimePenalty,

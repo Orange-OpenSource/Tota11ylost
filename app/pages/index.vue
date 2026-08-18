@@ -13,6 +13,16 @@ const { validatePseudo, getPseudoErrorMessage, PSEUDO_MAX_LENGTH } = usePseudoVa
 gameStore.resetAll()
 const pseudo = ref('')
 const pseudoErrorCode = ref<'tooShort' | 'profanity' | null>(null)
+const sessionCode = ref('')
+
+function onSessionCodeInput() {
+  if (sessionCode.value) {
+    gameStore.setSessionCode(sessionCode.value)
+  }
+  else {
+    gameStore.setSessionCode('')
+  }
+}
 
 function startAdventure() {
   const error = validatePseudo(pseudo.value)
@@ -123,6 +133,7 @@ function startAdventure() {
                     name="gameDuration"
                     :title="$t('welcome.15min.title_15')"
                     :checked="gameStore.version === '15'"
+                    :disabled="!!sessionCode"
                     @change="gameStore.setVersion('15')"
                   >
                 </div>
@@ -139,6 +150,7 @@ function startAdventure() {
                     name="gameDuration"
                     :title="$t('welcome.30min.title_30')"
                     :checked="gameStore.version === '30'"
+                    :disabled="!!sessionCode"
                     @change="gameStore.setVersion('30')"
                   >
                 </div>
@@ -155,6 +167,7 @@ function startAdventure() {
                     name="gameDuration"
                     :title="$t('welcome.60min.title_60')"
                     :checked="gameStore.version === '60'"
+                    :disabled="!!sessionCode"
                     @change="gameStore.setVersion('60')"
                   >
                 </div>
@@ -164,6 +177,26 @@ function startAdventure() {
               </div>
             </div>
           </fieldset>
+
+          <div class="mt-medium mb-medium">
+            <label for="sessionCodeInput" class="form-label" style="color: black;">
+              {{ $t('welcome.sessionCode') }}
+            </label>
+            <p class="mb-small text-muted" style="font-size: 0.875rem;">
+              {{ $t('welcome.sessionCodeHint') }}
+            </p>
+            <input
+              id="sessionCodeInput"
+              v-model="sessionCode"
+              type="text"
+              class="text-input-field"
+              maxlength="20"
+              :placeholder="$t('welcome.sessionCodePlaceholder')"
+              style="border: 2px solid #d3d3d3; width: 300px; font-weight: bold; padding: 0.5rem;"
+              @input="onSessionCodeInput"
+            >
+          </div>
+
           <div class="alert alert-message alert-info mb-medium w-75">
             <div class="alert-icon" />
             <div class="alert-container">

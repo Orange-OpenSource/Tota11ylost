@@ -87,6 +87,9 @@
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
     "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
     "accessibility": "L'accessibilité en action",
+    "sessionCode": "Code de session (optionnel)",
+    "sessionCodeHint": "Fourni par l'animateur en formation. Les 2 derniers caractères indiquent la durée (ex : FORMA60, ACCES30).",
+    "sessionCodePlaceholder": "Ex : FORMA60",
     "buttonStartAdventure": "Démarrer l'aventure",
     "errorPseudoTooShort": "Le pseudo doit contenir au moins 3 caractères.",
     "errorPseudoProfanity": "Ce pseudo contient des termes inappropriés. Veuillez en choisir un autre."
