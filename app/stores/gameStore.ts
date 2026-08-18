@@ -59,6 +59,16 @@ const pageRoutes = ref<Record<number, string>>({
     }
   }
 
+  // Fenêtre de validité d'un code de session : doit rester strictement
+  // supérieure à la durée max d'une session (60 min) pour qu'un rafraîchissement
+  // ou une reconnexion en cours de session ne change jamais la séquence tirée.
+  // Passé ce délai, le même code produit un nouveau tirage (nouvelle session).
+  const SESSION_WINDOW_MS = 4 * 60 * 60 * 1000 // 4h
+
+  function getTimeBucket(): number {
+    return Math.floor(Date.now() / SESSION_WINDOW_MS)
+  }
+
   const shuffleArray = <T>(arr: T[], randomFn: () => number = Math.random): T[] => {
     const a = [...arr]
     for (let i = a.length - 1; i > 0; i--) {
@@ -90,8 +100,9 @@ const pageRoutes = ref<Record<number, string>>({
   }
 
   // Parse le code de session : les 2 derniers caractères = durée (15/30/60), le reste = seed
+  // Normalisé en majuscules pour que "form60" et "FORM60" soient équivalents
   const setSessionCode = (code: string) => {
-    sessionCode.value = code.trim()
+    sessionCode.value = code.trim().toUpperCase()
     if (sessionCode.value) {
       const suffix = sessionCode.value.slice(-2)
       if (['15', '30', '60'].includes(suffix)) {
@@ -102,9 +113,11 @@ const pageRoutes = ref<Record<number, string>>({
   }
 
   const randomizePages = () => {
-    // Si un code de session est défini, on utilise un générateur seedé
+    // Si un code de session est défini, on utilise un générateur seedé,
+    // combinant le texte du code et la tranche horaire de 4h en cours
+    // (voir SESSION_WINDOW_MS) pour que le même code expire naturellement.
     const randomFn = sessionCode.value
-      ? seededRandom(textToSeed(sessionCode.value))
+      ? seededRandom(textToSeed(sessionCode.value) + getTimeBucket())
       : Math.random
 
     // 15 min : fixe — page 18, puis 2 et 9 dans un ordre aléatoire
