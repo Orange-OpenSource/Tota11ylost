@@ -446,8 +446,8 @@
       "La simulation a été désactivée."
     ],
     "puzzleGame": [
-      "La jauge se vide 2× plus lentement.",
-      "Le tremblement est réduit de moitié.",
+      "La jauge de préhension se vide deux fois plus lentement. Vous pourriez donc maintenir l'image plus longtemps",
+      "L'image tremble beaucoup moins",
       "La simulation est désactivée."
     ]
   },

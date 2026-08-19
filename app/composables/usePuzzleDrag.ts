@@ -77,7 +77,6 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   const TREMOR_SLOW = 35
 
   function startDrag(piece: PuzzlePiece, pointerX: number, pointerY: number) {
-    if (piece.locked || simulationDisabled.value === undefined) return
     if (piece.locked) return
 
     activePiece.value = piece

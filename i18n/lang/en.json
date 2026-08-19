@@ -449,8 +449,8 @@
       "The simulation has been disabled."
     ],
     "puzzleGame": [
-      "The gauge drains 2× slower.",
-      "Tremor amplitude is halved.",
+      "The grip gauge empties twice as slowly. You can therefore hold the image longer",
+      "The image trembles much less",
       "Simulation is disabled."
     ]
   },
