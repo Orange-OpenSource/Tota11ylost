@@ -9,9 +9,12 @@ const simulationDisabled = ref(false)
 const showTextButtonUsed = ref(false)
 const answers = ref<string[]>(Array.from({ length: 8 }, () => ''))
 const fieldErrors = ref<string[]>(Array.from({ length: 8 }, () => ''))
-const showError = ref(false)
 const textSectionRef = ref<HTMLElement | null>(null)
 let hideTimeout: ReturnType<typeof setTimeout> | null = null
+
+// Only these indices have an actual form field in the template
+// (questions 2, 4, 6 — indices 1, 3, 5 — were removed).
+const ACTIVE_FIELD_INDICES = [0, 2, 4, 6, 7]
 
 function revealText(durationSeconds: number) {
   textVisible.value = true
@@ -30,16 +33,16 @@ function scrollToText() {
 
 function onShowTextClick() {
   showTextButtonUsed.value = true
-  revealText(15)
+  revealText(45)
 }
 
 function onHint(index: number) {
   if (index === 1) {
-    revealText(10)
+    revealText(20)
     scrollToText()
   }
   else if (index === 2) {
-    revealText(20)
+    revealText(30)
     scrollToText()
   }
   else if (index === 3) {
@@ -53,29 +56,48 @@ function onHint(index: number) {
 
 function validate() {
   let hasEmptyField = false
-  fieldErrors.value = answers.value.map((answer) => {
-    if (answer.trim() === '') {
+  const requiredErrors = [...fieldErrors.value]
+  ACTIVE_FIELD_INDICES.forEach((i) => {
+    if (answers.value[i]!.trim() === '') {
       hasEmptyField = true
-      return t('memorie.requiredFieldError')
+      requiredErrors[i] = t('memorie.requiredFieldError')
     }
-    return ''
+    else {
+      requiredErrors[i] = ''
+    }
   })
+  fieldErrors.value = requiredErrors
 
   if (hasEmptyField) {
-    showError.value = false
     return
   }
 
-  const allCorrect = answers.value.every((answer, i) =>
-    isFuzzyMatch(answer.trim().toLowerCase(), t(`memorie.listOfResponses.${i}`)),
-  )
+  let hasWrongField = false
+  const wrongErrors = [...fieldErrors.value]
+  ACTIVE_FIELD_INDICES.forEach((i) => {
+    // Exact match only: this simulates a memory impairment, so answers
+    // should not be forgiven for typos like on other pages (no fuzzy match).
+    const correct = answers.value[i]!.trim().toLowerCase() === t(`memorie.listOfResponses.${i}`)
+    if (!correct) {
+      hasWrongField = true
+      wrongErrors[i] = t('memorie.errorMessage')
+    }
+    else {
+      wrongErrors[i] = ''
+    }
+  })
+  fieldErrors.value = wrongErrors
 
-  if (allCorrect) {
-    showError.value = false
+  if (!hasWrongField) {
     goToNextPage()
   }
-  else {
-    showError.value = true
+}
+
+// Clears the "required field" error as soon as the user starts typing.
+// A "wrong answer" error is left in place until the next validation attempt.
+function onFieldInput(index: number) {
+  if (fieldErrors.value[index] === t('memorie.requiredFieldError')) {
+    fieldErrors.value[index] = ''
   }
 }
 
@@ -150,6 +172,7 @@ onUnmounted(() => {
               class="form-control"
               :aria-label="$t('memorie.question1')"
               :aria-describedby="fieldErrors[0] ? 'q1-error' : undefined"
+              @input="onFieldInput(0)"
             >
             <div v-if="fieldErrors[0]" class="alert alert-message alert-negative alert-sm">
               <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
@@ -162,27 +185,7 @@ onUnmounted(() => {
               </div>
             </div>
           </div>
-          <div class="mb-medium">
-            <label v-if="textVisible" for="q2" class="form-label fw-bold fs-hs">{{ $t('memorie.question2') }}</label>
-            <input
-              id="q2"
-              v-model="answers[1]"
-              type="text"
-              class="form-control"
-              :aria-label="$t('memorie.question2')"
-              :aria-describedby="fieldErrors[1] ? 'q2-error' : undefined"
-            >
-            <div v-if="fieldErrors[1]" class="alert alert-message alert-negative alert-sm">
-              <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
-              <div class="alert-container">
-                <div class="alert-text-container">
-                  <p id="q2-error">
-                    {{ fieldErrors[1] }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="mb-medium">
             <label v-if="textVisible" for="q3" class="form-label fw-bold fs-hs">{{ $t('memorie.question3') }}</label>
             <input
@@ -192,6 +195,7 @@ onUnmounted(() => {
               class="form-control"
               :aria-label="$t('memorie.question3')"
               :aria-describedby="fieldErrors[2] ? 'q3-error' : undefined"
+              @input="onFieldInput(2)"
             >
             <div v-if="fieldErrors[2]" class="alert alert-message alert-negative alert-sm">
               <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
@@ -204,27 +208,7 @@ onUnmounted(() => {
               </div>
             </div>
           </div>
-          <div class="mb-medium">
-            <label v-if="textVisible" for="q4" class="form-label fw-bold fs-hs">{{ $t('memorie.question4') }}</label>
-            <input
-              id="q4"
-              v-model="answers[3]"
-              type="text"
-              class="form-control"
-              :aria-label="$t('memorie.question4')"
-              :aria-describedby="fieldErrors[3] ? 'q4-error' : undefined"
-            >
-            <div v-if="fieldErrors[3]" class="alert alert-message alert-negative alert-sm">
-              <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
-              <div class="alert-container">
-                <div class="alert-text-container">
-                  <p id="q4-error">
-                    {{ fieldErrors[3] }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="mb-medium">
             <label v-if="textVisible" for="q5" class="form-label fw-bold fs-hs">{{ $t('memorie.question5') }}</label>
             <input
@@ -234,6 +218,7 @@ onUnmounted(() => {
               class="form-control"
               :aria-label="$t('memorie.question5')"
               :aria-describedby="fieldErrors[4] ? 'q5-error' : undefined"
+              @input="onFieldInput(4)"
             >
             <div v-if="fieldErrors[4]" class="alert alert-message alert-negative alert-sm">
               <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
@@ -246,27 +231,7 @@ onUnmounted(() => {
               </div>
             </div>
           </div>
-          <div class="mb-medium">
-            <label v-if="textVisible" for="q6" class="form-label fw-bold fs-hs">{{ $t('memorie.question6') }}</label>
-            <input
-              id="q6"
-              v-model="answers[5]"
-              type="text"
-              class="form-control"
-              :aria-label="$t('memorie.question6')"
-              :aria-describedby="fieldErrors[5] ? 'q6-error' : undefined"
-            >
-            <div v-if="fieldErrors[5]" class="alert alert-message alert-negative alert-sm">
-              <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
-              <div class="alert-container">
-                <div class="alert-text-container">
-                  <p id="q6-error">
-                    {{ fieldErrors[5] }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="mb-medium">
             <label v-if="textVisible" for="q7" class="form-label fw-bold fs-hs">{{ $t('memorie.question7') }}</label>
             <input
@@ -276,6 +241,7 @@ onUnmounted(() => {
               class="form-control"
               :aria-label="$t('memorie.question7')"
               :aria-describedby="fieldErrors[6] ? 'q7-error' : undefined"
+              @input="onFieldInput(6)"
             >
             <div v-if="fieldErrors[6]" class="alert alert-message alert-negative alert-sm">
               <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
@@ -297,6 +263,7 @@ onUnmounted(() => {
               class="form-control"
               :aria-label="$t('memorie.question8')"
               :aria-describedby="fieldErrors[7] ? 'q8-error' : undefined"
+              @input="onFieldInput(7)"
             >
             <div v-if="fieldErrors[7]" class="alert alert-message alert-negative alert-sm">
               <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
@@ -306,15 +273,6 @@ onUnmounted(() => {
                     {{ fieldErrors[7] }}
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
-            <span class="alert-icon"><span class="visually-hidden">{{ $t('memorie.errorHiddenText') }}</span></span>
-            <div class="alert-container">
-              <div class="alert-text-container">
-                <p>{{ $t('memorie.errorMessage') }}</p>
               </div>
             </div>
           </div>
