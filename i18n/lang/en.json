@@ -486,6 +486,7 @@
     "rule2": "You don't have full control of your hands, and holding a prolonged press is difficult for you.",
     "gripGauge": "Grip gauge",
     "pieceLabel": "Piece {n}",
+    "pieceImageLabel": "Image {n}",
     "victory": "Well done! Puzzle completed!"
   }
 }

@@ -486,6 +486,7 @@
     "rule2": "Vous n'avez pas le contrôle total de vos mains et faire un appui prolongé vous est compliqué.",
     "gripGauge": "Jauge de préhension",
     "pieceLabel": "Pièce {n}",
+    "pieceImageLabel": "Image {n}",
     "victory": "Bravo ! Puzzle terminé !"
   }
 }

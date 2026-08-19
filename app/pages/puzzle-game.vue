@@ -301,6 +301,8 @@ onUnmounted(() => {
             >
               <div
                 class="piece-image"
+                role="img"
+                :aria-label="$t('puzzleGame.pieceImageLabel', { n: piece.id + 1 })"
                 :style="{
                   backgroundImage: `url(${IMAGE_SRC})`,
                   backgroundSize: `${BOARD_W}px ${BOARD_H}px`,

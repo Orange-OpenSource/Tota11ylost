@@ -488,6 +488,7 @@
     "rule2": "No tienes el control total de tus manos y hacer una pulsación prolongada te resulta complicado.",
     "gripGauge": "Barra de agarre",
     "pieceLabel": "Pieza {n}",
+    "pieceImageLabel": "Imagen {n}",
     "victory": "¡Bien hecho! ¡Puzzle completado!"
   }
 }
