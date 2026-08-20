@@ -63,7 +63,7 @@ const pageRoutes = ref<Record<number, string>>({
   // supérieure à la durée max d'une session (60 min) pour qu'un rafraîchissement
   // ou une reconnexion en cours de session ne change jamais la séquence tirée.
   // Passé ce délai, le même code produit un nouveau tirage (nouvelle session).
-  const SESSION_WINDOW_MS = 4 * 60 * 60 * 1000 // 4h
+  const SESSION_WINDOW_MS = 2 * 60 * 60 * 1000 // 2h
 
   function getTimeBucket(): number {
     return Math.floor(Date.now() / SESSION_WINDOW_MS)
@@ -114,7 +114,7 @@ const pageRoutes = ref<Record<number, string>>({
 
   const randomizePages = () => {
     // Si un code de session est défini, on utilise un générateur seedé,
-    // combinant le texte du code et la tranche horaire de 4h en cours
+    // combinant le texte du code et la tranche horaire de 2h en cours
     // (voir SESSION_WINDOW_MS) pour que le même code expire naturellement.
     const randomFn = sessionCode.value
       ? seededRandom(textToSeed(sessionCode.value) + getTimeBucket())
@@ -140,12 +140,29 @@ const pageRoutes = ref<Record<number, string>>({
     // Pool par catégorie : page forcée en tête, puis pool aléatoire
     // visual → 2 en premier, cognitive → 9 en premier
     const FORCED: Partial<Record<string, number>> = { visual: 2, cognitive: 9 }
-    const shuffledCategories = shuffleArray(categoriesRestantes.value, randomFn)
-    const availablePages: number[][] = shuffledCategories.map((cat) => {
+
+    // Avec un code de session : on mélange TOUJOURS les 4 catégories complètes,
+    // même si l'utilisateur a filtré certaines d'entre elles. Ça garantit que le
+    // nombre de tirages aléatoires consommés est identique pour tout le monde,
+    // et donc que l'ordre relatif des catégories communes reste le même pour
+    // tous les participants du même code, peu importe leur filtre.
+    // Sans code de session, comportement inchangé : on mélange directement les catégories actives.
+    const categoriesToShuffle = sessionCode.value
+      ? ['visual', 'physical', 'hearing', 'cognitive']
+      : categoriesRestantes.value
+    const allShuffledCategories = shuffleArray(categoriesToShuffle, randomFn)
+    const allAvailablePages: number[][] = allShuffledCategories.map((cat) => {
       const forced = FORCED[cat]
       const pool = shuffleArray((deficiency.value[cat] ?? []).filter(p => p !== forced), randomFn)
       return forced !== undefined ? [forced, ...pool] : pool
     })
+
+    // On ne garde que les catégories actives de CET utilisateur, sans re-mélanger
+    const kept = allShuffledCategories
+      .map((cat, i) => ({ cat, i }))
+      .filter(({ cat }) => categoriesRestantes.value.includes(cat))
+    const shuffledCategories = kept.map(k => k.cat)
+    const availablePages = kept.map(k => allAvailablePages[k.i]!)
 
     // Distribution équitable avec redistribution si un pool est épuisé
     const counts = availablePages.map(() => 0)
