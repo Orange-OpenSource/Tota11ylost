@@ -42,12 +42,11 @@ function buttonStyle(btn: ButtonDef) {
 }
 
 const showError = ref(false)
-const contrastInput = ref('')
 const currentQuestionIndex = ref(0)
 const shuffleVersion = ref(0)
 const hintList = ref<string[]>([])
 const shownHintIndexes = ref<Set<number>>(new Set())
-const showFinalStep = computed(() => currentQuestionIndex.value >= questions.value.length)
+const pendingNextPage = ref(false)
 const h3Text = computed(() => questions.value[currentQuestionIndex.value]?.texte ?? '')
 const currentHint = computed(() => questions.value[currentQuestionIndex.value]?.indice ?? '')
 
@@ -62,6 +61,16 @@ const buttonDefs = computed<ButtonDef[]>(() => {
     color: '#ed79aa',
   }))
 })
+
+// Largeur minimale des boutons adaptée au texte le plus long de la question
+// affichée, pour éviter le "wrap" sans imposer une taille fixe identique partout.
+// Le facteur par caractère (15px) et le padding (70px) sont calibrés sur le pire
+// cas : la classe fs-hs atteint 24px sur desktop (contre 18px sur mobile), donc
+// on prévoit large plutôt que de sous-estimer sur les grands écrans.
+const buttonMinWidth = computed(() => {
+  const longestLabelLength = buttonDefs.value.reduce((max, btn) => Math.max(max, btn.label.length), 0)
+  return Math.min(420, Math.max(220, longestLabelLength * 15 + 70))
+})
 function onHint(index: number) {
   if (index === 1 || index === 2) {
     contrastLevel.value = Math.min(maxContrast, contrastLevel.value + 1)
@@ -73,20 +82,6 @@ function onHint(index: number) {
   }
 }
 
-function validateContrastAnswer() {
-  const normalizedInput = contrastInput.value.trim().replace(',', '.').toLowerCase()
-
-  if (normalizedInput === '4.5:1' || normalizedInput === '4.5/1') {
-    goToNextPage()
-    return
-  }
-
-  showError.value = true
-  setTimeout(() => {
-    showError.value = false
-  }, 2000)
-}
-
 function handleButtonClick(selectedLabel: string) {
   const currentQuestion = questions.value[currentQuestionIndex.value]
   if (!currentQuestion) {
@@ -94,16 +89,22 @@ function handleButtonClick(selectedLabel: string) {
   }
 
   if (selectedLabel.trim().toLowerCase() === currentQuestion.reponse.trim().toLowerCase()) {
-    if (currentHint.value && !shownHintIndexes.value.has(currentQuestionIndex.value)) {
+    const isLastQuestion = currentQuestionIndex.value >= questions.value.length - 1
+    const willShowHint = currentHint.value && !shownHintIndexes.value.has(currentQuestionIndex.value)
+
+    if (willShowHint) {
       currentHintMessage.value = currentHint.value
       modalVisible.value = true
       shownHintIndexes.value.add(currentQuestionIndex.value)
     }
 
-    const isLastQuestion = currentQuestionIndex.value >= questions.value.length - 1
-
     if (isLastQuestion) {
-      currentQuestionIndex.value = questions.value.length
+      if (willShowHint) {
+        pendingNextPage.value = true
+      }
+      else {
+        goToNextPage()
+      }
       return
     }
 
@@ -117,6 +118,15 @@ function handleButtonClick(selectedLabel: string) {
   }
 
   shuffleVersion.value += 1
+}
+
+function closeHintModal() {
+  modalVisible.value = false
+
+  if (pendingNextPage.value) {
+    pendingNextPage.value = false
+    goToNextPage()
+  }
 }
 </script>
 
@@ -150,7 +160,7 @@ function handleButtonClick(selectedLabel: string) {
           {{ h3Text }}
         </h3>
 
-        <div class="my-small ">
+        <div class="my-small answer-buttons" :style="{ '--btn-min-width': buttonMinWidth + 'px' }">
           <button
             v-for="btn in buttonDefs"
             :key="btn.id"
@@ -160,22 +170,6 @@ function handleButtonClick(selectedLabel: string) {
             @click="handleButtonClick(btn.label)"
           >
             {{ btn.label }}
-          </button>
-        </div>
-
-        <div v-if="showFinalStep" class="d-flex flex-column justify-content-center align-items-center text-center">
-          <h3 style=" font-size: 1.5em; ">
-            {{ $t('contrast.questionFinal') }}
-          </h3>
-
-          <input
-            v-model="contrastInput"
-            type="text"
-            style="margin: 10px; padding: 5px; width: 200px;"
-            placeholder=""
-          >
-          <button class="btn btn-strong m-small" style="margin-bottom: 10px;" @click="validateContrastAnswer">
-            {{ $t('contrast.next') }}
           </button>
         </div>
 
@@ -205,7 +199,7 @@ function handleButtonClick(selectedLabel: string) {
               id="close-popup"
               class="my-small ms-auto close-popup border-none btn"
               :aria-label="$t('physical.aria-label_closeModal')"
-              @click="modalVisible = false"
+              @click="closeHintModal"
             >
               X
             </button>
@@ -236,6 +230,17 @@ function handleButtonClick(selectedLabel: string) {
   color: #f3f1f1;
   font-size: 1.5em;
   margin-left: 10px;
+}
+
+.answer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.answer-buttons button {
+  flex: 1 1 0;
+  min-width: var(--btn-min-width, 150px);
 }
 
 .modal {
