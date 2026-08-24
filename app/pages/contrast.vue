@@ -219,7 +219,7 @@ onUnmounted(() => {
             </button>
           </div>
           <div class="modal-body">
-            <p id="modal-contrast">
+            <p id="modal-contrast" class="fs-hm">
               {{ currentHintMessage }}
             </p>
           </div>
