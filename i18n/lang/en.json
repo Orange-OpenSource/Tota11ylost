@@ -481,22 +481,22 @@
     "questionFinal": "Final Question: What is the minimum contrast ratio for normal text?",
     "indicetitle": "Hints for the final question:",
     "hints": [
-      "The ratio consists of two parts: one for the lighter luminance and the other for the darker luminance.",
-      "The contrast ratio is equivalent to a visual acuity of around 20/40.",
-      "The ratio is 4.5:1 for normal text and 3:1 for large text. It was defined to ensure that a person with age-related vision loss can read standard text without a magnifier or assistive technology."
+      "Correct! Poor contrast can affect everyone. Low-contrast text can be harder to read, especially for people with visual impairments, when tired, in bright light, or on a poor-quality screen. Good contrast improves readability for everyone.",
+      "Correct! The required contrast depends in part on the size of the text. Larger and thicker text can remain readable with slightly lower contrast.",
+      "Correct! Two different colors do not necessarily provide sufficient contrast. Two colors may seem easy to distinguish while having similar levels of brightness, making the content harder to read. It's not just the choice of colors that matters, but the contrast between them."
     ],
-    "question1": "Question 1: Who is affected by poor contrast?",
-    "question2": "Question 2: Does contrast change with text size?",
-    "question3": "Question 3: Which tool can test contrast?",
-    "choice1": "blind people",
+    "question1": "Question 1: Who can be affected by poor contrast?",
+    "question2": "Question 2: Does text size affect the contrast needed?",
+    "question3": "Can color alone guarantee good readability?",
+    "choice1": "Visually impaired person",
     "choice2": "everyone",
     "choice3": "no one",
     "choice4": "yes",
     "choice5": "no",
-    "choice6": "sometimes",
-    "choice7": "it doesn't exist",
-    "choice8": "no need, it can be seen",
-    "choice9": "Contrast Color Analyzer",
+    "choice6": "Only on mobile devices",
+    "choice7": "Yes, if the colors are different",
+    "choice8": "Yes, if they look good together",
+    "choice9": "No, the contrast between them also matters",
     "next": "validate",
     "descriptionHeading": "Description",
     "descriptionText1": "Browsing the web is a challenge for a person with contrast problems. Poorly optimized graphic design, with insufficient contrast between text and background or between interactive elements, can make certain content completely inaccessible.",
@@ -505,7 +505,6 @@
     "userTypeText": "You are in the shoes of a person with contrast problems. Visual elements lacking differentiation between light and dark shades are almost invisible to you. Light gray text on a white background, or pastel buttons on a similarly colored background, present serious challenges.",
     "rulesHeading": "Rules",
     "rule1": "Read carefully and answer the contrast quiz correctly.",
-    "rule2": "For each question, you will unlock a hint for the final question.",
-    "rule3": "Each wrong answer increases the contrast to make the choices easier to see."
+    "rule2": "If you answer incorrectly, the answers are shuffled again."
   }
 }

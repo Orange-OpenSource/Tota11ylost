@@ -165,7 +165,6 @@ onUnmounted(() => {
         <ul>
           <li>{{ $t('contrast.rule1') }}</li>
           <li>{{ $t('contrast.rule2') }}</li>
-          <li>{{ $t('contrast.rule3') }}</li>
         </ul>
       </div>
 
