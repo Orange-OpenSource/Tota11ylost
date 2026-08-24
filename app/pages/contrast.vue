@@ -128,6 +128,20 @@ function closeHintModal() {
     goToNextPage()
   }
 }
+
+function handleEscapeKey(event: KeyboardEvent) {
+  if (event.key === 'Escape' && modalVisible.value) {
+    closeHintModal()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleEscapeKey)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEscapeKey)
+})
 </script>
 
 <template>
