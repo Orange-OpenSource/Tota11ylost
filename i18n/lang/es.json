@@ -500,6 +500,7 @@
     "userTypeText": "Estás dentro de la piel de una persona con problemas de contraste. Los elementos visuales que carecen de diferenciación entre tonos claros y oscuros son casi invisibles para ti. Los textos grises claros sobre fondo blanco, o los botones pastel sobre un fondo de color similar, te plantean serios desafíos.",
     "rulesHeading": "Reglas",
     "rule1": "Lee atentamente y responde correctamente al cuestionario sobre el contraste.",
-    "rule2": "Si respondes incorrectamente, las respuestas se vuelven a mezclar."
+    "rule2": "Si respondes incorrectamente, las respuestas se vuelven a mezclar.",
+    "wrongAnswer": "Respuesta incorrecta, aunque todo está escrito."
   }
 }

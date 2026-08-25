@@ -204,7 +204,7 @@ onUnmounted(() => {
           <div class="alert-container">
             <div class="alert-text-container">
               <p class="alert-label">
-                Mauvaise réponse, pourtant tout est écrit.
+                {{ $t('contrast.wrongAnswer') }}
               </p>
             </div>
           </div>
