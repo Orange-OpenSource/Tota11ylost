@@ -58,6 +58,10 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   let lastPointerY = 0
   let lastFrameTime = 0
   let tremorAccumTime = 0
+  let tremorFromX = 0
+  let tremorFromY = 0
+  let tremorToX = 0
+  let tremorToY = 0
   let lastSpeed = 0
   let animFrameId: number | null = null
   let dragOffsetX = 0
@@ -86,6 +90,11 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
     gripGauge.value = 100
     tremorOffset.x = 0
     tremorOffset.y = 0
+    tremorAccumTime = 0
+    tremorFromX = 0
+    tremorFromY = 0
+    tremorToX = 0
+    tremorToY = 0
     lastPointerX = pointerX
     lastPointerY = pointerY
     lastFrameTime = performance.now()
@@ -177,13 +186,20 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
       return
     }
 
-    // Apply tremor
+    // Apply tremor — glide smoothly from the previous sampled offset to a new
+    // one every TREMOR_UPDATE_INTERVAL ms instead of jumping instantly, to
+    // mimic the smooth CSS-transitioned cursor tremor used on the physical page.
     tremorAccumTime += dt
     if (tremorAccumTime >= TREMOR_UPDATE_INTERVAL) {
-      tremorAccumTime = 0
-      tremorOffset.x = sampleNormal() * tremorAmplitude
-      tremorOffset.y = sampleNormal() * tremorAmplitude
+      tremorAccumTime -= TREMOR_UPDATE_INTERVAL
+      tremorFromX = tremorOffset.x
+      tremorFromY = tremorOffset.y
+      tremorToX = sampleNormal() * tremorAmplitude
+      tremorToY = sampleNormal() * tremorAmplitude
     }
+    const tremorProgress = Math.min(1, tremorAccumTime / TREMOR_UPDATE_INTERVAL)
+    tremorOffset.x = tremorFromX + (tremorToX - tremorFromX) * tremorProgress
+    tremorOffset.y = tremorFromY + (tremorToY - tremorFromY) * tremorProgress
 
     // Update piece position (raw + tremor)
     piece.x = rawX + tremorOffset.x
