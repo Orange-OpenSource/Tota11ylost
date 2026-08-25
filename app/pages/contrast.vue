@@ -5,14 +5,15 @@ const { goToNextPage } = useNextPage()
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
 const questions = computed(() => [
-  { texte: t('contrast.question1'), choix: [t('contrast.choice1'), t('contrast.choice2'), t('contrast.choice3')], reponse: t('contrast.choice2'), indice: t('contrast.hints.0') },
-  { texte: t('contrast.question2'), choix: [t('contrast.choice4'), t('contrast.choice5'), t('contrast.choice6')], reponse: t('contrast.choice4'), indice: t('contrast.hints.1') },
-  { texte: t('contrast.question3'), choix: [t('contrast.choice7'), t('contrast.choice8'), t('contrast.choice9')], reponse: t('contrast.choice9'), indice: t('contrast.hints.2') },
+  { texte: t('contrast.question1'), choix: [t('contrast.choice1'), t('contrast.choice2'), t('contrast.choice3')], reponse: t('contrast.choice2'), indice: t('contrast.hints.0'), indiceTitre: t('contrast.hintTitles.0') },
+  { texte: t('contrast.question2'), choix: [t('contrast.choice4'), t('contrast.choice5'), t('contrast.choice6')], reponse: t('contrast.choice4'), indice: t('contrast.hints.1'), indiceTitre: t('contrast.hintTitles.1') },
+  { texte: t('contrast.question3'), choix: [t('contrast.choice7'), t('contrast.choice8'), t('contrast.choice9')], reponse: t('contrast.choice9'), indice: t('contrast.hints.2'), indiceTitre: t('contrast.hintTitles.2') },
 ])
 
 const modalVisible = ref(false)
 const contrastLevel = ref(1)
 const currentHintMessage = ref('')
+const currentHintTitle = ref('')
 const maxContrast = 3
 const forceBlackText = ref(false)
 
@@ -108,6 +109,7 @@ function handleButtonClick(selectedLabel: string) {
 
     if (willShowHint) {
       currentHintMessage.value = currentHint.value
+      currentHintTitle.value = currentQuestion.indiceTitre
       modalVisible.value = true
       shownHintIndexes.value.add(currentQuestionIndex.value)
     }
@@ -232,6 +234,9 @@ onUnmounted(() => {
             </button>
           </div>
           <div class="modal-body">
+            <h4 id="modal-contrast-title" class="fs-hm fw-bold">
+              {{ currentHintTitle }}
+            </h4>
             <p id="modal-contrast" class="fs-hm">
               {{ currentHintMessage }}
             </p>

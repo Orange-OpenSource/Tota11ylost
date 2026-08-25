@@ -485,6 +485,11 @@
       "Correct! The required contrast depends in part on the size of the text. Larger and thicker text can remain readable with slightly lower contrast.",
       "Correct! Two different colors do not necessarily provide sufficient contrast. Two colors may seem easy to distinguish while having similar levels of brightness, making the content harder to read. It's not just the choice of colors that matters, but the contrast between them."
     ],
+    "hintTitles": [
+      "Everyone can be affected",
+      "Text size matters",
+      "Color alone is not enough"
+    ],
     "question1": "Question 1: Who can be affected by poor contrast?",
     "question2": "Question 2: Does text size affect the contrast needed?",
     "question3": "Can color alone guarantee good readability?",

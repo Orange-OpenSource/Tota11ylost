@@ -480,6 +480,11 @@
       "¡Correcto! El contraste necesario depende, entre otros factores, del tamaño del texto. Un texto más grande y grueso puede seguir siendo legible con un contraste ligeramente inferior.",
       "¡Correcto! Dos colores diferentes no tienen necesariamente un contraste suficiente. Dos colores pueden parecer fáciles de distinguir y, aun así, tener niveles de luminosidad similares, lo que dificulta la lectura del contenido. No solo importa la elección de los colores, sino también el contraste entre ellos."
     ],
+    "hintTitles": [
+      "El contraste puede afectar a todo el mundo",
+      "El tamaño del texto importa",
+      "El color por sí solo no es suficiente"
+    ],
     "question1": "Pregunta 1: ¿A quién puede afectar un contraste insuficiente?",
     "question2": "Pregunta 2: ¿Influye el tamaño del texto en el nivel de contraste necesario?",
     "question3": "Pregunta 3: ¿Puede el color por sí solo garantizar una buena legibilidad?",

@@ -486,7 +486,12 @@
     "hints": [
       "Bonne réponse ! Un contraste insuffisant peut gêner tout le monde. Un texte peu contrasté est plus difficile à lire, notamment en cas de déficience visuelle, de fatigue, de forte luminosité ou sur un écran de mauvaise qualité.",
       "Bonne réponse ! Le contraste nécessaire dépend notamment de la taille du texte. Un texte plus grand et plus épais peut rester lisible avec un contraste légèrement plus faible.",
-      "Ce n'est donc pas seulement le choix des couleurs qui compte, mais le contraste entre elles."
+      "Bonne réponse ! Ce n'est donc pas seulement le choix des couleurs qui compte, mais le contraste entre elles."
+    ],
+    "hintTitles": [
+      "Tout le monde peut être concerné",
+      "La taille du texte compte",
+      "La couleur ne suffit pas"
     ],
     "choice1": "les personnes mal voyantes",
     "choice2": "tout le monde",
