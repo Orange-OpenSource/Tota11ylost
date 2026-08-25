@@ -5,7 +5,6 @@
       <p><strong>ID:</strong> 14</p>
       <p><strong>Route:</strong> /contrast</p>
       <p><strong>Déficience:</strong> visual</p>
-      <RandomPage />
     </div>
     <button @click.prevent="goToNextPage">
       Next Page
