@@ -1,12 +1,13 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const { goToNextPage } = useNextPage()
 
 type ButtonDef = { label: string, id: string, bg?: string, color?: string }
 
-const questions = ref([
-  { texte: $t('contrast.question1'), choix: [$t('contrast.choice1'), $t('contrast.choice2'), $t('contrast.choice3')], reponse: $t('contrast.choice2'), indice: $t('contrast.hints.0') },
-  { texte: $t('contrast.question2'), choix: [$t('contrast.choice4'), $t('contrast.choice5'), $t('contrast.choice6')], reponse: $t('contrast.choice4'), indice: $t('contrast.hints.1') },
-  { texte: $t('contrast.question3'), choix: [$t('contrast.choice7'), $t('contrast.choice8'), $t('contrast.choice9')], reponse: $t('contrast.choice9'), indice: $t('contrast.hints.2') },
+const questions = computed(() => [
+  { texte: t('contrast.question1'), choix: [t('contrast.choice1'), t('contrast.choice2'), t('contrast.choice3')], reponse: t('contrast.choice2'), indice: t('contrast.hints.0') },
+  { texte: t('contrast.question2'), choix: [t('contrast.choice4'), t('contrast.choice5'), t('contrast.choice6')], reponse: t('contrast.choice4'), indice: t('contrast.hints.1') },
+  { texte: t('contrast.question3'), choix: [t('contrast.choice7'), t('contrast.choice8'), t('contrast.choice9')], reponse: t('contrast.choice9'), indice: t('contrast.hints.2') },
 ])
 
 const modalVisible = ref(false)
@@ -40,6 +41,19 @@ function buttonStyle(btn: ButtonDef) {
   const color = forceBlackText.value ? '#000000' : lerpColor('#ed7926', btn.color || '#ff6600', t)
   return { backgroundColor: bg, color }
 }
+
+const questionTitleStyle = computed(() => {
+  if (forceBlackText.value) {
+    return { color: '#000000' }
+  }
+  // Départ quasi invisible (comme la couleur d'origine), puis légère amélioration
+  // à chaque indice de contraste sans jamais devenir pleinement lisible : le titre
+  // doit rester inapproprié pour la simulation tant que l'indice final n'a pas été pris.
+  const hintSteps = Math.max(0, contrastLevel.value - 1)
+  const t = Math.min(1, hintSteps / (maxContrast - 1)) * 0.35
+  const color = lerpColor('#f3f1f1', '#000000', t)
+  return { color }
+})
 
 const showError = ref(false)
 const currentQuestionIndex = ref(0)
@@ -169,7 +183,7 @@ onUnmounted(() => {
       </div>
 
       <div :class="hintList.length ? 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-start align-items-center text-center' : 'page ms-large mt-4xlarge flex-1 d-flex flex-column justify-content-center align-items-center text-center'">
-        <h3 class="questions">
+        <h3 class="questions" :style="questionTitleStyle">
           {{ h3Text }}
         </h3>
 
