@@ -104,7 +104,7 @@ function startAdventure() {
           </p>
 
           <div class="select-input mb-medium w-50">
-            <div class="select-input-container">
+            <div class="select-input-container adventure-type-select">
               <label class="form-label " style="color: black; " for="exampleDisabledSelect">
                 {{ $t('welcome.adventureType') }}
               </label>
@@ -178,7 +178,7 @@ function startAdventure() {
             </div>
           </fieldset>
 
-          <div class="mt-medium mb-medium">
+          <div class="mt-medium mb-medium w-75">
             <label for="sessionCodeInput" class="form-label" style="color: black;">
               {{ $t('welcome.sessionCode') }}
             </label>
@@ -224,5 +224,22 @@ function startAdventure() {
   color: black !important;
   background-color: white !important;
   -webkit-text-fill-color: black !important;
+}
+
+/*
+ * Fix for OUDS @ouds/web-common 1.3.0 select-input bug: the "floated" label
+ * position (small text, moved to the top) is only applied via the selector
+ * `:not(:has(.select-input-field:disabled:checked))`. Since this select is
+ * permanently disabled with a pre-selected option, that condition never
+ * matches, so the label stays vertically centered and overlaps the select's
+ * text. This select never changes state, so we force the floated position
+ * unconditionally instead of relying on that (buggy) dynamic selector.
+ */
+.adventure-type-select > label {
+  top: calc(var(--bs-text-input-padding-y) + .5 * (var(--bs-font-size-label-small) * var(--bs-font-line-height-label-small)) + .5 * (var(--bs-text-input-min-height) - 2 * var(--bs-text-input-padding-y) - var(--bs-font-size-label-small) * var(--bs-font-line-height-label-small) - var(--bs-font-size-label-large) * var(--bs-font-line-height-label-large))) !important;
+  white-space: nowrap;
+  font-size: var(--bs-font-size-label-small);
+  line-height: var(--bs-font-line-height-label-small);
+  letter-spacing: var(--bs-font-letter-spacing-label-small);
 }
 </style>

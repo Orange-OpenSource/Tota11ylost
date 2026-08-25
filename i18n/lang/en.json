@@ -88,7 +88,7 @@
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "accessibility": "Accessibility in action",
     "sessionCode": "Session code (optional)",
-    "sessionCodeHint": "Provided by the instructor during training. The last 2 characters set the duration (e.g. FORMA60, ACCES30).",
+    "sessionCodeHint": "Enter the code provided by the instructor. The session duration is automatically set based on this code.",
     "sessionCodePlaceholder": "E.g.: FORMA60",
     "buttonStartAdventure": "Start the adventure",
     "errorPseudoTooShort": "Nickname must be at least 3 characters.",

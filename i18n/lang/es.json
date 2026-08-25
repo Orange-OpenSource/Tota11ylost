@@ -88,7 +88,7 @@
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
     "accessibility": "L'accessibilitat en acció",
     "sessionCode": "Código de sesión (opcional)",
-    "sessionCodeHint": "Proporcionado por el instructor durante la formación. Los 2 últimos caracteres indican la duración (ej: FORMA60, ACCES30).",
+    "sessionCodeHint": "Introduce el código proporcionado por el facilitador. La duración de la sesión se establece automáticamente a partir de este código.",
     "sessionCodePlaceholder": "Ej.: FORMA60",
     "buttonStartAdventure": "Iniciar la aventura",
     "errorPseudoTooShort": "El apodo debe tener al menos 3 caracteres.",
