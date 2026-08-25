@@ -57,6 +57,7 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   let lastPointerX = 0
   let lastPointerY = 0
   let lastFrameTime = 0
+  let tremorAccumTime = 0
   let lastSpeed = 0
   let animFrameId: number | null = null
   let dragOffsetX = 0
@@ -67,14 +68,15 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   // Speed thresholds
   const SPEED_FAST = 8 // px/frame — above this = fast drag
   const SPEED_SLOW = 2 // px/frame — below this = slow drag
+  const TREMOR_UPDATE_INTERVAL = 68 // ms entre deux "sauts"  de tremblement (plus haut = plus lent)
 
   // Drain rates (% per frame at 60fps)
   const DRAIN_FAST = 2.0
   const DRAIN_SLOW = 0.3
 
   // Tremor amplitudes (pixels)
-  const TREMOR_FAST = 3
-  const TREMOR_SLOW = 35
+  const TREMOR_FAST = 30
+  const TREMOR_SLOW = 240
 
   function startDrag(piece: PuzzlePiece, pointerX: number, pointerY: number) {
     if (piece.locked) return
@@ -176,14 +178,16 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
     }
 
     // Apply tremor
-    const tX = sampleNormal() * tremorAmplitude
-    const tY = sampleNormal() * tremorAmplitude
-    tremorOffset.x = tX
-    tremorOffset.y = tY
+    tremorAccumTime += dt
+    if (tremorAccumTime >= TREMOR_UPDATE_INTERVAL) {
+      tremorAccumTime = 0
+      tremorOffset.x = sampleNormal() * tremorAmplitude
+      tremorOffset.y = sampleNormal() * tremorAmplitude
+    }
 
     // Update piece position (raw + tremor)
-    piece.x = rawX + tX
-    piece.y = rawY + tY
+    piece.x = rawX + tremorOffset.x
+    piece.y = rawY + tremorOffset.y
 
     animFrameId = requestAnimationFrame(dragLoop)
   }
