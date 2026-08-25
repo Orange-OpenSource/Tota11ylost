@@ -80,6 +80,10 @@ const finalElapsed = computed(() => {
 
 const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 
+// Durée du jeu sélectionnée (15/30/60 min), affichée sans les secondes.
+// Ex: "15 minutes", indépendamment du temps réellement écoulé.
+const selectedDurationDisplay = computed(() => `${version.value} ${t('common.time.minute.full', Number(version.value))}`)
+
 function isCurrent(entry: ScoreEntry): boolean {
   return entry.pseudo === pseudo.value
 }
@@ -148,10 +152,10 @@ onMounted(loadScores)
                   <p>{{ $t('scores.aventureType') }}</p>
                 </li>
                 <li aria-hidden="true" class="">
-                  <p>{{ $t('scores.timeList') }} {{ finalTimeDisplay }}</p>
+                  <p>{{ $t('scores.timeList') }} {{ selectedDurationDisplay }}</p>
                 </li>
                 <li class="visually-hidden">
-                  {{ formatTimeA11y(finalElapsed) }}
+                  {{ selectedDurationDisplay }}
                 </li>
                 <li aria-hidden="true" class="">
                   <p>{{ $t('scores.defeciencyList') }}  {{ selectedCategories.join(' et ') }}</p>
@@ -372,25 +376,6 @@ margin-bottom: 20px;
 }
 .titre{
   font-size: 24px !important;
-}
-}
-@media (min-width: 898px) {/*ordi*/
-.victoire-image{
-  width: 35.5%;
-}
-
-}
-@media (min-width: 1500px) {/*ordi*/
-.victoire-image{
-  width: 35.5%;
-}
-p, a, span, h3 {
-  font-size: 25px !important;
-}.titre{
-  font-size: 55px !important;
-}
-.titre_tabs{
-  margin-top: 4em !important;
 }
 }
 </style>
