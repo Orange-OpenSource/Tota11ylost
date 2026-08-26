@@ -516,6 +516,10 @@
     "minutes": "minutos",
     "todayTitle": "Mejores tiempos del día",
     "generalTitle": "Clasificación general",
+    "timeList": "Duración:",
+    "defeciencyList": "Deficiencia(s) indicada(s):",
+    "newAdventure": "Nueva aventura",
+    "aventureType": "Tipo de aventura: Escape Game",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
   "filter": {

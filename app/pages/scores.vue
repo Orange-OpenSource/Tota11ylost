@@ -14,6 +14,8 @@ interface ScoreEntry {
 
 const todayScores = ref<ScoreEntry[]>([])
 const generalScores = ref<ScoreEntry[]>([])
+const currentTodayRow = ref<HTMLElement | null>(null)
+const currentGeneralRow = ref<HTMLElement | null>(null)
 const pseudo = computed(() => gameStore.pseudo)
 const version = computed(() => gameStore.version)
 const categoriesRestantes = computed(() => gameStore.categoriesRestantes)
@@ -30,11 +32,29 @@ function formatTime(ms: number): string {
   const h = Math.floor(totalSec / 3600)
   const m = Math.floor((totalSec % 3600) / 60)
   const s = totalSec % 60
+
   const parts: string[] = []
   if (h > 0) parts.push(`${h}${t('common.time.hour.abbr', h)}`)
   parts.push(`${String(m).padStart(2, '0')}${t('common.time.minute.abbr', m)}`)
   parts.push(`${String(s).padStart(2, '0')}${t('common.time.second.abbr', s)}`)
   return parts.join(' ')
+}
+
+function formatTime2(ms: number): string {
+  const totalSec = Math.floor(ms / 1000)
+  const h = Math.floor(totalSec / 3600)
+  const m = Math.floor((totalSec % 3600) / 60)
+  const s = totalSec % 60
+
+  const hh = String(h).padStart(2, '0')
+  const mm = String(m).padStart(2, '0')
+  const ss = String(s).padStart(2, '0')
+
+  if (h > 0) {
+    return `${hh}:${mm}:${ss}`
+  }
+
+  return `${mm}:${ss}`
 }
 
 // Accessible format: "5 minutes 30 secondes" — visually hidden, for screen readers
@@ -60,6 +80,10 @@ const finalElapsed = computed(() => {
 
 const finalTimeDisplay = computed(() => formatTime(finalElapsed.value))
 
+// Durée du jeu sélectionnée (15/30/60 min), affichée sans les secondes.
+// Ex: "15 minutes", indépendamment du temps réellement écoulé.
+const selectedDurationDisplay = computed(() => `${version.value} ${t('common.time.minute.full', Number(version.value))}`)
+
 function isCurrent(entry: ScoreEntry): boolean {
   return entry.pseudo === pseudo.value
 }
@@ -76,9 +100,25 @@ async function loadScores() {
 
     todayScores.value = await getTodayScores(version.value)
     generalScores.value = await getGeneralScores(version.value)
+
+    // Scroll to current user's score in both tables
+    await nextTick()
+    scrollToCurrentScore()
   }
   catch (e) {
     console.error('Failed to load scores:', e)
+  }
+}
+
+function scrollToCurrentScore() {
+  // Scroll to current user's row in today scores
+  if (currentTodayRow.value) {
+    currentTodayRow.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  // Scroll to current user's row in general scores
+  if (currentGeneralRow.value) {
+    currentGeneralRow.value.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 }
 
@@ -93,28 +133,29 @@ onMounted(loadScores)
           id="congratulationImage"
           src="/game-assets/winners.png"
           :alt="$t('scores.alt_congratulationImage', { version })"
-          class="me-3xlarge"
+          class="victoire-image"
         >
         <div class="position-absolute top-50 start-50 translate-middle mt-3xlarge" aria-hidden="true" />
       </div>
 
-      <main class="d-flex flex-row m-medium ms-large flex-grow-1">
-        <div class="col-8">
-          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85">
+      <main class="d-flex flex-row m-medium ms-large flex-grow-1 margin-main">
+        <div class="col-8 page">
+          <div class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary w-85 contenu">
             <div class="col-6 w-100">
-              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
-              <p class="fs-bl fw-bold text-muted w-100">
+              <h2 style="font-size: 2rem;" class="display-3 mb-large fs-hxl w-100 titre" v-html="$t('scores.congratulations', { pseudo, finalTimeDisplay })" />
+
+              <p class="fs-bl  text-muted w-100">
                 {{ $t('scores.finalTime') }}
               </p>
-              <ul class="align-items-center fs-hs fw-bold">
+              <ul class="align-items-center fs-hs ">
                 <li class="">
                   <p>{{ $t('scores.aventureType') }}</p>
                 </li>
                 <li aria-hidden="true" class="">
-                  <p>{{ $t('scores.timeList') }}{{ finalTimeDisplay }}</p>
+                  <p>{{ $t('scores.timeList') }} {{ selectedDurationDisplay }}</p>
                 </li>
                 <li class="visually-hidden">
-                  {{ formatTimeA11y(finalElapsed) }}
+                  {{ selectedDurationDisplay }}
                 </li>
                 <li aria-hidden="true" class="">
                   <p>{{ $t('scores.defeciencyList') }}  {{ selectedCategories.join(' et ') }}</p>
@@ -125,50 +166,52 @@ onMounted(loadScores)
                 <div class="alert-icon" />
                 <div class="alert-container">
                   <div class="alert-text-container">
-                    <p class="alert-label">
+                    <p class="alert-label ">
                       {{ $t('scores.toKnowMore') }}
                     </p>
                     <a
                       :href="$t('scores.link')"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="alert-link"
+                      class="alert-link fw-bold"
                     >{{ $t('scores.nameLink') }}</a>
                   </div>
                 </div>
               </div>
 
-              <a href="./" class="btn btn-default">Nouvelle aventure</a>
+              <a href="./" class="btn btn-default">{{ $t('scores.newAdventure') }}</a>
             </div>
 
             <!-- Score tables -->
-            <h3 class=" my-medium fs-hs fw-bold">
+            <h3 class=" my-medium fs-hs fw-bold titre_tabs">
               {{ $t('scores.tabTitle') }}
             </h3>
-            <div class="d-flex gap-medium ">
+            <hr style="border: 3px solid #ff7900; width: 5%; margin-top: -10px;">
+            <div class="d-flex gap-medium tabs">
               <!-- Today -->
-              <div class="border col-6 w-75">
-                <p class="text-center my-medium fs-hs">
+              <div class="border col-6 w-75 today">
+                <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.todayTitle') }}
                 </p>
-                <div class="scrollable-table-container">
+                <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
                   <table class="table table-responsive">
                     <tbody>
                       <tr
                         v-for="(entry, index) in todayScores"
                         :key="`today-${index}`"
+                        :ref="(el) => { if (isCurrent(entry)) currentTodayRow = el as HTMLElement }"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
-                          <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
+                          <p class="mb-none fw-bold" :class="{ 'fs-bl': isCurrent(entry) }">
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
-                            <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                            <span aria-hidden="true">{{ formatTime2(entry.timer) }}</span>
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
+                        <td class="py-small vertical-align d-flex flex-row-reverse pt-medium" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
                           <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
                           <span v-else>{{ index + 1 }}</span>
                         </td>
@@ -179,30 +222,37 @@ onMounted(loadScores)
               </div>
 
               <!-- General -->
-              <div class="border col-6  w-75">
-                <p class="text-center my-medium fs-hs">
+              <div class="border col-6  w-75 general">
+                <p class=" my-medium fs-hs fw-bold" style="margin: 20px;">
                   {{ $t('scores.generalTitle') }}
                 </p>
-                <div class="scrollable-table-container">
+                <div class="scrollable-table-container" style="margin-left: 20px;margin-right: 20px;">
                   <table class="table table-responsive">
                     <tbody>
                       <tr
                         v-for="(entry, index) in generalScores"
                         :key="`general-${index}`"
+                        :ref="(el) => { if (isCurrent(entry)) currentGeneralRow = el as HTMLElement }"
                         :class="{ 'current-score': isCurrent(entry) }"
                       >
                         <td class="text-start py-small" :class="{ current: isCurrent(entry) }">
-                          <p class="mb-none" :class="{ 'fs-bl': isCurrent(entry) }">
+                          <p class="mb-none fw-bold" :class="{ 'fs-bl ': isCurrent(entry) }">
                             {{ entry.pseudo }}
                           </p>
                           <p class="mb-none fs-bm" :class="isCurrent(entry) ? 'text-always-white' : 'text-muted'">
-                            <span aria-hidden="true">{{ formatTime(entry.timer) }}</span>
+                            <span aria-hidden="true">{{ formatTime2(entry.timer) }}</span>
                             <span class="visually-hidden">{{ formatTimeA11y(entry.timer) }}</span>
                           </p>
                         </td>
-                        <td class="py-small vertical-align" :class="{ 'current': isCurrent(entry), 'fs-bl': isCurrent(entry) }">
-                          <span v-if="(index + 1) <= 3" class="star">★ {{ index + 1 }}</span>
-                          <span v-else>{{ index + 1 }}</span>
+
+                        <td class="vertical-align  d-flex flex-row-reverse pt-medium" :class="{ current: isCurrent(entry) }">
+                          <span
+                            class="rank-badge"
+                            :class="{ 'current-badge': isCurrent(entry), 'star': (index + 1) <= 3 }"
+                          >
+                            <template v-if="(index + 1) <= 3">★ </template>
+                            {{ index + 1 }}
+                          </span>
                         </td>
                       </tr>
                     </tbody>
@@ -218,17 +268,65 @@ onMounted(loadScores)
 </template>
 
 <style scoped>
+.rank-badge {
+  background-color: #f1f0f0;
+  color: black;
+  border-radius: 50%;
+  display: inline-block;
+  font-weight: 600;
+  padding-top: 6.8px;
+  padding-bottom: 6.8px;
+  padding-left: 10.3px;
+  padding-right: 10.3px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.current-badge {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+
+}
+tbody{
+  margin: 10px
+}
+
 .scrollable-table-container {
   max-height: 400px;
   overflow-y: auto;
 }
 
 .current-score {
-  background-color: var(--bs-primary, #ff7900);
+  border: 3px solid  #ff7900;
+  color:#000000;
 }
 
 .current {
+  background-color: transparent !important;
+  color: #000000 !important;
+  font-size: 1rem;
+}
+
+.current p{
+  color: #414141 !important;
+}
+
+.star {
+  background-color: #f1f0f0;
+  padding-top: 6.8px;
+  padding-bottom: 6.8px;
+  padding-left: 10.3px;
+  padding-right: 10.3px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+li::marker {
+  color: #000000;
+}
+.current-score .star {
   color: #fff;
+  background-color: black;
 }
 
 .scores-img {
@@ -242,5 +340,42 @@ onMounted(loadScores)
 
 .vertical-align {
   vertical-align: middle;
+
+}
+@media (max-width: 576px) { /*mobile */
+.victoire-image{
+  display: none;
+}
+.contenu{
+  padding: 0px !important;
+}
+.page{
+  width: 100%;
+}
+.tabs{
+  display:flex ;
+  flex-direction: column;
+}
+.today{
+width: 100% !important;
+}
+.general {
+width: 100% !important;
+margin-bottom: 20px;
+}
+.margin-main{
+  margin: 0px !important;
+}
+}
+@media (min-width: 577px ) and (max-width: 898px) {/*tablette*/
+.victoire-image{
+  width: 40%;
+}
+.margin-main{
+  margin: 0px !important;
+}
+.titre{
+  font-size: 24px !important;
+}
 }
 </style>

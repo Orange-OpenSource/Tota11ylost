@@ -514,6 +514,10 @@
     "minutes": "minutes",
     "todayTitle": "Best scores of the day",
     "generalTitle": "General ranking",
+    "timeList": "Duration:",
+    "defeciencyList": "Reported deficiency(ies):",
+    "newAdventure": "New Adventure",
+    "aventureType": "Adventure type: Escape Game",
     "alt_congratulationImage": "You have finished the {version} minutes escape game"
   },
   "filter": {
