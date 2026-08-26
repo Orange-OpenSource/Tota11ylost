@@ -228,6 +228,45 @@
     "img_hungry": "TENGO HAMBRE",
     "img_monkey": "Vamos, concéntrate un poco"
   },
+  "memorie": {
+    "tabTitle": "Discapacidad cognitiva - Memoria - Tota11y Lost",
+    "pageTitle": "Discapacidad cognitiva - Memoria",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Olvidar información esencial, perder el hilo de una tarea en curso o tener que recordar constantemente instrucciones hace que la navegación web sea frustrante y difícil. Una interfaz mal diseñada, con información que desaparece o una falta de puntos de referencia claros, complica aún más la situación. Una buena accesibilidad se basa en elementos bien estructurados, una navegación predecible y ayudas de memoria, como recordatorios e información persistente.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Estás en la piel de una persona con trastornos de la memoria. La información importante se te escapa rápidamente, y es difícil recordar instrucciones o pasos anteriores.",
+    "rulesHeading": "Reglas",
+    "rule1": "Lee el texto a continuación y memoriza la información necesaria para completar los campos del formulario.",
+    "rule2": "Atención, el texto y las etiquetas de los campos del formulario desaparecen después de unos segundos.",
+    "rule3": "Activar las pistas 1 y 2 permite volver a mostrar temporalmente el texto y las etiquetas de los campos del formulario.",
+    "showTextButton": "Mostrar el texto",
+    "textHeading": "Texto",
+    "storyText": "William Utermohlen (1933-2007) fue un artista estadounidense conocido por su conmovedor trabajo sobre la memoria y la identidad. Diagnosticado con la enfermedad de Alzheimer en 1995, realizó una serie de unos 10 autorretratos hasta el año 2000, ilustrando la degradación progresiva de sus capacidades cognitivas. Su arte se convirtió en un poderoso testimonio de la pérdida de memoria y la percepción alterada. Su esposa, Patricia Utermohlen, historiadora del arte, lo acompañó y apoyó hasta el final de su vida, trabajando después para preservar y dar a conocer su obra. Su obra sigue siendo una referencia importante para comprender los efectos de la demencia en la creatividad.",
+    "formHeading": "El formulario",
+    "allFieldsRequired": "Todos los campos son obligatorios",
+    "question1": "¿Cuál es el apellido del artista?",
+    "question2": "¿Cuál es el nombre del artista?",
+    "question3": "¿En qué año fue diagnosticada su enfermedad?",
+    "question4": "¿Cuál era el nombre de su esposa?",
+    "question5": "¿En qué año falleció?",
+    "question6": "¿Cuál es su año de nacimiento?",
+    "question7": "¿Cuál es el nombre de su enfermedad?",
+    "question8": "¿Cuántos autorretratos realizó entre su diagnóstico y el año 2000?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Validar",
+    "errorHiddenText": "Error",
+    "errorMessage": "La información indicada no es correcta, ¡un poco de memoria!",
+    "requiredFieldError": "Este campo es obligatorio"
+  },
   "physical": {
     "tabTitle": "Discapacidad motora - Tota11y Lost",
     "content_description": "Página de descripción de la discapacidad motora y simulación del uso del ratón con tal discapacidad",
@@ -428,6 +467,11 @@
     "cognitiveSimulation": [
       "Estamos buscando los nombres de tres personas famosas, cada una en un campo diferente.",
       "A.E, A.C, C.D",
+      "La simulación ha sido desactivada."
+    ],
+    "memorie": [
+      "El texto se volvió a mostrar temporalmente durante 10 segundos",
+      "El texto se volvió a mostrar temporalmente durante 20 segundos",
       "La simulación ha sido desactivada."
     ],
     "hearing": [

@@ -227,6 +227,45 @@
     "img_hungry": "I'M HUNGRY",
     "img_monkey": "Come on, focus a little"
   },
+  "memorie": {
+    "tabTitle": "Cognitive impairment - Memory - Tota11y Lost",
+    "pageTitle": "Cognitive impairment - Memory",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Forgetting essential information, losing track of an ongoing task, or having to constantly recall instructions makes web navigation frustrating and difficult. A poorly designed interface, with information that disappears or a lack of clear landmarks, makes the situation even more complicated. Good accessibility relies on well-structured elements, predictable navigation, and memory aids, such as reminders and persistent information.",
+    "userTypeHeading": "The type of user you embody",
+    "userTypeText": "You are in the shoes of a person with memory disorders. Important information quickly slips away from you, and it is difficult to remember instructions or previous steps.",
+    "rulesHeading": "Rules",
+    "rule1": "Read the text below and memorize the information needed to complete the form fields.",
+    "rule2": "Be careful, the text and form field labels disappear after a few seconds.",
+    "rule3": "Activating hints 1 and 2 temporarily brings back the text and form field labels.",
+    "showTextButton": "Show the text",
+    "textHeading": "Text",
+    "storyText": "William Utermohlen (1933-2007) was an American artist known for his poignant work on memory and identity. Diagnosed with Alzheimer's disease in 1995, he created a series of about 10 self-portraits until 2000, illustrating the progressive decline of his cognitive abilities. His art became a powerful testimony to memory loss and altered perception. His wife, Patricia Utermohlen, an art historian, accompanied and supported him until the end of his life, later working to preserve and promote his work. His work remains a major reference for understanding the effects of dementia on creativity.",
+    "formHeading": "The form",
+    "allFieldsRequired": "All fields are required",
+    "question1": "What is the artist's last name?",
+    "question2": "What is the artist's first name?",
+    "question3": "In which year was his illness diagnosed?",
+    "question4": "What was his wife's first name?",
+    "question5": "In which year did he die?",
+    "question6": "What is his year of birth?",
+    "question7": "What is the name of his illness?",
+    "question8": "How many self-portraits did he create between his diagnosis and 2000?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Validate",
+    "errorHiddenText": "Error",
+    "errorMessage": "The information provided is not correct, a little memory!",
+    "requiredFieldError": "This field is required"
+  },
   "physical": {
     "tabTitle": "Motor impairment - Tota11y Lost",
     "content_description": "Page describing motor impairment and simulation of mouse use with such a disability",
@@ -426,6 +465,11 @@
     "cognitiveSimulation": [
       "We are looking for the names of three famous people, each in a different field.",
       "A.E, A.C, C.D",
+      "The simulation has been disabled."
+    ],
+    "memorie": [
+      "The text was temporarily displayed again for 10 seconds",
+      "The text was temporarily displayed again for 20 seconds",
       "The simulation has been disabled."
     ],
     "hearing": [
