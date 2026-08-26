@@ -87,6 +87,9 @@
     "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
     "accessibility": "L'accessibilitat en acció",
+    "sessionCode": "Código de sesión (opcional)",
+    "sessionCodeHint": "Introduce el código proporcionado por el facilitador. La duración de la sesión se establece automáticamente a partir de este código.",
+    "sessionCodePlaceholder": "Ej.: FORMA60",
     "buttonStartAdventure": "Iniciar la aventura",
     "errorPseudoTooShort": "El apodo debe tener al menos 3 caracteres.",
     "errorPseudoProfanity": "Este apodo contiene términos inapropiados. Por favor, elige otro."
