@@ -227,6 +227,45 @@
     "img_hungry": "J'AI FAIM",
     "img_monkey": "Allez, on se concentre un peu"
   },
+  "memorie": {
+    "tabTitle": "Handicap cognitif - Mémoire - Tota11y Lost",
+    "pageTitle": "Handicap cognitif - Mémoire",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Oublier des informations essentielles, perdre le fil d’une tâche en cours ou devoir constamment se remémorer des instructions rendent la navigation web frustrante et difficile. Une interface mal conçue, avec des informations qui disparaissent ou un manque de repères clairs, complique encore plus la situation. Une bonne accessibilité passe par des éléments bien structurés, une navigation prévisible et des aides à la mémoire, comme des rappels et des informations persistantes.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des troubles de la mémoire. Les informations importantes vous échappent rapidement, et il est difficile de vous rappeler des instructions ou des étapes précédentes.",
+    "rulesHeading": "Règles",
+    "rule1": "Lire le texte ci-dessous et mémoriser les informations nécessaires à la complétion des champs de formulaire.",
+    "rule2": "Attention, le texte et les étiquettes des champs de formulaires disparaissent après quelques secondes.",
+    "rule3": "Activer les indices 1 et 2 permets de remettre le texte et les étiquettes de champs de formulaires temporairement.",
+    "showTextButton": "Afficher le texte",
+    "textHeading": "Texte",
+    "storyText": "William Utermohlen (1933-2007) était un artiste américain connu pour son travail poignant sur la mémoire et l'identité. Diagnostiqué avec la maladie d'Alzheimer en 1995, il a réalisé une série d’environ 10 autoportraits jusqu’en 2000, illustrant la dégradation progressive de ses capacités cognitives. Son art est devenu un témoignage puissant de la perte de mémoire et de la perception altérée. Sa femme, Patricia Utermohlen, historienne de l’art, l’a accompagné et soutenu jusqu’à la fin de sa vie, œuvrant ensuite pour préserver et faire connaître son travail. Son œuvre reste une référence majeure pour comprendre les effets de la démence sur la créativité.",
+    "formHeading": "Le formulaire",
+    "allFieldsRequired": "Tous les champs sont obligatoires",
+    "question1": "Quel est le nom de l'artiste ?",
+    "question2": "Quel est le prénom de l'artiste ?",
+    "question3": "En quelle année sa maladie a-t-elle été diagnostiquée ?",
+    "question4": "Quel est le prénom de sa femme ?",
+    "question5": "En quelle année est-il décédé ?",
+    "question6": "Quelle est son année de naissance ?",
+    "question7": "Quel est le nom de sa maladie ?",
+    "question8": "Combien d'autoportraits a-t-il réalisé entre son diagnostic et 2000 ?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Valider",
+    "errorHiddenText": "Erreur",
+    "errorMessage": "Les informations indiquées ne sont pas conformes, un peu de mémoire !",
+    "requiredFieldError": "Ce champ est obligatoire"
+  },
   "physical": {
     "tabTitle": "Handicap moteur - Tota11y Lost",
     "content_description": "Page de description du handicap moteur et simulation de l'utilisation de la souris avec un tel handicap",
@@ -425,6 +464,11 @@
       "A.E, A.C, C.D",
       "La simulation a été désactivée."
     ],
+    "memorie": [
+      "Le texte a été reaffiché temporairement pendant 10 secondes",
+      "Le texte a été reaffiché temporairement pendant 20 secondes",
+      "La simulation a été désactivée."
+    ],
     "hearing": [
       "Nous recherchons ici le nom de famille d'une femme américaine, devenue célèbre pour avoir fait de grandes choses malgré 3 handicaps.",
       "Devenue aveugle, sourde et muette à ses 1 an et demi, elle est devenue autrice, conférencière et militante politique, elle a inspiré une pièce de théâtre et un film a été fait à partir de son auto-biographie intitulé \"Sourde, muette, aveugle, histoire de ma vie\". Elle a aussi fait campagne pour le droit au vote des femmes, le droit relatif au travail et, entre autres, l'anti-militarisme.",
@@ -434,6 +478,11 @@
       "La réponse à l'énigme est celle d'un morceau d'un compositeur très célèbre qui a une singularité...Surtout chez un compositeur",
       "Il s'est rendu compte de sa surdité croissante pendant qu'il écrivait ce morceau, qu'il a écrit pour une femme. Nous recherchons le nom de ce morceau, en français.",
       "Il s'agit du morceau \"Sonate au clair de lune\" de Beethoven."
+    ],
+    "contrast": [
+      "On augmente un peu le contraste pour vous aider à voir les choix de réponses.",
+      "Ok juste encore un petit peu plus de contraste...",
+      "La simulation a été désactivée."
     ],
     "physical": [
       "Vous avez la chance d'avoir une réactivité correcte, du coup, c'est surtout une question de timing...",
@@ -488,5 +537,43 @@
     "pieceLabel": "Pièce {n}",
     "pieceImageLabel": "Image {n}",
     "victory": "Bravo ! Puzzle terminé !"
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Page de description du contraste et de la simulation d'un contraste faible",
+    "pageTitle": "Contraste",
+    "questionFinal": "Question Finale :Quel est le rapport minimum de contraste pour un texte normal ?",
+    "indicetitle": "Les indices pour la question final :",
+    "question1": "Question 1 :Qui peut être concerné par un mauvais contraste ?",
+    "question2": "La taille du texte influence-t-elle le niveau de contraste nécessaire ?",
+    "question3": "Question 3 :La couleur seule peut-elle garantir une bonne lisibilité ?",
+    "hints": [
+      "Bonne réponse ! Un contraste insuffisant peut gêner tout le monde. Un texte peu contrasté est plus difficile à lire, notamment en cas de déficience visuelle, de fatigue, de forte luminosité ou sur un écran de mauvaise qualité.",
+      "Bonne réponse ! Le contraste nécessaire dépend notamment de la taille du texte. Un texte plus grand et plus épais peut rester lisible avec un contraste légèrement plus faible.",
+      "Bonne réponse ! Ce n'est donc pas seulement le choix des couleurs qui compte, mais le contraste entre elles."
+    ],
+    "hintTitles": [
+      "Tout le monde peut être concerné",
+      "La taille du texte compte",
+      "La couleur ne suffit pas"
+    ],
+    "choice1": "les personnes mal voyantes",
+    "choice2": "tout le monde",
+    "choice3": "personne",
+    "choice4": "oui",
+    "choice5": "non",
+    "choice6": "Uniquement sur mobile",
+    "choice7": "Oui, si les couleurs sont différentes",
+    "choice8": "Oui, si les couleurs vont bien ensemble",
+    "choice9": "Non, le contraste entre les couleurs compte aussi",
+    "next": "valider",
+    "descriptionHeading": "Description",
+    "descriptionText1": "La navigation sur internet est un défi pour une personne ayant des problèmes de contraste. Une conception graphique mal optimisée, avec des contrastes insuffisants entre le texte et l'arrière-plan ou entre des éléments interactifs, peut rendre certains contenus totalement inaccessibles.",
+    "descriptionText2": "Une attention particulière aux règles d'accessibilité (WCAG), notamment sur les ratios de contraste,est essentielle pour rendre une interface utilisable dans ce contexte.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des problèmes de contraste. Les éléments visuels qui manquent de différenciation entre les teintes claires et foncées sont presque invisibles pour vous. Les zones de texte gris clair sur fond blanc, ou les boutons pastel sur un arrière-plan de couleur similaire, vous posent de sérieux défis.",
+    "rulesHeading": "Règles",
+    "rule1": "Lisez attentivement et répondez correctement au questionnaire sur le contraste.",
+    "rule2": "En cas d'erreur, les réponses sont à nouveau mélangées ",
+    "wrongAnswer": "Mauvaise réponse, pourtant tout est écrit."
   }
 }

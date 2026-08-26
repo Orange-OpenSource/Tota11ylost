@@ -227,6 +227,45 @@
     "img_hungry": "I'M HUNGRY",
     "img_monkey": "Come on, focus a little"
   },
+  "memorie": {
+    "tabTitle": "Cognitive impairment - Memory - Tota11y Lost",
+    "pageTitle": "Cognitive impairment - Memory",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Forgetting essential information, losing track of an ongoing task, or having to constantly recall instructions makes web navigation frustrating and difficult. A poorly designed interface, with information that disappears or a lack of clear landmarks, makes the situation even more complicated. Good accessibility relies on well-structured elements, predictable navigation, and memory aids, such as reminders and persistent information.",
+    "userTypeHeading": "The type of user you embody",
+    "userTypeText": "You are in the shoes of a person with memory disorders. Important information quickly slips away from you, and it is difficult to remember instructions or previous steps.",
+    "rulesHeading": "Rules",
+    "rule1": "Read the text below and memorize the information needed to complete the form fields.",
+    "rule2": "Be careful, the text and form field labels disappear after a few seconds.",
+    "rule3": "Activating hints 1 and 2 temporarily brings back the text and form field labels.",
+    "showTextButton": "Show the text",
+    "textHeading": "Text",
+    "storyText": "William Utermohlen (1933-2007) was an American artist known for his poignant work on memory and identity. Diagnosed with Alzheimer's disease in 1995, he created a series of about 10 self-portraits until 2000, illustrating the progressive decline of his cognitive abilities. His art became a powerful testimony to memory loss and altered perception. His wife, Patricia Utermohlen, an art historian, accompanied and supported him until the end of his life, later working to preserve and promote his work. His work remains a major reference for understanding the effects of dementia on creativity.",
+    "formHeading": "The form",
+    "allFieldsRequired": "All fields are required",
+    "question1": "What is the artist's last name?",
+    "question2": "What is the artist's first name?",
+    "question3": "In which year was his illness diagnosed?",
+    "question4": "What was his wife's first name?",
+    "question5": "In which year did he die?",
+    "question6": "What is his year of birth?",
+    "question7": "What is the name of his illness?",
+    "question8": "How many self-portraits did he create between his diagnosis and 2000?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Validate",
+    "errorHiddenText": "Error",
+    "errorMessage": "The information provided is not correct, a little memory!",
+    "requiredFieldError": "This field is required"
+  },
   "physical": {
     "tabTitle": "Motor impairment - Tota11y Lost",
     "content_description": "Page describing motor impairment and simulation of mouse use with such a disability",
@@ -428,6 +467,11 @@
       "A.E, A.C, C.D",
       "The simulation has been disabled."
     ],
+    "memorie": [
+      "The text was temporarily displayed again for 10 seconds",
+      "The text was temporarily displayed again for 20 seconds",
+      "The simulation has been disabled."
+    ],
     "hearing": [
       "Here we are looking for the last name of an American woman, who became famous for doing great things despite suffering from 3 different disabilities.",
       "She became blind, deaf, and mute when she was 18 months old, she was an author, speaker, and political activist, she inspired a play and a film based on her autobiography titled 'The story of My Life' has been released. She also campaigned for women's voting rights, labor rights, and among others, anti-militarism.",
@@ -437,6 +481,11 @@
       "The answer to the riddle is a piece by a very famous composer who has a peculiarity...Especially for a composer",
       "He realized his increasing deafness while he was writing this piece, which he wrote for a woman. We are looking for the name of this piece, in English.",
       "It is the piece 'Moonlight Sonata' by Beethoven."
+    ],
+    "contrast": [
+      "We slightly increase the contrast to help you see the answer choices better.",
+      "Just a little more contrast...",
+      "To help you, we’ll give you the correct contrast ratio: 4.5:1."
     ],
     "physical": [
       "You are lucky to have a correct responsiveness, so it's mostly a matter of timing...",
@@ -488,5 +537,43 @@
     "pieceLabel": "Piece {n}",
     "pieceImageLabel": "Image {n}",
     "victory": "Well done! Puzzle completed!"
+  "contrast": {
+    "tabTitle": "Contrast - Tota11y Lost",
+    "content_description": "Description page for contrast and low-contrast simulation",
+    "pageTitle": "Contrast",
+    "questionFinal": "Final Question: What is the minimum contrast ratio for normal text?",
+    "indicetitle": "Hints for the final question:",
+    "hints": [
+      "Correct! Poor contrast can affect everyone. Low-contrast text can be harder to read, especially for people with visual impairments, when tired, in bright light, or on a poor-quality screen. Good contrast improves readability for everyone.",
+      "Correct! The required contrast depends in part on the size of the text. Larger and thicker text can remain readable with slightly lower contrast.",
+      "Correct! Two different colors do not necessarily provide sufficient contrast. Two colors may seem easy to distinguish while having similar levels of brightness, making the content harder to read. It's not just the choice of colors that matters, but the contrast between them."
+    ],
+    "hintTitles": [
+      "Everyone can be affected",
+      "Text size matters",
+      "Color alone is not enough"
+    ],
+    "question1": "Question 1: Who can be affected by poor contrast?",
+    "question2": "Question 2: Does text size affect the contrast needed?",
+    "question3": "Can color alone guarantee good readability?",
+    "choice1": "Visually impaired person",
+    "choice2": "everyone",
+    "choice3": "no one",
+    "choice4": "yes",
+    "choice5": "no",
+    "choice6": "Only on mobile devices",
+    "choice7": "Yes, if the colors are different",
+    "choice8": "Yes, if they look good together",
+    "choice9": "No, the contrast between them also matters",
+    "next": "validate",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Browsing the web is a challenge for a person with contrast problems. Poorly optimized graphic design, with insufficient contrast between text and background or between interactive elements, can make certain content completely inaccessible.",
+    "descriptionText2": "Special attention to accessibility rules (WCAG), particularly contrast ratios, is essential to make an interface usable in this context.",
+    "userTypeHeading": "The type of user you embody",
+    "userTypeText": "You are in the shoes of a person with contrast problems. Visual elements lacking differentiation between light and dark shades are almost invisible to you. Light gray text on a white background, or pastel buttons on a similarly colored background, present serious challenges.",
+    "rulesHeading": "Rules",
+    "rule1": "Read carefully and answer the contrast quiz correctly.",
+    "rule2": "If you answer incorrectly, the answers are shuffled again.",
+    "wrongAnswer": "Wrong answer, yet everything is written."
   }
 }
