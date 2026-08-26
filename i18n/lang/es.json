@@ -231,6 +231,45 @@
     "img_hungry": "TENGO HAMBRE",
     "img_monkey": "Vamos, concéntrate un poco"
   },
+  "memorie": {
+    "tabTitle": "Discapacidad cognitiva - Memoria - Tota11y Lost",
+    "pageTitle": "Discapacidad cognitiva - Memoria",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Olvidar información esencial, perder el hilo de una tarea en curso o tener que recordar constantemente instrucciones hace que la navegación web sea frustrante y difícil. Una interfaz mal diseñada, con información que desaparece o una falta de puntos de referencia claros, complica aún más la situación. Una buena accesibilidad se basa en elementos bien estructurados, una navegación predecible y ayudas de memoria, como recordatorios e información persistente.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Estás en la piel de una persona con trastornos de la memoria. La información importante se te escapa rápidamente, y es difícil recordar instrucciones o pasos anteriores.",
+    "rulesHeading": "Reglas",
+    "rule1": "Lee el texto a continuación y memoriza la información necesaria para completar los campos del formulario.",
+    "rule2": "Atención, el texto y las etiquetas de los campos del formulario desaparecen después de unos segundos.",
+    "rule3": "Activar las pistas 1 y 2 permite volver a mostrar temporalmente el texto y las etiquetas de los campos del formulario.",
+    "showTextButton": "Mostrar el texto",
+    "textHeading": "Texto",
+    "storyText": "William Utermohlen (1933-2007) fue un artista estadounidense conocido por su conmovedor trabajo sobre la memoria y la identidad. Diagnosticado con la enfermedad de Alzheimer en 1995, realizó una serie de unos 10 autorretratos hasta el año 2000, ilustrando la degradación progresiva de sus capacidades cognitivas. Su arte se convirtió en un poderoso testimonio de la pérdida de memoria y la percepción alterada. Su esposa, Patricia Utermohlen, historiadora del arte, lo acompañó y apoyó hasta el final de su vida, trabajando después para preservar y dar a conocer su obra. Su obra sigue siendo una referencia importante para comprender los efectos de la demencia en la creatividad.",
+    "formHeading": "El formulario",
+    "allFieldsRequired": "Todos los campos son obligatorios",
+    "question1": "¿Cuál es el apellido del artista?",
+    "question2": "¿Cuál es el nombre del artista?",
+    "question3": "¿En qué año fue diagnosticada su enfermedad?",
+    "question4": "¿Cuál era el nombre de su esposa?",
+    "question5": "¿En qué año falleció?",
+    "question6": "¿Cuál es su año de nacimiento?",
+    "question7": "¿Cuál es el nombre de su enfermedad?",
+    "question8": "¿Cuántos autorretratos realizó entre su diagnóstico y el año 2000?",
+    "listOfResponses": [
+      "utermohlen",
+      "william",
+      "1995",
+      "patricia",
+      "2007",
+      "1933",
+      "alzheimer",
+      "10"
+    ],
+    "validateButton": "Validar",
+    "errorHiddenText": "Error",
+    "errorMessage": "La información indicada no es correcta, ¡un poco de memoria!",
+    "requiredFieldError": "Este campo es obligatorio"
+  },
   "physical": {
     "tabTitle": "Discapacidad motora - Tota11y Lost",
     "content_description": "Página de descripción de la discapacidad motora y simulación del uso del ratón con tal discapacidad",
@@ -433,6 +472,11 @@
       "A.E, A.C, C.D",
       "La simulación ha sido desactivada."
     ],
+    "memorie": [
+      "El texto se volvió a mostrar temporalmente durante 10 segundos",
+      "El texto se volvió a mostrar temporalmente durante 20 segundos",
+      "La simulación ha sido desactivada."
+    ],
     "hearing": [
       "Aquí estamos buscando el apellido de una mujer estadounidense, que se hizo famosa por hacer grandes cosas a pesar de 3 discapacidades.",
       "Se volvió ciega, sorda y muda a los 18 meses de edad, se convirtió en autora, oradora y activista política, inspiró una obra de teatro y una película basada en su autobiografía titulada 'Sorda, muda, ciega: historia de mi vida'. También hizo campaña por los derechos de voto de las mujeres, los derechos laborales y, entre otros, el antimilitarismo.",
@@ -442,6 +486,11 @@
       "La respuesta al enigma es una obra musical de un compositor muy famoso que tiene una peculiaridad...Especialmente para un compositor",
       "Se dio cuenta de su creciente sordera mientras escribía esta obra, que escribió para una mujer. Estamos buscando el nombre de esta obra.",
       "Se trata de la obra musical 'Sonata claro de luna' de Beethoven."
+    ],
+    "contrast": [
+      "Aumentamos un poco el contraste para ayudarte a ver mejor las opciones de respuesta.",
+      "Solo un poco más de contraste...",
+      "Para ayudarte, te mostraremos la proporción correcta de contraste: 4.5:1."
     ],
     "physical": [
       "Tienes la suerte de tener una capacidad de respuesta correcta, por lo que es principalmente una cuestión de tiempo...",
@@ -462,7 +511,7 @@
   "scores": {
     "tabTitle": "Tabla de posiciones - Tota11y Lost",
     "content_description": "Tabla de posiciones",
-    "nameLink": "Aprende más",
+    "nameLink": "Accede al sitio",
     "link": "https://a11y-guidelines.orange.com/en/",
     "congratulations": "¡Felicidades {pseudo}, has terminado el juego de escape en <span>{finalTimeDisplay}</span>!",
     "finalTime": "Tiempo final",
@@ -470,6 +519,10 @@
     "minutes": "minutos",
     "todayTitle": "Mejores tiempos del día",
     "generalTitle": "Clasificación general",
+    "timeList": "Duración:",
+    "defeciencyList": "Deficiencia(s) indicada(s):",
+    "newAdventure": "Nueva aventura",
+    "aventureType": "Tipo de aventura: Escape Game",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
   "filter": {
@@ -493,5 +546,44 @@
     "pieceLabel": "Pieza {n}",
     "pieceImageLabel": "Imagen {n}",
     "victory": "¡Bien hecho! ¡Puzzle completado!"
+  },
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Página de descripción del contraste y de la simulación de contraste bajo",
+    "pageTitle": "Contraste",
+    "questionFinal": "Pregunta Final: ¿Cuál es la relación de contraste mínima para el texto normal?",
+    "indicetitle": "Las pistas para la pregunta final :",
+    "hints": [
+      "¡Correcto! Un contraste insuficiente puede afectar a todo el mundo. Un texto con poco contraste es más difícil de leer, especialmente en caso de discapacidad visual, cansancio, luz intensa o en una pantalla de mala calidad. Un buen contraste mejora la legibilidad para todos.",
+      "¡Correcto! El contraste necesario depende, entre otros factores, del tamaño del texto. Un texto más grande y grueso puede seguir siendo legible con un contraste ligeramente inferior.",
+      "¡Correcto! Dos colores diferentes no tienen necesariamente un contraste suficiente. Dos colores pueden parecer fáciles de distinguir y, aun así, tener niveles de luminosidad similares, lo que dificulta la lectura del contenido. No solo importa la elección de los colores, sino también el contraste entre ellos."
+    ],
+    "hintTitles": [
+      "El contraste puede afectar a todo el mundo",
+      "El tamaño del texto importa",
+      "El color por sí solo no es suficiente"
+    ],
+    "question1": "Pregunta 1: ¿A quién puede afectar un contraste insuficiente?",
+    "question2": "Pregunta 2: ¿Influye el tamaño del texto en el nivel de contraste necesario?",
+    "question3": "Pregunta 3: ¿Puede el color por sí solo garantizar una buena legibilidad?",
+    "choice1": "las personas con discapacidad visual",
+    "choice2": "todo el mundo",
+    "choice3": "nadie",
+    "choice4": "sí",
+    "choice5": "no",
+    "choice6": "Solo en dispositivos móviles",
+    "choice7": "Sí, si los colores son diferentes",
+    "choice8": "Sí, si los colores combinan bien",
+    "choice9": "No, el contraste entre los colores también es importante",
+    "next": "validar",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Navegar por Internet es un desafío para una persona con problemas de contraste. Un diseño gráfico mal optimizado, con contrastes insuficientes entre el texto y el fondo o entre elementos interactivos, puede hacer que ciertos contenidos sean totalmente inaccesibles.",
+    "descriptionText2": "Una atención especial a las normas de accesibilidad (WCAG), especialmente en los ratios de contraste, es esencial para hacer una interfaz utilizable en este contexto.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Estás dentro de la piel de una persona con problemas de contraste. Los elementos visuales que carecen de diferenciación entre tonos claros y oscuros son casi invisibles para ti. Los textos grises claros sobre fondo blanco, o los botones pastel sobre un fondo de color similar, te plantean serios desafíos.",
+    "rulesHeading": "Reglas",
+    "rule1": "Lee atentamente y responde correctamente al cuestionario sobre el contraste.",
+    "rule2": "Si respondes incorrectamente, las respuestas se vuelven a mezclar.",
+    "wrongAnswer": "Respuesta incorrecta, aunque todo está escrito."
   }
 }

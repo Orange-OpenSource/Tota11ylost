@@ -57,6 +57,11 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   let lastPointerX = 0
   let lastPointerY = 0
   let lastFrameTime = 0
+  let tremorAccumTime = 0
+  let tremorFromX = 0
+  let tremorFromY = 0
+  let tremorToX = 0
+  let tremorToY = 0
   let lastSpeed = 0
   let animFrameId: number | null = null
   let dragOffsetX = 0
@@ -67,14 +72,15 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
   // Speed thresholds
   const SPEED_FAST = 8 // px/frame — above this = fast drag
   const SPEED_SLOW = 2 // px/frame — below this = slow drag
+  const TREMOR_UPDATE_INTERVAL = 68 // ms entre deux "sauts"  de tremblement (plus haut = plus lent)
 
   // Drain rates (% per frame at 60fps)
   const DRAIN_FAST = 2.0
   const DRAIN_SLOW = 0.3
 
   // Tremor amplitudes (pixels)
-  const TREMOR_FAST = 3
-  const TREMOR_SLOW = 35
+  const TREMOR_FAST = 30
+  const TREMOR_SLOW = 240
 
   function startDrag(piece: PuzzlePiece, pointerX: number, pointerY: number) {
     if (piece.locked) return
@@ -84,6 +90,11 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
     gripGauge.value = 100
     tremorOffset.x = 0
     tremorOffset.y = 0
+    tremorAccumTime = 0
+    tremorFromX = 0
+    tremorFromY = 0
+    tremorToX = 0
+    tremorToY = 0
     lastPointerX = pointerX
     lastPointerY = pointerY
     lastFrameTime = performance.now()
@@ -175,15 +186,24 @@ export function usePuzzleDrag(options: PuzzleDragOptions = {}) {
       return
     }
 
-    // Apply tremor
-    const tX = sampleNormal() * tremorAmplitude
-    const tY = sampleNormal() * tremorAmplitude
-    tremorOffset.x = tX
-    tremorOffset.y = tY
+    // Apply tremor — glide smoothly from the previous sampled offset to a new
+    // one every TREMOR_UPDATE_INTERVAL ms instead of jumping instantly, to
+    // mimic the smooth CSS-transitioned cursor tremor used on the physical page.
+    tremorAccumTime += dt
+    if (tremorAccumTime >= TREMOR_UPDATE_INTERVAL) {
+      tremorAccumTime -= TREMOR_UPDATE_INTERVAL
+      tremorFromX = tremorOffset.x
+      tremorFromY = tremorOffset.y
+      tremorToX = sampleNormal() * tremorAmplitude
+      tremorToY = sampleNormal() * tremorAmplitude
+    }
+    const tremorProgress = Math.min(1, tremorAccumTime / TREMOR_UPDATE_INTERVAL)
+    tremorOffset.x = tremorFromX + (tremorToX - tremorFromX) * tremorProgress
+    tremorOffset.y = tremorFromY + (tremorToY - tremorFromY) * tremorProgress
 
     // Update piece position (raw + tremor)
-    piece.x = rawX + tX
-    piece.y = rawY + tY
+    piece.x = rawX + tremorOffset.x
+    piece.y = rawY + tremorOffset.y
 
     animFrameId = requestAnimationFrame(dragLoop)
   }
