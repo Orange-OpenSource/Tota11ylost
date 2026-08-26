@@ -498,6 +498,11 @@
       "No es al azar. Las letras seleccionadas están todas alrededor de la letra correcta elegida.",
       "Solo tienes que ser paciente...",
       "La simulación ha sido desactivada."
+    ],
+    "puzzleGame": [
+      "El indicador de agarre se vacía el doble de lentamente. Por lo tanto, puede mantener la imagen más tiempo",
+      "La imagen tiembla mucho menos",
+      "La simulación está desactivada."
     ]
   },
   "scores": {
@@ -512,6 +517,28 @@
     "todayTitle": "Mejores tiempos del día",
     "generalTitle": "Clasificación general",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
+  },
+  "filter": {
+    "title": "Filtra tu deficiencia:",
+    "deficiencyVisual": "visual",
+    "deficiencyPhysical": "físico",
+    "deficiencyHearing": "auditivo",
+    "deficiencyCognitive": "cognitivo"
+  },
+  "puzzleGame": {
+    "tabTitle": "Puzzle - Discapacidad Motora",
+    "pageTitle": "Discapacidad motora",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Los temblores, la debilidad muscular o una mala coordinación dificultan el uso del ratón. Una interfaz mal diseñada, con elementos pequeños en los que hacer clic o interacciones que exigen mucha precisión, agrava la situación.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Te pones en la piel de una persona con temblores y dificultades motoras. Hacer clic con precisión o mantener una acción prolongada como arrastrar y soltar te exige un esfuerzo inmenso y a menudo genera errores.",
+    "rulesHeading": "Reglas",
+    "rule1": "Arma el rompecabezas digital para completar esta etapa.",
+    "rule2": "No tienes el control total de tus manos y hacer una pulsación prolongada te resulta complicado.",
+    "gripGauge": "Barra de agarre",
+    "pieceLabel": "Pieza {n}",
+    "pieceImageLabel": "Imagen {n}",
+    "victory": "¡Bien hecho! ¡Puzzle completado!"
   },
   "contrast": {
     "tabTitle": "Contraste - Tota11y Lost",

@@ -496,6 +496,11 @@
       "It's not random. The selected letters are all around the right letter.",
       "Just be patient...",
       "The simulation has been disabled."
+    ],
+    "puzzleGame": [
+      "The grip gauge empties twice as slowly. You can therefore hold the image longer",
+      "The image trembles much less",
+      "Simulation is disabled."
     ]
   },
   "scores": {
@@ -517,6 +522,21 @@
     "deficiencyPhysical": "physical",
     "deficiencyHearing": "hearing",
     "deficiencyCognitive": "cognitive"
+  },
+  "puzzleGame": {
+    "tabTitle": "Puzzle - Motor Impairment",
+    "pageTitle": "Motor impairment",
+    "descriptionHeading": "Description",
+    "descriptionText1": "Tremors, muscle weakness, or poor coordination make using a mouse difficult. A poorly designed interface, with small clickable elements or interactions requiring great precision, makes the situation worse.",
+    "userTypeHeading": "The type of user you play",
+    "userTypeText": "You are in the shoes of a person with tremors and motor difficulties. Clicking precisely or holding a prolonged action like drag-and-drop takes immense effort and often causes errors.",
+    "rulesHeading": "Rules",
+    "rule1": "Assemble the digital puzzle to complete this step.",
+    "rule2": "You don't have full control of your hands, and holding a prolonged press is difficult for you.",
+    "gripGauge": "Grip gauge",
+    "pieceLabel": "Piece {n}",
+    "pieceImageLabel": "Image {n}",
+    "victory": "Well done! Puzzle completed!"
   },
   "contrast": {
     "tabTitle": "Contrast - Tota11y Lost",
