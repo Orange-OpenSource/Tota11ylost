@@ -479,6 +479,11 @@
       "Il s'est rendu compte de sa surdité croissante pendant qu'il écrivait ce morceau, qu'il a écrit pour une femme. Nous recherchons le nom de ce morceau, en français.",
       "Il s'agit du morceau \"Sonate au clair de lune\" de Beethoven."
     ],
+    "contrast": [
+      "On augmente un peu le contraste pour vous aider à voir les choix de réponses.",
+      "Ok juste encore un petit peu plus de contraste...",
+      "La simulation a été désactivée."
+    ],
     "physical": [
       "Vous avez la chance d'avoir une réactivité correcte, du coup, c'est surtout une question de timing...",
       "Approchez-vous le plus possible de la croix et ne faite pas de mouvement brusque.",
@@ -512,5 +517,44 @@
     "deficiencyPhysical": "physique",
     "deficiencyHearing": "auditif",
     "deficiencyCognitive": "cognitif"
+  },
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Page de description du contraste et de la simulation d'un contraste faible",
+    "pageTitle": "Contraste",
+    "questionFinal": "Question Finale :Quel est le rapport minimum de contraste pour un texte normal ?",
+    "indicetitle": "Les indices pour la question final :",
+    "question1": "Question 1 :Qui peut être concerné par un mauvais contraste ?",
+    "question2": "La taille du texte influence-t-elle le niveau de contraste nécessaire ?",
+    "question3": "Question 3 :La couleur seule peut-elle garantir une bonne lisibilité ?",
+    "hints": [
+      "Bonne réponse ! Un contraste insuffisant peut gêner tout le monde. Un texte peu contrasté est plus difficile à lire, notamment en cas de déficience visuelle, de fatigue, de forte luminosité ou sur un écran de mauvaise qualité.",
+      "Bonne réponse ! Le contraste nécessaire dépend notamment de la taille du texte. Un texte plus grand et plus épais peut rester lisible avec un contraste légèrement plus faible.",
+      "Bonne réponse ! Ce n'est donc pas seulement le choix des couleurs qui compte, mais le contraste entre elles."
+    ],
+    "hintTitles": [
+      "Tout le monde peut être concerné",
+      "La taille du texte compte",
+      "La couleur ne suffit pas"
+    ],
+    "choice1": "les personnes mal voyantes",
+    "choice2": "tout le monde",
+    "choice3": "personne",
+    "choice4": "oui",
+    "choice5": "non",
+    "choice6": "Uniquement sur mobile",
+    "choice7": "Oui, si les couleurs sont différentes",
+    "choice8": "Oui, si les couleurs vont bien ensemble",
+    "choice9": "Non, le contraste entre les couleurs compte aussi",
+    "next": "valider",
+    "descriptionHeading": "Description",
+    "descriptionText1": "La navigation sur internet est un défi pour une personne ayant des problèmes de contraste. Une conception graphique mal optimisée, avec des contrastes insuffisants entre le texte et l'arrière-plan ou entre des éléments interactifs, peut rendre certains contenus totalement inaccessibles.",
+    "descriptionText2": "Une attention particulière aux règles d'accessibilité (WCAG), notamment sur les ratios de contraste,est essentielle pour rendre une interface utilisable dans ce contexte.",
+    "userTypeHeading": "Le type d'utilisateur que vous incarnez",
+    "userTypeText": "Vous êtes dans la peau d'une personne ayant des problèmes de contraste. Les éléments visuels qui manquent de différenciation entre les teintes claires et foncées sont presque invisibles pour vous. Les zones de texte gris clair sur fond blanc, ou les boutons pastel sur un arrière-plan de couleur similaire, vous posent de sérieux défis.",
+    "rulesHeading": "Règles",
+    "rule1": "Lisez attentivement et répondez correctement au questionnaire sur le contraste.",
+    "rule2": "En cas d'erreur, les réponses sont à nouveau mélangées ",
+    "wrongAnswer": "Mauvaise réponse, pourtant tout est écrit."
   }
 }

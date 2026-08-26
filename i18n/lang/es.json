@@ -484,6 +484,11 @@
       "Se dio cuenta de su creciente sordera mientras escribía esta obra, que escribió para una mujer. Estamos buscando el nombre de esta obra.",
       "Se trata de la obra musical 'Sonata claro de luna' de Beethoven."
     ],
+    "contrast": [
+      "Aumentamos un poco el contraste para ayudarte a ver mejor las opciones de respuesta.",
+      "Solo un poco más de contraste...",
+      "Para ayudarte, te mostraremos la proporción correcta de contraste: 4.5:1."
+    ],
     "physical": [
       "Tienes la suerte de tener una capacidad de respuesta correcta, por lo que es principalmente una cuestión de tiempo...",
       "Acércate lo más posible a la cruz y no hagas movimientos bruscos.",
@@ -498,7 +503,7 @@
   "scores": {
     "tabTitle": "Tabla de posiciones - Tota11y Lost",
     "content_description": "Tabla de posiciones",
-    "nameLink": "Aprende más",
+    "nameLink": "Accede al sitio",
     "link": "https://a11y-guidelines.orange.com/en/",
     "congratulations": "¡Felicidades {pseudo}, has terminado el juego de escape en <span>{finalTimeDisplay}</span>!",
     "finalTime": "Tiempo final",
@@ -508,11 +513,43 @@
     "generalTitle": "Clasificación general",
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
-  "filter": {
-    "title": "Filtra tu deficiencia:",
-    "deficiencyVisual": "visual",
-    "deficiencyPhysical": "físico",
-    "deficiencyHearing": "auditivo",
-    "deficiencyCognitive": "cognitivo"
+  "contrast": {
+    "tabTitle": "Contraste - Tota11y Lost",
+    "content_description": "Página de descripción del contraste y de la simulación de contraste bajo",
+    "pageTitle": "Contraste",
+    "questionFinal": "Pregunta Final: ¿Cuál es la relación de contraste mínima para el texto normal?",
+    "indicetitle": "Las pistas para la pregunta final :",
+    "hints": [
+      "¡Correcto! Un contraste insuficiente puede afectar a todo el mundo. Un texto con poco contraste es más difícil de leer, especialmente en caso de discapacidad visual, cansancio, luz intensa o en una pantalla de mala calidad. Un buen contraste mejora la legibilidad para todos.",
+      "¡Correcto! El contraste necesario depende, entre otros factores, del tamaño del texto. Un texto más grande y grueso puede seguir siendo legible con un contraste ligeramente inferior.",
+      "¡Correcto! Dos colores diferentes no tienen necesariamente un contraste suficiente. Dos colores pueden parecer fáciles de distinguir y, aun así, tener niveles de luminosidad similares, lo que dificulta la lectura del contenido. No solo importa la elección de los colores, sino también el contraste entre ellos."
+    ],
+    "hintTitles": [
+      "El contraste puede afectar a todo el mundo",
+      "El tamaño del texto importa",
+      "El color por sí solo no es suficiente"
+    ],
+    "question1": "Pregunta 1: ¿A quién puede afectar un contraste insuficiente?",
+    "question2": "Pregunta 2: ¿Influye el tamaño del texto en el nivel de contraste necesario?",
+    "question3": "Pregunta 3: ¿Puede el color por sí solo garantizar una buena legibilidad?",
+    "choice1": "las personas con discapacidad visual",
+    "choice2": "todo el mundo",
+    "choice3": "nadie",
+    "choice4": "sí",
+    "choice5": "no",
+    "choice6": "Solo en dispositivos móviles",
+    "choice7": "Sí, si los colores son diferentes",
+    "choice8": "Sí, si los colores combinan bien",
+    "choice9": "No, el contraste entre los colores también es importante",
+    "next": "validar",
+    "descriptionHeading": "Descripción",
+    "descriptionText1": "Navegar por Internet es un desafío para una persona con problemas de contraste. Un diseño gráfico mal optimizado, con contrastes insuficientes entre el texto y el fondo o entre elementos interactivos, puede hacer que ciertos contenidos sean totalmente inaccesibles.",
+    "descriptionText2": "Una atención especial a las normas de accesibilidad (WCAG), especialmente en los ratios de contraste, es esencial para hacer una interfaz utilizable en este contexto.",
+    "userTypeHeading": "El tipo de usuario que encarnas",
+    "userTypeText": "Estás dentro de la piel de una persona con problemas de contraste. Los elementos visuales que carecen de diferenciación entre tonos claros y oscuros son casi invisibles para ti. Los textos grises claros sobre fondo blanco, o los botones pastel sobre un fondo de color similar, te plantean serios desafíos.",
+    "rulesHeading": "Reglas",
+    "rule1": "Lee atentamente y responde correctamente al cuestionario sobre el contraste.",
+    "rule2": "Si respondes incorrectamente, las respuestas se vuelven a mezclar.",
+    "wrongAnswer": "Respuesta incorrecta, aunque todo está escrito."
   }
 }
