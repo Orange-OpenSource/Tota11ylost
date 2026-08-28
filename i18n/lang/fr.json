@@ -32,6 +32,10 @@
       "title": "Chronomètre",
       "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
+    "sessionCodeBadge": {
+      "label": "Session",
+      "aria-label_sessionCode": "Code de session en cours : {code}"
+    },
     "time": {
       "hour": {
         "abbr": "h",
@@ -81,12 +85,12 @@
       "label": "60 min",
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
-    "aventure": "Aventure",
+    "aventure": "Votre aventure",
     "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
     "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
-    "accessibility": "L'accessibilité en action",
+    "accessibility": "L'accessibilité numérique en action",
     "sessionCode": "Code de session (optionnel)",
     "sessionCodeHint": "Saisissez le code communiqué par l’animateur. La durée de la session sera automatiquement définie à partir de ce code.",
     "sessionCodePlaceholder": "Ex : FORMA60",
@@ -521,7 +525,7 @@
     "alt_congratulationImage": "Vous avez fini l'escape game {version} minutes"
   },
   "filter": {
-    "title": "Filtrer votre déficience :",
+    "title": "Déficience(s)",
     "deficiencyVisual": "visuel",
     "deficiencyPhysical": "physique",
     "deficiencyHearing": "auditif",

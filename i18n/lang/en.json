@@ -32,6 +32,10 @@
       "title": "Timer",
       "aria-label_timerArea": "Timer area of the escape game"
     },
+    "sessionCodeBadge": {
+      "label": "Session",
+      "aria-label_sessionCode": "Current session code: {code}"
+    },
     "time": {
       "hour": {
         "abbr": "h",
@@ -86,7 +90,7 @@
     "pseudo_alert": "This nickname will be publicly displayed on the scoreboard.",
     "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt the experience. This information will not be linked to your nickname.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
-    "accessibility": "Accessibility in action",
+    "accessibility": "Digital accessibility in action",
     "sessionCode": "Session code (optional)",
     "sessionCodeHint": "Enter the code provided by the instructor. The session duration is automatically set based on this code.",
     "sessionCodePlaceholder": "E.g.: FORMA60",
@@ -524,7 +528,7 @@
     "alt_congratulationImage": "You have finished the {version} minutes escape game"
   },
   "filter": {
-    "title": "Filter your deficiency:",
+    "title": "Deficiency(ies):",
     "deficiencyVisual": "visual",
     "deficiencyPhysical": "physical",
     "deficiencyHearing": "hearing",

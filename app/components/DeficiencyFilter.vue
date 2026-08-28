@@ -28,7 +28,7 @@ const handleDeficiencyChange = (deficiency: string, event: Event) => {
 
 <template>
   <div role="group" aria-labelledby="filtersHeader">
-    <p id="filtersHeader">
+    <p id="filtersHeader" class="mb-3xsmall">
       {{ $t('filter.title') }}
     </p>
     <ul class="chips-container">
