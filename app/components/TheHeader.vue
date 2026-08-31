@@ -1,9 +1,19 @@
 <script setup lang="ts">
 const route = useRoute()
+const gameStore = useGameStore()
 </script>
 
 <template>
   <header>
+    <!-- Session code reminder: top left, visible throughout the game -->
+    <p
+      v-if="gameStore.sessionCode && route.name !== 'index'"
+      class="tag tag-muted m-none"
+      style="position: absolute; top: 0.5rem; left: 1rem; z-index: 1050; background-color: var(--bs-color-always-white); color: var(--bs-color-always-black);"
+      :aria-label="$t('common.sessionCodeBadge.aria-label_sessionCode', { code: gameStore.sessionCode })"
+    >
+      {{ $t('common.sessionCodeBadge.label') }}: {{ gameStore.sessionCode }}
+    </p>
     <!-- Language switcher at the top -->
     <LanguageSwitch />
     <div class="bg-always-black py-xsmall">

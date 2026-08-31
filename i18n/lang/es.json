@@ -32,6 +32,10 @@
       "title": "Cronómetro",
       "aria-label_timerArea": "Área del temporizador del juego de escape"
     },
+    "sessionCodeBadge": {
+      "label": "Sesión",
+      "aria-label_sessionCode": "Código de sesión actual: {code}"
+    },
     "time": {
       "hour": {
         "abbr": "h",
@@ -86,7 +90,7 @@
     "pseudo_alert": "Este apodo se mostrará públicamente en la tabla de puntuaciones.",
     "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
-    "accessibility": "L'accessibilitat en acció",
+    "accessibility": "La accesibilidad digital en acción",
     "sessionCode": "Código de sesión (opcional)",
     "sessionCodeHint": "Introduce el código proporcionado por el facilitador. La duración de la sesión se establece automáticamente a partir de este código.",
     "sessionCodePlaceholder": "Ej.: FORMA60",
@@ -526,7 +530,7 @@
     "alt_congratulationImage": "Terminaste el juego de escape {version} minutos"
   },
   "filter": {
-    "title": "Filtra tu deficiencia:",
+    "title": "Deficiencia(s):",
     "deficiencyVisual": "visual",
     "deficiencyPhysical": "físico",
     "deficiencyHearing": "auditivo",

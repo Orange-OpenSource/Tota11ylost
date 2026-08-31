@@ -52,20 +52,21 @@ function startAdventure() {
     <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
       <div class="col-8  ">
         <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
-          <h2 style="font-size: 22px; margin-left: -10px;" class="text-brand-primary p-small ">
+          <h2 style="font-size: 22px; margin-left: -10px;" class="text-brand-primary p-small mb-3xsmall ">
             {{ $t('welcome.accessibility') }}
           </h2>
-          <h2 class="mb-3xlarge">
+          <h2 class="mb-large">
             {{ $t('welcome.intro') }}
           </h2>
-          <p class="col-9 mb-large">
+          <p class="col-9 mb-2xlarge">
             {{ $t('welcome.rules') }}
           </p>
 
           <h4 id="aventureLabel" class="mt-small">
             {{ $t('welcome.aventure') }}
           </h4>
-          <div class="text-input w-50 bg-secondary">
+          <hr style="border: 3px solid #f15E00; width: 3%; margin-top: -13px;">
+          <div class="text-input component-max-width bg-secondary mt-xlarge">
             <div class="text-input-container text-input-container-outlined">
               <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
               <input
@@ -99,13 +100,13 @@ function startAdventure() {
               </div>
             </div>
           </div>
-          <p class="col-9 mb-large">
+          <p class="col-9 mb-large mt-small px-medium fs-cm text-muted">
             {{ $t('welcome.pseudo_alert') }}
           </p>
 
-          <div class="select-input mb-medium w-50">
+          <div class="select-input mb-medium component-max-width">
             <div class="select-input-container adventure-type-select">
-              <label class="form-label " style="color: black; " for="exampleDisabledSelect">
+              <label class="form-label text-muted" style="color: black; " for="exampleDisabledSelect">
                 {{ $t('welcome.adventureType') }}
               </label>
               <select
@@ -121,9 +122,9 @@ function startAdventure() {
             </div>
           </div>
 
-          <fieldset class="control-items-list mt-medium">
-            <p>{{ $t('welcome.duration') }} :</p>
-            <div class="d-flex flex-row m-large">
+          <fieldset class="control-items-list mt-large">
+            <p>{{ $t('welcome.duration') }}</p>
+            <div class="d-flex flex-row m-large gap-large">
               <div class="radio-button-item">
                 <div class="control-item-assets-container">
                   <input
@@ -197,7 +198,7 @@ function startAdventure() {
             >
           </div>
 
-          <div class="alert alert-message alert-info mb-medium w-75">
+          <div class="alert alert-message alert-info mb-medium mt-3xlarge w-75">
             <div class="alert-icon" />
             <div class="alert-container">
               <div class="alert-text-container">
@@ -209,7 +210,7 @@ function startAdventure() {
           </div>
           <DeficiencyFilter />
 
-          <button type="submit" class="btn btn-strong fs-hs p-small  mt-large">
+          <button type="submit" class="btn btn-strong fs-hs p-small  mt-2xlarge">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>

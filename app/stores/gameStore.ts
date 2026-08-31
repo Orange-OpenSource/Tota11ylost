@@ -84,6 +84,9 @@ const pageRoutes = ref<Record<number, string>>({
       localStorage.setItem('tota11y-game', JSON.stringify({
         selectedPages: selectedPages.value,
         categoriesRestantes: categoriesRestantes.value,
+        sessionCode: sessionCode.value,
+        timerStartTime: timerStartTime.value,
+        timerFinishTime: timerFinishTime.value,
       }))
     }
   }
@@ -95,6 +98,11 @@ const pageRoutes = ref<Record<number, string>>({
         const data = JSON.parse(saved)
         selectedPages.value = data.selectedPages || []
         categoriesRestantes.value = data.categoriesRestantes || []
+        // On restaure juste la valeur : pas d'appel à setSessionCode/randomizePages
+        // ici, car selectedPages vient déjà d'être restauré tel quel ci-dessus.
+        sessionCode.value = data.sessionCode || ''
+        timerStartTime.value = data.timerStartTime ?? null
+        timerFinishTime.value = data.timerFinishTime ?? null
       }
     }
   }

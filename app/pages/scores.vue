@@ -186,7 +186,7 @@ onMounted(loadScores)
             <h3 class=" my-medium fs-hs fw-bold titre_tabs">
               {{ $t('scores.tabTitle') }}
             </h3>
-            <hr style="border: 3px solid #ff7900; width: 5%; margin-top: -10px;">
+            <hr style="border: 3px solid #f15E00; width: 3%; margin-top: -13px;">
             <div class="d-flex gap-medium tabs">
               <!-- Today -->
               <div class="border col-6 w-75 today">
