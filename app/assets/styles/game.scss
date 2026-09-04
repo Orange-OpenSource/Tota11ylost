@@ -338,3 +338,14 @@ a.no-focus-outline:focus {
 #indice[disabled] {
   background-color: #000;
 }
+
+a.nav-link.active:before {
+  position: absolute;
+  right: var(--bs-navbar-nav-link-padding-x);
+  bottom: 0;
+  left: var(--bs-navbar-nav-link-padding-x);
+  height: calc(var(--bs-navbar-border-width) * 4);
+  content: "";
+  background-color: currentcolor;
+  transition: bottom .2s ease-in-out;
+}
