@@ -392,7 +392,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
                 </div>
               </div>
               <div class="mb-medium">
-                <div class="d-lg-flex flex-row flex-wrap gap-small">
+                <div class="d-flex flex-row flex-wrap gap-small">
                   <div v-for="fruit in fruits" :key="fruit.id" class="checkbox-item flex-fill">
                     <div class="control-item-assets-container">
                       <input
