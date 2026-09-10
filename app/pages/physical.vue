@@ -97,6 +97,8 @@ onMounted(async () => {
             href="#"
             class="valid fs-hs p-small"
             @click.prevent
+            @keydown.enter.prevent="goToNextPage()"
+            @keydown.space.prevent="goToNextPage()"
           >
             {{ $t('physical.validateLink') }}
           </a>
