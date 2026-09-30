@@ -11,6 +11,8 @@ const modalRef = ref<HTMLElement | null>(null)
 const tremorActive = ref(true)
 const falseCursorRef = ref<HTMLImageElement | null>(null)
 
+useHead({ htmlAttrs: { class: computed(() => tremorActive.value ? 'no-cursor' : '') } })
+
 function handleFakeClick(_x: number, _y: number, element: Element | null) {
   if (!element) return
 
@@ -36,11 +38,22 @@ onMounted(async () => {
   }
   modalRef.value?.focus()
 })
+
+watch(modalVisible, (visible) => {
+  if (import.meta.server) return
+  document.documentElement.style.overflow = visible ? 'hidden' : ''
+  document.body.style.overflow = visible ? 'hidden' : ''
+}, { immediate: true })
+
+onUnmounted(() => {
+  document.documentElement.style.overflow = ''
+  document.body.style.overflow = ''
+})
 </script>
 
 <template>
   <ClientOnly>
-    <div class="physical fs-hm" :class="{ 'no-cursor': tremorActive }">
+    <div class="physical fs-hm">
       <GameHeader :page-title="$t('physical.pageTitle')" />
 
       <main>
@@ -62,7 +75,6 @@ onMounted(async () => {
                   <button
                     id="close-popup"
                     class="my-small ms-auto close-popup border-none btn"
-                    :class="{ 'no-cursor': tremorActive }"
                     :aria-label="$t('physical.aria-label_closeModal')"
                     @click="modalVisible = false"
                   >
@@ -95,7 +107,7 @@ onMounted(async () => {
           <a
             id="link30or60"
             href="#"
-            class="valid fs-hs p-small"
+            class="valid fs-hs p-small mt-none"
             @click.prevent
           >
             {{ $t('physical.validateLink') }}
@@ -117,21 +129,20 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .physical {
-  background-color: #f5f5f5 !important;
+  background-color: #ffffff !important;
   color: #000 !important;
   min-height: 100vh;
 
-  * {
+  *:not(.btn-brand) {
     background-color: transparent;
     color: inherit;
   }
 }
 
 .physical main {
-  background-color: #f5f5f5 !important;
-  padding: 2rem;
+  background-color: #ffffff !important;
 
-  * {
+  *:not(.btn-brand) {
     background-color: transparent;
     color: #000;
   }
@@ -148,6 +159,10 @@ onMounted(async () => {
   height: 100%;
   z-index: 1050;
   background: rgba(0, 0, 0, 0.5) !important;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   .modal-dialog {
     margin: auto;
@@ -158,34 +173,34 @@ onMounted(async () => {
     color: #000 !important;
     border: 1px solid #ddd;
 
-    * {
+    *:not(.btn-brand) {
       background-color: transparent !important;
       color: #000 !important;
     }
   }
 
   .modal-body {
-    padding: 1.5rem;
+    padding: 0rem 1.5rem;
   }
 
   .close-popup {
+    --bs-btn-min-width: 1.75rem;
+    --bs-btn-min-height: 1.75rem;
     background-color: transparent !important;
     color: #000 !important;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     font-weight: 700;
+    line-height: 1;
+    padding: 0 !important;
+     min-width: 1.75rem !important;
+    min-height: 1.75rem !important;
+
     cursor: pointer;
 
     &:hover {
       color: #666;
     }
-  }
-}
 
-.no-cursor {
-  cursor: none !important;
-
-  * {
-    cursor: none !important;
   }
 }
 
