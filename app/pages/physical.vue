@@ -109,6 +109,7 @@ onUnmounted(() => {
             href="#"
             class="valid fs-hs p-small mt-none"
             @click.prevent
+            @keydown.enter.prevent="goToNextPage()"
           >
             {{ $t('physical.validateLink') }}
           </a>
