@@ -24,6 +24,11 @@ function handleFakeClick(_x: number, _y: number, element: Element | null) {
   }
 }
 
+// The real mouse only acts once the tremor simulation has been disabled (hint 3)
+function onRealClick(action: () => void) {
+  if (!tremorActive.value) action()
+}
+
 function trapFocus(e: KeyboardEvent) {
   const focusables = Array.from(modalRef.value?.querySelectorAll<HTMLElement>(
     'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
@@ -96,6 +101,7 @@ onUnmounted(() => {
                     id="close-popup"
                     class="my-small ms-auto close-popup border-none btn"
                     :aria-label="$t('physical.aria-label_closeModal')"
+                    @click="onRealClick(() => { modalVisible = false })"
                   >
                     X
                   </button>
@@ -127,9 +133,9 @@ onUnmounted(() => {
             id="link30or60"
             href="#"
             class="valid fs-hs p-small mt-none"
-            @click.prevent
+            @click.prevent="onRealClick(goToNextPage)"
             @keydown.enter.prevent="goToNextPage()"
-            @keydown.escape.prevent="goToNextPage()"
+            @keydown.space.prevent="goToNextPage()"
           >
             {{ $t('physical.validateLink') }}
           </a>
@@ -233,6 +239,8 @@ onUnmounted(() => {
   text-decoration: none !important;
   border-radius: 0.25rem;
   font-weight: 600;
+  // Overrides the global `cursor: none` from game.scss; html.no-cursor still hides it during the simulation
+  cursor: pointer;
 
   &:hover {
     background-color: #e55a00 !important;
