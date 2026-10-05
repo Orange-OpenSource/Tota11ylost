@@ -205,6 +205,11 @@ a.no-focus-outline:focus-visible {
   cursor: none !important;
 }
 
+html.no-cursor,
+html.no-cursor * {
+  cursor: none !important;
+}
+
 .valid {
   border: none;
   background-color: #ff7900;
