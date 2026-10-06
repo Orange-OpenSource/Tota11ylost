@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
     "sessionCodeBadge": {
-      "label": "Session",
+      "label": "Code : {code}",
       "aria-label_sessionCode": "Code de session en cours : {code}"
     },
     "time": {

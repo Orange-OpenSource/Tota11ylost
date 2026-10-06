@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Área del temporizador del juego de escape"
     },
     "sessionCodeBadge": {
-      "label": "Sesión",
+      "label": "Código: {code}",
       "aria-label_sessionCode": "Código de sesión actual: {code}"
     },
     "time": {
