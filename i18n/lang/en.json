@@ -72,7 +72,7 @@
     "rules": "Before starting, choose your adventure and your nickname",
     "adventureType": "Type of adventure",
     "escapeGame": "Escape game",
-    "duration": "Duration",
+    "duration": "Session duration",
     "15min": {
       "label": "15 min",
       "title_15": "The express version of the escape game on four pages"
@@ -86,14 +86,17 @@
       "title_60": "The classic version of the escape game on ten pages"
     },
     "aventure": "Your adventure",
+    "profile": "Your profile",
     "placeholder_enterPseudo": "Enter your nickname",
     "pseudo_alert": "This nickname will be publicly displayed on the scoreboard.",
-    "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt the experience. This information will not be linked to your nickname.",
+    "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt your experience:",
+    "sessionCodeDurationInfo": "If your trainer has given you a code, your session duration will be adjusted automatically.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "accessibility": "Digital accessibility in action",
     "sessionCode": "Session code (optional)",
     "sessionCodeHint": "Enter the code provided by the instructor. The session duration is automatically set based on this code.",
     "sessionCodePlaceholder": "E.g.: FORMA60",
+    "sessionCodeHelper": "Example: FORMA60",
     "buttonStartAdventure": "Start the adventure",
     "errorPseudoTooShort": "Nickname must be at least 3 characters.",
     "errorPseudoProfanity": "This nickname contains inappropriate terms. Please choose another one."

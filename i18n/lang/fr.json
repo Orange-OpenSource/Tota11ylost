@@ -72,7 +72,7 @@
     "rules": "Appréhendez les défis quotidiens rencontrés par les personnes en situation de handicap numérique. Une aventure pour mieux comprendre et agir en faveur de l'inclusion.",
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
-    "duration": "Durée",
+    "duration": "Durée de session",
     "15min": {
       "label": "15 min",
       "title_15": "La version express de l'<span lang='en'>escape game</span> sur 4 pages"
@@ -86,14 +86,17 @@
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
     "aventure": "Votre aventure",
+    "profile": "Votre profil",
     "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
-    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
+    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter votre expérience :",
+    "sessionCodeDurationInfo": "Si un code vous a été transmis par votre formateur, la durée de votre session sera automatiquement ajustée.",
     "accessibility": "L'accessibilité numérique en action",
     "sessionCode": "Code de session (optionnel)",
     "sessionCodeHint": "Saisissez le code communiqué par l’animateur. La durée de la session sera automatiquement définie à partir de ce code.",
     "sessionCodePlaceholder": "Ex : FORMA60",
+    "sessionCodeHelper": "Exemple : FORMA60",
     "buttonStartAdventure": "Démarrer l'aventure",
     "errorPseudoTooShort": "Le pseudo doit contenir au moins 3 caractères.",
     "errorPseudoProfanity": "Ce pseudo contient des termes inappropriés. Veuillez en choisir un autre."
