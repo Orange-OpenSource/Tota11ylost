@@ -41,6 +41,17 @@ const fruitExtraDetail = ref('')
 
 const hintLevel = ref(0)
 
+// Form section hidden until the participant confirms having read the rules
+const rulesUnderstood = ref(false)
+const formHeadingRef = ref<HTMLElement | null>(null)
+
+async function onRulesUnderstood() {
+  rulesUnderstood.value = true
+  await nextTick()
+  formHeadingRef.value?.scrollIntoView({ block: 'start' })
+  formHeadingRef.value?.focus({ preventScroll: true })
+}
+
 const fruits = [
   { id: 'fraise', value: 'Fraise', key: 'form.strawberry' },
   { id: 'pomme', value: 'Pomme', key: 'form.apple' },
@@ -183,12 +194,30 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
             <li>{{ $t('form.rule2') }}</li>
             <li>{{ $t('form.rule3') }}</li>
             <li>{{ $t('form.rule4') }}</li>
-            <li>{{ $t('form.rule5') }}</li>
           </ul>
 
-          <h2>{{ $t('form.formHeading') }}</h2>
+          <button
+            v-if="!rulesUnderstood"
+            type="button"
+            class="btn fs-hs p-small btn-brand my-small"
+            @click="onRulesUnderstood"
+          >
+            {{ $t('form.understoodButton') }}
+          </button>
 
-          <div class="form-container">
+          <h2 v-if="rulesUnderstood" ref="formHeadingRef" tabindex="-1">
+            {{ $t('form.formHeading') }}
+          </h2>
+
+          <AutoHints
+            v-if="rulesUnderstood"
+            page-id="formRegistration"
+            :delays-ms="[60000, 90000, 120000]"
+            fallback-focus-selector="#pistache"
+            @hint="onHint"
+          />
+
+          <div v-if="rulesUnderstood" class="form-container">
             <p class="fs-hm" role="status">
               {{ $t('form.allFieldsRequired') }}
             </p>
@@ -421,13 +450,6 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
               </div>
             </fieldset>
           </div>
-
-          <GameHints
-            page-id="formRegistration"
-            large-text
-            :delay-ms="1"
-            @hint="onHint"
-          />
         </div>
       </main>
     </div>
