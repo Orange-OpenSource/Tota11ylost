@@ -212,7 +212,7 @@ watch([pistache, cacahuete, olives, saucisson, chips, tapenade, selectedFruits],
           <AutoHints
             v-if="rulesUnderstood"
             page-id="formRegistration"
-            :delays-ms="[60000, 90000, 120000]"
+            :delays-ms="[120000, 90000, 60000]"
             fallback-focus-selector="#pistache"
             @hint="onHint"
           />

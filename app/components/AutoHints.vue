@@ -15,13 +15,11 @@ const emit = defineEmits<{
   hint: [index: number]
 }>()
 
-const COUNTDOWN_STEP_MS = 20000
 const FIELD_SELECTOR = 'input, select, textarea'
 
-const { t, tm, rt } = useI18n()
+const { tm, rt } = useI18n()
 
 const triggeredCount = ref(0)
-const remainingMs = ref(0)
 const activeHint = ref<number | null>(null)
 const closeButtonRef = ref<HTMLButtonElement | null>(null)
 
@@ -31,41 +29,15 @@ let lastField: HTMLElement | null = null
 const nextDelayMs = computed(() => props.delaysMs[triggeredCount.value])
 const hasNextHint = computed(() => nextDelayMs.value !== undefined)
 
-function formatDuration(ms: number): string {
-  const total = Math.ceil(ms / 1000)
-  const minutes = Math.floor(total / 60)
-  const seconds = total % 60
-  const parts: string[] = []
-  if (minutes) parts.push(`${minutes} ${t('common.time.minute.full', minutes)}`)
-  if (seconds) parts.push(`${seconds} ${t('common.time.second.full', seconds)}`)
-  return parts.join(' ')
-}
-
-const remainingLabel = computed(() => formatDuration(remainingMs.value))
-const nextDelayLabel = computed(() => formatDuration(nextDelayMs.value ?? 0))
-
 function hintText(index: number): string {
   const hintsArray = tm(`hints.${props.pageId}`) as unknown as VueMessageType[]
   const raw = Array.isArray(hintsArray) ? hintsArray[index - 1] : undefined
   return raw ? rt(raw) : ''
 }
 
-function tick() {
-  if (remainingMs.value <= 0) {
-    openHint()
-    return
-  }
-  const step = Math.min(COUNTDOWN_STEP_MS, remainingMs.value)
-  countdownTimeout = setTimeout(() => {
-    remainingMs.value -= step
-    tick()
-  }, step)
-}
-
 function startCountdown() {
   if (nextDelayMs.value === undefined) return
-  remainingMs.value = nextDelayMs.value
-  tick()
+  countdownTimeout = setTimeout(openHint, nextDelayMs.value)
 }
 
 async function openHint() {
@@ -123,20 +95,13 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <!-- Persistent live region so each 20s update is announced -->
-    <div role="status">
-      <p v-if="hasNextHint && activeHint === null" class="fs-hm">
-        {{ $t('hints.nextHintIn', { index: triggeredCount + 1, duration: remainingLabel }) }}
-      </p>
-    </div>
-
     <div
       v-if="activeHint !== null"
       class="modal d-block auto-hint-modal"
       role="alertdialog"
       aria-modal="true"
       aria-labelledby="autoHintModalTitle"
-      aria-describedby="autoHintModalBody autoHintModalNext autoHintModalHelp"
+      aria-describedby="autoHintModalBody autoHintModalLast autoHintModalHelp"
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -156,8 +121,8 @@ onUnmounted(() => {
             <p id="autoHintModalBody" class="fs-hm">
               {{ hintText(activeHint) }}
             </p>
-            <p id="autoHintModalNext" class="visually-hidden">
-              {{ hasNextHint ? $t('hints.nextHintAfterClose', { duration: nextDelayLabel }) : $t('hints.lastHint') }}
+            <p v-if="!hasNextHint" id="autoHintModalLast" class="visually-hidden">
+              {{ $t('hints.lastHint') }}
             </p>
             <p id="autoHintModalHelp" class="visually-hidden">
               {{ $t('hints.closeHintInstructions') }}
