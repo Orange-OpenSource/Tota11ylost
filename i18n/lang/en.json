@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Timer area of the escape game"
     },
     "sessionCodeBadge": {
-      "label": "Session",
+      "label": "Code: {code}",
       "aria-label_sessionCode": "Current session code: {code}"
     },
     "time": {
@@ -72,7 +72,7 @@
     "rules": "Before starting, choose your adventure and your nickname",
     "adventureType": "Type of adventure",
     "escapeGame": "Escape game",
-    "duration": "Duration",
+    "duration": "Session duration",
     "15min": {
       "label": "15 min",
       "title_15": "The express version of the escape game on four pages"
@@ -86,14 +86,17 @@
       "title_60": "The classic version of the escape game on ten pages"
     },
     "aventure": "Your adventure",
+    "profile": "Your profile",
     "placeholder_enterPseudo": "Enter your nickname",
     "pseudo_alert": "This nickname will be publicly displayed on the scoreboard.",
-    "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt the experience. This information will not be linked to your nickname.",
+    "deficiencyInfo": "Please indicate whether you have one or more disabilities so that we can adapt your experience:",
+    "sessionCodeDurationInfo": "If your trainer has given you a code, your session duration will be adjusted automatically.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Please enter a nickname\")",
     "accessibility": "Digital accessibility in action",
     "sessionCode": "Session code (optional)",
     "sessionCodeHint": "Enter the code provided by the instructor. The session duration is automatically set based on this code.",
     "sessionCodePlaceholder": "E.g.: FORMA60",
+    "sessionCodeHelper": "Example: FORMA60",
     "buttonStartAdventure": "Start the adventure",
     "errorPseudoTooShort": "Nickname must be at least 3 characters.",
     "errorPseudoProfanity": "This nickname contains inappropriate terms. Please choose another one."
@@ -373,9 +376,9 @@
     "rule1": "Fill in all the form fields (you can enter fictional data!!!).",
     "rule2": "Then press the \"register\" button.",
     "rule3": "Once the form is validated, you will be able to validate the riddle.",
-    "rule4": "If it's too hard, don't hesitate to take hints!!!",
-    "rule5": "Be careful, hints add time to your timer...",
+    "rule4": "Hints will come to lend you a hand along the way.",
     "formHeading": "The Registration Form",
+    "understoodButton": "Got it",
     "allFieldsRequired": "All fields are required",
     "errorInForm": "Error in the form",
     "signupButton": "Register",
@@ -444,6 +447,10 @@
     "hintsAvailable": "Hints are now available.",
     "hintsAvailableNow": "Hints are available.",
     "noMoreHints": "No more hint available",
+    "hintActivated": "Hint {index} activated",
+    "lastHint": "This was the last hint.",
+    "closeHintInstructions": "To close this message, press the Escape key or activate the close button (×) at the top of the window.",
+    "closeHintMessage": "Close the information message",
     "intro": [
       "There is no mistake, you really need to click on the link 'here'",
       "There is more than one 'here' on this page...",

@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
     "sessionCodeBadge": {
-      "label": "Session",
+      "label": "Code : {code}",
       "aria-label_sessionCode": "Code de session en cours : {code}"
     },
     "time": {
@@ -72,7 +72,7 @@
     "rules": "Appréhendez les défis quotidiens rencontrés par les personnes en situation de handicap numérique. Une aventure pour mieux comprendre et agir en faveur de l'inclusion.",
     "adventureType": "Type d'aventure",
     "escapeGame": "Escape game",
-    "duration": "Durée",
+    "duration": "Durée de session",
     "15min": {
       "label": "15 min",
       "title_15": "La version express de l'<span lang='en'>escape game</span> sur 4 pages"
@@ -86,14 +86,17 @@
       "title_60": "La version classique de l'<span lang='en'>escape game</span> sur 10 pages"
     },
     "aventure": "Votre aventure",
+    "profile": "Votre profil",
     "placeholder_enterPseudo": "Surnom (obligatoire)",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Merci d'entrer un pseudo\")",
     "pseudo_alert": "Ce surnom sera publiquement affiché sur le tableau des scores.",
-    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter l'expérience. Cette information ne sera pas reliée à votre pseudo.",
+    "deficiencyInfo": "Veuillez indiquer si vous avez une ou plusieurs déficiences afin que nous puissions adapter votre expérience :",
+    "sessionCodeDurationInfo": "Si un code vous a été transmis par votre formateur, la durée de votre session sera automatiquement ajustée.",
     "accessibility": "L'accessibilité numérique en action",
     "sessionCode": "Code de session (optionnel)",
     "sessionCodeHint": "Saisissez le code communiqué par l’animateur. La durée de la session sera automatiquement définie à partir de ce code.",
     "sessionCodePlaceholder": "Ex : FORMA60",
+    "sessionCodeHelper": "Exemple : FORMA60",
     "buttonStartAdventure": "Démarrer l'aventure",
     "errorPseudoTooShort": "Le pseudo doit contenir au moins 3 caractères.",
     "errorPseudoProfanity": "Ce pseudo contient des termes inappropriés. Veuillez en choisir un autre."
@@ -375,9 +378,9 @@
     "rule1": "Remplissez tous les champs de formulaires (vous pouvez mettre des données fictives !!!).",
     "rule2": "Puis appuyez sur le bouton \"s'inscrire\".",
     "rule3": "Une fois le formulaire validé, il vous sera possible de valider l'énigme.",
-    "rule4": "Si c'est trop dur, n'hésitez pas à prendre des indices !!!",
-    "rule5": "Attention, les indices rajoutent du temps à votre chronomètre...",
+    "rule4": "Des indices viendront vous prêter main-forte au fur et à mesure.",
     "formHeading": "Le formulaire d'inscription",
+    "understoodButton": "Compris",
     "allFieldsRequired": "Tous les champs sont obligatoires",
     "errorInForm": "Erreur dans le formulaire",
     "signupButton": "S'inscrire",
@@ -441,6 +444,10 @@
     "hintsAvailable": "Les indices sont à présent disponibles.",
     "hintsAvailableNow": "Les indices sont disponibles.",
     "noMoreHints": "Plus d'indice disponible",
+    "hintActivated": "Indice {index} activé",
+    "lastHint": "C'était le dernier indice.",
+    "closeHintInstructions": "Pour fermer ce message, appuyez sur la touche Échap ou activez le bouton de fermeture (×) en haut de la fenêtre.",
+    "closeHintMessage": "Fermer le message d'information",
     "intro": [
       "Il n'y a pas d'erreur, il faut bien cliquer sur le lien \"ici\"",
       "Il n'y a pas qu'un seul \"ici\" sur cette page...",
