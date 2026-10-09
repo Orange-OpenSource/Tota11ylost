@@ -46,11 +46,17 @@ function startAdventure() {
 
 <template>
   <div class="d-flex flex-column min-vh-100 position-relative">
-    <div class=" bg-tertiary d-flex justify-content-end  position-absolute" style="width: 100%; z-index: -1;">
-      <img src="/game-assets/rocket_boy.svg" alt="" class="me-3xlarge">
+    <div class=" bg-tertiary d-none md:d-flex justify-content-end  position-absolute" style="width: 100%; z-index: -1;">
+      <!-- Capped to the right third of the viewport so it never slides under the col-8 form -->
+      <img
+        src="/game-assets/rocket_boy.svg"
+        alt=""
+        class="me-3xlarge"
+        style="width: 32rem; max-width: 33vw; height: auto;"
+      >
     </div>
     <main class="d-flex flex-row m-medium ms-large flex-grow-1 ">
-      <div class="col-8  ">
+      <div class="col-12 md:col-8">
         <form class="px-xlarge pt-xlarge mt-2xlarge mx-xlarge bg-primary" @submit.prevent="startAdventure">
           <h2 style="font-size: 22px; margin-left: -10px;" class="text-brand-primary p-small mb-3xsmall ">
             {{ $t('welcome.accessibility') }}
@@ -66,43 +72,6 @@ function startAdventure() {
             {{ $t('welcome.aventure') }}
           </h4>
           <hr style="border: 3px solid #f15E00; width: 3%; margin-top: -13px;">
-          <div class="text-input component-max-width bg-secondary mt-xlarge">
-            <div class="text-input-container text-input-container-outlined">
-              <label id="pseudoLabel" for="exampleTextInputOutlined">{{ $t('welcome.placeholder_enterPseudo') }}</label>
-              <input
-                id="exampleTextInputOutlined"
-                v-model="pseudo"
-                type="text"
-                class="text-input-field "
-                aria-labelledby="pseudoLabel"
-                aria-describedby="pseudoErrorContainer"
-                :maxlength="PSEUDO_MAX_LENGTH"
-                placeholder=""
-                style="border-top: transparent; border-left: transparent; border-right: transparent; width: 555px; font-weight: bold;"
-                @input="pseudoErrorCode = null"
-              >
-            </div>
-          </div>
-          <div
-            v-if="pseudoErrorCode"
-            id="pseudoErrorContainer"
-            class="alert alert-message alert-negative mt-3"
-            role="alert"
-          >
-            <span class="alert-icon" aria-hidden="true">
-              <p class="visually-hidden">Error</p>
-            </span>
-            <div class="alert-container">
-              <div class="alert-text-container">
-                <p class="alert-label">
-                  {{ $t(getPseudoErrorMessage(pseudoErrorCode)) }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <p class="col-9 mb-large mt-small px-medium fs-cm text-muted">
-            {{ $t('welcome.pseudo_alert') }}
-          </p>
 
           <div class="select-input mb-medium component-max-width">
             <div class="select-input-container adventure-type-select">
@@ -122,9 +91,42 @@ function startAdventure() {
             </div>
           </div>
 
-          <fieldset class="control-items-list mt-large">
-            <p>{{ $t('welcome.duration') }}</p>
-            <div class="d-flex flex-row m-large gap-large">
+          <div class="alert alert-message alert-info mb-xlarge mt-xlarge w-75">
+            <div class="alert-icon" />
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p id="sessionCodeInfo" class="alert-label">
+                  {{ $t('welcome.sessionCodeDurationInfo') }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-input component-max-width">
+            <div class="text-input-container">
+              <label for="sessionCodeInput">{{ $t('welcome.sessionCode') }}</label>
+              <input
+                id="sessionCodeInput"
+                v-model="sessionCode"
+                type="text"
+                autocomplete="off"
+                class="text-input-field"
+                maxlength="20"
+                placeholder=" "
+                aria-describedby="sessionCodeInfo sessionCodeHelpBlock"
+                @input="onSessionCodeInput"
+              >
+            </div>
+            <p id="sessionCodeHelpBlock" class="helper-text">
+              {{ $t('welcome.sessionCodeHelper') }}
+            </p>
+          </div>
+
+          <fieldset class="control-items-list mt-xlarge">
+            <p class="fs-cm">
+              {{ $t('welcome.duration') }}
+            </p>
+            <div class="d-flex flex-row m-large mt-3xsmall gap-large">
               <div class="radio-button-item">
                 <div class="control-item-assets-container">
                   <input
@@ -179,38 +181,55 @@ function startAdventure() {
             </div>
           </fieldset>
 
-          <div class="mt-medium mb-medium w-75">
-            <label for="sessionCodeInput" class="form-label" style="color: black;">
-              {{ $t('welcome.sessionCode') }}
-            </label>
-            <p class="mb-small text-muted" style="font-size: 0.875rem;">
-              {{ $t('welcome.sessionCodeHint') }}
-            </p>
-            <input
-              id="sessionCodeInput"
-              v-model="sessionCode"
-              type="text"
-              class="text-input-field"
-              maxlength="20"
-              :placeholder="$t('welcome.sessionCodePlaceholder')"
-              style="border: 2px solid #d3d3d3; width: 300px; font-weight: bold; padding: 0.5rem;"
-              @input="onSessionCodeInput"
-            >
-          </div>
+          <h4 id="profileLabel" class="mt-small">
+            {{ $t('welcome.profile') }}
+          </h4>
+          <hr style="border: 3px solid #f15E00; width: 3%; margin-top: -13px;">
 
-          <div class="alert alert-message alert-info mb-medium mt-3xlarge w-75">
-            <div class="alert-icon" />
+          <div class="text-input component-max-width mt-xlarge">
+            <div class="text-input-container">
+              <label for="pseudoInput">{{ $t('welcome.placeholder_enterPseudo') }}</label>
+              <input
+                id="pseudoInput"
+                v-model="pseudo"
+                type="text"
+                autocomplete="off"
+                class="text-input-field"
+                :maxlength="PSEUDO_MAX_LENGTH"
+                placeholder=" "
+                aria-required="true"
+                :aria-describedby="pseudoErrorCode ? 'pseudoErrorContainer pseudoHelpBlock' : 'pseudoHelpBlock'"
+                @input="pseudoErrorCode = null"
+              >
+            </div>
+            <p id="pseudoHelpBlock" class="helper-text">
+              {{ $t('welcome.pseudo_alert') }}
+            </p>
+          </div>
+          <div
+            v-if="pseudoErrorCode"
+            id="pseudoErrorContainer"
+            class="alert alert-message alert-negative mt-3"
+            role="alert"
+          >
+            <span class="alert-icon" aria-hidden="true">
+              <p class="visually-hidden">Error</p>
+            </span>
             <div class="alert-container">
               <div class="alert-text-container">
                 <p class="alert-label">
-                  {{ $t('welcome.deficiencyInfo') }}
+                  {{ $t(getPseudoErrorMessage(pseudoErrorCode)) }}
                 </p>
               </div>
             </div>
           </div>
+
+          <p class="mt-xlarge mb-large   w-75">
+            {{ $t('welcome.deficiencyInfo') }}
+          </p>
           <DeficiencyFilter />
 
-          <button type="submit" class="btn btn-strong fs-hs p-small  mt-2xlarge">
+          <button type="submit" class="btn btn-strong fs-hs p-small  my-2xlarge">
             {{ $t('welcome.buttonStartAdventure') }}
           </button>
         </form>
