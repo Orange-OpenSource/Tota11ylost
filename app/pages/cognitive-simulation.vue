@@ -3,9 +3,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'without-footer', title: 'cognitiveSimu.tabTitle' })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const { goToNextPage } = useNextPage()
-const dyslexia = useDyslexia('li', 2000)
+const dyslexia = useDyslexia('.riddles li', 2000)
 
 const first = ref('')
 const second = ref('')
@@ -28,19 +28,19 @@ const images = computed(() => [
   { url: '/game-assets/cognitive/monkey.jpg', text: 'youpi !!!', color: 'orange', size: '180px', top: '100px' },
   { url: '/game-assets/cognitive/moving-forward.png', text: t('cognitiveSimu.img_movingForward'), color: 'black', size: '60px' },
   { url: '/game-assets/cognitive/competition.png', text: t('cognitiveSimu.img_competition'), color: 'red', size: '70px' },
-  { url: '/game-assets/cognitive/fast-food.png', text: t('cognitiveSimu.img_fastFood'), color: 'orange', size: '90px' },
-  { url: '/game-assets/cognitive/fast-food.png', text: t('cognitiveSimu.img_hungry'), color: 'red', size: '100px' },
-  { url: '/game-assets/cognitive/fast-food.png', text: 'Miam...', color: 'green', size: '100px' },
+  { url: '/game-assets/cognitive/fast-food.png', text: t('cognitiveSimu.img_fastFood'), color: 'orange', size: '90px', width: '800px' },
+  { url: '/game-assets/cognitive/fast-food.png', text: t('cognitiveSimu.img_hungry'), color: 'red', size: '100px', width: '800px' },
+  { url: '/game-assets/cognitive/fast-food.png', text: 'Miam...', color: 'green', size: '100px', width: '800px' },
   { url: '/game-assets/cognitive/overworked.png', text: t('cognitiveSimu.img_overworked'), color: 'blue', size: '60px' },
   { url: '/game-assets/cognitive/snapchat.png', text: t('cognitiveSimu.img_snapchat'), color: 'purple', size: '80px' },
   { url: '/game-assets/cognitive/concert-phone.jpg', text: t('cognitiveSimu.img_concert'), color: 'white', size: '90px', opacity: true },
   { url: '/game-assets/cognitive/shaving-foam.jpg', text: t('cognitiveSimu.img_shavingFoam'), color: 'blue', size: '100px' },
   { url: '/game-assets/cognitive/orange-sales-advisor.jpg', text: t('cognitiveSimu.img_lookHere'), color: 'orange', size: '80px', opacity: true },
-  { url: '/game-assets/cognitive/shutterstock-1168142251.jpg', text: t('cognitiveSimu.img_notification'), color: 'red', size: '70px', opacity: true },
-  { url: '/game-assets/cognitive/shutterstock-1916349737.jpg', text: t('cognitiveSimu.img_drinkWater'), color: 'yellow', size: '60px', opacity: true },
+  { url: '/game-assets/cognitive/shutterstock-1168142251.jpg', text: t('cognitiveSimu.img_notification'), color: 'red', size: '70px', opacity: true, width: 'calc(100% - 100px)' },
+  { url: '/game-assets/cognitive/shutterstock-1916349737.jpg', text: t('cognitiveSimu.img_drinkWater'), color: 'yellow', size: '60px', opacity: true, width: 'calc(100% - 100px)' },
   { url: '/game-assets/cognitive/getty-549105939.jpg', text: t('cognitiveSimu.img_squirrel'), color: 'green', size: '90px', opacity: true },
   { url: '/game-assets/cognitive/orange-1145878.jpg', text: t('cognitiveSimu.img_whereWasI'), color: 'white', size: '70px', opacity: true },
-  { url: '/game-assets/cognitive/u302317.jpg', text: t('cognitiveSimu.img_soft'), color: 'purple', size: '80px', opacity: true },
+  { url: '/game-assets/cognitive/u302317.jpg', text: t('cognitiveSimu.img_soft'), color: 'purple', size: '80px', opacity: true, width: 'calc(100% - 100px)' },
   { url: '/game-assets/cognitive/water-vehicles.png', text: t('cognitiveSimu.img_boats'), color: '#0a6ebd', size: '70px' },
   { url: '/game-assets/cognitive/easter-chicks.png', text: t('cognitiveSimu.img_chicks'), color: '#ffd200', size: '50px', width: '500px' },
 ])
@@ -179,7 +179,8 @@ onUnmounted(() => {
           <h2 class="my-small">
             {{ $t('cognitiveSimu.riddleHeading') }}
           </h2>
-          <ul class="riddles">
+          <!-- Re-created on language change: the dyslexia effect caches each item's original text -->
+          <ul :key="locale" class="riddles">
             <li>{{ $t('cognitiveSimu.riddle1') }}</li>
             <li>{{ $t('cognitiveSimu.riddle2') }}</li>
             <li>{{ $t('cognitiveSimu.riddle3') }}</li>
