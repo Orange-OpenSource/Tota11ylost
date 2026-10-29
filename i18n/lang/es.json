@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Área del temporizador del juego de escape"
     },
     "sessionCodeBadge": {
-      "label": "Sesión",
+      "label": "Código: {code}",
       "aria-label_sessionCode": "Código de sesión actual: {code}"
     },
     "time": {
@@ -72,7 +72,7 @@
     "rules": "Antes de comenzar, elige tu aventura y tu apodo",
     "adventureType": "Tipo de aventura",
     "escapeGame": "Juego de escape",
-    "duration": "Duración",
+    "duration": "Duración de la sesión",
     "15min": {
       "label": "15 min",
       "title_15": "La versión express del juego de escape en cuatro páginas"
@@ -86,14 +86,17 @@
       "title_60": "La versión clásica del juego de escape en diez páginas"
     },
     "aventure": "Tu aventura",
+    "profile": "Tu perfil",
     "placeholder_enterPseudo": "Indique tu apodo",
     "pseudo_alert": "Este apodo se mostrará públicamente en la tabla de puntuaciones.",
-    "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar la experiencia. Esta información no estará vinculada a su apodo.",
+    "deficiencyInfo": "Indique si tiene una o varias discapacidades para que podamos adaptar su experiencia:",
+    "sessionCodeDurationInfo": "Si su formador le ha proporcionado un código, la duración de su sesión se ajustará automáticamente.",
     "oninvalid_errorMessageEmptyPseudo": "this.setCustomValidity(\"Por favor, indica un apodo\")",
     "accessibility": "La accesibilidad digital en acción",
     "sessionCode": "Código de sesión (opcional)",
     "sessionCodeHint": "Introduce el código proporcionado por el facilitador. La duración de la sesión se establece automáticamente a partir de este código.",
     "sessionCodePlaceholder": "Ej.: FORMA60",
+    "sessionCodeHelper": "Ejemplo: FORMA60",
     "buttonStartAdventure": "Iniciar la aventura",
     "errorPseudoTooShort": "El apodo debe tener al menos 3 caracteres.",
     "errorPseudoProfanity": "Este apodo contiene términos inapropiados. Por favor, elige otro."
@@ -231,9 +234,32 @@
       "christie",
       "darwin"
     ],
-    "img_alice": "A11Y en el país de las maravillas",
     "img_hungry": "TENGO HAMBRE",
-    "img_monkey": "Vamos, concéntrate un poco"
+    "img_monkey": "Vamos, concéntrate un poco",
+    "img_movingForward": "¡Adelante, adelante!",
+    "img_competition": "¡Más rápido que el vecino!",
+    "img_fastFood": "¿Una pausa para una hamburguesa?",
+    "img_overworked": "Zzzz... 5 minutos más",
+    "img_snapchat": "¡Tienes un mensaje nuevo!",
+    "img_concert": "¡Uuuuh, el concierto!",
+    "img_shavingFoam": "¡JA JA JA!",
+    "img_lookHere": "Psst... ¡mira aquí!",
+    "img_notification": "¡Nueva notificación!",
+    "img_drinkWater": "¿Te has acordado de beber agua?",
+    "img_squirrel": "¡Oh, una ardilla!",
+    "img_whereWasI": "Eh... ¿por dónde iba?",
+    "img_soft": "¡Qué suave!",
+    "img_boats": "¿Y si nos vamos al mar?",
+    "img_chicks": "¡Pío pío pío!",
+    "card_operatorPriority": "¿2 + 2 × 2 = 8?",
+    "card_decimals": "¿0,1 + 0,2 = 0,3?",
+    "card_months": "¿Cuántos meses tienen 28 días?",
+    "card_overtake": "Si adelantas al 2.º, ¿pasas a ser 1.º?",
+    "card_red": "ROJO",
+    "card_green": "VERDE",
+    "card_door": "¿Cerraste bien la puerta esta mañana?",
+    "card_email": "¿Respondiste a ese correo?",
+    "card_weekdays": "L, M, X, J, V, …?"
   },
   "memorie": {
     "tabTitle": "Discapacidad cognitiva - Memoria - Tota11y Lost",
@@ -375,9 +401,9 @@
     "rule1": "Completa todos los campos del formulario (¡puedes poner datos ficticios!).",
     "rule2": "Luego presiona el botón \"Inscribirse\".",
     "rule3": "Una vez que el formulario esté validado, podrás validar el enigma.",
-    "rule4": "Si es demasiado difícil, no dudes en tomar pistas.",
-    "rule5": "Atención, las pistas añaden tiempo a tu cronómetro...",
+    "rule4": "Las pistas vendrán a echarte una mano poco a poco.",
     "formHeading": "El formulario de inscripción",
+    "understoodButton": "Entendido",
     "allFieldsRequired": "Todos los campos son obligatorios",
     "errorInForm": "Error en el formulario",
     "signupButton": "Inscribirse",
@@ -446,6 +472,12 @@
     "hintsAvailable": "Las pistas están ahora disponibles.",
     "hintsAvailableNow": "Las pistas están disponibles.",
     "noMoreHints": "No hay más pista disponible",
+    "nextHintIn": "La pista {index} se activará en {duration}",
+    "hintActivated": "Pista {index} activada",
+    "nextHintAfterClose": "La siguiente pista se activará {duration} después de cerrar este mensaje.",
+    "lastHint": "Era la última pista.",
+    "closeHintInstructions": "Para cerrar este mensaje, pulsa la tecla Escape o activa el botón de cierre (×) en la parte superior de la ventana.",
+    "closeHintMessage": "Cerrar el mensaje de información",
     "intro": [
       "No hay error, realmente necesitas hacer clic en el enlace 'aquí'",
       "No hay solo un 'aquí' en esta página...",

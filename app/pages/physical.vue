@@ -11,6 +11,8 @@ const modalRef = ref<HTMLElement | null>(null)
 const tremorActive = ref(true)
 const falseCursorRef = ref<HTMLImageElement | null>(null)
 
+useHead({ htmlAttrs: { class: computed(() => tremorActive.value ? 'no-cursor' : '') } })
+
 function handleFakeClick(_x: number, _y: number, element: Element | null) {
   if (!element) return
 
@@ -19,6 +21,30 @@ function handleFakeClick(_x: number, _y: number, element: Element | null) {
   }
   else if (element.id === 'link30or60' || element.closest('#link30or60')) {
     goToNextPage()
+  }
+}
+
+// The real mouse only acts once the tremor simulation has been disabled (hint 3)
+function onRealClick(action: () => void) {
+  if (!tremorActive.value) action()
+}
+
+function trapFocus(e: KeyboardEvent) {
+  const focusables = Array.from(modalRef.value?.querySelectorAll<HTMLElement>(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  ) ?? []).filter(el => el.getClientRects().length > 0)
+  const first = focusables[0]
+  const last = focusables[focusables.length - 1]
+  if (!first || !last) return
+
+  const active = document.activeElement
+  if (e.shiftKey && (active === first || active === modalRef.value)) {
+    e.preventDefault()
+    last.focus()
+  }
+  else if (!e.shiftKey && active === last) {
+    e.preventDefault()
+    first.focus()
   }
 }
 
@@ -36,11 +62,22 @@ onMounted(async () => {
   }
   modalRef.value?.focus()
 })
+
+watch(modalVisible, (visible) => {
+  if (import.meta.server) return
+  document.documentElement.style.overflow = visible ? 'hidden' : ''
+  document.body.style.overflow = visible ? 'hidden' : ''
+}, { immediate: true })
+
+onUnmounted(() => {
+  document.documentElement.style.overflow = ''
+  document.body.style.overflow = ''
+})
 </script>
 
 <template>
   <ClientOnly>
-    <div class="physical fs-hm" :class="{ 'no-cursor': tremorActive }">
+    <div class="physical fs-hm">
       <GameHeader :page-title="$t('physical.pageTitle')" />
 
       <main>
@@ -55,6 +92,7 @@ onMounted(async () => {
             role="dialog"
             aria-modal="true"
             @keydown.escape="modalVisible = false"
+            @keydown.tab="trapFocus"
           >
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
@@ -62,9 +100,8 @@ onMounted(async () => {
                   <button
                     id="close-popup"
                     class="my-small ms-auto close-popup border-none btn"
-                    :class="{ 'no-cursor': tremorActive }"
                     :aria-label="$t('physical.aria-label_closeModal')"
-                    @click="modalVisible = false"
+                    @click="onRealClick(() => { modalVisible = false })"
                   >
                     X
                   </button>
@@ -95,8 +132,8 @@ onMounted(async () => {
           <a
             id="link30or60"
             href="#"
-            class="valid fs-hs p-small"
-            @click.prevent
+            class="valid fs-hs p-small mt-none"
+            @click.prevent="onRealClick(goToNextPage)"
             @keydown.enter.prevent="goToNextPage()"
             @keydown.space.prevent="goToNextPage()"
           >
@@ -119,21 +156,20 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .physical {
-  background-color: #f5f5f5 !important;
+  background-color: #ffffff !important;
   color: #000 !important;
   min-height: 100vh;
 
-  * {
+  *:not(.btn-brand) {
     background-color: transparent;
     color: inherit;
   }
 }
 
 .physical main {
-  background-color: #f5f5f5 !important;
-  padding: 2rem;
+  background-color: #ffffff !important;
 
-  * {
+  *:not(.btn-brand) {
     background-color: transparent;
     color: #000;
   }
@@ -150,6 +186,10 @@ onMounted(async () => {
   height: 100%;
   z-index: 1050;
   background: rgba(0, 0, 0, 0.5) !important;
+  padding: 1.5rem 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
   .modal-dialog {
     margin: auto;
@@ -160,34 +200,34 @@ onMounted(async () => {
     color: #000 !important;
     border: 1px solid #ddd;
 
-    * {
+    *:not(.btn-brand) {
       background-color: transparent !important;
       color: #000 !important;
     }
   }
 
   .modal-body {
-    padding: 1.5rem;
+    padding: 0rem 1.5rem;
   }
 
   .close-popup {
+    --bs-btn-min-width: 1.2rem;
+    --bs-btn-min-height: 1.2rem;
     background-color: transparent !important;
     color: #000 !important;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     font-weight: 700;
+    line-height: 1;
+    padding: 0 !important;
+     min-width: 1.2rem !important;
+    min-height: 1.2rem !important;
+
     cursor: pointer;
 
     &:hover {
       color: #666;
     }
-  }
-}
 
-.no-cursor {
-  cursor: none !important;
-
-  * {
-    cursor: none !important;
   }
 }
 
@@ -199,6 +239,8 @@ onMounted(async () => {
   text-decoration: none !important;
   border-radius: 0.25rem;
   font-weight: 600;
+  // Overrides the global `cursor: none` from game.scss; html.no-cursor still hides it during the simulation
+  cursor: pointer;
 
   &:hover {
     background-color: #e55a00 !important;
