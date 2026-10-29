@@ -33,7 +33,7 @@
       "aria-label_timerArea": "Zone du chronomètre de l'<span lang='en'>Escape game</span>"
     },
     "sessionCodeBadge": {
-      "label": "Code de session : {code}",
+      "label": "Code : {code}",
       "aria-label_sessionCode": "Code de session en cours : {code}"
     },
     "time": {
@@ -233,9 +233,32 @@
       "christie",
       "darwin"
     ],
-    "img_alice": "A11Y au pays des merveilles",
     "img_hungry": "J'AI FAIM",
-    "img_monkey": "Allez, on se concentre un peu"
+    "img_monkey": "Allez, on se concentre un peu",
+    "img_movingForward": "On avance, on avance !",
+    "img_competition": "Plus vite que le voisin !",
+    "img_fastFood": "Une petite pause burger ?",
+    "img_overworked": "Zzzz... encore 5 minutes",
+    "img_snapchat": "Tu as un nouveau message !",
+    "img_concert": "Ouuuh, le concert !",
+    "img_shavingFoam": "HA HA HA !",
+    "img_lookHere": "Psst... regarde par ici !",
+    "img_notification": "Nouvelle notification !",
+    "img_drinkWater": "Tu as pensé à boire de l'eau ?",
+    "img_squirrel": "Oh, un écureuil !",
+    "img_whereWasI": "Euh... j'en étais où ?",
+    "img_soft": "Que c'est doux !",
+    "img_boats": "Et si on partait en mer ?",
+    "img_chicks": "Piou piou piou !",
+    "card_operatorPriority": "2 + 2 × 2 = 8 ?",
+    "card_decimals": "0,1 + 0,2 = 0,3 ?",
+    "card_months": "Combien de mois ont 28 jours ?",
+    "card_overtake": "Si tu doubles le 2e, tu deviens 1er ?",
+    "card_red": "ROUGE",
+    "card_green": "VERT",
+    "card_door": "As-tu bien fermé la porte ce matin ?",
+    "card_email": "As-tu répondu à ce mail ?",
+    "card_weekdays": "L, M, M, J, V, … ?"
   },
   "memorie": {
     "tabTitle": "Handicap cognitif - Mémoire - Tota11y Lost",
@@ -378,9 +401,9 @@
     "rule1": "Remplissez tous les champs de formulaires (vous pouvez mettre des données fictives !!!).",
     "rule2": "Puis appuyez sur le bouton \"s'inscrire\".",
     "rule3": "Une fois le formulaire validé, il vous sera possible de valider l'énigme.",
-    "rule4": "Si c'est trop dur, n'hésitez pas à prendre des indices !!!",
-    "rule5": "Attention, les indices rajoutent du temps à votre chronomètre...",
+    "rule4": "Des indices viendront vous prêter main-forte au fur et à mesure.",
     "formHeading": "Le formulaire d'inscription",
+    "understoodButton": "Compris",
     "allFieldsRequired": "Tous les champs sont obligatoires",
     "errorInForm": "Erreur dans le formulaire",
     "signupButton": "S'inscrire",
@@ -444,6 +467,12 @@
     "hintsAvailable": "Les indices sont à présent disponibles.",
     "hintsAvailableNow": "Les indices sont disponibles.",
     "noMoreHints": "Plus d'indice disponible",
+    "nextHintIn": "L'indice {index} s'activera dans {duration}",
+    "hintActivated": "Indice {index} activé",
+    "nextHintAfterClose": "Le prochain indice s'activera {duration} après la fermeture de ce message.",
+    "lastHint": "C'était le dernier indice.",
+    "closeHintInstructions": "Pour fermer ce message, appuyez sur la touche Échap ou activez le bouton de fermeture (×) en haut de la fenêtre.",
+    "closeHintMessage": "Fermer le message d'information",
     "intro": [
       "Il n'y a pas d'erreur, il faut bien cliquer sur le lien \"ici\"",
       "Il n'y a pas qu'un seul \"ici\" sur cette page...",
