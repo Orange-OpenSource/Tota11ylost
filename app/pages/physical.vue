@@ -24,6 +24,30 @@ function handleFakeClick(_x: number, _y: number, element: Element | null) {
   }
 }
 
+// The real mouse only acts once the tremor simulation has been disabled (hint 3)
+function onRealClick(action: () => void) {
+  if (!tremorActive.value) action()
+}
+
+function trapFocus(e: KeyboardEvent) {
+  const focusables = Array.from(modalRef.value?.querySelectorAll<HTMLElement>(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  ) ?? []).filter(el => el.getClientRects().length > 0)
+  const first = focusables[0]
+  const last = focusables[focusables.length - 1]
+  if (!first || !last) return
+
+  const active = document.activeElement
+  if (e.shiftKey && (active === first || active === modalRef.value)) {
+    e.preventDefault()
+    last.focus()
+  }
+  else if (!e.shiftKey && active === last) {
+    e.preventDefault()
+    first.focus()
+  }
+}
+
 function onHint(index: number) {
   if (index === 3) {
     tremorActive.value = false
@@ -68,6 +92,7 @@ onUnmounted(() => {
             role="dialog"
             aria-modal="true"
             @keydown.escape="modalVisible = false"
+            @keydown.tab="trapFocus"
           >
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
@@ -76,7 +101,7 @@ onUnmounted(() => {
                     id="close-popup"
                     class="my-small ms-auto close-popup border-none btn"
                     :aria-label="$t('physical.aria-label_closeModal')"
-                    @click="modalVisible = false"
+                    @click="onRealClick(() => { modalVisible = false })"
                   >
                     X
                   </button>
@@ -108,7 +133,7 @@ onUnmounted(() => {
             id="link30or60"
             href="#"
             class="valid fs-hs p-small mt-none"
-            @click.prevent
+            @click.prevent="onRealClick(goToNextPage)"
             @keydown.enter.prevent="goToNextPage()"
             @keydown.space.prevent="goToNextPage()"
           >
@@ -186,16 +211,16 @@ onUnmounted(() => {
   }
 
   .close-popup {
-    --bs-btn-min-width: 1.75rem;
-    --bs-btn-min-height: 1.75rem;
+    --bs-btn-min-width: 1.2rem;
+    --bs-btn-min-height: 1.2rem;
     background-color: transparent !important;
     color: #000 !important;
     font-size: 0.9rem;
     font-weight: 700;
     line-height: 1;
     padding: 0 !important;
-     min-width: 1.75rem !important;
-    min-height: 1.75rem !important;
+     min-width: 1.2rem !important;
+    min-height: 1.2rem !important;
 
     cursor: pointer;
 
@@ -214,6 +239,8 @@ onUnmounted(() => {
   text-decoration: none !important;
   border-radius: 0.25rem;
   font-weight: 600;
+  // Overrides the global `cursor: none` from game.scss; html.no-cursor still hides it during the simulation
+  cursor: pointer;
 
   &:hover {
     background-color: #e55a00 !important;
