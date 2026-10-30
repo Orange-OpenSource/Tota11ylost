@@ -33,7 +33,7 @@ export function useFirebaseScores() {
         measurementId: config.public.firebaseMeasurementId as string,
       }
 
-      console.log('Initializing Firebase with config:', firebaseConfig)
+      console.log('Initializing Firebase')
       const app = initializeApp(firebaseConfig)
       db = getFirestore(app)
       return db
