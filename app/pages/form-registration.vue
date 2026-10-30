@@ -52,7 +52,7 @@ const fruits = [
 ]
 
 function validateEmail(email: string) {
-  return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 function validateTel(tel: string) {
