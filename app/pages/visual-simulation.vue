@@ -119,7 +119,7 @@ onUnmounted(() => {
     <div class="fs-2 simulation-page" :class="{ 'no-cursor': !simulationDisabled }">
       <!-- Braille display area with typing cursor -->
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div id="text-bloc" v-html="textBloc" />
+      <div v-show="textBloc" id="text-bloc" v-html="textBloc" />
       <div
         v-if="focusedField"
         class="typing-cursor"
@@ -255,11 +255,12 @@ onUnmounted(() => {
 
 #text-bloc {
   display: block;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
   background-color: white;
   color: black;
-  padding: 2rem;
+  padding: 0.5rem 1rem;
   margin: 10rem 1rem 1rem 1rem;
-  min-height: 100px;
   font-size: 1.2rem;
   border: 2px solid #ddd;
   word-break: break-word;
@@ -292,7 +293,7 @@ onUnmounted(() => {
 
 .typing-cursor {
   position: fixed;
-  top: calc(10rem + 2rem); // aligne avec le haut du bloc (margin-top: 10rem + padding: 2rem)
+  top: calc(10rem + 0.8rem); // aligne avec le haut du bloc (margin-top: 10rem + padding: 0.5rem)
   width: 3px;
   height: 2.5rem;
   background-color: white;

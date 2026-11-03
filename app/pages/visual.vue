@@ -15,13 +15,14 @@ const buttonDefs = ref([
 const sequenceIndex = ref(0)
 const showError = ref(false)
 const colorsRevealed = ref(false)
+const errorRef = ref<HTMLElement | null>(null)
 
 // Shuffle buttons on mount
 onMounted(() => {
   buttonDefs.value.sort(() => Math.random() - 0.5)
 })
 
-function handleButtonClick(buttonId: string) {
+async function handleButtonClick(buttonId: string) {
   if (buttonId === correctSequence[sequenceIndex.value]) {
     sequenceIndex.value++
     if (sequenceIndex.value === correctSequence.length) {
@@ -34,6 +35,10 @@ function handleButtonClick(buttonId: string) {
     setTimeout(() => {
       showError.value = false
     }, 2000)
+    await nextTick()
+    // With OS zoom (125-150%) the message can render below the fold; scroll only if needed
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    errorRef.value?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' })
   }
 }
 
@@ -89,7 +94,12 @@ function getButtonClass(buttonId: string): string {
           </button>
         </div>
 
-        <div v-if="showError" class="alert alert-message alert-negative" role="alert">
+        <div
+          v-if="showError"
+          ref="errorRef"
+          class="alert alert-message alert-negative"
+          role="alert"
+        >
           <span class="alert-icon" aria-hidden="true">
             <p class="visually-hidden">Error</p>
           </span>

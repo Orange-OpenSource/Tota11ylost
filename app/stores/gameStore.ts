@@ -32,6 +32,10 @@ const pageRoutes = ref<Record<number, string>>({
   const selectedPages = ref<string[]>([])
   const categoriesRestantes = ref(['visual', 'physical', 'hearing', 'cognitive'])
 
+  // Demo session: entering this code on the welcome page plays only these pages, in this order
+  const DEMO_CODE = 'DEMO'
+  const demoPages = [12, 16, 14, 4, 6, 9, 2]
+
   const pseudo = ref('')
   const version = ref<'15' | '30' | '60'>('60')
   const sessionCode = ref('')
@@ -121,6 +125,12 @@ const pageRoutes = ref<Record<number, string>>({
   }
 
   const randomizePages = () => {
+    if (isDemo()) {
+      selectedPages.value = demoPages.map(n => pageRoutes.value[n]!)
+      saveToLocalStorage()
+      return
+    }
+
     // Si un code de session est défini, on utilise un générateur seedé,
     // combinant le texte du code et la tranche horaire de 2h en cours
     // (voir SESSION_WINDOW_MS) pour que le même code expire naturellement.
@@ -285,6 +295,7 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
 
   // GETTERS
   const nextRandomPage = () => selectedPages.value.length > 0 ? selectedPages.value[0] : null
+  const isDemo = () => sessionCode.value === DEMO_CODE
   const is15Version = () => version.value === '15'
   const is30Version = () => version.value === '30'
   const is60Version = () => version.value === '60'
@@ -320,5 +331,6 @@ const setVersion = (newVersion: '15' | '30' | '60') => {
     is15Version,
     is30Version,
     is60Version,
+    isDemo,
   }
 })

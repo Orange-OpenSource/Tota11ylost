@@ -102,17 +102,8 @@ function onHint(index: number) {
             </li>
           </ul>
 
-          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
-            <span class="alert-icon"><span class="visually-hidden">{{ $t('hearing.errorHiddenText') }}</span></span>
-            <div class="alert-container">
-              <div class="alert-text-container">
-                <p>{{ $t('hearing.errorMessage') }}</p>
-              </div>
-            </div>
-          </div>
-
           <div class="audio-container my-medium">
-            <div class="row g-3">
+            <div class="row g-3 pt-medium">
               <div v-for="level in maxLevel" :key="level" class="col">
                 <div class="audio-item">
                   <p class="audio-label fs-hm fw-bold mb-small text-center">
@@ -130,6 +121,15 @@ function onHint(index: number) {
                     {{ $t('hearing.audioFallback') }}
                   </audio>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="showError" class="alert alert-message alert-negative mb-medium" role="alert">
+            <span class="alert-icon"><span class="visually-hidden">{{ $t('hearing.errorHiddenText') }}</span></span>
+            <div class="alert-container">
+              <div class="alert-text-container">
+                <p>{{ $t('hearing.errorMessage') }}</p>
               </div>
             </div>
           </div>
