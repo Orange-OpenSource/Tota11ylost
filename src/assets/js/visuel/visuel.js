@@ -58,6 +58,9 @@ function handleButtonClick(buttonId) {
 function invalidSequence() {
   resetSequence();
   messageInvalidDiv.classList.remove('d-none');
+  // With OS zoom (125-150%) the message can render below the fold; scroll only if needed
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  messageInvalidDiv.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
   // Supprimer le message d'erreur après 5 secondes
   setTimeout(() => {
     messageInvalidDiv.classList.add('d-none');
