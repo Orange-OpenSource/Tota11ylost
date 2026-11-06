@@ -44,9 +44,25 @@ const btnInscription = document.getElementById("inscription");
 
 const alertError = document.getElementById('errorDiv');
 
+const btnRulesUnderstood = document.getElementById('rulesUnderstood');
+const formSection = document.getElementById('formSection');
+const formHeading = document.getElementById('formHeading');
+
 let firstErrorInput;
 
-btnIndice.addEventListener('click', (e) => {
+// Current hint level, set by autoHints.js through applyHint()
+let indice = 0;
+
+btnRulesUnderstood.addEventListener('click', () => {
+  btnRulesUnderstood.remove();
+  formSection.hidden = false;
+  formHeading.scrollIntoView({ block: 'start' });
+  formHeading.focus({ preventScroll: true });
+  startAutoHints();
+});
+
+function applyHint(index) {
+  indice = index;
 
   switch (indice) {
     case 1:
@@ -63,8 +79,7 @@ btnIndice.addEventListener('click', (e) => {
       break;
     default:
   }
-
-});
+}
 
 btnInscription.addEventListener("click", (e) => {
   alertError.classList.add('d-none')

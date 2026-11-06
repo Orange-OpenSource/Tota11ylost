@@ -78,10 +78,14 @@ Software description: Experience in a playful way the challenges faced by people
       <li data-i18n="form.rule2"></li>
       <li data-i18n="form.rule3"></li>
       <li data-i18n="form.rule4"></li>
-      <li data-i18n="form.rule5"></li>
     </ul>
 
-    <h2 data-i18n="form.formHeading"></h2>
+    <button type="button" class="btn fs-3 p-2 btn-primary my-3" id="rulesUnderstood"
+            data-i18n="form.understoodButton"></button>
+
+    <!-- Hidden until the participant confirms having read the rules -->
+    <section id="formSection" hidden>
+    <h2 id="formHeading" tabindex="-1" data-i18n="form.formHeading"></h2>
 
     <div class="form-container">
 
@@ -175,23 +179,24 @@ Software description: Experience in a playful way the challenges faced by people
         </div>
       </fieldset>
     </div>
-    <div id="hintsAvailable" class="d-none">
-      <h2 data-i18n="form.hintsHeading"></h2>
-      <p role="alert" data-i18n="hints.hintsAvailableNow">
-      </p>
-      <div class="indicesDiv">
-        <div id="indice1" class="d-none" role="alert">
-          <h3 data-i18n="form.hint1Heading"></h3>
-        </div>
-        <div id="indice2" class="d-none" role="alert">
-          <h3 data-i18n="form.hint2Heading"></h3>
-        </div>
-        <div id="indice3" class="d-none" role="alert">
-          <h3 data-i18n="form.hint3Heading"></h3>
-        </div>
-        <div class="my-3">
-          <button type="button" class="btn fs-3 p-2 btn-primary" id="indice" disabled
-                  data-i18n="form.getHintButton"></button>
+    </section>
+
+    <!-- Automatic hint modal, opened by autoHints.js -->
+    <div id="autoHintModal" class="modal auto-hint-modal" role="alertdialog" aria-modal="true"
+         aria-labelledby="autoHintModalTitle"
+         aria-describedby="autoHintModalBody autoHintModalLast autoHintModalHelp" hidden>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header auto-hint-modal-header">
+            <button type="button" class="btn-close" id="autoHintClose"
+                    data-i18n="hints.aria-label_closeHintMessage"></button>
+            <h2 id="autoHintModalTitle"></h2>
+          </div>
+          <div class="modal-body">
+            <p id="autoHintModalBody"></p>
+            <p id="autoHintModalLast" class="visually-hidden"></p>
+            <p id="autoHintModalHelp" class="visually-hidden" data-i18n="hints.closeHintInstructions"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -199,7 +204,7 @@ Software description: Experience in a playful way the challenges faced by people
 </main>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/timer/timer.js"></script>
-<script src="../assets/js/hints/hints.js"></script>
 <script src="../assets/js/formulaire/formulaire2.js"></script>
+<script src="../assets/js/hints/autoHints.js"></script>
 </body>
 </html>

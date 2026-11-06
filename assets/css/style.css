@@ -280,3 +280,35 @@ a.no-focus-outline:focus {
 #indice[disabled] {
   background-color: #000;
 }
+
+/* Form registration - automatic hint modal */
+.auto-hint-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .5);
+}
+
+.auto-hint-modal[hidden] {
+  display: none;
+}
+
+.auto-hint-modal .modal-content {
+  background-color: #fff;
+}
+
+.auto-hint-modal-header {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.auto-hint-modal-header .btn-close {
+  align-self: flex-end;
+  margin: 0;
+}
+
+/* Focus is set programmatically, so :focus-visible may not apply after a mouse click */
+.auto-hint-modal-header .btn-close:focus {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
