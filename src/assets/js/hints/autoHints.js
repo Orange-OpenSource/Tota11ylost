@@ -13,7 +13,7 @@ Software description: Experience in a playful way the challenges faced by people
 
 // Automatic hints for form-registration: each hint opens a dismissible alert modal.
 // Delay before each hint; the next countdown starts when the previous modal is closed.
-const AUTO_HINT_DELAYS = [120000, 90000, 60000];
+const AUTO_HINT_DELAYS = [90000, 60000, 45000];
 const FIELD_SELECTOR = 'input, select, textarea';
 
 const autoHintModal = document.getElementById('autoHintModal');
